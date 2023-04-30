@@ -1,4 +1,8 @@
 
-.a-hover:hover {
+.a-hover:hover{
   background-color: antiquewhite;
+}
+
+.b-hover:hover{
+  border-bottom: 2px black solid;
 }
