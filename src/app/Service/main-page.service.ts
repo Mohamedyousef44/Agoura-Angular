@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,5 +6,15 @@ import { Injectable } from '@angular/core';
 })
 export class MainPageService {
 
-  constructor() { }
+  private readonly Base_URL = "http://localhost:3000/users";
+
+  constructor(private readonly myClient:HttpClient) { }
+
+
+
+  GetAllUsers(){
+    //method[Get-Delete-Put-Patch]
+    return this.myClient.get(this.Base_URL);
+  }
+
 }
