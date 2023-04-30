@@ -19,7 +19,7 @@
             <p>Starting Bid</p>
             <h2 class="card-title">{{maxBid | currency : 'USD' : 'symbol' : '1.0-0'}}</h2>
             <h6 class="card-subtitle mb-2 text-body-secondary"></h6>
-            <form [formGroup]="form">
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
               <div class="mb-3">
                 <label for="exampleFormControlTextarea1" class="form-label">YOUR MAXIMUM BID:</label>
                 <input type="number" formControlName="bid" name="bid" class="form-control"  [ngClass]="{'is-invalid':!bid!.valid && bid!.dirty,'is-valid':bid!.valid && bid!.dirty}" id="exampleFormControlTextarea1" rows="3">

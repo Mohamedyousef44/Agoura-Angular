@@ -7,7 +7,7 @@ import { FormControl,FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./product-details.component.css']
 })
 export class ProductDetailsComponent {
-
+  // all variables should be replaced when getting answer from api ,currently we are using static data
   thumbnails!:string[];
   thumbnail!:string;
   form!:FormGroup;
@@ -29,7 +29,15 @@ export class ProductDetailsComponent {
     this.thumbnail=event.target.src
   }
   get bid(){
-    console.log(this.form.get("bid")?.valid)
     return this.form.get("bid");
+  }
+
+  onSubmit(){
+    if(!this.form.valid){
+      return
+    }
+    // toDo add form submit logic here
+    console.log("form submitted",this.form.valid)
+
   }
 }
