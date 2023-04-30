@@ -6,13 +6,13 @@ import { Injectable } from '@angular/core';
 })
 export class MainPageService {
 
-  private readonly Base_URL = "http://localhost:3000/users";
+  private readonly Base_URL = "http://localhost:3000/item";
 
   constructor(private readonly myClient:HttpClient) { }
 
 
 
-  GetAllUsers(){
+  GetAllItems(){
     //method[Get-Delete-Put-Patch]
     return this.myClient.get(this.Base_URL);
   }

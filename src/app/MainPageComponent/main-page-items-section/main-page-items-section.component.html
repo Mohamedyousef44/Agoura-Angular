@@ -1,1 +1,17 @@
-<p>main-page-items-section works!</p>
+
+
+<div class="container" *ngFor="let item of allItems">
+<div class="row">
+
+<div class="card" style="width: 18rem;">
+  <img src="{{item.image[0]}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Address: {{item.Address}}</h5>
+    <p class="card-text">ID:{{item.id}}</p>
+    <a href="" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+</div>
+</div>
+
+
