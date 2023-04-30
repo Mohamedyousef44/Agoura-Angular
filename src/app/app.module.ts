@@ -7,7 +7,8 @@ import { HomeComponent } from './Components/home/home.component';
 import { FooterColumnComponent } from './Components/footer-column/footer-column.component';
 import { FooterUpperComponent } from './Components/footer-upper/footer-upper.component';
 import { FooterLowerComponent } from './Components/footer-lower/footer-lower.component';
-import { FooterComponent } from './components/footer/footer.component';
+import { FooterComponent } from './Components/footer/footer.component';
+
 
 
 
