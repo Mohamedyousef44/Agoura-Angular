@@ -1,1 +1,6 @@
-<p>footer-lower works!</p>
+<div class="d-flex justify-content-evenly py-3">
+  <p class="text-dark col-4 fs-6">{{ text }}</p>
+  <div class="d-flex justify-content-evenly col-6 col-md-4">
+    <ng-content select="a"></ng-content>
+  </div>
+</div>
