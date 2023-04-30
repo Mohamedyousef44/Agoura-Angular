@@ -1,14 +1,14 @@
 
 
-<div class="container" *ngFor="let item of allItems">
+<div class="container-fluid" >
 <div class="row">
-
-<div class="card" style="width: 18rem;">
-  <img src="{{item.image[0]}}" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Address: {{item.Address}}</h5>
-    <p class="card-text">ID:{{item.id}}</p>
-    <a href="" class="btn btn-primary">Go somewhere</a>
+<div class="card m-1" style="width: 20rem;" *ngFor="let item of allItems">
+  <img src="{{item.images}}" class="card-img-top m-1 custom-image" alt="..." >
+  <div class="card-body ">
+    <h5 class="card-title  "> {{item.Address |uppercase}},{{item.country}}</h5>
+    <!-- <p class="card-text ">ID:{{item.id}}</p> -->
+    <p class="card-text">BID:{{item.BID|currency}}</p>
+    <a href="" class="nav"><i class="bi bi-eye-fill "></i></a>
   </div>
 </div>
 </div>
