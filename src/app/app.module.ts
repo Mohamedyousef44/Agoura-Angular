@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { NavBarComponent } from './Components/nav-bar/nav-bar.component';
 import { AHoverDirective } from './directives/a-hover.directive';
 import { HomeComponent } from './components/home/home.component';
+import { FooterColumnComponent } from './components/footer-column/footer-column.component';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { HomeComponent } from './components/home/home.component';
     AppComponent,
     NavBarComponent,
     AHoverDirective,
-    HomeComponent
+    HomeComponent,
+    FooterColumnComponent
   ],
   imports: [
     BrowserModule,
