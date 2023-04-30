@@ -16,6 +16,7 @@ body {
   margin:0;
   overflow-y:auto;
   overflow-x:hidden;
+  scroll-behavior: smooth;
 }
 .horizontal-scroll-wrapper > div{
   display:block;
@@ -29,18 +30,20 @@ body {
   /* height:60px; */
   margin:10px;
 }
+.translate-left,.translate-right{
+  cursor: pointer;
+  transition: 0.3s;
+  user-select: none;
+
+}
+
 
 .translate-left{
   transform: translateX(-35px);
-  cursor: pointer;
-  transition: 0.3s;
-
 }
 
 .translate-right{
   transform: translate(35px);
-  cursor: pointer;
-  transition: 0.3s;
 
 }
 
