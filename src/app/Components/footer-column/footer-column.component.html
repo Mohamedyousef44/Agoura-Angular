@@ -1,1 +1,6 @@
-<p>footer-column works!</p>
+<div class="col-3">
+  <h5>{{ text }}</h5>
+  <div class="d-flex flex-column justify-content-between text-dark">
+    <ng-content select="a"></ng-content>
+  </div>
+</div>

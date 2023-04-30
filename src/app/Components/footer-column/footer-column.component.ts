@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, Input, ViewChild, ViewChildren } from '@angular/core';
 
 @Component({
   selector: 'app-footer-column',
@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./footer-column.component.css']
 })
 export class FooterColumnComponent {
+
+  @Input('headline') text: any
 
 }

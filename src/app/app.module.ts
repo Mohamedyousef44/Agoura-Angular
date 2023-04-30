@@ -3,16 +3,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './Components/nav-bar/nav-bar.component';
-import { AHoverDirective } from './directives/a-hover.directive';
-import { HomeComponent } from './components/home/home.component';
-import { FooterColumnComponent } from './components/footer-column/footer-column.component';
+import { HomeComponent } from './Components/home/home.component';
+import { FooterColumnComponent } from './Components/footer-column/footer-column.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
-    AHoverDirective,
     HomeComponent,
     FooterColumnComponent
   ],
