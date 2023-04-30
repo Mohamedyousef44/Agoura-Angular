@@ -6,6 +6,7 @@ import { NavBarComponent } from './Components/nav-bar/nav-bar.component';
 import { HomeComponent } from './Components/home/home.component';
 import { FooterColumnComponent } from './Components/footer-column/footer-column.component';
 import { FooterUpperComponent } from './Components/footer-upper/footer-upper.component';
+import { FooterLowerComponent } from './components/footer-lower/footer-lower.component';
 
 
 
@@ -16,7 +17,8 @@ import { FooterUpperComponent } from './Components/footer-upper/footer-upper.com
     NavBarComponent,
     HomeComponent,
     FooterColumnComponent,
-    FooterUpperComponent
+    FooterUpperComponent,
+    FooterLowerComponent
   ],
   imports: [
     BrowserModule,
