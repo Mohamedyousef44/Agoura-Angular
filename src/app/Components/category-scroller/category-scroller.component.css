@@ -10,21 +10,18 @@ body {
 }
 
 .horizontal-scroll-wrapper{
-  display:block;
-
-  width:80px;
-  max-height:500px;
+  display:flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width:300px;
+  /* max-height:500px; */
   margin:0;
   overflow-y:auto;
-  overflow-x:hidden;
-  transform:rotate(-90deg) translateY(-80px);
-  transform-origin:right top;
+  overflow-x:scroll;
 }
 .horizontal-scroll-wrapper > div{
   display:block;
   padding:5px;
-  transform:rotate(90deg);
-  transform-origin: right top;
 }
 
 .squares{
