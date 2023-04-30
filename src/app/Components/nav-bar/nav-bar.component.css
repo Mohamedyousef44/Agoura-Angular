@@ -1,8 +1,8 @@
 
 .a-hover:hover{
-  background-color: antiquewhite;
+  background-color: #B0B1AB;
 }
 
 .b-hover:hover{
-  border-bottom: 2px black solid;
+  border-bottom: 2px #FFFFFF solid;
 }

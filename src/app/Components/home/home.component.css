@@ -1,0 +1,5 @@
+.cus-bg-img {
+  background-image: url("/assets/imgs/home/h2.jpg");
+  background-size: cover;
+  min-height: 100vh;
+}
