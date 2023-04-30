@@ -17,13 +17,13 @@
         <div class="card col">
           <div class="card-body text-start">
             <p>Starting Bid</p>
-            <h2 class="card-title">$225</h2>
+            <h2 class="card-title">{{maxBid | currency : 'USD' : 'symbol' : '1.0-0'}}</h2>
             <h6 class="card-subtitle mb-2 text-body-secondary"></h6>
             <form [formGroup]="form">
               <div class="mb-3">
                 <label for="exampleFormControlTextarea1" class="form-label">YOUR MAXIMUM BID:</label>
-                <input type="number" formControlName="bid" name="bid" class="form-control"  [ngClass]="{'is-invalid':!bid!.valid && bid!.dirty}" id="exampleFormControlTextarea1" rows="3">
-                <div class="invalid-feedback" *ngIf="bid!.invalid && (bid!.dirty || bid!.touched)">
+                <input type="number" formControlName="bid" name="bid" class="form-control"  [ngClass]="{'is-invalid':!bid!.valid && bid!.dirty,'is-valid':bid!.valid && bid!.dirty}" id="exampleFormControlTextarea1" rows="3">
+                <div class="invalid-feedback mt-2" *ngIf="bid!.invalid && (bid!.dirty || bid!.touched)">
                   your bid must be greater than current bid.
                 </div>
               </div>
