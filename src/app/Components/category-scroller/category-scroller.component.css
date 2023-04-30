@@ -1,5 +1,5 @@
-::-webkit-scrollbar{width:2px;height:2px;}
-::-webkit-scrollbar-button{width:2px;height:2px;}
+/* ::-webkit-scrollbar{width:2px;height:2px;}
+::-webkit-scrollbar-button{width:2px;height:2px;} */
 
 div{
   box-sizing:border-box;
@@ -13,25 +13,39 @@ body {
   display:flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  width:300px;
-  /* max-height:500px; */
   margin:0;
   overflow-y:auto;
-  overflow-x:scroll;
+  overflow-x:hidden;
 }
 .horizontal-scroll-wrapper > div{
   display:block;
   padding:5px;
 }
 
-.squares{
-  padding:60px 0 0 0;
-}
+
 
 .squares > div{
   width:60px;
-  height:60px;
+  /* height:60px; */
   margin:10px;
 }
 
+.translate-left{
+  transform: translateX(-35px);
+  cursor: pointer;
+  transition: 0.3s;
 
+}
+
+.translate-right{
+  transform: translate(35px);
+  cursor: pointer;
+  transition: 0.3s;
+
+}
+
+.translate-left:hover,.translate-right:hover{
+  background-color: #B0B1AB;
+  transition: 0.3s;
+
+}
