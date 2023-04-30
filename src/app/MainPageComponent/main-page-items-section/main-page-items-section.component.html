@@ -2,7 +2,7 @@
 
 <div class="container-fluid" >
 <div class="row">
-<div class="card m-1" style="width: 20rem;" *ngFor="let item of allItems">
+<div class="card border-0  m-2 col-12" style="width: 20rem; border-radius: 30px;" *ngFor="let item of allItems">
   <img src="{{item.images}}" class="card-img-top m-1 custom-image" alt="..." >
   <div class="card-body ">
     <h5 class="card-title  "> {{item.Address |uppercase}},{{item.country}}</h5>
