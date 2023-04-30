@@ -1,17 +1,17 @@
+<div class="container-fluid">
 
-
-<div class="container-fluid" >
-<div class="row">
-<div class="card border-0  m-2 col-12" style="width: 20rem; border-radius: 30px;" *ngFor="let item of allItems">
-  <img src="{{item.images}}" class="card-img-top m-1 custom-image" alt="..." >
-  <div class="card-body ">
-    <h5 class="card-title  "> {{item.Address |uppercase}},{{item.country}}</h5>
-    <!-- <p class="card-text ">ID:{{item.id}}</p> -->
-    <p class="card-text">BID:{{item.BID|currency}}</p>
-    <a href="" class="nav"><i class="bi bi-eye-fill "></i></a>
+    <div class="row">
+      <div class="card border-0 m-0 col-12 col-md-2" *ngFor="let item of allItems">
+        <a href="" class="nav"><img src="{{ item.images }}" class="card-img-top m-1 custom-image" alt="..." /></a>
+        <div class="card-body">
+          <h5 class="card-title">
+            {{ item.Address | uppercase }},{{ item.country }}
+          </h5>
+          <!-- <p class="card-text ">ID:{{item.id}}</p> -->
+          <p class="card-text">BID:{{ item.BID | currency }}</p>
+          <!-- <a href="" class="nav"><i class="bi bi-eye-fill "></i></a> -->
+        </div>
+      </div>
+    </div>
   </div>
-</div>
-</div>
-</div>
-
 

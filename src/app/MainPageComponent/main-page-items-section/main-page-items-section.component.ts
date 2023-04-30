@@ -11,7 +11,6 @@ export class MainPageItemsSectionComponent {
   allItems:any;
   constructor(public myService:MainPageService){
 
-
   }
   ngOnInit(): void {
     this.myService.GetAllItems().subscribe(
@@ -19,7 +18,6 @@ export class MainPageItemsSectionComponent {
         next:(data: any)=>{
           console.log(data)
           this.allItems = data;
-
         },
         error:(err: any)=>{console.log(err)}
       }
