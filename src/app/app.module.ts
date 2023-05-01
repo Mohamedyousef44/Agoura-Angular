@@ -20,11 +20,9 @@ import { FooterColumnComponent } from './Components/footer-column/footer-column.
 import { FooterUpperComponent } from './Components/footer-upper/footer-upper.component';
 import { FooterLowerComponent } from './Components/footer-lower/footer-lower.component';
 import { FooterComponent } from './Components/footer/footer.component';
+import { LayoutComponent } from './Components/layout/layout.component';
 
-const routes : Routes = [
-  {path : 'login' , component : LoginComponent},
-  {path : 'signup' , component: SignUpComponent}
-]
+
 
 
 @NgModule({
@@ -43,7 +41,8 @@ const routes : Routes = [
     FooterUpperComponent,
     FooterLowerComponent,
     FooterComponent,
-    CategoryScrollerComponent
+    CategoryScrollerComponent,
+    LayoutComponent
   ],
 
   imports: [
@@ -51,7 +50,6 @@ const routes : Routes = [
     AppRoutingModule,
     HttpClientModule,
     CarouselModule.forRoot(),
-    RouterModule.forRoot(routes),
     FormsModule,
     ReactiveFormsModule
 
