@@ -5,17 +5,24 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './Components/nav/nav.component';
 import { MainPageItemsSectionComponent } from './MainPageComponent/main-page-items-section/main-page-items-section.component';
-import{HttpClientModule}from'@angular/common/http'
+import{HttpClientModule}from'@angular/common/http';
+
+import { CarouselModule } from 'ngx-bootstrap/carousel';
+
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
-    MainPageItemsSectionComponent
+    MainPageItemsSectionComponent,
+
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    CarouselModule.forRoot()
+
 
   ],
   providers: [],
