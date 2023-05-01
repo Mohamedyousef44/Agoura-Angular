@@ -2,8 +2,15 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { LoginComponent } from './Components/Auth/login/login.component';
+import { RouterModule, Routes } from '@angular/router';
+import { FacebookButtonComponent } from './Components/Auth/thirdPartyLoginButtons/facebook-button/facebook-button.component';
+import { GoogleButtonComponent } from './Components/Auth/thirdPartyLoginButtons/google-button/google-button.component';
+import { AppleButtonComponent } from './Components/Auth/thirdPartyLoginButtons/apple-button/apple-button.component';
+import { SignUpComponent } from './Components/Auth/sign-up/sign-up.component';
+import { ReactiveFormsModule } from '@angular/forms';
 import { MainPageItemsSectionComponent } from './MainPageComponent/main-page-items-section/main-page-items-section.component';
-import{HttpClientModule}from'@angular/common/http';
+import { HttpClientModule }from'@angular/common/http';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { CategoryScrollerComponent } from './Components/category-scroller/category-scroller.component';
 import { ProductDetailsComponent } from './Components/product-details/product-details.component';
@@ -15,10 +22,20 @@ import { FooterUpperComponent } from './Components/footer-upper/footer-upper.com
 import { FooterLowerComponent } from './Components/footer-lower/footer-lower.component';
 import { FooterComponent } from './Components/footer/footer.component';
 
+const routes : Routes = [
+  {path : 'login' , component : LoginComponent},
+  {path : 'signup' , component: SignUpComponent}
+]
+
 
 @NgModule({
   declarations: [
     AppComponent,
+    LoginComponent,
+    FacebookButtonComponent,
+    GoogleButtonComponent,
+    AppleButtonComponent,
+    SignUpComponent,
     MainPageItemsSectionComponent,
     ProductDetailsComponent,
     NavBarComponent,
@@ -28,16 +45,17 @@ import { FooterComponent } from './Components/footer/footer.component';
     FooterLowerComponent,
     FooterComponent,
     CategoryScrollerComponent
-
-
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     CarouselModule.forRoot()
+    RouterModule.forRoot(routes)
     FormsModule,
     ReactiveFormsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent],

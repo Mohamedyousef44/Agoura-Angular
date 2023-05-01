@@ -1,0 +1,36 @@
+<div class="container-fluid d-flex p-0" style="height: 100vh; width: 100%;">
+    <aside class="col-4">
+        <img src="../../../assets/images/login_london.jpg" class="p-0 img-fluid h-100" style="object-fit: cover;" alt="Error">
+    </aside>
+    <main class="col-8 d-flex flex-column justify-content-center align-items-center" style="background-color: #F5F5F6;">    
+        <h3 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Log in to Agoura</h3>
+        <div class="col-4 mt-5">
+            <app-google-button></app-google-button>
+            <app-facebook-button></app-facebook-button>
+            <app-apple-button></app-apple-button>
+
+            <hr style="width: 50vh;" class="mt-4" />
+            
+            <form (ngSubmit)='validate()' [formGroup]="validationForm" action="" style="width: 50vh;" class="mt-4">
+                <div>
+                    <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                    <input formControlName="email" type="email" class="form-control" id="exampleFormControlInput1" placeholder="Enter your email">
+                </div>
+                <div *ngIf="!email && isEmailTouched()">
+                    <span class="bg-danger bg-gradient text-light p-1 m-1 d-block">Enter a vaild email address, this filed is required</span>
+                </div>
+                <div>
+                    <label for="inputPassword5" class="form-label">Password</label>
+                    <input formControlName="password" type="password" id="inputPassword5" class="form-control" aria-labelledby="passwordHelpBlock"  placeholder="Enter your password">                
+                </div>
+                <div *ngIf="!password && isPasswordTouched()">
+                    <span class="bg-danger bg-gradient text-light p-1 m-1 d-block">This password is Invalid</span>
+                </div>
+                <button class="btn btn-dark w-100 mt-3" type="submit">Log in</button>  
+            </form>
+            <div class="col-8 text-start mt-2">
+                <span>Don't have an account? </span> <a class="text-decoration-none" routerLink="/signup">Sign up</a>
+            </div>
+        </div>
+    </main>
+</div>
