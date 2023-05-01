@@ -11,16 +11,22 @@
 
             <hr style="width: 50vh;" class="mt-4" />
             
-            <form action="" style="width: 50vh;" class="mt-4">
+            <form (ngSubmit)='validate()' [formGroup]="validationForm" action="" style="width: 50vh;" class="mt-4">
                 <div>
                     <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Enter your email">
-                  </div>
-                  <div>
+                    <input formControlName="email" type="email" class="form-control" id="exampleFormControlInput1" placeholder="Enter your email">
+                </div>
+                <div *ngIf="!email && isEmailTouched()">
+                    <span class="bg-danger bg-gradient text-light p-1 m-1 d-block">Enter a vaild email address, this filed is required</span>
+                </div>
+                <div>
                     <label for="inputPassword5" class="form-label">Password</label>
-                    <input type="password" id="inputPassword5" class="form-control" aria-labelledby="passwordHelpBlock"  placeholder="Enter your password">                
-                  </div>
-                  <button class="btn btn-dark w-100 mt-3">Log in</button>  
+                    <input formControlName="password" type="password" id="inputPassword5" class="form-control" aria-labelledby="passwordHelpBlock"  placeholder="Enter your password">                
+                </div>
+                <div *ngIf="!password && isPasswordTouched()">
+                    <span class="bg-danger bg-gradient text-light p-1 m-1 d-block">This password is Invalid</span>
+                </div>
+                <button class="btn btn-dark w-100 mt-3">Log in</button>  
             </form>
             <div class="col-8 text-start mt-2">
                 <span>Don't have an account? </span> <a class="text-decoration-none" routerLink="/signup">Sign up</a>

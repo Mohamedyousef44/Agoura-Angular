@@ -10,6 +10,7 @@ import { FacebookButtonComponent } from './Components/Auth/thirdPartyLoginButton
 import { GoogleButtonComponent } from './Components/Auth/thirdPartyLoginButtons/google-button/google-button.component';
 import { AppleButtonComponent } from './Components/Auth/thirdPartyLoginButtons/apple-button/apple-button.component';
 import { SignUpComponent } from './Components/Auth/sign-up/sign-up.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const routes : Routes = [
   {path : 'login' , component : LoginComponent},
@@ -28,6 +29,7 @@ const routes : Routes = [
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     RouterModule.forRoot(routes)
   ],
