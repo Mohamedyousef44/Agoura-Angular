@@ -1,8 +1,8 @@
-<div class="container-fluid">
+<div class="container">
 
     <div class="row">
       <div class="card border-0 m-0 col-12 col-md-3" *ngFor="let item of allItems">
-        <carousel>
+        <carousel [interval]="0">
           <slide *ngFor="let image of item.images">
             <a href="" class="nav" > <img class="card-img-top m-1 custom-image" src="{{image}}" alt="first slide" style="display: block; width: 100%;"></a>
           </slide>
@@ -13,7 +13,7 @@
           <h5 class="card-title">
             {{ item.Address | uppercase }},{{ item.country }}
           </h5>
-          <p class="card-text ">ID:{{item.id}}</p>
+          <!-- <p class="card-text ">ID:{{item.id}}</p> -->
           <p class="card-text">BID:{{ item.BID | currency }}</p>
 
         </div>
