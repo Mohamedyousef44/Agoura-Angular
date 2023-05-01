@@ -8,7 +8,6 @@ import { FacebookButtonComponent } from './Components/Auth/thirdPartyLoginButton
 import { GoogleButtonComponent } from './Components/Auth/thirdPartyLoginButtons/google-button/google-button.component';
 import { AppleButtonComponent } from './Components/Auth/thirdPartyLoginButtons/apple-button/apple-button.component';
 import { SignUpComponent } from './Components/Auth/sign-up/sign-up.component';
-import { ReactiveFormsModule } from '@angular/forms';
 import { MainPageItemsSectionComponent } from './MainPageComponent/main-page-items-section/main-page-items-section.component';
 import { HttpClientModule }from'@angular/common/http';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
@@ -21,11 +20,9 @@ import { FooterColumnComponent } from './Components/footer-column/footer-column.
 import { FooterUpperComponent } from './Components/footer-upper/footer-upper.component';
 import { FooterLowerComponent } from './Components/footer-lower/footer-lower.component';
 import { FooterComponent } from './Components/footer/footer.component';
+import { LayoutComponent } from './Components/layout/layout.component';
 
-const routes : Routes = [
-  {path : 'login' , component : LoginComponent},
-  {path : 'signup' , component: SignUpComponent}
-]
+
 
 
 @NgModule({
@@ -44,15 +41,15 @@ const routes : Routes = [
     FooterUpperComponent,
     FooterLowerComponent,
     FooterComponent,
-    CategoryScrollerComponent
+    CategoryScrollerComponent,
+    LayoutComponent
   ],
 
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    CarouselModule.forRoot()
-    RouterModule.forRoot(routes)
+    CarouselModule.forRoot(),
     FormsModule,
     ReactiveFormsModule
 
