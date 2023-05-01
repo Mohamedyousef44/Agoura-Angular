@@ -8,7 +8,6 @@ import { FacebookButtonComponent } from './Components/Auth/thirdPartyLoginButton
 import { GoogleButtonComponent } from './Components/Auth/thirdPartyLoginButtons/google-button/google-button.component';
 import { AppleButtonComponent } from './Components/Auth/thirdPartyLoginButtons/apple-button/apple-button.component';
 import { SignUpComponent } from './Components/Auth/sign-up/sign-up.component';
-import { ReactiveFormsModule } from '@angular/forms';
 import { MainPageItemsSectionComponent } from './MainPageComponent/main-page-items-section/main-page-items-section.component';
 import { HttpClientModule }from'@angular/common/http';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
@@ -51,8 +50,8 @@ const routes : Routes = [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    CarouselModule.forRoot()
-    RouterModule.forRoot(routes)
+    CarouselModule.forRoot(),
+    RouterModule.forRoot(routes),
     FormsModule,
     ReactiveFormsModule
 
