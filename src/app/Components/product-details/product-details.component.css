@@ -1,0 +1,6 @@
+.pointer{
+  cursor: pointer;
+}
+.thumbnails img:hover{
+  opacity: .8;
+}
