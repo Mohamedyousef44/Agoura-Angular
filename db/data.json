@@ -1,0 +1,73 @@
+{
+    "item":[{
+        "id":1,
+        "Address":"sedibeshr",
+        "country":"Egypt",
+        "BID":1000,
+        "images":["/assets/photos/image1.webp","/assets/photos/image2.webp"]
+    },
+    {
+        "id":2,
+        "Address":"mandra",
+        "country":"Egypt",
+        "BID":2000,
+        "images":["/assets/photos/image2.webp","/assets/photos/image4.webp"]
+    },
+    {
+        "id":3,
+        "Address":"victoria",
+        "country":"Egypt",
+        "BID":3000,
+        "images":["/assets/photos/image3.webp","/assets/photos/image4.webp"]
+    },
+    {
+        "id":4,
+        "Address":"alagami",
+        "country":"Egypt",
+        "BID":4000,
+        "images":["/assets/photos/image4.webp","/assets/photos/image2.webp"]
+    },
+    {
+        "id":5,
+        "Address":"kafrabdo",
+        "country":"Egypt",
+        "BID":45000,
+        "images":["/assets/photos/image5.webp","/assets/photos/image7.webp"]
+    },
+    {
+        "id":6,
+        "Address":"gleem",
+        "country":"Egypt",
+        "BID":1900,
+        "images":["/assets/photos/image6.webp","/assets/photos/image5.webp"]
+    },
+    {
+        "id":7,
+        "Address":"roshdi",
+        "country":"Egypt",
+        "BID":36000,
+        "images":["/assets/photos/image7.webp","/assets/photos/image9.jpg"]
+    },
+    {
+        "id":8,
+        "Address":"smouha",
+        "country":"Egypt",
+        "BID":5500,
+        "images":["/assets/photos/image8.webp","/assets/photos/image5.webp"]
+    },
+ {
+    "id":9,
+    "Address":"sedigaber",
+    "country":"Egypt",
+    "BID":950000,
+    "images":["/assets/photos/image9.jpg","/assets/photos/image3.webp"]
+},
+{
+    "id":10,
+    "Address":"zezenia",
+    "country":"Egypt",
+    "BID":100000,
+    "images":["/assets/photos/image3.webp","/assets/photos/image9.jpg"]
+}
+
+]}
