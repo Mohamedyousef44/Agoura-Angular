@@ -4,19 +4,13 @@
     </section>
     <section class="col-8 d-flex flex-column justify-content-center align-items-center" style="background-color: #F5F5F6;">    
         <div class="col-4 mt-5">
-            <a  class="btn btn-outline-dark" href="#" role="button" style="text-transform:none; width: 50vh;">
-                <img width="20px" style="margin-bottom:3px; margin-right:5px" alt="Google sign-in" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
-                Login with Google
-            </a>
-            <a  class="btn mt-2 btn-outline-dark" href="#" role="button" style="text-transform:none; color: white; width: 50vh; background-color: #039BE5;">
-                <img width="25px" style="margin-bottom:3px; margin-right:5px" alt="Facebook sign-in" src="../../../assets/images/icons8-facebook-48.png" />
-                Continue with Facebook
-            </a>
-            <a  class="btn btn-dark mt-2" href="#" role="button" style="width: 50vh;">
-                <img width="25px" style="margin-bottom:3px; margin-right:5px" alt="Apple sign-in" src="../../../assets/images/icons8-apple-logo-50.png" />
-                Continue with Apple
-            </a> 
+
+            <app-google-button></app-google-button>
+            <app-facebook-button></app-facebook-button>
+            <app-apple-button></app-apple-button>
+
             <hr style="width: 50vh;" class="mt-4" />
+            
             <form action="" style="width: 50vh;" class="mt-4">
                 <div>
                     <label for="exampleFormControlInput1" class="form-label">Email address</label>
@@ -26,7 +20,7 @@
                     <label for="inputPassword5" class="form-label">Password</label>
                     <input type="password" id="inputPassword5" class="form-control" aria-labelledby="passwordHelpBlock"  placeholder="Enter your password">                
                   </div>
-                  <button class="btn btn-dark w-100 mt-3">Log in</button>
+                  <app-login-button></app-login-button>
             </form>
     
         </div>
