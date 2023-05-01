@@ -9,14 +9,14 @@ import { SignUpComponent } from './Components/Auth/sign-up/sign-up.component';
 const routes: Routes = [
 
   {path: "",redirectTo: '/home' , pathMatch: 'full' },
-  {path:"",component:LayoutComponent,children:[
+  {path: "",component:LayoutComponent,children:[
     {path:"productdetails",component:ProductDetailsComponent}
   ]
 },
   {path : "home",component:HomeComponent},
   {path : 'login' , component : LoginComponent},
   {path : 'signup' , component: SignUpComponent}
-
+  // {path : "**",}
 ];
 
 @NgModule({
