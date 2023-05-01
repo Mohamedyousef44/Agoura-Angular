@@ -1,0 +1,92 @@
+<div class="scroller-container position-relative">
+  <div
+    #scroller
+    class="horizontal-scroll-wrapper squares justify-content-center"
+  >
+    <div><a href="" class="nav-link">item 1</a></div>
+    <div><a href="" class="nav-link">item 2</a></div>
+    <div><a href="" class="nav-link">item 3</a></div>
+    <div><a href="" class="nav-link">item 4</a></div>
+    <div><a href="" class="nav-link">item 5</a></div>
+    <div><a href="" class="nav-link">item 6</a></div>
+    <div><a href="" class="nav-link">item 7</a></div>
+    <div><a href="" class="nav-link">item 8</a></div>
+    <div><a href="" class="nav-link">item 9</a></div>
+    <div><a href="" class="nav-link">item 10</a></div>
+    <div><a href="" class="nav-link">item 11</a></div>
+    <div><a href="" class="nav-link">item 12</a></div>
+    <div><a href="" class="nav-link">item 13</a></div>
+    <div><a href="" class="nav-link">item 14</a></div>
+    <div><a href="" class="nav-link">item 15</a></div>
+    <div><a href="" class="nav-link">item 16</a></div>
+    <div><a href="" class="nav-link">item 17</a></div>
+    <div><a href="" class="nav-link">item 18</a></div>
+    <div><a href="" class="nav-link">item 19</a></div>
+    <div><a href="" class="nav-link">item 20</a></div>
+    <div><a href="" class="nav-link">item 21</a></div>
+    <div><a href="" class="nav-link">item 22</a></div>
+    <div><a href="" class="nav-link">item 23</a></div>
+    <div><a href="" class="nav-link">item 24</a></div>
+    <div><a href="" class="nav-link">item 25</a></div>
+    <div><a href="" class="nav-link">item 26</a></div>
+    <div><a href="" class="nav-link">item 27</a></div>
+    <div><a href="" class="nav-link">item 28</a></div>
+    <div><a href="" class="nav-link">item 29</a></div>
+    <div><a href="" class="nav-link">item 30</a></div>
+  </div>
+
+  <span
+    class="position-absolute top-50 start-0 border p-1 border-1 rounded-5 border-secondary translate-left"
+    (click)="scroll(scroller, -30)"
+  >
+    <svg
+      viewBox="0 0 32 32"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+      role="presentation"
+      focusable="false"
+      style="
+        display: block;
+        fill: none;
+        height: 12px;
+        width: 12px;
+        stroke: currentcolor;
+        stroke-width: 5.33333;
+        overflow: visible;
+      "
+    >
+      <g fill="none">
+        <path
+          d="m20 28-11.29289322-11.2928932c-.39052429-.3905243-.39052429-1.0236893 0-1.4142136l11.29289322-11.2928932"
+        ></path>
+      </g>
+    </svg>
+  </span>
+  <span
+    class="position-absolute top-50 end-0 border p-1 border-1 rounded-5 border-secondary translate-right"
+    (click)="scroll(scroller, 30)"
+  >
+    <svg
+      viewBox="0 0 32 32"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+      role="presentation"
+      focusable="false"
+      style="
+        display: block;
+        fill: none;
+        height: 12px;
+        width: 12px;
+        stroke: currentcolor;
+        stroke-width: 5.33333;
+        overflow: visible;
+      "
+    >
+      <g fill="none">
+        <path
+          d="m12 4 11.2928932 11.2928932c.3905243.3905243.3905243 1.0236893 0 1.4142136l-11.2928932 11.2928932"
+        ></path>
+      </g>
+    </svg>
+  </span>
+</div>

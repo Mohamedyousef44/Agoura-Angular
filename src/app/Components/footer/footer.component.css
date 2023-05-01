@@ -1,0 +1,7 @@
+app-footer-lower a{
+  color:#6B6B6B;
+  font-size: 1.5rem;
+}
+app-footer-lower a:hover{
+ transform: scale(1.1);
+}

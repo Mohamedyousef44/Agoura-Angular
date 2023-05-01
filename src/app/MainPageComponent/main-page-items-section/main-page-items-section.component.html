@@ -1,0 +1,59 @@
+<div class="container">
+
+    <div class="row">
+      <div class="card border-0 m-0 col-12 col-md-4" *ngFor="let item of allItems">
+        <carousel [interval]="0">
+          <slide *ngFor="let image of item.images">
+            <a href="" class="nav" > <img class="card-img-top m-1 custom-image" src="{{image}}" alt="first slide" style="display: block; width: 100%;"></a>
+          </slide>
+        </carousel>
+        <div class="card-body">
+          <h6 class="card-title">
+            {{ item.Address | uppercase }},{{ item.country }}
+          </h6>
+
+          <p class="card-text">BID:{{ item.BID | currency }}</p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<!--
+  <div id="carouselExampleIndicators" class="carousel slide">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="/assets/photos/image1.webp" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="/assets/photos/image.webp" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="/assets/photos/image8.webp" class="d-block w-100" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div> -->
+
+
+  <!-- <carousel>
+    <slide ngf>
+      <img src="/assets/photos/image1.webp" alt="first slide" style="display: block; width: 100%;">
+    </slide>
+
+  </carousel>
+
+  <a href="" class="nav" ><img src="{{ item.images[0] }}" class="card-img-top m-1 custom-image" alt="..." /></a> -->
