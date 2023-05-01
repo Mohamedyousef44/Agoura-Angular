@@ -2,24 +2,12 @@
 
     <div class="row">
       <div class="card border-0 m-0 col-12 col-md-3" *ngFor="let item of allItems">
-       <div id="carouselExample" class="carousel slide">
-          <div class="carousel-inner" >
-            <div class="carousel-item active" >
-              <a href="" class="nav" ><img src="{{ item.images[0] }}" class="card-img-top m-1 custom-image" alt="..." /></a>
-            </div>
-            <div class="carousel-item " *ngFor="let image of item.images">
-              <a href="" class="nav" ><img src="{{ image }}" class="card-img-top m-1 custom-image" alt="..." /></a>
-            </div>
-          </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
-        </div>
+        <carousel>
+          <slide *ngFor="let image of item.images">
+            <a href="" class="nav" > <img class="card-img-top m-1 custom-image" src="{{image}}" alt="first slide" style="display: block; width: 100%;"></a>
+          </slide>
+
+        </carousel>
 
         <div class="card-body">
           <h5 class="card-title">
@@ -62,14 +50,12 @@
     </button>
   </div> -->
 
-  <carousel>
-    <slide>
+
+  <!-- <carousel>
+    <slide ngf>
       <img src="/assets/photos/image1.webp" alt="first slide" style="display: block; width: 100%;">
     </slide>
-    <slide>
-      <img src="/assets/photos/image2.webp"alt="second slide" style="display: block; width: 100%;">
-    </slide>
-    <slide>
-      <img src="/assets/photos/image3.webp" alt="third slide" style="display: block; width: 100%;">
-    </slide>
+
   </carousel>
+
+  <a href="" class="nav" ><img src="{{ item.images[0] }}" class="card-img-top m-1 custom-image" alt="..." /></a> -->
