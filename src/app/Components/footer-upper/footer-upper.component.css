@@ -1,0 +1,12 @@
+app-footer-column a{
+  text-decoration: none;
+  color: #FFFCF5;
+  padding-top: 1rem;
+}
+app-footer-column a:hover{
+  text-decoration: underline;
+}
+
+.footer-bg{
+  background-color: #252B60;
+}
