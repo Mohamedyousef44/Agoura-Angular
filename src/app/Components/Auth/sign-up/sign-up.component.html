@@ -11,20 +11,29 @@
 
             <hr style="width: 50vh;" class="mt-4" />
             
-            <form action="" style="width: 50vh;" class="mt-4">
+            <form (ngSubmit)='validate()' [formGroup]="validationForm" action="" style="width: 50vh;" class="mt-4">
                 <div>
                     <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Enter your email">
-                  </div>
-                  <div>
+                    <input formControlName="email" type="email" class="form-control" id="exampleFormControlInput1" placeholder="Enter your email">
+                </div>
+                <div *ngIf="!email && isEmailTouched()">
+                    <span class="bg-danger bg-gradient text-light p-1 m-1 d-block">Enter a vaild email address, this filed is required</span>
+                </div>
+                <div>
                     <label for="exampleFormControlInput1" class="form-label mt-1">Display username</label>
-                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter your username">
-                  </div>
-                  <div>
+                    <input formControlName="username" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter your username">
+                </div>
+                <div *ngIf="!username && isUsernameTouched()">
+                    <span class="bg-danger bg-gradient text-light p-1 m-1 d-block">Enter a vaild username more than 3 characters, this filed is required</span>
+                </div>
+                <div>
                     <label for="inputPassword5" class="form-label">Password</label>
-                    <input type="password" id="inputPassword5" class="form-control" aria-labelledby="passwordHelpBlock"  placeholder="Enter your password">                
-                  </div>
-                  <button class="btn btn-dark w-100 mt-3">Sgin Up</button>  
+                    <input formControlName="password" type="password" id="inputPassword5" class="form-control" aria-labelledby="passwordHelpBlock"  placeholder="Enter your password">                
+                </div>
+                <div *ngIf="!password && isPasswordTouched()">
+                    <span class="bg-danger bg-gradient text-light p-1 m-1 d-block">Enter a vaild password more than 10 characters or numbers, this filed is required</span>
+                </div>
+                <button class="btn btn-dark w-100 mt-3" type="submit">Sgin Up</button>  
             </form>
             <div class="col-8 text-start mt-2">
                 <span>You have an account? </span> <a class="text-decoration-none" routerLink="/login">Log in</a>

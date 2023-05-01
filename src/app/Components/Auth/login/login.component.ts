@@ -8,10 +8,9 @@ import { FormControl, FormGroup , Validators } from '@angular/forms';
   ]
 })
 export class LoginComponent {
-  public errors = {};
   public validationForm = new FormGroup({
     email: new FormControl(null,[Validators.required, Validators.email]),
-    password: new FormControl(null,[ Validators.required, Validators.minLength(10), Validators.maxLength(40) ])
+    password: new FormControl(null,[ Validators.required, Validators.minLength(10), Validators.maxLength(60) ])
   });
 
   validate(){
@@ -20,7 +19,6 @@ export class LoginComponent {
     }
   }
   get email () {
-    console.log( );
     return this.validationForm.controls["email"].valid;
   }
   get password () {
