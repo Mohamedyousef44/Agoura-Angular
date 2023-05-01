@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CategoryScrollerComponent } from './Components/category-scroller/category-scroller.component';
 import { ProductDetailsComponent } from './Components/product-details/product-details.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavBarComponent } from './Components/nav-bar/nav-bar.component';
@@ -21,7 +22,8 @@ import { FooterComponent } from './Components/footer/footer.component';
     FooterColumnComponent,
     FooterUpperComponent,
     FooterLowerComponent,
-    FooterComponent
+    FooterComponent,
+    CategoryScrollerComponent
 
   ],
   imports: [
@@ -31,6 +33,6 @@ import { FooterComponent } from './Components/footer/footer.component';
     ReactiveFormsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
