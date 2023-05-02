@@ -22,6 +22,7 @@ import { FooterLowerComponent } from './Components/footer-lower/footer-lower.com
 import { FooterComponent } from './Components/footer/footer.component';
 import { LayoutComponent } from './Components/layout/layout.component';
 import { OffcanvasComponent } from './Components/offcanvas/offcanvas.component';
+import { UserHomeDataService } from './Service/user-home-data.service';
 
 
 
@@ -57,7 +58,7 @@ import { OffcanvasComponent } from './Components/offcanvas/offcanvas.component';
     ReactiveFormsModule
 
   ],
-  providers: [],
+  providers: [UserHomeDataService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
