@@ -4,6 +4,7 @@ import { MainPageService } from 'src/app/Service/main-page.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 
+
 @Component({
   selector: 'app-edit-profile',
   templateUrl: './edit-profile.component.html',
