@@ -1,6 +1,6 @@
 <div class="container px-5 my-4">
   <form class="row g-3" [formGroup]="validationForm" (ngSubmit)="send()">
-    <h3>Fill form</h3>
+    <h3>Fill Bid Information</h3>
 
     <ng-container *ngIf="step==1">
     <div class="col-md-12">
@@ -22,14 +22,14 @@
           Please provide a valid Country.
         </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-3">
         <label for="validationServer03" class="form-label">City</label>
         <input type="text" formControlName="city" name="city" placeholder="city" class="form-control is-invalid"[ngClass]="{'is-valid':city!.dirty && city!.valid,'is-invalid':city!.dirty && !city!.valid}" id="validationServer03" aria-describedby="validationServer03Feedback" required>
         <div id="validationServer03Feedback" class="invalid-feedback" *ngIf="city!.dirty && !city!.valid">
           Please provide a valid city.
         </div>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-5">
         <label for="validationServer04" class="form-label">Street</label>
         <input class="form-control is-invalid" formControlName="street" name="street" [ngClass]="{'is-valid':street!.dirty && street!.valid,'is-invalid':street!.dirty && !street!.valid}" placeholder="street" id="validationServer04" aria-describedby="validationServer04Feedback" required>
         <div id="validationServer04Feedback" class="invalid-feedback" *ngIf="street!.dirty && !street!.valid">
@@ -127,7 +127,7 @@
 
     <div class="col-12">
       <button class="btn btn-dark rounded-1 py-2 col-md-3 me-2" (click)="prev()" [disabled]="step==1">Prev</button>
-      <button class="btn btn-dark rounded-1 py-2 col-md-3 me-2" type="submit" [disabled]="(step==1 || !validationForm.valid)">Submit form</button>
+      <button class="btn btn-dark rounded-1 py-2 col-md-3 me-2" type="submit" [disabled]="(step==1 || !validationForm.valid)">Place Bid</button>
       <button class="btn btn-dark rounded-1 py-2 col-md-3 me-2" (click)="next()" [disabled]="step==2 || !firstPageValid">Next</button>
 
     </div>
