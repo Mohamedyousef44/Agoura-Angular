@@ -3,6 +3,9 @@
   background-color: #B0B1AB;
 }
 
-.b-hover:hover{
+.b-hover-light:hover{
   border-bottom: 2px #FFFFFF solid;
+}
+.b-hover-dark:hover{
+  border-bottom: 2px #000000 solid;
 }

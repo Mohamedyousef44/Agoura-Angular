@@ -7,14 +7,14 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class NavBarComponent implements OnInit{
 
-  @Input("text-color") inputTextColor!:string;
-  textColor!:string;
+  @Input("text-color") textColor!:string;
+  @Input("b-hover") borderHoverColor!:string;
   public constructor(){
 
   }
   ngOnInit(){
-    console.log(this.inputTextColor)
-    this.textColor=this.inputTextColor;
+    console.log(this.textColor,this.borderHoverColor)
+
   }
 
 }
