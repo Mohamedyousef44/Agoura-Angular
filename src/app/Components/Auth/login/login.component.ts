@@ -25,10 +25,10 @@ export class LoginComponent {
     return this.validationForm.controls["password"].valid;
   }
 
-  isEmailTouched(){
-    return this.validationForm.controls["email"].touched;
+  isEmailDirty(){
+    return this.validationForm.controls["email"].dirty;
   }
-  isPasswordTouched(){
-    return this.validationForm.controls["password"].touched;
+  isPasswordDirty(){
+    return this.validationForm.controls["password"].dirty;
   }
 }
