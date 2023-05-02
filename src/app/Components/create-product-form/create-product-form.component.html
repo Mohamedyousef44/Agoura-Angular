@@ -1,0 +1,59 @@
+<div class="container px-5 my-4">
+  <form class="row g-3" [formGroup]="validationForm" (ngSubmit)="send()">
+    <h3>Fill form</h3>
+
+    <ng-container *ngIf="step==1">
+    <div class="col-md-12">
+      <div class="col-md-4">
+        <label for="validationServer01" class="form-label">Auction Title</label>
+        <input type="text" formControlName="title" name="title" class="form-control" [ngClass]="{'is-valid':title.dirty && title.valid,'is-invalid':title.dirty && !title.valid}" id="validationServer01" placeholder="Title" required>
+        <div class="invalid-feedback" *ngIf="title.dirty && !title.valid">
+          please provide a good title.
+        </div>
+      </div>
+    </div>
+    <ng-container formGroupName="address" >
+      <h3>Address</h3>
+
+      <div class="col-md-3">
+        <label for="validationServer02" class="form-label">Country</label>
+        <input type="text" formControlName="country" name="country" placeholder="country" class="form-control is-invalid" [ngClass]="{'is-valid':country!.dirty && country!.valid,'is-invalid':country!.dirty && !country!.valid}" id="validationServer02" aria-describedby="validationServer02Feedback" required>
+        <div id="validationServer02Feedback" class="invalid-feedback" *ngIf="country!.dirty && !country!.valid">
+          Please provide a valid Country.
+        </div>
+      </div>
+      <div class="col-md-4">
+        <label for="validationServer03" class="form-label">City</label>
+        <input type="text" formControlName="city" name="city" placeholder="city" class="form-control is-invalid"[ngClass]="{'is-valid':city!.dirty && city!.valid,'is-invalid':city!.dirty && !city!.valid}" id="validationServer03" aria-describedby="validationServer03Feedback" required>
+        <div id="validationServer03Feedback" class="invalid-feedback" *ngIf="city!.dirty && !city!.valid">
+          Please provide a valid city.
+        </div>
+      </div>
+      <div class="col-md-3">
+        <label for="validationServer04" class="form-label">Street</label>
+        <input class="form-control is-invalid" formControlName="street" name="street" [ngClass]="{'is-valid':street!.dirty && street!.valid,'is-invalid':street!.dirty && !street!.valid}" placeholder="street" id="validationServer04" aria-describedby="validationServer04Feedback" required>
+        <div id="validationServer04Feedback" class="invalid-feedback" *ngIf="street!.dirty && !street!.valid">
+          Please select a valid Street.
+        </div>
+      </div>
+      <div class="col-md-3">
+        <label for="validationServer05" class="form-label">Zip</label>
+        <input type="text" formControlName="zipcode" name="zipcode" placeholder="zipcode" class="form-control is-invalid" [ngClass]="{'is-valid':zipcode!.dirty && zipcode!.valid,'is-invalid':zipcode!.dirty && !zipcode!.valid}" id="validationServer05" aria-describedby="validationServer05Feedback" required>
+        <div id="validationServer05Feedback" class="invalid-feedback" *ngIf="zipcode!.dirty && !zipcode!.valid">
+          Please provide a valid zip.
+        </div>
+      </div>
+    </ng-container>
+  </ng-container>
+
+
+
+    <div class="col-12">
+      <button class="btn btn-dark rounded-1 py-2 col-md-3 me-2" (click)="prev()" [disabled]="step==1">Prev</button>
+      <button class="btn btn-dark rounded-1 py-2 col-md-3 me-2" type="submit" [disabled]="(step==1 || !validationForm.valid)">Submit form</button>
+      <button class="btn btn-dark rounded-1 py-2 col-md-3 me-2" (click)="next()" [disabled]="step==2 || !firstPageValid">Next</button>
+
+    </div>
+  </form>
+
+</div>
