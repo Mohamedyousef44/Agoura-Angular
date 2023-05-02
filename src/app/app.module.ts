@@ -22,6 +22,7 @@ import { FooterLowerComponent } from './Components/footer-lower/footer-lower.com
 import { FooterComponent } from './Components/footer/footer.component';
 import { LayoutComponent } from './Components/layout/layout.component';
 import { ProfileComponent } from './Components/Profile/profile/profile.component';
+import { EditProfileComponent } from './Components/Profile/EditProfile/edit-profile/edit-profile.component';
 
 
 
@@ -44,7 +45,8 @@ import { ProfileComponent } from './Components/Profile/profile/profile.component
     FooterComponent,
     CategoryScrollerComponent,
     LayoutComponent,
-    ProfileComponent
+    ProfileComponent,
+    EditProfileComponent
   ],
 
   imports: [
