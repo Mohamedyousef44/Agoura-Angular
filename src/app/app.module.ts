@@ -23,6 +23,7 @@ import { FooterComponent } from './Components/footer/footer.component';
 import { LayoutComponent } from './Components/layout/layout.component';
 import { OffcanvasComponent } from './Components/offcanvas/offcanvas.component';
 import { UserHomeDataService } from './Service/user-home-data.service';
+import { CartComponent } from './components/cart/cart.component';
 
 
 
@@ -46,7 +47,8 @@ import { UserHomeDataService } from './Service/user-home-data.service';
     FooterComponent,
     CategoryScrollerComponent,
     LayoutComponent,
-    OffcanvasComponent
+    OffcanvasComponent,
+    CartComponent
   ],
 
   imports: [
