@@ -4,7 +4,7 @@
   id="offcanvasExample"
   aria-labelledby="offcanvasExampleLabel"
 >
-  <div class="offcanvas-header">
+  <div class="offcanvas-header border-bottom">
     <h5 class="offcanvas-title" id="offcanvasExampleLabel">
       {{ toggle == true ? "Cart" : "Notifications" }}
     </h5>
@@ -16,9 +16,27 @@
     ></button>
   </div>
   <div class="offcanvas-body">
-    <div>
-      <a href="#" *ngFor="let item of data">
-        <p>{{ item | json }}</p>
+    <div class="d-flex flex-column justify-content-between not">
+      <a
+        href="#"
+        id="msg-line"
+        *ngFor="let item of data"
+        class="mb-2 border-bottom text-decoration-none"
+      >
+        <div class="not-body my-3 d-flex flex-row justify-content-evenly py-3">
+          <div class="me-3">
+            <img
+              src="/assets/imgs/home/h1.png"
+              width="50px"
+              height="50px"
+              alt="image"
+            />
+          </div>
+          <p class="text-dark h-100 mb-0">
+            {{ item.id }} this is your product details or message
+            dasdasdasdasdasdasddsadas asd
+          </p>
+        </div>
       </a>
     </div>
   </div>

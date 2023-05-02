@@ -11,6 +11,7 @@ export class HomeComponent implements OnInit {
   extractedData: any
   notificationData: any
   cartData: any
+  isCart: any
   constructor(private service: UserHomeDataService){
 
   }
@@ -26,7 +27,7 @@ export class HomeComponent implements OnInit {
 
   }
 
-  isCart: any
+
 
 
 }
