@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-offcanvas',
@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./offcanvas.component.css']
 })
 export class OffcanvasComponent {
+
+  @Input('data') dataTo: any
+
 
 }

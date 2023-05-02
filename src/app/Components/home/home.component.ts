@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
+  isCart: any
+  dataNot = [{'id':1 , 'message':'hi from agora'} , {'id':2 , 'message':'welcome user'} ]
+  dataCart = [{'id':1 , 'product':'watch'} , {'id':2 , 'product':'belt'} ]
+
+
 }
