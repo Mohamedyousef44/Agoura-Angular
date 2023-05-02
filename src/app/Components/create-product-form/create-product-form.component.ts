@@ -20,7 +20,17 @@ export class CreateProductFormComponent {
         street:new FormControl(null,[Validators.required, Validators.minLength(5)]),
         zipcode:new FormControl(null,[Validators.required,Validators.pattern("^[0-9]{5,9}$")]),
       }),
+      features: fb.group({
+        bedRooms:new FormControl(null,[Validators.required, Validators.min(1),Validators.pattern("^[0-9]$")]),
+        baths:new FormControl(null,[Validators.required, Validators.min(1),Validators.pattern("^[0-9]$")]),
+        area:new FormControl(null,[Validators.required, Validators.min(1),Validators.pattern("^[0-9]$")]),
+        kitchen:new FormControl(null,[Validators.required, Validators.min(1),Validators.pattern("^[0-9]$")]),
+        guests:new FormControl(null,[Validators.required, Validators.min(1),Validators.pattern("^[0-9]$")]),
+      }),
+      aboutSpace: new FormControl(null,[Validators.required, Validators.minLength(100)]),
 
+      startBid: new FormControl(null,[Validators.required,Validators.pattern("^[0-9]$")]),
+      duration:new FormControl(null,[Validators.required,Validators.min(7),Validators.max(30)]),
       agreeToTerms:new FormControl(null,[Validators.required]),
     });
   }
