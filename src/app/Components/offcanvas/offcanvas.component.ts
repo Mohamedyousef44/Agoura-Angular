@@ -9,15 +9,10 @@ import { UserHomeDataService } from 'src/app/Service/user-home-data.service';
 })
 export class OffcanvasComponent {
 
-  constructor(private service: UserHomeDataService , private route: Router){
-
-
-  }
+  constructor(private service: UserHomeDataService , private route: Router){}
 
   @Input('data') data: any
   @Input('isCart') toggle: any
-  headline: any
-
 
   deleteNot(id: number){
 

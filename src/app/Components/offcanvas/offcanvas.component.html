@@ -20,7 +20,11 @@
       class="d-flex flex-row justify-content-between align-items-center border-bottom"
       *ngFor="let item of data"
     >
-      <a href="#" id="msg-line" class="mb-2 text-decoration-none">
+      <a
+        [routerLink]="toggle == true ? '/cart' : '/notification'"
+        id="msg-line"
+        class="mb-2 text-decoration-none"
+      >
         <div class="not-body my-3 d-flex flex-row justify-content-evenly py-3">
           <div class="me-3">
             <img
