@@ -1,4 +1,4 @@
-<div class="bid-item">
+<div class="bid-item py-3">
   <div class="bid-details">
     <h2 class="mb-3">Bid History</h2>
     <div class="row mb-5">
@@ -69,10 +69,12 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td><a href="#">3***0</a> (1)</td>
-          <td>EUR 181.00</td>
-          <td>2 May 2023 at 5:03:24am PDT</td>
+        <tr *ngFor="let item of bids.historyOfBids">
+          <td>
+            <a href="#">{{ item[0] }}</a> (1)
+          </td>
+          <td>{{ item[1] }}</td>
+          <td>{{ item[2] }}</td>
         </tr>
       </tbody>
     </table>
