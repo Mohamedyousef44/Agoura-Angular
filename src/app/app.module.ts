@@ -21,6 +21,7 @@ import { FooterUpperComponent } from './Components/footer-upper/footer-upper.com
 import { FooterLowerComponent } from './Components/footer-lower/footer-lower.component';
 import { FooterComponent } from './Components/footer/footer.component';
 import { LayoutComponent } from './Components/layout/layout.component';
+import { ProfileComponent } from './Components/Profile/profile/profile.component';
 
 
 
@@ -42,7 +43,8 @@ import { LayoutComponent } from './Components/layout/layout.component';
     FooterLowerComponent,
     FooterComponent,
     CategoryScrollerComponent,
-    LayoutComponent
+    LayoutComponent,
+    ProfileComponent
   ],
 
   imports: [
