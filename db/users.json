@@ -7,6 +7,14 @@
       "joined since": "April-2023",
       "location": "Egypt",
       "profileImage":"/assets/photos/omar-1.jpeg"
+    },
+    {
+      "id":2,
+      "userName": "Omar1896",
+      "email": "omar@test.com",
+      "joined since": "April-2023",
+      "location": "Egypt",
+      "profileImage":"/assets/photos/omar-1.jpeg"
     }
   ]
 }

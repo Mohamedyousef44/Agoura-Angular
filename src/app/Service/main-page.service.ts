@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class MainPageService {
 
-  private readonly Base_URL = "http://localhost:3000/item";
+  private readonly Base_URL = "http://localhost:3000/users";
 
   constructor(private readonly myClient:HttpClient) { }
 
