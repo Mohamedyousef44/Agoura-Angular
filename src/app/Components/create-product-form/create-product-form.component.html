@@ -52,44 +52,47 @@
           <h3>Features</h3>
           <div class="col-md-3">
             <label for="validationServer06" class="form-label">Bedrooms</label>
-            <input type="text" formControlName="bedRooms" name="bedRooms" placeholder="bedRooms" class="form-control is-invalid" [ngClass]="{'is-valid':bedRooms!.dirty && bedRooms!.valid,'is-invalid':bedRooms!.dirty && !bedRooms!.valid}" id="validationServer06" aria-describedby="validationServer06Feedback" required>
+            <input type="text" formControlName="bedRooms" name="bedRooms" placeholder="Number of bedRooms" class="form-control is-invalid" [ngClass]="{'is-valid':bedRooms!.dirty && bedRooms!.valid,'is-invalid':bedRooms!.dirty && !bedRooms!.valid}" id="validationServer06" aria-describedby="validationServer06Feedback" required>
             <div id="validationServer06Feedback" class="invalid-feedback" *ngIf="bedRooms!.dirty && !bedRooms!.valid">
               Please provide a valid bedrooms.
             </div>
           </div>
           <div class="col-md-4">
             <label for="validationServer07" class="form-label">Baths</label>
-            <input type="text" formControlName="baths" name="baths" placeholder="baths" class="form-control is-invalid"[ngClass]="{'is-valid':baths!.dirty && baths!.valid,'is-invalid':baths!.dirty && !baths!.valid}" id="validationServer07" aria-describedby="validationServer07Feedback" required>
+            <input type="text" formControlName="baths" name="baths" placeholder="Number of baths" class="form-control is-invalid"[ngClass]="{'is-valid':baths!.dirty && baths!.valid,'is-invalid':baths!.dirty && !baths!.valid}" id="validationServer07" aria-describedby="validationServer07Feedback" required>
             <div id="validationServer07Feedback" class="invalid-feedback" *ngIf="baths!.dirty && !baths!.valid">
               Please provide a valid baths.
             </div>
           </div>
           <div class="col-md-3">
             <label for="validationServer08" class="form-label">Area</label>
-            <input class="form-control is-invalid" formControlName="area" name="area" [ngClass]="{'is-valid':area!.dirty && area!.valid,'is-invalid':area!.dirty && !area!.valid}" placeholder="area" id="validationServer08" aria-describedby="validationServer08Feedback" required>
-            <div id="validationServer08Feedback" class="invalid-feedback" *ngIf="area!.dirty && !area!.valid">
-              Please select a valid Area.
+            <div class="input-group">
+              <input class="form-control is-invalid" formControlName="area" name="area" [ngClass]="{'is-valid':area!.dirty && area!.valid,'is-invalid':area!.dirty && !area!.valid}" placeholder="area" id="validationServer08" aria-describedby="validationServer08Feedback" required>
+              <span class="input-group-text" id="inputGroupPrepend3">&#13217;</span>
+              <div id="validationServer08Feedback" class="invalid-feedback" *ngIf="area!.dirty && !area!.valid">
+                Please select a valid Area.
+              </div>
             </div>
           </div>
           <div class="col-md-3">
             <label for="validationServer09" class="form-label">kitchen</label>
-            <input type="text" formControlName="kitchen" name="kitchen" placeholder="kitchen" class="form-control is-invalid" [ngClass]="{'is-valid':kitchen!.dirty && kitchen!.valid,'is-invalid':kitchen!.dirty && !kitchen!.valid}" id="validationServer09" aria-describedby="validationServer09Feedback" required>
+            <input type="text" formControlName="kitchen" name="kitchen" placeholder="Number of kitchen" class="form-control is-invalid" [ngClass]="{'is-valid':kitchen!.dirty && kitchen!.valid,'is-invalid':kitchen!.dirty && !kitchen!.valid}" id="validationServer09" aria-describedby="validationServer09Feedback" required>
             <div id="validationServer09Feedback" class="invalid-feedback" *ngIf="kitchen!.dirty && !kitchen!.valid">
               Please provide a valid kitchen.
             </div>
           </div>
           <div class="col-md-3">
             <label for="validationServer10" class="form-label">Guests</label>
-            <input type="text" formControlName="guests" name="guests" placeholder="guests" class="form-control is-invalid" [ngClass]="{'is-valid':guests!.dirty && guests!.valid,'is-invalid':guests!.dirty && !guests!.valid}" id="validationServer10" aria-describedby="validationServer10Feedback" required>
+            <input type="text" formControlName="guests" name="guests" placeholder="Number of guest rooms" class="form-control is-invalid" [ngClass]="{'is-valid':guests!.dirty && guests!.valid,'is-invalid':guests!.dirty && !guests!.valid}" id="validationServer10" aria-describedby="validationServer10Feedback" required>
             <div id="validationServer10Feedback" class="invalid-feedback" *ngIf="guests!.dirty && !guests!.valid">
               Please provide a valid Guests.
             </div>
           </div>
         </ng-container>
       <div class="col-md-12">
-        <label for="validationServer11" class="form-label">About this space</label>
-        <textarea type="text" formControlName="aboutSpace" name="aboutSpace" placeholder="About this space" class="form-control is-invalid" [ngClass]="{'is-valid':aboutSpace!.dirty && aboutSpace!.valid,'is-invalid':aboutSpace!.dirty && !aboutSpace!.valid}" id="validationServer11" aria-describedby="validationServer11Feedback" required></textarea>
-        <div id="validationServer10Feedback" class="invalid-feedback" *ngIf="aboutSpace!.dirty && !aboutSpace!.valid">
+        <label for="validationServer11" class="form-label">About this place</label>
+        <textarea type="text" formControlName="aboutPlace" name="aboutPlace" placeholder="About this space" class="form-control is-invalid" [ngClass]="{'is-valid':aboutPlace!.dirty && aboutPlace!.valid,'is-invalid':aboutPlace!.dirty && !aboutPlace!.valid}" id="validationServer11" aria-describedby="validationServer11Feedback" required></textarea>
+        <div id="validationServer10Feedback" class="invalid-feedback" *ngIf="aboutPlace!.dirty && !aboutPlace!.valid">
           Please write no less than 100 characters.
         </div>
       </div>
