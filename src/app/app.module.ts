@@ -21,7 +21,8 @@ import { FooterUpperComponent } from './Components/footer-upper/footer-upper.com
 import { FooterLowerComponent } from './Components/footer-lower/footer-lower.component';
 import { FooterComponent } from './Components/footer/footer.component';
 import { LayoutComponent } from './Components/layout/layout.component';
-import { OffcanvasComponent } from './components/offcanvas/offcanvas.component';
+import { OffcanvasComponent } from './Components/offcanvas/offcanvas.component';
+
 
 
 
