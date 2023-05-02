@@ -97,7 +97,7 @@
         </div>
       </div>
       <div class="col-md-12">
-        <div class="col-md-3">
+        <div class="col-md-3 mb-3">
           <label for="validationServer12" class="form-label">Start Bid Price</label>
           <input type="text" formControlName="startBid" name="startBid" placeholder="startBid" class="form-control is-invalid" [ngClass]="{'is-valid':startBid!.dirty && startBid!.valid,'is-invalid':startBid!.dirty && !startBid!.valid}" id="validationServer12" aria-describedby="validationServer12Feedback" required>
           <div id="validationServer12Feedback" class="invalid-feedback" *ngIf="startBid!.dirty && !startBid!.valid">
