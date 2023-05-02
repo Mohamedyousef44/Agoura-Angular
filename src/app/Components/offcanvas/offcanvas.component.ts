@@ -7,7 +7,8 @@ import { Component, Input } from '@angular/core';
 })
 export class OffcanvasComponent {
 
-  @Input('data') dataTo: any
+  @Input('data') data: any
+  @Input('isCart') toggle: any
 
 
 }

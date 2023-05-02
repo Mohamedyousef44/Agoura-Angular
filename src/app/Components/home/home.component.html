@@ -1,12 +1,12 @@
 <div class="fluid-container cus-bg-img">
-  <app-nav-bar
-    text-color="text-light"
-    (fromNav)="isCart = $event"
-  ></app-nav-bar>
+  <app-nav-bar text-color="text-light" (toggle)="isCart = $event"></app-nav-bar>
 </div>
 <div class="container">
   <app-category-scroller></app-category-scroller>
   <app-main-page-items-section></app-main-page-items-section>
-  <app-offcanvas [data]="isCart == false ? dataCart : dataNot"></app-offcanvas>
+  <app-offcanvas
+    [data]="isCart == false ? notificationData : cartData"
+    [isCart]="isCart"
+  ></app-offcanvas>
 </div>
 <app-footer> </app-footer>

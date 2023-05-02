@@ -5,7 +5,9 @@
   aria-labelledby="offcanvasExampleLabel"
 >
   <div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">
+      {{ toggle == true ? "Cart" : "Notifications" }}
+    </h5>
     <button
       type="button"
       class="btn-close"
@@ -15,7 +17,9 @@
   </div>
   <div class="offcanvas-body">
     <div>
-      {{ dataTo | json }}
+      <a href="#" *ngFor="let item of data">
+        <p>{{ item | json }}</p>
+      </a>
     </div>
   </div>
 </div>
