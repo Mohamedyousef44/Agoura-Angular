@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { MainPageService } from 'src/app/Service/main-page.service';
 
 
@@ -9,7 +10,24 @@ import { MainPageService } from 'src/app/Service/main-page.service';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent {
-  constructor(public myService:MainPageService){
 
+  ID:any
+  UserDetails:any
+
+  constructor(public myService:MainPageService,myRoute:ActivatedRoute){
+    this.ID = myRoute.snapshot.params["id"];
+  }
+
+  ngOnInit(): void {
+    this.myService.GetUserByID(this.ID).subscribe(
+      {
+        next:(data: any)=>{
+          console.log(data)
+          this.UserDetails = data;
+        },
+        error:(err: any)=>{console.log(err)}
+      }
+    )
   }
 }
+
