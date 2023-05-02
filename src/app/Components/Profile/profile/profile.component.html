@@ -24,31 +24,47 @@
           <div class="p-4 text-black" style="background-color: #525e6b;">
             <div class="d-flex justify-content-end text-center py-1">
               <div>
-                <p class="mb-1 h5">253</p>
-                <p class="small text-muted mb-0">Photos</p>
+
+                <a class="btn btn-outline-light">Your Bids</a>
               </div>
               <div class="px-3">
-                <p class="mb-1 h5">1026</p>
-                <p class="small text-muted mb-0">Followers</p>
+                <a class="btn btn-outline-light">Post Your Property</a>
               </div>
               <div>
-                <p class="mb-1 h5">478</p>
-                <p class="small text-muted mb-0">Following</p>
+
+                <a class="btn btn-outline-light">Bids History</a>
               </div>
             </div>
           </div>
-          <div class="card-body p-4 text-black">
+          <div class="card-body p-4 text-black border ">
             <div class="mb-5">
-              <a class=" btn btn-outline-dark col-md-2 col-5 m-1 ">About</a>
-              <a class=" btn btn-outline-dark col-md-2 col-5 m-1">FeedBack</a>
+              <h2 >About</h2>
               <div class="p-4" style="background-color: #f8f9fa;">
-                <p class="font-italic mb-1">Web Developer</p>
-                <p class="font-italic mb-1">Lives in New York</p>
-                <p class="font-italic mb-0">Photographer</p>
+                <h6 class="font-italic mb-1">Email : {{ UserDetails.email }}</h6>
+                <h6 class="font-italic mb-1">joined since: {{ UserDetails.joinedsince }}</h6>
+                <hr >
+                <h4>About Me :</h4>
+                <h6 class=" mb-0"> {{ UserDetails.about }}</h6>
               </div>
             </div>
+          </div>
 
-            <!-- <div class="row g-2">
+          <div class="card-body p-4 text-black  border ">
+            <div class="mb-5">
+              <h2 >FeedBack Rating</h2>
+              <div class="p-4" style="background-color: #f8f9fa;">
+                 <h3>feed back</h3>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</section>
+
+
+<!-- <div class="row g-2">
               <div class="col mb-2">
                 <img src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(112).webp"
                   alt="image 1" class="w-100 rounded-3">
@@ -67,45 +83,3 @@
                 <img src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(114).webp"
                   alt="image 1" class="w-100 rounded-3">
               </div> -->
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-</section>
-<!-- <div class="container  mt-2">
-  <div class="row rounded-3 ">
-<div class="col-md-12 col-12">
-    <div class="card m-2 bg-dark" style="max-width: 540px;">
-      <div class="row ">
-        <div class="col-md-8">
-          <img src="{{ UserDetails.profileImage }}" class="custom-image" alt="...">
-        </div>
-        <div class="col-md-4">
-          <div class="card-body">
-            <h5 class="card-title text-light">{{ UserDetails.userName }}</h5>
-            <p class="card-text text-light">{{ UserDetails.location}}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  </div>
-
-</div> -->
-
-<!-- <div class="card mb-3" style="max-width: 540px;">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="{{ UserDetails.profileImage }}" class="img-fluid rounded-start" alt="...">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title">{{ UserDetails.userName }}</h5>
-        <p class="card-text">{{ UserDetails.location}}</p>
-         <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p> -->
-      <!-- </div>
-    </div>
-  </div>
-</div> -->
