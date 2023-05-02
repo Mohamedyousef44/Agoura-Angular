@@ -6,13 +6,16 @@ import { LayoutComponent } from './Components/layout/layout.component';
 import { LoginComponent } from './Components/Auth/login/login.component';
 import { SignUpComponent } from './Components/Auth/sign-up/sign-up.component';
 import { CartComponent } from './Components/cart/cart.component';
+import { NotificationComponent } from './Components/notification/notification.component';
+
 
 const routes: Routes = [
 
   {path: "",redirectTo: '/home' , pathMatch: 'full' },
   {path: "",component:LayoutComponent,children:[
     {path:"productdetails",component:ProductDetailsComponent},
-    {path: "cart" , component:CartComponent}
+    {path: "users/cart/:id" , component:CartComponent},
+    {path: "users/notification/:id" , component:NotificationComponent}
   ]
 },
   {path : "home",component:HomeComponent},

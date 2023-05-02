@@ -24,7 +24,7 @@ import { OffcanvasComponent } from './Components/offcanvas/offcanvas.component';
 import { UserHomeDataService } from './Service/user-home-data.service';
 import { CartComponent } from './Components/cart/cart.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NotificationComponent } from './components/notification/notification.component';
+import { NotificationComponent } from './Components/notification/notification.component';
 
 
 

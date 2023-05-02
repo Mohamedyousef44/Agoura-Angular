@@ -21,7 +21,11 @@
       *ngFor="let item of data"
     >
       <a
-        [routerLink]="toggle == true ? '/cart' : '/notification'"
+        [routerLink]="
+          toggle == true
+            ? '/users/cart/{{item.id}}'
+            : '/users/notification/{{item.id}}'
+        "
         id="msg-line"
         class="mb-2 text-decoration-none"
       >
