@@ -1,5 +1,10 @@
 <div class="fluid-container cus-bg-img">
-  <app-nav-bar text-color="text-light" (toggle)="isCart = $event"></app-nav-bar>
+  <app-nav-bar
+    text-color="text-light"
+    (toggle)="isCart = $event"
+    [cartLen]="cartData.length || 0"
+    [notLen]="notificationData.length || 0"
+  ></app-nav-bar>
 </div>
 <div class="container">
   <app-category-scroller></app-category-scroller>

@@ -21,6 +21,7 @@ export class HomeComponent implements OnInit {
       next:(data: any)=>{
         this.notificationData = data[0][1].notifications
         this.cartData = data[0][1].cart
+        console.log(this.cartData.length)
       } ,
       error:(e:Error)=> console.log(e)
     })

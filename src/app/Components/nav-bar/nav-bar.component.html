@@ -26,9 +26,9 @@
         }} border border-0 rounded-circle a-hover"
       >
         <span
-          class="position-absolute badge-position translate-middle badge rounded-pill bg-danger fs-6"
+          class="position-absolute badge-position translate-middle badge rounded-pill bg-danger"
         >
-          1
+          {{ notLen || 0 }}
         </span>
         <i class="bi bi-bell"></i>
       </a>
@@ -42,9 +42,9 @@
         }} fs-4 border border-0 rounded-circle a-hover"
       >
         <span
-          class="position-absolute badge-position translate-middle badge rounded-pill bg-danger fs-6"
+          class="position-absolute badge-position translate-middle badge rounded-pill bg-danger"
         >
-          1
+          {{ cartLen || 0 }}
         </span>
         <i class="bi bi-cart"></i
       ></a>

@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
+import { UserHomeDataService } from 'src/app/Service/user-home-data.service';
 
 @Component({
   selector: 'app-offcanvas',
@@ -7,7 +9,20 @@ import { Component, Input } from '@angular/core';
 })
 export class OffcanvasComponent {
 
+  constructor(private service: UserHomeDataService , private route: Router){
+
+
+  }
+
   @Input('data') data: any
   @Input('isCart') toggle: any
+  headline: any
+
+
+  deleteNot(id: number){
+
+    this.toggle ? this.service.deleteProductFromCart(id) : this.service.deleteNotification(id)
+    this.route.navigate(['/home'])
+  }
 
 }

@@ -12,6 +12,8 @@ export class NavBarComponent implements OnInit{
   textColor!:string;
   element: any;
   @Output() toggle = new EventEmitter()
+  @Input('cartLen') cartLen: any
+  @Input('notLen') notLen: any
 
   ngOnInit(){
     console.log(this.inputTextColor)

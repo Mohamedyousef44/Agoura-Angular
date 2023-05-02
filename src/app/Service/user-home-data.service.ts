@@ -17,4 +17,11 @@ export class UserHomeDataService {
   getUserById(id: number){
     return this.user.get(this.BaseURL+`/${id}`)
   }
+
+  deleteNotification(id: number){
+    this.user.delete(this.BaseURL+'/notifications/'+`${id}`)
+  }
+  deleteProductFromCart(id: number){
+    this.user.delete(this.BaseURL+'/cart/'+`${id}`)
+  }
 }
