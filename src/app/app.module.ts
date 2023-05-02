@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './Components/Auth/login/login.component';
-import { RouterModule, Routes } from '@angular/router';
 import { FacebookButtonComponent } from './Components/Auth/thirdPartyLoginButtons/facebook-button/facebook-button.component';
 import { GoogleButtonComponent } from './Components/Auth/thirdPartyLoginButtons/google-button/google-button.component';
 import { AppleButtonComponent } from './Components/Auth/thirdPartyLoginButtons/apple-button/apple-button.component';
@@ -23,9 +22,8 @@ import { FooterComponent } from './Components/footer/footer.component';
 import { LayoutComponent } from './Components/layout/layout.component';
 import { OffcanvasComponent } from './Components/offcanvas/offcanvas.component';
 import { UserHomeDataService } from './Service/user-home-data.service';
-import { CartComponent } from './components/cart/cart.component';
-
-
+import { CartComponent } from './Components/cart/cart.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -48,7 +46,7 @@ import { CartComponent } from './components/cart/cart.component';
     CategoryScrollerComponent,
     LayoutComponent,
     OffcanvasComponent,
-    CartComponent
+    CartComponent,
   ],
 
   imports: [
@@ -57,7 +55,8 @@ import { CartComponent } from './components/cart/cart.component';
     HttpClientModule,
     CarouselModule.forRoot(),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule
 
   ],
   providers: [UserHomeDataService],

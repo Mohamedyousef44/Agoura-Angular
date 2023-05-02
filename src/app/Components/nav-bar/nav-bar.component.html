@@ -21,20 +21,32 @@
         (click)="check($event)"
         data-bs-toggle="offcanvas"
         data-bs-target="#offcanvasExample"
-        class="btn fw-bold fs-4 {{
+        class="btn fw-bold fs-4 position-relative {{
           textColor
         }} border border-0 rounded-circle a-hover"
-        ><i class="bi bi-bell"></i
-      ></a>
+      >
+        <span
+          class="position-absolute badge-position translate-middle badge rounded-pill bg-danger fs-6"
+        >
+          1
+        </span>
+        <i class="bi bi-bell"></i>
+      </a>
       <a
         id="cart"
         (click)="check($event)"
         data-bs-toggle="offcanvas"
         data-bs-target="#offcanvasExample"
-        class="btn fw-bold {{
+        class="btn fw-bold position-relative {{
           textColor
         }} fs-4 border border-0 rounded-circle a-hover"
-        ><i class="bi bi-cart"></i
+      >
+        <span
+          class="position-absolute badge-position translate-middle badge rounded-pill bg-danger fs-6"
+        >
+          1
+        </span>
+        <i class="bi bi-cart"></i
       ></a>
     </div>
   </nav>

@@ -6,3 +6,8 @@
 .b-hover:hover{
   border-bottom: 2px #FFFFFF solid;
 }
+
+.badge-position{
+  top: 30%;
+  left: 90%;
+}

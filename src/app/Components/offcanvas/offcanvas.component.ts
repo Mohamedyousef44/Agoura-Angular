@@ -10,5 +10,4 @@ export class OffcanvasComponent {
   @Input('data') data: any
   @Input('isCart') toggle: any
 
-
 }
