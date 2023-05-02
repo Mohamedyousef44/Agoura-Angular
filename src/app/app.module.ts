@@ -46,7 +46,7 @@ import { EditProfileComponent } from './Components/Profile/EditProfile/edit-prof
     CategoryScrollerComponent,
     LayoutComponent,
     ProfileComponent,
-    EditProfileComponent
+    EditProfileComponent,
   ],
 
   imports: [

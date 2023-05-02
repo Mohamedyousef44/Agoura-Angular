@@ -1,1 +1,33 @@
-<p>edit-profile works!</p>
+<div class="container ">
+
+  <div class="row d-flex justify-content-center align-items-center h-100 m-2  rounded pb-3 alert alert-dark">
+    <div class="d-flex justify-content-center align-items-center  ">
+      <h3 class="text-center text-black ">Update Your Profile</h3>
+    </div>
+    <form [formGroup]="validationForm" class="form w-50">
+      <div>
+        <span>User Name</span>
+        <input type="text" class="form-control" ngModel="{{User.userName}}">
+      </div>
+      <div>
+        <span>User Email</span>
+        <input type="email" class="form-control" [ngModel]="User.email">
+      </div>
+      <div>
+        <span>User Address</span>
+        <input type="text" class="form-control" [ngModel]="User.userName">
+      </div>
+      <div>
+        <span>Profile Photo</span>
+        <input type="file" class="form-control" [ngModel]="User.userName">
+      </div>
+      <div class="form-floating  m-1">
+        <span>About Me</span>
+        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+          style="height: 100px"></textarea>
+      </div>
+
+
+    </form>
+  </div>
+</div>
