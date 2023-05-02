@@ -91,7 +91,7 @@
         </ng-container>
       <div class="col-md-12">
         <label for="validationServer11" class="form-label">About this place</label>
-        <textarea type="text" formControlName="aboutPlace" name="aboutPlace" placeholder="About this space" class="form-control is-invalid" [ngClass]="{'is-valid':aboutPlace!.dirty && aboutPlace!.valid,'is-invalid':aboutPlace!.dirty && !aboutPlace!.valid}" id="validationServer11" aria-describedby="validationServer11Feedback" required></textarea>
+        <textarea type="text" formControlName="aboutPlace" name="aboutPlace" placeholder="About this place" class="form-control is-invalid" [ngClass]="{'is-valid':aboutPlace!.dirty && aboutPlace!.valid,'is-invalid':aboutPlace!.dirty && !aboutPlace!.valid}" id="validationServer11" aria-describedby="validationServer11Feedback" required></textarea>
         <div id="validationServer10Feedback" class="invalid-feedback" *ngIf="aboutPlace!.dirty && !aboutPlace!.valid">
           Please write no less than 100 characters.
         </div>
@@ -99,9 +99,12 @@
       <div class="col-md-12">
         <div class="col-md-3 mb-3">
           <label for="validationServer12" class="form-label">Start Bid Price</label>
-          <input type="text" formControlName="startBid" name="startBid" placeholder="startBid" class="form-control is-invalid" [ngClass]="{'is-valid':startBid!.dirty && startBid!.valid,'is-invalid':startBid!.dirty && !startBid!.valid}" id="validationServer12" aria-describedby="validationServer12Feedback" required>
-          <div id="validationServer12Feedback" class="invalid-feedback" *ngIf="startBid!.dirty && !startBid!.valid">
-            Please provide a valid Start Bid Price.
+          <div class="input-group">
+            <span class="input-group-text" id="inputGroupPrepend3">$</span>
+            <input type="text" formControlName="startBid" name="startBid" placeholder="Start Bid Price" class="form-control is-invalid" [ngClass]="{'is-valid':startBid!.dirty && startBid!.valid,'is-invalid':startBid!.dirty && !startBid!.valid}" id="validationServer12" aria-describedby="validationServer12Feedback" required>
+            <div id="validationServer12Feedback" class="invalid-feedback" *ngIf="startBid!.dirty && !startBid!.valid">
+              Please provide a valid Start Bid Price.
+            </div>
           </div>
         </div>
         <div class="col-md-3">
