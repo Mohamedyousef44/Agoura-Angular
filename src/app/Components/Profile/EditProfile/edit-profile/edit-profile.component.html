@@ -7,19 +7,19 @@
     <form [formGroup]="validationForm" class="form w-50">
       <div>
         <span>User Name</span>
-        <input type="text" class="form-control" ngModel="{{User.userName}}">
+        <input type="text" class="form-control"  [placeholder]="User.userName">
       </div>
       <div>
         <span>User Email</span>
-        <input type="email" class="form-control" [ngModel]="User.email">
+        <input type="email" class="form-control" [placeholder]="User.email">
       </div>
       <div>
         <span>User Address</span>
-        <input type="text" class="form-control" [ngModel]="User.userName">
+        <input type="text" class="form-control" [placeholder]="User.userName">
       </div>
       <div>
         <span>Profile Photo</span>
-        <input type="file" class="form-control" [ngModel]="User.userName">
+        <input type="file" class="form-control" placeholder="Upload Your Profile-image">
       </div>
       <div class="form-floating  m-1">
         <span>About Me</span>
