@@ -27,7 +27,15 @@ export class CreateProductFormComponent {
   get title () {
     return this.validationForm.controls["title"];
   }
-
+  get aboutSpace () {
+    return this.validationForm.controls["aboutSpace"];
+  }
+  get duration () {
+    return this.validationForm.controls["duration"];
+  }
+  get startBid () {
+    return this.validationForm.controls["startBid"];
+  }
   get agreeToTerms () {
     return this.validationForm.controls["agreeToTerms"];
   }
@@ -43,7 +51,21 @@ export class CreateProductFormComponent {
   get zipcode () {
     return this.validationForm.controls["address"].get("zipcode");
   }
-
+  get bedRooms () {
+    return this.validationForm.controls["features"].get("bedRooms");
+  }
+  get baths () {
+    return this.validationForm.controls["features"].get("baths");
+  }
+  get area () {
+    return this.validationForm.controls["features"].get("area");
+  }
+  get kitchen () {
+    return this.validationForm.controls["features"].get("kitchen");
+  }
+  get guests () {
+    return this.validationForm.controls["features"].get("guests");
+  }
   send(){
     if(this.validationForm.valid){
       console.log(this.validationForm.value)
