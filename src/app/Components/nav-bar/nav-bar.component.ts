@@ -15,9 +15,10 @@ export class NavBarComponent implements OnInit {
   @Input('cartLen') cartLen: any
   @Input('notLen') notLen: any
 
+
   ngOnInit(){
-    console.log(this.inputTextColor)
-    this.textColor=this.inputTextColor;
+    console.log(this.textColor,this.borderHoverColor)
+
   }
 
   check(data: any){
