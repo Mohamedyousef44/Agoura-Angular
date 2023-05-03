@@ -5,6 +5,7 @@ import { HomeComponent } from './Components/home/home.component';
 import { LayoutComponent } from './Components/layout/layout.component';
 import { LoginComponent } from './Components/Auth/login/login.component';
 import { SignUpComponent } from './Components/Auth/sign-up/sign-up.component';
+import { BidHistoryComponent } from './Components/bid-history/bid-history.component';
 import { CartComponent } from './Components/cart/cart.component';
 import { NotificationComponent } from './Components/notification/notification.component';
 
@@ -16,17 +17,19 @@ const routes: Routes = [
     {path : "home",component:HomeComponent},
     {path:"productdetails",component:ProductDetailsComponent},
     {path: "users/cart/:id" , component:CartComponent},
-    {path: "users/notification/:id" , component:NotificationComponent}
+    {path: "users/notification/:id" , component:NotificationComponent},
+    { path: 'bidhistory', component: BidHistoryComponent },
   ]
 },
 
   {path : 'login' , component : LoginComponent},
   {path : 'signup' , component: SignUpComponent}
+
   // {path : "**",}
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
