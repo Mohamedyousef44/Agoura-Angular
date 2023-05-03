@@ -1,7 +1,7 @@
 <div class="fluid-container p-3">
   <nav class="d-flex justify-content-between">
     <div class="home-name text-center pt-3">
-      <a class="navbar-brand" href="#"
+      <a class="navbar-brand" routerLink=""
         ><img
           src="https://www.agora.io/en/wp-content/themes/agora-main/images/agora-logo.svg"
           alt="Agora"
@@ -10,16 +10,49 @@
       /></a>
     </div>
     <div class="home-right">
-      <a class="btn fw-bold {{textColor}} rounded-0 border-2 {{borderHoverColor}}">Sign Up</a>
-      <a class="btn fw-bold {{textColor}} rounded-0 border-2 {{borderHoverColor}}">Log In</a>
+
+      <a
+        class="btn fw-bold {{ textColor }} rounded-0 border-2 b-hover"
+        routerLink="/signup"
+        >Sign Up</a
+      >
+      <a
+        class="btn fw-bold {{ textColor }} rounded-0 border-2 b-hover"
+        routerLink="/login"
+        >Log In</a
+      >
+
       <span class="border-end border-2 mx-2"></span>
       <a
-        class="btn fw-bold fs-4 {{textColor}} border border-0 rounded-circle a-hover"
-        ><i class="bi bi-bell"></i
-      ></a>
+        (click)="check($event)"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasExample"
+        class="btn fw-bold fs-4 position-relative {{
+          textColor
+        }} border border-0 rounded-circle a-hover"
+      >
+        <span
+          class="position-absolute badge-position translate-middle badge rounded-pill bg-danger"
+        >
+          {{ notLen || 0 }}
+        </span>
+        <i class="bi bi-bell"></i>
+      </a>
       <a
-        class="btn fw-bold {{textColor}} fs-4 border border-0 rounded-circle a-hover"
-        ><i class="bi bi-cart"></i
+        id="cart"
+        (click)="check($event)"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasExample"
+        class="btn fw-bold position-relative {{
+          textColor
+        }} fs-4 border border-0 rounded-circle a-hover"
+      >
+        <span
+          class="position-absolute badge-position translate-middle badge rounded-pill bg-danger"
+        >
+          {{ cartLen || 0 }}
+        </span>
+        <i class="bi bi-cart"></i
       ></a>
     </div>
   </nav>

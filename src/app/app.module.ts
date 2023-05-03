@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './Components/Auth/login/login.component';
-import { RouterModule, Routes } from '@angular/router';
 import { FacebookButtonComponent } from './Components/Auth/thirdPartyLoginButtons/facebook-button/facebook-button.component';
 import { GoogleButtonComponent } from './Components/Auth/thirdPartyLoginButtons/google-button/google-button.component';
 import { AppleButtonComponent } from './Components/Auth/thirdPartyLoginButtons/apple-button/apple-button.component';
@@ -22,7 +21,12 @@ import { FooterLowerComponent } from './Components/footer-lower/footer-lower.com
 import { FooterComponent } from './Components/footer/footer.component';
 import { LayoutComponent } from './Components/layout/layout.component';
 import { CreateProductFormComponent } from './Components/create-product-form/create-product-form.component';
-
+import { BidHistoryComponent } from './Components/bid-history/bid-history.component';
+import { OffcanvasComponent } from './Components/offcanvas/offcanvas.component';
+import { UserHomeDataService } from './Service/user-home-data.service';
+import { CartComponent } from './Components/cart/cart.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NotificationComponent } from './Components/notification/notification.component';
 
 
 
@@ -44,7 +48,12 @@ import { CreateProductFormComponent } from './Components/create-product-form/cre
     FooterComponent,
     CategoryScrollerComponent,
     LayoutComponent,
-    CreateProductFormComponent
+    CreateProductFormComponent,
+    BidHistoryComponent,
+    OffcanvasComponent,
+    CartComponent,
+    NotificationComponent,
+
   ],
 
   imports: [
@@ -53,10 +62,11 @@ import { CreateProductFormComponent } from './Components/create-product-form/cre
     HttpClientModule,
     CarouselModule.forRoot(),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
 
   ],
-  providers: [],
+  providers: [UserHomeDataService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
