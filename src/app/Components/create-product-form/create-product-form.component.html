@@ -1,0 +1,151 @@
+<div class="container px-5 my-4">
+  <form class="row g-3" [formGroup]="validationForm" (ngSubmit)="send()">
+    <h3>Fill Bid Information</h3>
+
+    <ng-container *ngIf="step==1">
+    <div class="col-md-12">
+      <div class="col-md-4">
+        <label for="validationServer01" class="form-label">Auction Title</label>
+        <input type="text" formControlName="title" name="title" class="form-control" [ngClass]="{'is-valid':title.dirty && title.valid,'is-invalid':title.dirty && !title.valid}" id="validationServer01" placeholder="Title" required>
+        <div class="invalid-feedback" *ngIf="title.dirty && !title.valid">
+          please provide a good title.
+        </div>
+      </div>
+    </div>
+    <ng-container formGroupName="address" >
+      <h3>Address</h3>
+
+      <div class="col-md-3">
+        <label for="validationServer02" class="form-label">Country</label>
+        <input type="text" formControlName="country" name="country" placeholder="country" class="form-control is-invalid" [ngClass]="{'is-valid':country!.dirty && country!.valid,'is-invalid':country!.dirty && !country!.valid}" id="validationServer02" aria-describedby="validationServer02Feedback" required>
+        <div id="validationServer02Feedback" class="invalid-feedback" *ngIf="country!.dirty && !country!.valid">
+          Please provide a valid Country.
+        </div>
+      </div>
+      <div class="col-md-3">
+        <label for="validationServer03" class="form-label">City</label>
+        <input type="text" formControlName="city" name="city" placeholder="city" class="form-control is-invalid"[ngClass]="{'is-valid':city!.dirty && city!.valid,'is-invalid':city!.dirty && !city!.valid}" id="validationServer03" aria-describedby="validationServer03Feedback" required>
+        <div id="validationServer03Feedback" class="invalid-feedback" *ngIf="city!.dirty && !city!.valid">
+          Please provide a valid city.
+        </div>
+      </div>
+      <div class="col-md-5">
+        <label for="validationServer04" class="form-label">Street</label>
+        <input class="form-control is-invalid" formControlName="street" name="street" [ngClass]="{'is-valid':street!.dirty && street!.valid,'is-invalid':street!.dirty && !street!.valid}" placeholder="street" id="validationServer04" aria-describedby="validationServer04Feedback" required>
+        <div id="validationServer04Feedback" class="invalid-feedback" *ngIf="street!.dirty && !street!.valid">
+          Please select a valid Street.
+        </div>
+      </div>
+      <div class="col-md-3">
+        <label for="validationServer05" class="form-label">Zip</label>
+        <input type="text" formControlName="zipcode" name="zipcode" placeholder="zipcode" class="form-control is-invalid" [ngClass]="{'is-valid':zipcode!.dirty && zipcode!.valid,'is-invalid':zipcode!.dirty && !zipcode!.valid}" id="validationServer05" aria-describedby="validationServer05Feedback" required>
+        <div id="validationServer05Feedback" class="invalid-feedback" *ngIf="zipcode!.dirty && !zipcode!.valid">
+          Please provide a valid zip.
+        </div>
+      </div>
+    </ng-container>
+  </ng-container>
+
+    <ng-container *ngIf="step==2">
+
+        <ng-container formGroupName="features" >
+          <h3>Features</h3>
+          <div class="col-md-3">
+            <label for="validationServer06" class="form-label">Bedrooms</label>
+            <input type="text" formControlName="bedRooms" name="bedRooms" placeholder="Number of bedRooms" class="form-control is-invalid" [ngClass]="{'is-valid':bedRooms!.dirty && bedRooms!.valid,'is-invalid':bedRooms!.dirty && !bedRooms!.valid}" id="validationServer06" aria-describedby="validationServer06Feedback" required>
+            <div id="validationServer06Feedback" class="invalid-feedback" *ngIf="bedRooms!.dirty && !bedRooms!.valid">
+              Please provide a valid bedrooms.
+            </div>
+          </div>
+          <div class="col-md-4">
+            <label for="validationServer07" class="form-label">Baths</label>
+            <input type="text" formControlName="baths" name="baths" placeholder="Number of baths" class="form-control is-invalid"[ngClass]="{'is-valid':baths!.dirty && baths!.valid,'is-invalid':baths!.dirty && !baths!.valid}" id="validationServer07" aria-describedby="validationServer07Feedback" required>
+            <div id="validationServer07Feedback" class="invalid-feedback" *ngIf="baths!.dirty && !baths!.valid">
+              Please provide a valid baths.
+            </div>
+          </div>
+          <div class="col-md-3">
+            <label for="validationServer08" class="form-label">Area</label>
+            <div class="input-group">
+              <input class="form-control is-invalid" formControlName="area" name="area" [ngClass]="{'is-valid':area!.dirty && area!.valid,'is-invalid':area!.dirty && !area!.valid}" placeholder="area" id="validationServer08" aria-describedby="validationServer08Feedback" required>
+              <span class="input-group-text" id="inputGroupPrepend3">&#13217;</span>
+              <div id="validationServer08Feedback" class="invalid-feedback" *ngIf="area!.dirty && !area!.valid">
+                Please select a valid Area.
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <label for="validationServer09" class="form-label">kitchen</label>
+            <input type="text" formControlName="kitchen" name="kitchen" placeholder="Number of kitchen" class="form-control is-invalid" [ngClass]="{'is-valid':kitchen!.dirty && kitchen!.valid,'is-invalid':kitchen!.dirty && !kitchen!.valid}" id="validationServer09" aria-describedby="validationServer09Feedback" required>
+            <div id="validationServer09Feedback" class="invalid-feedback" *ngIf="kitchen!.dirty && !kitchen!.valid">
+              Please provide a valid kitchen.
+            </div>
+          </div>
+          <div class="col-md-3">
+            <label for="validationServer10" class="form-label">Guests</label>
+            <input type="text" formControlName="guests" name="guests" placeholder="Number of guest rooms" class="form-control is-invalid" [ngClass]="{'is-valid':guests!.dirty && guests!.valid,'is-invalid':guests!.dirty && !guests!.valid}" id="validationServer10" aria-describedby="validationServer10Feedback" required>
+            <div id="validationServer10Feedback" class="invalid-feedback" *ngIf="guests!.dirty && !guests!.valid">
+              Please provide a valid Guests.
+            </div>
+          </div>
+        </ng-container>
+      <div class="col-md-12">
+        <label for="validationServer11" class="form-label">About this place</label>
+        <textarea type="text" formControlName="aboutPlace" name="aboutPlace" placeholder="About this place" class="form-control is-invalid" [ngClass]="{'is-valid':aboutPlace!.dirty && aboutPlace!.valid,'is-invalid':aboutPlace!.dirty && !aboutPlace!.valid}" id="validationServer11" aria-describedby="validationServer11Feedback" required></textarea>
+        <div id="validationServer10Feedback" class="invalid-feedback" *ngIf="aboutPlace!.dirty && !aboutPlace!.valid">
+          Please write no less than 100 characters.
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="col-md-3 mb-3">
+          <label for="validationServer12" class="form-label">Start Bid Price</label>
+          <div class="input-group">
+            <span class="input-group-text" id="inputGroupPrepend3">$</span>
+            <input type="text" formControlName="startBid" name="startBid" placeholder="Start Bid Price" class="form-control is-invalid" [ngClass]="{'is-valid':startBid!.dirty && startBid!.valid,'is-invalid':startBid!.dirty && !startBid!.valid}" id="validationServer12" aria-describedby="validationServer12Feedback" required>
+            <div id="validationServer12Feedback" class="invalid-feedback" *ngIf="startBid!.dirty && !startBid!.valid">
+              Please provide a valid Start Bid Price.
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <label for="validationServer12" class="form-label">Bid Duration</label>
+          <div class="input-group mb-4">
+            <input type="text" formControlName="duration" name="duration" placeholder="duration" class="form-control is-invalid" [ngClass]="{'is-valid':duration!.dirty && duration!.valid,'is-invalid':duration!.dirty && !duration!.valid}" id="validationServer12" aria-describedby="validationServer12Feedback" required>
+            <span class="input-group-text" id="inputGroupPrepend3">Days</span>
+            <div id="validationServer12Feedback" class="invalid-feedback" *ngIf="duration!.dirty && !duration!.valid">
+              Please provide a valid not less than 7 days and maximum 30 of days Bid duration.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <label for="validationServer12" class="form-label">upload photos</label>
+        <div class="input-group mb-4" >
+          <input type="file" class="form-control" formControlName="images" name="images" [ngClass]="{'is-valid':images!.dirty && images!.valid,'is-invalid':images!.touched && !images!.valid}" (change)="onFileSelected($event)" id="inputGroupFile02" multiple required accept="image/*">
+          <label class="input-group-text" for="inputGroupFile02">Upload</label>
+          <div id="validationServer12Feedback" class="invalid-feedback" *ngIf="images!.touched && !images!.valid">
+            Please upload at least 1 photo of the residential.
+          </div>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="form-check">
+          <input class="form-check-input" formControlName="agreeToTerms" name="agreeToTerms" [ngClass]="{'is-valid':agreeToTerms!.dirty && agreeToTerms!.valid,'is-invalid':agreeToTerms!.dirty && !agreeToTerms!.valid}" type="checkbox" value="" id="invalidCheck3" aria-describedby="invalidCheck3Feedback" required>
+          <label class="form-check-label" for="invalidCheck3">
+            Agree to terms and conditions
+          </label>
+          <div id="invalidCheck3Feedback" class="invalid-feedback" *ngIf="agreeToTerms!.dirty && !agreeToTerms!.valid">
+            You must agree before submitting.
+          </div>
+        </div>
+      </div>
+  </ng-container>
+
+    <div class="col-12">
+      <button class="btn btn-dark rounded-1 py-2 col-md-3 me-2" (click)="prev()" [disabled]="step==1">Prev</button>
+      <button class="btn btn-dark rounded-1 py-2 col-md-3 me-2" type="submit" [disabled]="( step==1 || !validationForm.valid)">Place Bid</button>
+      <button class="btn btn-dark rounded-1 py-2 col-md-3 me-2" (click)="next()" [disabled]="step==2 || !firstPageValid">Next</button>
+    </div>
+  </form>
+
+</div>
