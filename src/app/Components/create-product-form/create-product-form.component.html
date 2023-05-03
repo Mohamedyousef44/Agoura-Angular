@@ -109,9 +109,22 @@
         </div>
         <div class="col-md-3">
           <label for="validationServer12" class="form-label">Bid Duration</label>
-          <input type="text" formControlName="duration" name="duration" placeholder="duration" class="form-control is-invalid" [ngClass]="{'is-valid':duration!.dirty && duration!.valid,'is-invalid':duration!.dirty && !duration!.valid}" id="validationServer12" aria-describedby="validationServer12Feedback" required>
-          <div id="validationServer12Feedback" class="invalid-feedback" *ngIf="duration!.dirty && !duration!.valid">
-            Please provide a valid not less than 7 days and maximum 30 of days Bid duration.
+          <div class="input-group mb-4">
+            <input type="text" formControlName="duration" name="duration" placeholder="duration" class="form-control is-invalid" [ngClass]="{'is-valid':duration!.dirty && duration!.valid,'is-invalid':duration!.dirty && !duration!.valid}" id="validationServer12" aria-describedby="validationServer12Feedback" required>
+            <span class="input-group-text" id="inputGroupPrepend3">Days</span>
+            <div id="validationServer12Feedback" class="invalid-feedback" *ngIf="duration!.dirty && !duration!.valid">
+              Please provide a valid not less than 7 days and maximum 30 of days Bid duration.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <label for="validationServer12" class="form-label">upload photos</label>
+        <div class="input-group mb-4" >
+          <input type="file" class="form-control" formControlName="images" name="images" [ngClass]="{'is-valid':images!.dirty && images!.valid,'is-invalid':images!.touched && !images!.valid}" (change)="onFileSelected($event)" id="inputGroupFile02" multiple required accept="image/*">
+          <label class="input-group-text" for="inputGroupFile02">Upload</label>
+          <div id="validationServer12Feedback" class="invalid-feedback" *ngIf="images!.touched && !images!.valid">
+            Please upload at least 1 photo of the residential.
           </div>
         </div>
       </div>
@@ -130,9 +143,8 @@
 
     <div class="col-12">
       <button class="btn btn-dark rounded-1 py-2 col-md-3 me-2" (click)="prev()" [disabled]="step==1">Prev</button>
-      <button class="btn btn-dark rounded-1 py-2 col-md-3 me-2" type="submit" [disabled]="(step==1 || !validationForm.valid)">Place Bid</button>
+      <button class="btn btn-dark rounded-1 py-2 col-md-3 me-2" type="submit" [disabled]="( step==1 || !validationForm.valid)">Place Bid</button>
       <button class="btn btn-dark rounded-1 py-2 col-md-3 me-2" (click)="next()" [disabled]="step==2 || !firstPageValid">Next</button>
-
     </div>
   </form>
 
