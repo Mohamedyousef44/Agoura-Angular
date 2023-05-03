@@ -30,13 +30,13 @@ export class SignUpComponent {
     return this.validationForm.controls["username"].valid;
   }
 
-  isEmailTouched(){
-    return this.validationForm.controls["email"].touched;
+  isEmailDirty(){
+    return this.validationForm.controls["email"].dirty;
   }
-  isPasswordTouched(){
-    return this.validationForm.controls["password"].touched;
+  isUsernameDirty(){
+    return this.validationForm.controls["username"].dirty;
   }
-  isUsernameTouched(){
-    return this.validationForm.controls["username"].touched;
+  isPasswordDirty(){
+    return this.validationForm.controls["password"].dirty;
   }
 }
