@@ -21,6 +21,8 @@ import { FooterUpperComponent } from './Components/footer-upper/footer-upper.com
 import { FooterLowerComponent } from './Components/footer-lower/footer-lower.component';
 import { FooterComponent } from './Components/footer/footer.component';
 import { LayoutComponent } from './Components/layout/layout.component';
+import { CheckoutComponent } from './Components/Payment/checkout/checkout.component';
+import { PaymentMethodComponent } from './Components/Payment/payment-method/payment-method.component';
 
 
 
@@ -42,7 +44,9 @@ import { LayoutComponent } from './Components/layout/layout.component';
     FooterLowerComponent,
     FooterComponent,
     CategoryScrollerComponent,
-    LayoutComponent
+    LayoutComponent,
+    CheckoutComponent,
+    PaymentMethodComponent  
   ],
 
   imports: [
