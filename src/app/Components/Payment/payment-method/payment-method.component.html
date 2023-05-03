@@ -1,0 +1,19 @@
+<section class="d-flex justify-content-center align-items-center">
+    <form  action="" style="width: 50vh;" class="mt-4">
+        <div>
+            <label for="exampleFormControlInput1" class="form-label">Email address</label>
+            <input formControlName="email" type="email" class="form-control" id="exampleFormControlInput1" placeholder="Enter your email">
+        </div>
+        <div *ngIf="">
+            <!-- <span class="bg-danger bg-gradient text-light p-1 m-1 d-block">Enter a vaild email address, this filed is required</span> -->
+        </div>
+        <div>
+            <label for="inputPassword5" class="form-label">Password</label>
+            <input formControlName="password" type="password" id="inputPassword5" class="form-control" aria-labelledby="passwordHelpBlock"  placeholder="Enter your password">                
+        </div>
+        <div *ngIf="">
+            <!-- <span class="bg-danger bg-gradient text-light p-1 m-1 d-block">This password is Invalid</span> -->
+        </div>
+        <button class="btn btn-dark w-100 mt-3" type="submit">Save</button>  
+    </form>
+</section>
