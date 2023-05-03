@@ -1,19 +1,45 @@
-<section class="d-flex justify-content-center align-items-center">
-    <form  action="" style="width: 50vh;" class="mt-4">
+<section class="ms-5">
+    <h4><strong>Payment Method</strong></h4>
+    <form  action="" style="width: 50vh;" class="mt-4 mt-1">
         <div>
-            <label for="exampleFormControlInput1" class="form-label">Email address</label>
-            <input formControlName="email" type="email" class="form-control" id="exampleFormControlInput1" placeholder="Enter your email">
+            <label for="exampleFormControlInput1" class="form-label">Full name (on the card)</label>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill"></i></span>
+                <input type="text" class="form-control" placeholder="The exact name in your credit card" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
         </div>
         <div *ngIf="">
             <!-- <span class="bg-danger bg-gradient text-light p-1 m-1 d-block">Enter a vaild email address, this filed is required</span> -->
         </div>
         <div>
-            <label for="inputPassword5" class="form-label">Password</label>
-            <input formControlName="password" type="password" id="inputPassword5" class="form-control" aria-labelledby="passwordHelpBlock"  placeholder="Enter your password">                
+            <label for="exampleFormControlInput1" class="form-label">Card number</label>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="bi bi-credit-card-2-back-fill"></i></span>
+                <input type="text" class="form-control" placeholder="Your credit card number" aria-label="Credit card number" aria-describedby="basic-addon1">
+            </div>
         </div>
         <div *ngIf="">
-            <!-- <span class="bg-danger bg-gradient text-light p-1 m-1 d-block">This password is Invalid</span> -->
+            <!-- <span class="bg-danger bg-gradient text-light p-1 m-1 d-block">Enter a vaild email address, this filed is required</span> -->
         </div>
-        <button class="btn btn-dark w-100 mt-3" type="submit">Save</button>  
+        <div class="d-flex justify-content-between">
+            <div class="col-5">
+                <label for="exampleFormControlInput1" class="form-label">Expiry</label>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1"><i class="bi bi-calendar-minus-fill"></i></span>
+                    <input type="text" class="form-control" placeholder="Credit expiry" aria-label="Credit card expiry" aria-describedby="basic-addon1">
+                  </div>                 
+            </div>
+            <div *ngIf="">
+                <!-- <span class="bg-danger bg-gradient text-light p-1 m-1 d-block">This password is Invalid</span> -->
+            </div>
+            <div class="col-4">
+                <label for="exampleFormControlInput1" class="form-label">CVV</label>
+                <input formControlName="cvv" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Credit CVV" required>
+            </div>
+            <div *ngIf="">
+                <!-- <span class="bg-danger bg-gradient text-light p-1 m-1 d-block">This password is Invalid</span> -->
+            </div>
+        </div>
+        <button class="btn btn-dark w-100 mt-3" type="submit">Confirm Purchase</button>  
     </form>
 </section>
