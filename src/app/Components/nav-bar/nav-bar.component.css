@@ -4,5 +4,11 @@
 }
 
 .b-hover:hover{
-  border-bottom: 2px #FFFFFF solid;
+  border-bottom: 2px #000000 solid;
+}
+
+.badge-position{
+  top: 30%;
+  left: 90%;
+  font-size: .8rem;
 }
