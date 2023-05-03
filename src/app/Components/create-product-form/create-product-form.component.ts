@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup , Validators ,FormBuilder} from '@angular/forms';
+import { FormControl, FormGroup , Validators ,FormBuilder, FormArray} from '@angular/forms';
+import { CreateBidService } from 'src/app/Service/create-bid.service';
 
 @Component({
   selector: 'app-create-product-form',
@@ -7,10 +8,10 @@ import { FormControl, FormGroup , Validators ,FormBuilder} from '@angular/forms'
   styleUrls: ['./create-product-form.component.css']
 })
 export class CreateProductFormComponent {
-
+  files!:FileList;
   validationForm:FormGroup;
   step:number;
-  public constructor(private fb:FormBuilder){
+  public constructor(private fb:FormBuilder,private myService:CreateBidService){
     this.step=1;
     this.validationForm = fb.group({
       title: new FormControl(null,[Validators.required, Validators.minLength(5)]),
@@ -31,6 +32,7 @@ export class CreateProductFormComponent {
       startBid: new FormControl(null,[Validators.required,Validators.min(1),Validators.pattern("^[0-9]+$")]),
       duration:new FormControl(null,[Validators.required,Validators.min(7),Validators.max(30),Validators.pattern("^[0-9]+$")]),
       agreeToTerms:new FormControl(null,[Validators.required]),
+      images:new FormControl([],[Validators.required,Validators.min(1),])
     });
   }
   get title () {
@@ -75,15 +77,34 @@ export class CreateProductFormComponent {
   get guests () {
     return this.validationForm.controls["features"].get("guests");
   }
+  get images () {
+    return this.validationForm.controls["images"] as FormArray;
+  }
+
+  onFileSelected(event: any) {
+    this.files = event.target.files;
+  }
+
   send(){
+
+
     if(this.validationForm.valid){
-      console.log(this.validationForm.value)
-      console.log("created success")
+      let formData=new FormData()
+      formData.append("data",JSON.stringify(this.validationForm.value))
+      if(this.files){
+        for(let i=0;i<this.files.length;i++){
+          formData.append(`photo`,this.files[i])
+        }
+      }
+      let bid=this.myService.post(formData);
+      console.log("created success",bid)
     }
   }
+
   get firstPageValid(){
     return this.title.valid && this.country?.valid && this.city?.valid && this.street?.valid && this.zipcode?.valid
   }
+
   next() {
     console.log(`step ${this.step} form ${this.validationForm.valid}`)
     this.step++;
