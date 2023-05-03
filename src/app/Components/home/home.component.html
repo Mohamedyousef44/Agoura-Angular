@@ -1,17 +1,5 @@
-<div class="fluid-container cus-bg-img">
-  <app-nav-bar
-    text-color="text-light"
-    (toggle)="isCart = $event"
-    [cartLen]="cartData.length || 0"
-    [notLen]="notificationData.length || 0"
-  ></app-nav-bar>
-</div>
+<div class="fluid-container cus-bg-img"></div>
 <div class="container">
   <app-category-scroller></app-category-scroller>
   <app-main-page-items-section></app-main-page-items-section>
-  <app-offcanvas
-    [data]="isCart == false ? notificationData : cartData"
-    [isCart]="isCart"
-  ></app-offcanvas>
 </div>
-<app-footer> </app-footer>
