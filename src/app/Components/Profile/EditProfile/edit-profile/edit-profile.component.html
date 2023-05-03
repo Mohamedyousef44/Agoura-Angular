@@ -4,34 +4,34 @@
     <div class="d-flex justify-content-center align-items-center  ">
       <h3 class="text-center text-black alert alert-light">Update Your Profile</h3>
     </div>
-    <form [formGroup]="validationForm" class="form w-100">
+    <form [formGroup]="validationForm" class="form w-100" (ngSubmit)="updateValidatedData(username.value,email.value,age.value,phone.value,address.value,image.value,about.value)">
       <div>
         <span>User Name</span>
-        <input type="text" class="form-control"  [placeholder]="User.userName">
+        <input  #username type="text" class="form-control"  [placeholder]="User.userName">
       </div>
       <div>
         <span>User Age</span>
-        <input type="number" class="form-control"  [placeholder]="User.userName">
+        <input #age type="number" class="form-control"  [placeholder]="User.userName">
       </div>
       <div>
         <span>User phone</span>
-        <input type="number" class="form-control"  [placeholder]="User.userName">
+        <input #phone type="number" class="form-control"  [placeholder]="User.userName">
       </div>
       <div>
         <span>User Email</span>
-        <input type="email" class="form-control" [placeholder]="User.email">
+        <input #email type="email" class="form-control" [placeholder]="User.email">
       </div>
       <div>
         <span>User Address</span>
-        <input type="text" class="form-control" [placeholder]="User.userName">
+        <input #address type="text" class="form-control" [placeholder]="User.userName">
       </div>
       <div>
         <span>Profile Photo</span>
-        <input type="file" class="form-control" placeholder="Upload Your Profile-image">
+        <input #image type="file" class="form-control" placeholder="Upload Your Profile-image">
       </div>
       <div class="form-floating  m-1">
         <span>About Me</span>
-        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+        <textarea #about class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
           style="height: 100px"></textarea>
       </div>
       <div class="col-12">

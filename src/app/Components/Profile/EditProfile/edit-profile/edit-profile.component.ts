@@ -112,6 +112,7 @@ export class EditProfileComponent implements OnInit {
         About: newAbout,
         phone: newphone,
       };
+      this.updateUserDataInDataBase()
     }
 
   }
