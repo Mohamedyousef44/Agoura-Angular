@@ -11,25 +11,25 @@ import { BidHistoryComponent } from './Components/bid-history/bid-history.compon
 import { CartComponent } from './Components/cart/cart.component';
 import { NotificationComponent } from './Components/notification/notification.component';
 
-
 const routes: Routes = [
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  {
+    path: '',
+    component: LayoutComponent,
+    children: [
+      { path: 'home', component: HomeComponent },
+      { path: 'place/create', component: CreateProductFormComponent },
+      { path: 'place/:id', component: ProductDetailsComponent },
+      { path: 'users/cart/:id', component: CartComponent },
+      { path: 'users/notification/:id', component: NotificationComponent },
+      { path: 'bidhistory/:id', component: BidHistoryComponent },
+      { path: 'about', component: AboutComponent },
+    ],
+  },
 
-  {path: "",redirectTo: '/home' , pathMatch: 'full' },
-  {path: "",component:LayoutComponent,children:[
-    {path : "home",component:HomeComponent},
-    {path:"place/create",component:CreateProductFormComponent},
-    {path:"place/:id",component:ProductDetailsComponent},
-    {path: "users/cart/:id" , component:CartComponent},
-    {path: "users/notification/:id" , component:NotificationComponent},
-    { path: 'bidhistory', component: BidHistoryComponent },
-    {path: 'about', component: AboutComponent },
-
-  ]
-},
-
-  {path : 'login' , component : LoginComponent},
-  {path : 'signup' , component: SignUpComponent},
-  {path : 'signup' , component: SignUpComponent}
+  { path: 'login', component: LoginComponent },
+  { path: 'signup', component: SignUpComponent },
+  { path: 'signup', component: SignUpComponent },
 
   // {path : "**",}
 ];
