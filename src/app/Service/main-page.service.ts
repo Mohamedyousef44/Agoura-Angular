@@ -20,4 +20,10 @@ export class MainPageService {
     return this.myClient.get(this.Base_URL+"/"+id);
   }
 
+  UpdateUser(newUser:any,id:any){
+
+    return this.myClient.put(this.Base_URL+"/"+id,newUser)
+
+  }
+
 }
