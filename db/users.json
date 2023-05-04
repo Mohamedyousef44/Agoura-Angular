@@ -1,13 +1,6 @@
 {
   "users": [
     {
-      "userName": "omar alaaa",
-      "age": "26",
-      "address": "sedi-beshr",
-      "phone": 1063337988,
-      "email": "omar@test.com",
-      "profileImage": "/assets/photos/omar-1.jpeg",
-      "about": "omar alaa mansour hassan mahgoub",
       "id": 1
     },
     {

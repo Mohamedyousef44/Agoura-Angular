@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MainPageService } from 'src/app/Service/main-page.service';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-edit-profile',
@@ -12,13 +12,14 @@ export class EditProfileComponent implements OnInit {
   ID = 1;
   User: any;
   validationForm:any;
-
-
+  myForm: any;
+  ProfileImage:any;
   //get user id from route
   constructor(
     myRoute: ActivatedRoute,
     public myService: MainPageService,
-    public router: Router
+    public router: Router,
+    private fb: FormBuilder
   ) {
     // this.ID = myRoute.snapshot.params['id'];
   }
@@ -37,7 +38,7 @@ export class EditProfileComponent implements OnInit {
             address: new FormControl(this.User.address, [Validators.required]),
             phone: new FormControl(this.User.phone, [Validators.required,Validators.minLength(10),Validators.pattern(/^[0-9]*$/)]),
             email: new FormControl(this.User.email, [Validators.email, Validators.required]),
-            profileImage: new FormControl(this.User.profileImage, [ Validators.pattern(/\.(jpe?g|webp|png)$/i),]),
+            profileImage: new FormControl( this.User.profileImage, [Validators.required,Validators.min(1),]),
             about:new FormControl(this.User.about)
           });
         this.validationForm.patchValue(this.User)
@@ -46,6 +47,8 @@ export class EditProfileComponent implements OnInit {
       error: (err) => {},
     });
   }
+
+
 
 
 
@@ -73,14 +76,31 @@ export class EditProfileComponent implements OnInit {
   }
 
 
+onFileSelected(event: any){
+console.log(event)
+console.log(this.ProfileImage=event.target.files[0]);
+this.ProfileImage=event.target.files[0]
+}
 
 
 //send data to database
 updateUser(){
   if (this.validationForm.valid){
-    this.myService.UpdateUser(this.validationForm.value,this.ID).subscribe(data => {
-        console.log(data);})
-        this.router.navigateByUrl('/');
+const fd=new FormData
+fd.append("data",JSON.stringify(this.validationForm.value))
+
+
+if(this.ProfileImage){
+    fd.append('profileImage',this.ProfileImage)
+    console.log(fd);
+
+}
+
+    this.myService.UpdateUser(fd,this.ID).subscribe(data => {
+        console.log(fd);
+
+      })
+
   }
 }
 

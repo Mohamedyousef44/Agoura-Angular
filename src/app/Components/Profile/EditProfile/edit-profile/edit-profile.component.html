@@ -17,39 +17,37 @@
                       <div class="form-outline mb-4">
                         <label >User Name</label>
                         <input type="text" class="form-control is-invalid" formControlName="userName"  [value]="User.userName" class="form-control is-invalid" [ngClass]="{'is-valid':userName.dirty && userName!.valid,'is-invalid':userName && !userName!.valid}" id="userNameValidation"  >
-                        <div class="Invalid User Name Must be minmum 3 charachters"  >Invalid input</div>
+                        <div class="invalid-feedback"  >Invalid User Name Must be minmum 3 charachters</div>
                       </div>
                       <div class="form-outline mb-4">
                         <label>User Age</label>
                         <input type="text" class="form-control" formControlName="age" [value]="User.age" [ngClass]="{'is-valid':age.dirty && age!.valid,'is-invalid':age!.dirty && !age!.valid}" id="ageValidation"  >
-                        <div class="Invalid-must be a number and minimum age 18" >Invalid input</div>
+                        <div class="invalid-feedback" >Invalid-must be a number and minimum age 18</div>
                       </div>
 
                       <div class="form-outline mb-4">
                         <label>User phone</label>
                         <input type="text" class="form-control" formControlName="phone" [value]="User.userName" [ngClass]="{'is-valid':phone.dirty && phone!.valid,'is-invalid':phone!.dirty && !phone!.valid}" id="phoneValidation"  >
-                        <div class="Invalid-must be at least 11 numbers" *ngIf="!phone.valid && phone.dirty">Invalid input</div>
+                        <div class="invalid-feedback" >Invalid-must be at least 11 numbers</div>
                       </div>
 
                       <div class="form-outline mb-4">
                         <label>User Email</label>
                         <input type="email" class="form-control" formControlName="email" [value]="User.email" [ngClass]="{'is-valid':email.dirty && email!.valid,'is-invalid':email!.dirty && !email!.valid}" id="emailValidation"  >
-                        <label class="invalid-Must be email as example@example.com" *ngIf="!email.valid && email.dirty">Invalid input</label>
+                        <label class="invalid-feedback" >invalid-Must be email as example@example.com</label>
                       </div>
 
                       <div class="form-outline mb-4">
                         <label>User Address</label>
                         <input type="text" class="form-control" formControlName="address" [value]="User.address" [ngClass]="{'is-valid':address.dirty && address.valid,'is-invalid':address&& !address.valid}" id="userAdressValidation"  >
-                        <label class="input-Required" >Invalid input</label>
+                        <label class="invalid-feedback" >input-Required</label>
                       </div>
 
 
                       <div class="form-outline mb-4">
                         <label>Profile Photo</label>
-                        <input type="file" class="form-control" formControlName="profileImage"
-                          placeholder="Upload Your Profile-image" [ngClass]="{'is-valid':profileImage.dirty && profileImage.valid,'is-invalid':profileImage&& !profileImage.valid}" id="profileImage"  >
-                        <label class="Invalid-File Must be image with extention(jpg,jpeg,webp,png)only" >Invalid
-                          input</label>
+                        <input type="file" accept="image/*" (change)="onFileSelected($event)" class="form-control" formControlName="profileImage" placeholder="Upload Your Profile-image" [ngClass]="{'is-valid':profileImage.dirty && profileImage.valid,'is-invalid':profileImage&& !profileImage.valid}" id="profileImage" [value]="User.profileImage" >
+                        <label class="invalid-feedback">Invalid-File Must be image with extention(jpg,jpeg,webp,png)only</label>
                       </div>
 
 
