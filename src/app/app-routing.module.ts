@@ -15,7 +15,7 @@ const routes: Routes = [
   {path: "",component:LayoutComponent,children:[
     {path:"productdetails",component:ProductDetailsComponent},
     {path:"user/:id",component:ProfileComponent,children:[
-      // {path:"",redirectTo: '/user/:id/about' , pathMatch: 'full'},
+
 {path:"edit",component:EditProfileComponent},
 {path:"about",component:AboutUserComponent}
     ]}
