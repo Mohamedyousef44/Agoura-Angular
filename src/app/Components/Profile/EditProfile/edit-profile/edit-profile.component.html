@@ -1,68 +1,16 @@
-<!-- <div class="container  ">
 
-  <div class="row d-flex justify-content-center align-items-center h-100 m-2  rounded pb-3 alert alert-dark col-12">
-    <div class="d-flex justify-content-center align-items-center  ">
-      <h3 class="text-center text-black alert alert-light">Update Your Profile</h3>
-    </div>
-    <form [formGroup]="validationForm" class="form w-100" (ngSubmit)="updateValidatedData(username.value,email.value,age.value,phone.value,address.value,image.value,about.value)">
-      <div>
-        <span>User Name</span>
-        <input  #username type="text" class="form-control"  [placeholder]="User.userName">
-        <label for="inputname" *ngIf="!nameValid&& userName ">Invalid input</label>
-      </div>
-      <div>
-        <span>User Age</span>
-        <input #age type="number" class="form-control"  [placeholder]="User.userName">
-        <label for="inputname" *ngIf="!ageValid&& age ">Invalid input</label>
-      </div>
-      <div>
-        <span>User phone</span>
-        <input #phone type="number" class="form-control"  [placeholder]="User.userName">
-        <label for="inputname" *ngIf="!ageValid&& userName ">Invalid input</label> -->
-<!--</div>
-      <div>
-        <span>User Email</span>
-        <input #email type="email" class="form-control" [placeholder]="User.email">
-      </div>
-      <div>
-        <span>User Address</span>
-        <input #address type="text" class="form-control" [placeholder]="User.userName">
-      </div>
-      <div>
-        <span>Profile Photo</span>
-        <input #image type="file" class="form-control" placeholder="Upload Your Profile-image">
-      </div>
-      <div class="form-floating  m-1">
-        <span>About Me</span>
-        <textarea #about class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
-          style="height: 100px"></textarea>
-      </div>
-      <div class="col-12 mt-2">
-        <input type="submit" class="btn btn-outline-success" value="Update">
-      </div>
-
-    </form>
-  </div>
-</div> -->
 
 <section class="intro m-4">
   <div class="bg-image h-100">
-    <div class="mask d-flex align-items-center h-100" style="background-color: #7eb0e9">
+    <div class="mask d-flex align-items-center h-100" style="background-color: #8194aa">
       <div class="container pt-2">
         <div class="row d-flex justify-content-center align-items-center">
           <div class="col-12 col-md-10">
             <div class="card" style="border-radius: 1rem">
               <div class="row g-0">
-                <!-- <div class="col-md-4 d-none d-md-block">
-                  <img src="https://mdbootstrap.com/img/Photos/Others/sidenav2.jpg" alt="login form" class="img-fluid"
-                    style="
-                      border-top-left-radius: 1rem;
-                      border-bottom-left-radius: 1rem;
-                    " />
-                </div> -->
                 <div class="col-md-12 d-flex align-items-center">
                   <div class="card-body py-5 px-4 p-md-5">
-                    <form [formGroup]="validationForm" action="" *ngIf="User">
+                    <form [formGroup]="validationForm" action="" *ngIf="User" (ngSubmit)="updateUser()">
                       <h4 class="fw-bold mb-4 text-center" style="color: #92aad0">
                         Update your account
                       </h4>
@@ -76,7 +24,7 @@
 
                       <div class="form-outline mb-4">
                         <label>User Age</label>
-                        <input type="number" class="form-control" formControlName="age" [value]="User.userName" [ngClass]="{'is-valid':age.dirty && age!.valid,'is-invalid':age!.dirty && !age!.valid}" id="ageValidation"  required>
+                        <input type="number" class="form-control" formControlName="age" [value]="User.age" [ngClass]="{'is-valid':age.dirty && age!.valid,'is-invalid':age!.dirty && !age!.valid}" id="ageValidation"  required>
                         <div class="invalid-feedback" >Invalid input</div>
                       </div>
 
@@ -94,9 +42,11 @@
 
                       <div class="form-outline mb-4">
                         <label>User Address</label>
-                        <input type="text" class="form-control" formControlName="address" [value]="User.userName" [ngClass]="{'is-valid':address.dirty && address.valid,'is-invalid':address&& !address.valid}" id="userAdressValidation"  required>
+                        <input type="text" class="form-control" formControlName="address" [value]="User.address" [ngClass]="{'is-valid':address.dirty && address.valid,'is-invalid':address&& !address.valid}" id="userAdressValidation"  required>
                         <label class="invalid-feedback" >Invalid input</label>
                       </div>
+
+
                       <div class="form-outline mb-4">
                         <label>Profile Photo</label>
                         <input type="file" class="form-control" formControlName="profileImage"
@@ -104,18 +54,21 @@
                         <label class="invalid-feedback" >Invalid
                           input</label>
                       </div>
+
+
+                      <label class="ms-1">About Me</label>
+                      <div class="form-floating m-1">
+                        <textarea class="form-control" id="floatingTextarea2" style="height: 100px"></textarea>
+                      </div>
+
                       <div class="form-outline mb-4">
                         <label class="form-label" for="form2Example2">Password</label>
-                        <input type="password" id="form2Example2" class="form-control" [ngClass]="{'is-valid':password.dirty && password.valid,'is-invalid':password&& !password.valid}" id="password"  required>
+                        <input type="password"  class="form-control" [ngClass]="{'is-valid':password.dirty && password.valid,'is-invalid':password&& !password.valid}" id="password" >
                         <div class="invalid-feedback">Invalid input</div>
                       </div>
-                      <div class="form-floating m-1">
-                        <label>About Me</label>
-                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
-                          style="height: 100px"></textarea>
-                      </div>
+
                       <div class="col-12 mt-2">
-                        <input type="submit" class="btn btn-outline-success" value="Update" />
+                        <input type="submit" class="btn btn-outline-dark" value="Update" />
                       </div>
                       <hr />
                       <a class="link float-end" href="#!">Forgot password? Click here.</a>
