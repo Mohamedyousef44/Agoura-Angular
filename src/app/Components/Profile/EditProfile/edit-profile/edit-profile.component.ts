@@ -11,7 +11,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class EditProfileComponent implements OnInit {
   ID = 1;
   User: any;
-  validationForm:any
+  validationForm:any;
+
 
   //get user id from route
   constructor(
@@ -24,26 +25,28 @@ export class EditProfileComponent implements OnInit {
 
 
 
-  //get the user from db to remeber the data
+  //get the user from db to remeber the data and validate user updates
   ngOnInit(): void {
     this.myService.GetUserByID(this.ID).subscribe({
       next: (data) => {
         console.log(data);
         this.User = data;
         this.validationForm = new FormGroup({
-            userName: new FormControl(null, [Validators.required,Validators.minLength(3) ]),
-            age: new FormControl(null, [Validators.required]),
-            address: new FormControl(null, [Validators.required]),
-            phone: new FormControl(null, [Validators.required]),
-            email: new FormControl(null, [Validators.email, Validators.required]),
-            profileImage: new FormControl(null, [ Validators.pattern(/\.(jpe?g|webp|png)$/i),]),
-            // password: new FormControl(null,[  Validators.minLength(10), Validators.maxLength(60) ])
+            userName: new FormControl(this.User.userName, [Validators.required,Validators.minLength(3) ]),
+            age: new FormControl(this.User.age, [Validators.required,Validators.pattern(/^[0-9]*$/),Validators.min(18)]),
+            address: new FormControl(this.User.address, [Validators.required]),
+            phone: new FormControl(this.User.phone, [Validators.required,Validators.minLength(10),Validators.pattern(/^[0-9]*$/)]),
+            email: new FormControl(this.User.email, [Validators.email, Validators.required]),
+            profileImage: new FormControl(this.User.profileImage, [ Validators.pattern(/\.(jpe?g|webp|png)$/i),]),
+            about:new FormControl(this.User.about)
           });
         this.validationForm.patchValue(this.User)
+
       },
       error: (err) => {},
     });
   }
+
 
 
 
@@ -68,18 +71,16 @@ export class EditProfileComponent implements OnInit {
   get profileImage() {
     return this.validationForm.controls['profileImage'];
   }
-  get password () {
-    return this.validationForm.controls["password"];
-  }
 
 
 
 
+//send data to database
 updateUser(){
   if (this.validationForm.valid){
     this.myService.UpdateUser(this.validationForm.value,this.ID).subscribe(data => {
         console.log(data);})
-        this.router.navigateByUrl('/students');
+        this.router.navigateByUrl('/');
   }
 }
 
