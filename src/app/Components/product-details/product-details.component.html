@@ -48,7 +48,7 @@
       <p class="text-start"><span>{{placeObj.address.country}} - </span><span>{{placeObj.address.city}} - </span><span>{{placeObj.address.street}} - </span><span>{{placeObj.address.zipcode}}</span></p>
       <hr>
       <h5 class="text-light-emphasis">Description</h5>
-      <p><span *ngFor="let feature of placeObj.features| keyvalue">{{feature.value+" "+feature.key}} . </span></p>
+      <p><span *ngFor="let feature of placeObj.features| keyvalue"><span *ngIf="feature.key!='area'">{{feature.value+" "+feature.key}} . </span>  </span><span>{{placeObj.features.area}} &#13217; in area</span></p>
       <hr/>
       <h5 class="text-light-emphasis">About this space</h5>
       <p>{{placeObj.aboutPlace}}</p>
