@@ -21,13 +21,10 @@
       *ngFor="let item of data"
     >
       <a
-        [routerLink]="
-          toggle == true
-            ? '/users/cart/{{item.id}}'
-            : '/users/notification/{{item.id}}'
-        "
+        [routerLink]="[toggle == true ? '/place/1' : item.href]"
         id="msg-line"
         class="mb-2 text-decoration-none"
+        data-bs-dismiss="offcanvas"
       >
         <div class="not-body my-3 d-flex flex-row justify-content-evenly py-3">
           <div class="me-3">

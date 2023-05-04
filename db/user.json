@@ -3,7 +3,7 @@
     "1":{
       "id":1,
       "name":"mohamed",
-      "notifications":[{"id":1 , "message":"welcome to agora"}, {"id":2 , "message":"welcome to agora"},{"id":3 , "message":"welcome to agora"}],
+      "notifications":[{"id":1 , "message":"welcome to agora" , "href":"/bidhistory/1"}, {"id":2 , "message":"welcome to agora" ,"href":"/place/1"},{"id":3 , "message":"welcome to agora" , "href":"/login"}],
       "cart":[{"id":1 , "product name":"apartment"} , {"id":2 , "product name":"villa"}]
     },
     "2":{
