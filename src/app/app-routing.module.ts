@@ -8,8 +8,7 @@ import { SignUpComponent } from './Components/Auth/sign-up/sign-up.component';
 import { AboutComponent } from './Components/about/about.component';
 import { CreateProductFormComponent } from './Components/create-product-form/create-product-form.component';
 import { BidHistoryComponent } from './Components/bid-history/bid-history.component';
-import { CartComponent } from './Components/cart/cart.component';
-import { NotificationComponent } from './Components/notification/notification.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -20,8 +19,6 @@ const routes: Routes = [
       { path: 'home', component: HomeComponent },
       { path: 'place/create', component: CreateProductFormComponent },
       { path: 'place/:id', component: ProductDetailsComponent },
-      { path: 'users/cart/:id', component: CartComponent },
-      { path: 'users/notification/:id', component: NotificationComponent },
       { path: 'bidhistory/:id', component: BidHistoryComponent },
       { path: 'about', component: AboutComponent },
     ],

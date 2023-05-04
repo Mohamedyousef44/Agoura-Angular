@@ -25,9 +25,8 @@ import { CreateProductFormComponent } from './Components/create-product-form/cre
 import { BidHistoryComponent } from './Components/bid-history/bid-history.component';
 import { OffcanvasComponent } from './Components/offcanvas/offcanvas.component';
 import { UserHomeDataService } from './Service/user-home-data.service';
-import { CartComponent } from './Components/cart/cart.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NotificationComponent } from './Components/notification/notification.component';
+
 
 
 
@@ -54,8 +53,7 @@ import { NotificationComponent } from './Components/notification/notification.co
     CreateProductFormComponent,
     BidHistoryComponent,
     OffcanvasComponent,
-    CartComponent,
-    NotificationComponent,
+
 
 
   ],

@@ -20,12 +20,9 @@
       class="d-flex flex-row justify-content-between align-items-center border-bottom"
       *ngFor="let item of data"
     >
+      <p>{{ item.href }}</p>
       <a
-        [routerLink]="
-          toggle == true
-            ? '/users/cart/{{item.id}}'
-            : '/users/notification/{{item.id}}'
-        "
+        [routerLink]="[toggle == true ? '/place/1' : item.href]"
         id="msg-line"
         class="mb-2 text-decoration-none"
       >
