@@ -1,1 +1,9 @@
-<p>up-to-top works!</p>
+<div
+  [ngStyle]="showBtn ? { display: 'block' } : { display: 'none' }"
+  class="fixed"
+>
+  <button class="btn btn-color" (click)="toUp()">
+    <i class="bi bi-arrow-up text-light"></i>
+  </button>
+  <p>{{ style }}</p>
+</div>
