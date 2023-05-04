@@ -2,7 +2,7 @@
 
 <section class="intro m-4">
   <div class="bg-image h-100">
-    <div class="mask d-flex align-items-center h-100" style="background-color: #8194aa">
+    <div class="mask d-flex align-items-center h-100" style="background-color: #ffffff">
       <div class="container pt-2">
         <div class="row d-flex justify-content-center align-items-center">
           <div class="col-12 col-md-10">
@@ -11,11 +11,11 @@
                 <div class="col-md-12 d-flex align-items-center">
                   <div class="card-body py-5 px-4 p-md-5">
                     <form [formGroup]="validationForm" action="" *ngIf="User" (ngSubmit)="updateUser()">
-                      <h4 class="fw-bold mb-4 text-center" style="color: #92aad0">
-                        Update your account
+                      <h4 class=" mb-4 text-center" style="color: #000000">
+                        Update Your Account
                       </h4>
                       <div class="form-outline mb-4">
-                        <label >User Name</label>
+                        <label class="form-label" >User Name</label>
                         <input type="text" class="form-control is-invalid" formControlName="userName"  [value]="User.userName" class="form-control is-invalid" [ngClass]="{'is-valid':userName.dirty && userName!.valid,'is-invalid':userName && !userName!.valid}" id="userNameValidation"  >
                         <div class="invalid-feedback"  >Invalid User Name Must be minmum 3 charachters</div>
                       </div>
@@ -57,7 +57,7 @@
                       </div>
 
                       <div class="col-12 mt-2">
-                        <input type="submit" class="btn btn-outline-dark" value="Update" />
+                        <input type="submit" class="btn btn-dark" value="Update" />
                       </div>
                       <hr />
                       <a class="link float-end" href="#!">Change password? Click here.</a>
