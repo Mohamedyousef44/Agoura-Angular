@@ -26,6 +26,7 @@ import { BidHistoryComponent } from './Components/bid-history/bid-history.compon
 import { OffcanvasComponent } from './Components/offcanvas/offcanvas.component';
 import { UserHomeDataService } from './Service/user-home-data.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UpToTopComponent } from './components/up-to-top/up-to-top.component';
 
 
 
@@ -53,6 +54,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CreateProductFormComponent,
     BidHistoryComponent,
     OffcanvasComponent,
+    UpToTopComponent,
 
 
 
