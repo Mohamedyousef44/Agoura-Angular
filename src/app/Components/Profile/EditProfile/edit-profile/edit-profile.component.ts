@@ -36,6 +36,7 @@ export class EditProfileComponent implements OnInit {
             phone: new FormControl(null, [Validators.required]),
             email: new FormControl(null, [Validators.email, Validators.required]),
             profileImage: new FormControl(null, [ Validators.pattern(/\.(jpe?g|webp|png)$/i),]),
+            password: new FormControl(null,[ Validators.required, Validators.minLength(10), Validators.maxLength(60) ])
           });
         this.validationForm.patchValue(this.User)
         //  this.validationForm = new FormGroup({
@@ -75,6 +76,9 @@ export class EditProfileComponent implements OnInit {
 
   get profileImage() {
     return this.validationForm.controls['profileImage'];
+  }
+  get password () {
+    return this.validationForm.controls["password"];
   }
 
   // get ageValid() {
@@ -133,19 +137,11 @@ export class EditProfileComponent implements OnInit {
 // update(){
 //   if (this.validationForm.valid){
 //     this.myService.UpdateUser(this.validationForm.value,this.ID).subscribe(data => {
-//       //   console.log(data);})
-//       //   this.router.navigateByUrl('/students');
+      //   console.log(data);})
+      //   this.router.navigateByUrl('/students');
 //   }
 // }
 
-/**<div class="col-md-3">
-        <label for="validationServer02" class="form-label">Country</label>
-        <input type="text" formControlName="country" name="country" placeholder="country" class="form-control is-invalid" [ngClass]="{'is-valid':country!.dirty && country!.valid,'is-invalid':country!.dirty && !country!.valid}" id="validationServer02" aria-describedby="validationServer02Feedback" required>
-        <div id="validationServer02Feedback" class="invalid-feedback" *ngIf="country!.dirty &&
-!country!.valid">
-          Please provide a valid Country.
-        </div>
-      </div> */
 
 
 }

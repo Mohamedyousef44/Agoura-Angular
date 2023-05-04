@@ -67,55 +67,50 @@
                         Update your account
                       </h4>
                       <div class="form-outline mb-4">
-                        <label for="userNameValidation">User Name</label>
-                        <input type="text" class="form-control is-invalid" formControlName="userName" id="userNameValidation" value="{{ User.userName }}" class="form-control is-invalid" [ngClass]="{'is-valid':userName.dirty && userName!.valid,'is-invalid':userName!.dirty && !userName!.valid}" id="userNameValidation"  required>
+                        <label >User Name</label>
+                        <input type="text" class="form-control is-invalid" formControlName="userName"  value="{{ User.userName }}" class="form-control is-invalid" [ngClass]="{'is-valid':userName.dirty && userName!.valid,'is-invalid':userName!.dirty && !userName!.valid}" id="userNameValidation"  required>
                         <div class="invalid-feedback"  >Invalid input</div>
                       </div>
 
-                      <!-- <div class="col-md-3">
-                        <label for="validationServer02" class="form-label">Country</label>
-                        <input type="text" formControlName="country" name="country" placeholder="country" class="form-control is-invalid" [ngClass]="{'is-valid':country!.dirty && country!.valid,'is-invalid':country!.dirty && !country!.valid}" id="validationServer02" aria-describedby="validationServer02Feedback" required>
-                        <div id="validationServer02Feedback" class="invalid-feedback" *ngIf="country!.dirty && !country!.valid">
-                          Please provide a valid Country.
-                        </div>
-                      </div>  -->
+
 
                       <div class="form-outline mb-4">
-                        <span>User Age</span>
-                        <input type="number" class="form-control" formControlName="age" [value]="User.userName" />
-                        <label class="text-danger" *ngIf="age.dirty && !age.valid">Invalid input</label>
-                      </div>
-                      <div class="form-outline mb-4">
-                        <span>User phone</span>
-                        <input type="number" class="form-control" formControlName="phone" [value]="User.userName" />
-                        <label class="text-danger" *ngIf="!phone.valid && phone.dirty">Invalid input</label>
+                        <label>User Age</label>
+                        <input type="number" class="form-control" formControlName="age" [value]="User.userName" [ngClass]="{'is-valid':age.dirty && age!.valid,'is-invalid':age!.dirty && !age!.valid}" id="ageValidation"  required>
+                        <div class="invalid-feedback" >Invalid input</div>
                       </div>
 
                       <div class="form-outline mb-4">
-                        <span>User Email</span>
-                        <input type="email" class="form-control" formControlName="email" [value]="User.email" />
-                        <label class="text-danger" *ngIf="!email.valid && email.dirty">Invalid input</label>
+                        <label>User phone</label>
+                        <input type="number" class="form-control" formControlName="phone" [value]="User.userName" [ngClass]="{'is-valid':phone.dirty && phone!.valid,'is-invalid':phone!.dirty && !phone!.valid}" id="phoneValidation"  required>
+                        <div class="invalid-feedback" *ngIf="!phone.valid && phone.dirty">Invalid input</div>
                       </div>
 
                       <div class="form-outline mb-4">
-                        <span>User Address</span>
-                        <input type="text" class="form-control" formControlName="address" [value]="User.userName" />
-                        <label class="text-danger" *ngIf="!address.valid && address.dirty">Invalid input</label>
+                        <label>User Email</label>
+                        <input type="email" class="form-control" formControlName="email" [value]="User.email" [ngClass]="{'is-valid':email.dirty && email!.valid,'is-invalid':email!.dirty && !email!.valid}" id="emailValidation"  required>
+                        <label class="invalid-feedback" *ngIf="!email.valid && email.dirty">Invalid input</label>
+                      </div>
+
+                      <div class="form-outline mb-4">
+                        <label>User Address</label>
+                        <input type="text" class="form-control" formControlName="address" [value]="User.userName" [ngClass]="{'is-valid':address.dirty && address.valid,'is-invalid':address&& !address.valid}" id="userAdressValidation"  required>
+                        <label class="invalid-feedback" >Invalid input</label>
                       </div>
                       <div class="form-outline mb-4">
-                        <span>Profile Photo</span>
+                        <label>Profile Photo</label>
                         <input type="file" class="form-control" formControlName="profileImage"
-                          placeholder="Upload Your Profile-image" />
-                        <label class="text-danger" *ngIf="!profileImage.valid && profileImage.dirty">Invalid
+                          placeholder="Upload Your Profile-image" [ngClass]="{'is-valid':profileImage.dirty && profileImage.valid,'is-invalid':profileImage&& !profileImage.valid}" id="profileImage"  required>
+                        <label class="invalid-feedback" >Invalid
                           input</label>
                       </div>
                       <div class="form-outline mb-4">
                         <label class="form-label" for="form2Example2">Password</label>
-                        <input type="password" id="form2Example2" class="form-control" />
-                        <!-- <label class="text-danger" *ngIf="!ageValid ">Invalid input</label> -->
+                        <input type="password" id="form2Example2" class="form-control" [ngClass]="{'is-valid':password.dirty && password.valid,'is-invalid':password&& !password.valid}" id="password"  required>
+                        <div class="invalid-feedback">Invalid input</div>
                       </div>
                       <div class="form-floating m-1">
-                        <span>About Me</span>
+                        <label>About Me</label>
                         <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
                           style="height: 100px"></textarea>
                       </div>
@@ -135,3 +130,12 @@
     </div>
   </div>
 </section>
+
+
+   <!-- <div class="col-md-3">
+                        <label for="validationServer02" class="form-label">Country</label>
+                        <input type="text" formControlName="country" name="country" placeholder="country" class="form-control is-invalid" [ngClass]="{'is-valid':country!.dirty && country!.valid,'is-invalid':country!.dirty && !country!.valid}" id="validationServer02" aria-describedby="validationServer02Feedback" required>
+                        <div id="validationServer02Feedback" class="invalid-feedback" *ngIf="country!.dirty && !country!.valid">
+                          Please provide a valid Country.
+                        </div>
+                      </div>  -->
