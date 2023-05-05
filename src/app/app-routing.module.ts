@@ -44,9 +44,10 @@ const routes: Routes = [
   {path : 'signup' , component: SignUpComponent},
   {path : 'forgetpassword' , component: ForgetPasswordComponent},
   {path: 'otp', component: OtpComponent},
-  { path: '**', component: NotfoundPageComponent },
+  {path: '**', component: NotfoundPageComponent},
 
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

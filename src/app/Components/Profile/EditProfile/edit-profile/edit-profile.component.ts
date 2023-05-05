@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MainPageService } from 'src/app/Service/main-page.service';
+import { ProfilePageService } from 'src/app/Service/profile-page.service';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -17,7 +17,7 @@ export class EditProfileComponent implements OnInit {
   //get user id from route
   constructor(
     myRoute: ActivatedRoute,
-    public myService: MainPageService,
+    public myService: ProfilePageService,
     public router: Router,
     private fb: FormBuilder
   ) {

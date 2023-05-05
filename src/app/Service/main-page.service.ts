@@ -16,14 +16,6 @@ export class MainPageService {
     //method[Get-Delete-Put-Patch]
     return this.myClient.get(this.Base_URL);
   }
-  GetUserByID(id:any){
-    return this.myClient.get(this.Base_URL+"/"+id);
-  }
 
-  UpdateUser(newUser:any,id:any){
-
-    return this.myClient.put(this.Base_URL+"/"+id,newUser)
-
-  }
 
 }
