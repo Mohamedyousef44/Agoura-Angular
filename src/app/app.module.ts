@@ -30,8 +30,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NotificationComponent } from './Components/notification/notification.component';
 import { ForgetPasswordComponent } from './Components/forget-password/forget-password.component';
 import { OtpComponent } from './Components/otp/otp.component';
-import { ForgotPasswordComponent } from './Components/forgot-password/forgot-password.component';
-import { ResetPasswordComponent } from './Components/reset-password/reset-password.component';
 
 
 
@@ -62,10 +60,6 @@ import { ResetPasswordComponent } from './Components/reset-password/reset-passwo
     NotificationComponent,
     ForgetPasswordComponent,
     OtpComponent,
-    ForgotPasswordComponent,
-    ResetPasswordComponent
-
-
 
   ],
 
