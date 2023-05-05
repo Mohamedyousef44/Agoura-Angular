@@ -14,9 +14,8 @@ import { MainPageService } from 'src/app/Service/main-page.service';
 export class MainPageItemsSectionComponent {
 
   allItems:any;
-  constructor(public myService:MainPageService){
+  constructor(public myService:MainPageService){}
 
-  }
   ngOnInit(): void {
     this.myService.GetAllItems().subscribe(
       {
