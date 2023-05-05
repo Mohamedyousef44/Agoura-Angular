@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class NightModeComponent {
 
+  toggleNightMode() {
+    document.body.classList.toggle('night-mode');
+  }
+
 }
