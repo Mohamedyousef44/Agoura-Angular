@@ -6,7 +6,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.css']
 })
-export class NavBarComponent implements OnInit {
+export class NavBarComponent {
 
   @Input("text-color") inputTextColor!:string;
   textColor!:string;
@@ -16,10 +16,6 @@ export class NavBarComponent implements OnInit {
   @Input('notLen') notLen: any
 
 
-  ngOnInit(){
-    console.log(this.textColor,this.borderHoverColor)
-
-  }
 
   check(data: any){
     this.element = data.target.parentElement

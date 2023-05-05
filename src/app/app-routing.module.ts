@@ -10,6 +10,10 @@ import { CreateProductFormComponent } from './Components/create-product-form/cre
 import { BidHistoryComponent } from './Components/bid-history/bid-history.component';
 import { CartComponent } from './Components/cart/cart.component';
 import { NotificationComponent } from './Components/notification/notification.component';
+import { ForgetPasswordComponent } from './Components/forget-password/forget-password.component';
+import { OtpComponent } from './Components/otp/otp.component';
+import { ForgotPasswordComponent } from './Components/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './Components/reset-password/reset-password.component';
 
 
 const routes: Routes = [
@@ -23,13 +27,18 @@ const routes: Routes = [
     {path: "users/notification/:id" , component:NotificationComponent},
     { path: 'bidhistory', component: BidHistoryComponent },
     {path: 'about', component: AboutComponent },
+    {path: 'forgot-password', component: ForgotPasswordComponent},
+    {path: 'reset-password', component: ResetPasswordComponent},
+
 
   ]
 },
 
   {path : 'login' , component : LoginComponent},
   {path : 'signup' , component: SignUpComponent},
-  {path : 'signup' , component: SignUpComponent}
+  {path : 'signup' , component: SignUpComponent},
+  {path : 'forgetpassword' , component: ForgotPasswordComponent}
+  {path: 'otp', component: OtpComponent},
 
   // {path : "**",}
 ];

@@ -28,6 +28,10 @@ import { UserHomeDataService } from './Service/user-home-data.service';
 import { CartComponent } from './Components/cart/cart.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NotificationComponent } from './Components/notification/notification.component';
+import { ForgetPasswordComponent } from './Components/forget-password/forget-password.component';
+import { OtpComponent } from './Components/otp/otp.component';
+import { ForgotPasswordComponent } from './Components/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './Components/reset-password/reset-password.component';
 
 
 
@@ -56,6 +60,11 @@ import { NotificationComponent } from './Components/notification/notification.co
     OffcanvasComponent,
     CartComponent,
     NotificationComponent,
+    ForgetPasswordComponent,
+    OtpComponent,
+    ForgotPasswordComponent,
+    ResetPasswordComponent
+
 
 
   ],
