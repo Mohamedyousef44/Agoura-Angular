@@ -5,18 +5,19 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ProfilePageService {
-  Base_URL: any
 
-  constructor(private readonly myClient:HttpClient) { }
+  private readonly Base_URL = "http://localhost:3000/users";
+
+  constructor(private readonly myClient: HttpClient) { }
 
 
-  GetUserByID(id:any){
-    return this.myClient.get(this.Base_URL+"/"+id);
+  GetUserByID(id: any) {
+    return this.myClient.get(this.Base_URL + "/" + id);
   }
 
-  UpdateUser(newUser:any,id:any){
+  UpdateUser(newUser: any, id: any) {
 
-    return this.myClient.put(this.Base_URL+"/"+id,newUser)
+    return this.myClient.put(this.Base_URL + "/" + id, newUser)
 
   }
 }
