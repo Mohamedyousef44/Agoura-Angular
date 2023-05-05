@@ -12,16 +12,17 @@ export class LayoutComponent implements OnInit {
   notificationData: any
   cartData: any
   isCart: any
+  id:any;
   constructor(private service: UserHomeDataService){
-
+    this.id=1;
   }
   ngOnInit(): void {
-
-    this.service.getUser().subscribe({
+    this.id=1;
+    this.service.getUserById(this.id).subscribe({
       next:(data: any)=>{
-        this.notificationData = data[0][1].notifications
-        this.cartData = data[0][1].cart
-        console.log(this.cartData.length)
+        this.notificationData = data["notifications"]
+        this.cartData = data["cart"]
+        // console.log(this.notificationData)
       } ,
       error:(e:Error)=> console.log(e)
     })
