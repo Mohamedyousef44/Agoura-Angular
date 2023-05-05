@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-checkout',
@@ -6,6 +6,10 @@ import { Component } from '@angular/core';
   styles: [
   ]
 })
-export class CheckoutComponent {
+export class CheckoutComponent implements OnInit {
+  
+  ngOnInit(): void {
+    // for the aside info subtotal, taxes and total values 
+  }
 
 }

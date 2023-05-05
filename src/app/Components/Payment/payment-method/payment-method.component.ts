@@ -22,6 +22,8 @@ export class PaymentMethodComponent {
       this.customerPaymentInfo["cardNumber"] = this.validationForm.controls["cardNumber"].value;
       this.customerPaymentInfo["expiryDate"] = this.validationForm.controls["expiryDate"].value;
       this.customerPaymentInfo["cvv"] = this.validationForm.controls["cvv"].value;
+  
+      // HTTP 1.1 Post to the server-side  
     }
   }
   get name () {
