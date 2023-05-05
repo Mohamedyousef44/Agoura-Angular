@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './Components/Auth/login/login.component';
-import { RouterModule, Routes } from '@angular/router';
 import { FacebookButtonComponent } from './Components/Auth/thirdPartyLoginButtons/facebook-button/facebook-button.component';
 import { GoogleButtonComponent } from './Components/Auth/thirdPartyLoginButtons/google-button/google-button.component';
 import { AppleButtonComponent } from './Components/Auth/thirdPartyLoginButtons/apple-button/apple-button.component';
@@ -24,7 +23,14 @@ import { LayoutComponent } from './Components/layout/layout.component';
 import { ProfileComponent } from './Components/Profile/profile/profile.component';
 import { EditProfileComponent } from './Components/Profile/EditProfile/edit-profile/edit-profile.component';
 import { AboutUserComponent } from './Components/Profile/about-user/about-user.component';
-import { NightModeComponent } from './Components/night-mode/night-mode.component';
+import { AboutComponent } from './Components/about/about.component';
+import { CreateProductFormComponent } from './Components/create-product-form/create-product-form.component';
+import { BidHistoryComponent } from './Components/bid-history/bid-history.component';
+import { OffcanvasComponent } from './Components/offcanvas/offcanvas.component';
+import { UserHomeDataService } from './Service/user-home-data.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UpToTopComponent } from './Components/up-to-top/up-to-top.component';
+
 
 
 
@@ -51,6 +57,12 @@ import { NightModeComponent } from './Components/night-mode/night-mode.component
     EditProfileComponent,
     AboutUserComponent,
     NightModeComponent,
+    AboutComponent,
+    CreateProductFormComponent,
+    BidHistoryComponent,
+    OffcanvasComponent,
+    UpToTopComponent,
+
   ],
 
   imports: [
@@ -59,10 +71,11 @@ import { NightModeComponent } from './Components/night-mode/night-mode.component
     HttpClientModule,
     CarouselModule.forRoot(),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
 
   ],
-  providers: [],
+  providers: [UserHomeDataService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,0 +1,9 @@
+.fixed{
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+.btn-color{
+  background-color: #46756F;
+}
