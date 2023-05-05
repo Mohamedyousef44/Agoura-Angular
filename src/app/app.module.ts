@@ -20,6 +20,8 @@ import { FooterUpperComponent } from './Components/footer-upper/footer-upper.com
 import { FooterLowerComponent } from './Components/footer-lower/footer-lower.component';
 import { FooterComponent } from './Components/footer/footer.component';
 import { LayoutComponent } from './Components/layout/layout.component';
+import { CheckoutComponent } from './Components/Payment/checkout/checkout.component';
+import { PaymentMethodComponent } from './Components/Payment/payment-method/payment-method.component';
 import { ProfileComponent } from './Components/Profile/profile/profile.component';
 import { EditProfileComponent } from './Components/Profile/EditProfile/edit-profile/edit-profile.component';
 import { AboutUserComponent } from './Components/Profile/about-user/about-user.component';
@@ -31,9 +33,6 @@ import { UserHomeDataService } from './Service/user-home-data.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UpToTopComponent } from './Components/up-to-top/up-to-top.component';
 import { NotfoundPageComponent } from './Components/notfound-page/notfound-page.component';
-
-
-
 
 
 @NgModule({
@@ -54,6 +53,8 @@ import { NotfoundPageComponent } from './Components/notfound-page/notfound-page.
     FooterComponent,
     CategoryScrollerComponent,
     LayoutComponent,
+    CheckoutComponent,
+    PaymentMethodComponent,  
     ProfileComponent,
     EditProfileComponent,
     AboutUserComponent,
@@ -63,7 +64,6 @@ import { NotfoundPageComponent } from './Components/notfound-page/notfound-page.
     OffcanvasComponent,
     UpToTopComponent,
     NotfoundPageComponent,
-
   ],
 
   imports: [

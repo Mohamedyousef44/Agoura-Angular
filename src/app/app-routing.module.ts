@@ -5,6 +5,7 @@ import { HomeComponent } from './Components/home/home.component';
 import { LayoutComponent } from './Components/layout/layout.component';
 import { LoginComponent } from './Components/Auth/login/login.component';
 import { SignUpComponent } from './Components/Auth/sign-up/sign-up.component';
+import { CheckoutComponent } from './Components/Payment/checkout/checkout.component';
 import { ProfileComponent } from './Components/Profile/profile/profile.component';
 import { EditProfileComponent } from './Components/Profile/EditProfile/edit-profile/edit-profile.component';
 import { AboutUserComponent } from './Components/Profile/about-user/about-user.component';
@@ -25,6 +26,7 @@ const routes: Routes = [
       { path: 'place/:id', component: ProductDetailsComponent },
       { path: 'bidhistory/:id', component: BidHistoryComponent },
       { path: 'about', component: AboutComponent },
+      {path : "checkout" , component : CheckoutComponent},
       {path:"user/:id",component:ProfileComponent,children:[
           {path:"edit",component:EditProfileComponent},
           {path:"about",component:AboutUserComponent}
