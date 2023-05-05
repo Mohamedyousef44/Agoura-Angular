@@ -20,6 +20,9 @@ import { FooterUpperComponent } from './Components/footer-upper/footer-upper.com
 import { FooterLowerComponent } from './Components/footer-lower/footer-lower.component';
 import { FooterComponent } from './Components/footer/footer.component';
 import { LayoutComponent } from './Components/layout/layout.component';
+import { ProfileComponent } from './Components/Profile/profile/profile.component';
+import { EditProfileComponent } from './Components/Profile/EditProfile/edit-profile/edit-profile.component';
+import { AboutUserComponent } from './Components/Profile/about-user/about-user.component';
 import { AboutComponent } from './Components/about/about.component';
 import { CreateProductFormComponent } from './Components/create-product-form/create-product-form.component';
 import { BidHistoryComponent } from './Components/bid-history/bid-history.component';
@@ -27,7 +30,6 @@ import { OffcanvasComponent } from './Components/offcanvas/offcanvas.component';
 import { UserHomeDataService } from './Service/user-home-data.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UpToTopComponent } from './Components/up-to-top/up-to-top.component';
-
 
 
 
@@ -51,6 +53,10 @@ import { UpToTopComponent } from './Components/up-to-top/up-to-top.component';
     FooterComponent,
     CategoryScrollerComponent,
     LayoutComponent,
+    ProfileComponent,
+    EditProfileComponent,
+    AboutUserComponent,
+    NightModeComponent,
     AboutComponent,
     CreateProductFormComponent,
     BidHistoryComponent,

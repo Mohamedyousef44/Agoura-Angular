@@ -1,0 +1,73 @@
+
+
+
+<section class="h-100 gradient-custom-2">
+  <div class="container py-5 h-100 ">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-12 col-md-12">
+        <div class="card">
+          <div class="rounded-top text-white d-flex flex-row"  style=" background: linear-gradient(to bottom, #1d61c7, #83aedd);  height:200px;">
+
+            <div class="ms-4 mt-5 d-flex flex-column " style="width: 150px;">
+              <img src="{{ UserDetails.profileImage }}"
+                alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2"
+                style="width: 150px; z-index: 1">
+            </div>
+            <div class="ms-3" style="margin-top: 130px;">
+              <h5>{{ UserDetails.userName }}</h5>
+              <p>{{ UserDetails.location}}</p>
+            </div>
+
+          </div>
+          <div class="p-4 text-black" style="background: linear-gradient(to bottom, #e1e8f1, #7c7c7c);">
+            <div class="d-flex justify-content-end text-center py-1">
+
+              <div class="m-1">
+                <a class="btn btn-outline-dark" routerLinkActive="active" routerLink="/user/{{UserDetails.id}}/about">About Me</a>
+              </div>
+
+              <div class="m-1">
+                <a class="btn btn-outline-dark" >Your Bids</a>
+              </div>
+              <div class="m-1">
+                <a class="btn btn-outline-dark">Post Your Property</a>
+              </div>
+              <div class="m-1">
+                <a type="button" class="btn btn-outline-dark" routerLinkActive="active" routerLink="/user/{{UserDetails.id}}/edit">Edit Profile
+                </a>
+              </div>
+
+            </div>
+          </div>
+
+
+          <div class="card-body p-4 text-black border ">
+
+              <router-outlet></router-outlet>
+          </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</section>
+
+
+<!-- <div class="row g-2">
+              <div class="col mb-2">
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(112).webp"
+                  alt="image 1" class="w-100 rounded-3">
+              </div>
+              <div class="col mb-2">
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(107).webp"
+                  alt="image 1" class="w-100 rounded-3">
+              </div>
+            </div>
+            <div class="row g-2">
+              <div class="col">
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(108).webp"
+                  alt="image 1" class="w-100 rounded-3">
+              </div>
+              <div class="col">
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(114).webp"
+                  alt="image 1" class="w-100 rounded-3">
+              </div> -->
