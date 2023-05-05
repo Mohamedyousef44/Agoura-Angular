@@ -1,4 +1,4 @@
-<app-nav-bar
+<app-nav-bar *ngIf="cartData"
   text-color="text-dark"
   (toggle)="isCart = $event"
   [cartLen]="cartData.length || 0"

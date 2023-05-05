@@ -1,0 +1,50 @@
+<section class="ms-5">
+    <h4><strong>Payment Method</strong></h4>
+    <form (ngSubmit)='validate()' [formGroup]="validationForm" action="" style="width: 50vh;" class="mt-4 mt-1">
+        <div>
+            <label for="exampleFormControlInput1" class="form-label">Full name (on the card)</label>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill"></i></span>
+                <input formControlName="name" type="text" class="form-control" placeholder="The exact name in your credit card" aria-label="Fullname" aria-describedby="basic-addon1">
+            </div>
+        </div>
+        <div *ngIf="!name && isNameDirty()">
+            <span class="bg-danger rounded-1 bg-gradient text-light p-1 m-1 d-block">Enter a vaild name without numbers or special characters</span>
+        </div>
+        <div>
+            <label for="exampleFormControlInput1" class="form-label">Card number</label>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="bi bi-credit-card-2-back-fill"></i></span>
+                <input formControlName="cardNumber"  type="text" class="form-control" placeholder="Your credit card number" aria-label="Credit card number" aria-describedby="basic-addon1">
+            </div>
+        </div>
+        <div *ngIf="!cardNumber && isCardNumberDirty()">
+            <span class="bg-danger rounded-1 bg-gradient text-light p-1 m-1 d-block">Enter a vaild credit card number it should be 16 digits</span>
+        </div>
+        <div class="d-flex justify-content-between gap-2">
+            <div class="col-6">
+                <label for="exampleFormControlInput1" class="form-label">Expiry</label>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1"><i class="bi bi-calendar-minus-fill"></i></span>
+                    <input formControlName="expiryDate" type="text" class="form-control" placeholder="Credit expiry" aria-label="Credit card expiry" aria-describedby="basic-addon1">
+                  </div>
+                  <div *ngIf="!expiryDate && isExpiryDateDirty()">
+                    <span class="bg-danger rounded-1 bg-gradient text-light p-1 m-1 d-block">Enter a vaild expiry date, The exact like in your credit card 12/24</span>
+                </div>                 
+            </div>
+
+            <div class="col-6">
+                <label for="exampleFormControlInput1" class="form-label">CVV</label>
+                <input  formControlName="cvv" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Credit CVV" required>
+                <div *ngIf="!cvv && isCVVDirty()">
+                    <span class="bg-danger rounded-1 bg-gradient text-light p-1 m-1 d-block">
+                        Enter a vaild CVV number,
+                        <a class="text-light" href="https://www.cvvnumber.com/" target="_blank">What's CVV?</a>
+                    </span>
+                </div>
+            </div>
+
+        </div>
+        <button class="btn btn-dark w-100 mt-3" type="submit">Confirm Purchase</button>  
+    </form>
+</section>

@@ -1,0 +1,14 @@
+  <div class="otp-container">
+    <div class="otp-logo"><img src="/assets/photos/verify.jpg" alt="Logo"></div>
+    <div class="otp-title">OTP Verification</div>
+    <p class="forget-password-desc">Please enter the code sent to you by email.</p>
+    <form (ngSubmit)="onSubmit()" class="otp-form">
+      <div class="otp-inputs">
+        <input type="text" [(ngModel)]="otp" name="otp" maxlength="6" required>
+      </div>
+      <div class="otp-actions">
+        <button class="otp-verify-btn" type="submit">Verify OTP</button>
+      </div>
+    </form>
+  </div>
+

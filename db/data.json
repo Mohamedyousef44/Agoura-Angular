@@ -68,22 +68,99 @@
     "country":"Egypt",
     "BID":100000,
     "images":["/assets/photos/image3.webp","/assets/photos/image9.jpg"]
-}
-
-],
-"users":[{
-  "1":{
+}],
+"users":[
+  {
     "id":1,
     "name":"mohamed",
+    "userName": "Omar1896",
+    "email": "omar@test.com",
+    "joinedsince": "April-2023",
+    "location": "Egypt",
+    "profileImage": "/assets/photos/omar-1.jpeg",
+    "about": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias quibusdam perferendis commodi. Soluta adipisci, facilis sint autem amet molestiae rerum repellat explicabo recusandae obcaecati temporibus odio provident magni perferendis aut! ",
     "notifications":[{"id":1 , "message":"welcome to agora"}, {"id":2 , "message":"welcome to agora"},{"id":3 , "message":"welcome to agora"}],
     "cart":[{"id":1 , "product name":"apartment"} , {"id":2 , "product name":"villa"}]
   },
-  "2":{
+  {
     "id":2,
     "name":"ahmed",
+    "userName": "Omar1896",
+    "email": "omar@test.com",
+    "joinedsince": "April-2023",
+    "location": "Egypt",
+    "profileImage": "/assets/photos/omar-1.jpeg",
+    "about": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias quibusdam perferendis commodi. Soluta adipisci, facilis sint autem amet molestiae rerum repellat explicabo recusandae obcaecati temporibus odio provident magni perferendis aut! ",
     "notifications":[{"id":1 , "message":"welcome to agora"}],
     "cart":[{"id":1 , "product name":"apartment"}]
   }
-}
+],
+"place":[
+  {
+    "id":1,
+    "title": "Achinos By The Sea Milos",
+    "address": {
+      "country": "Egypt",
+      "city": "damanhour",
+      "street": "abdelsalam elshazly",
+      "zipcode": "22511"
+    },
+    "features": { "bedRooms": "4", "baths": "2", "area": "100", "kitchen": "2", "guests": "3" },
+    "aboutPlace": "Did you spent your time working on stressing situations away from your family and friends? Do you feel like you need time away from the everyday routine? “Achinos By the Sea” is the place for you and your fellowship! Spend your vacation at this traditional Sirma (boat-house) and get in line with the sound of the sea and the waves. Let the pure north Aegean wind take away all your consideration!Take advantage of our Greek hospitality and let your self travel like the summer breeze!",
+    "startBid": "100000",
+    "duration": "23",
+    "agreeToTerms": true,
+    "images": [
+      "/assets/photos/1683138412952.jpg",
+      "/assets/photos/1683138412953.jpg",
+      "/assets/photos/1683138412958.jpg",
+      "/assets/photos/1683138412965.jpg",
+      "/assets/photos/1683138412973.jpg"
+    ]
+  },
+  {
+    "id":2,
+    "title": "Guesthouse Bedroom 1/Private Parking - Mt. Vernon",
+    "address": {
+      "country": "United States",
+      "city": "Baltimore",
+      "street": "Maryland",
+      "zipcode": "22511"
+    },
+    "features": { "bedRooms": "3", "baths": "3", "area": "300", "kitchen": "3", "guests": "3" },
+    "aboutPlace": "Did you spent your time working on stressing situations away from your family and friends? Do you feel like you need time away from the everyday routine? “Achinos By the Sea” is the place for you and your fellowship! Spend your vacation at this traditional Sirma (boat-house) and get in line with the sound of the sea and the waves. Let the pure north Aegean wind take away all your consideration!Take advantage of our Greek hospitality and let your self travel like the summer breeze!",
+    "startBid": "100000",
+    "duration": "23",
+    "agreeToTerms": true,
+    "images": [
+      "/assets/photos/1683138412952.jpg",
+      "/assets/photos/1683138412953.jpg",
+      "/assets/photos/1683138412958.jpg",
+      "/assets/photos/1683138412965.jpg",
+      "/assets/photos/1683138412973.jpg"
+    ]
+  },
+  {
+    "id":3,
+    "title": "Lavish 3BR+1 with Burj Khalifa View - South Ridge",
+    "address": {
+      "country": "United Arab Emirates",
+      "city": "Dubai",
+      "street": "Dubai",
+      "zipcode": "22511"
+    },
+    "features": { "bedRooms": "4", "baths": "3.5", "area": "300", "kitchen": "3", "guests": "7" },
+    "aboutPlace": "South Ridge residents can easily access Dubai Mall, which is the largest shopping mall and entertainment destination, and Souk Al Bahar. The major attractions of this area include Burj Khalifa and The Dubai Fountain, which is a captivating musical water display. Burj Park, located in the heart of Downtown Dubai, is a spectacular place where residents can unwind themselves after a long day or enjoy multiple occasions such as New Year's Eve Gala.",
+    "startBid": "100000",
+    "duration": "20",
+    "agreeToTerms": true,
+    "images": [
+      "/assets/photos/1683138412952.jpg",
+      "/assets/photos/1683138412953.jpg",
+      "/assets/photos/1683138412958.jpg",
+      "/assets/photos/1683138412965.jpg",
+      "/assets/photos/1683138412973.jpg"
+    ]
+  }
 ]
 }
