@@ -28,8 +28,10 @@ const routes: Routes = [
       { path: 'about', component: AboutComponent },
       {path : "checkout" , component : CheckoutComponent},
       {path:"user/:id",component:ProfileComponent,children:[
+        { path: '', redirectTo: 'about', pathMatch: 'full' },
           {path:"edit",component:EditProfileComponent},
-          {path:"about",component:AboutUserComponent}
+          {path:"about",component:AboutUserComponent},
+
         ]}
     ],
   },
