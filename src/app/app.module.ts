@@ -7,7 +7,7 @@ import { FacebookButtonComponent } from './Components/Auth/thirdPartyLoginButton
 import { GoogleButtonComponent } from './Components/Auth/thirdPartyLoginButtons/google-button/google-button.component';
 import { AppleButtonComponent } from './Components/Auth/thirdPartyLoginButtons/apple-button/apple-button.component';
 import { SignUpComponent } from './Components/Auth/sign-up/sign-up.component';
-import { MainPageItemsSectionComponent } from './MainPageComponent/main-page-items-section/main-page-items-section.component';
+import { MainPageItemsSectionComponent } from './Components/main-page-items-section/main-page-items-section.component';
 import { HttpClientModule }from'@angular/common/http';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { CategoryScrollerComponent } from './Components/category-scroller/category-scroller.component';
@@ -23,7 +23,7 @@ import { LayoutComponent } from './Components/layout/layout.component';
 import { CheckoutComponent } from './Components/Payment/checkout/checkout.component';
 import { PaymentMethodComponent } from './Components/Payment/payment-method/payment-method.component';
 import { ProfileComponent } from './Components/Profile/profile/profile.component';
-import { EditProfileComponent } from './Components/Profile/EditProfile/edit-profile/edit-profile.component';
+import { EditProfileComponent } from './Components/Profile/edit-profile/edit-profile.component';
 import { AboutUserComponent } from './Components/Profile/about-user/about-user.component';
 import { AboutComponent } from './Components/about/about.component';
 import { CreateProductFormComponent } from './Components/create-product-form/create-product-form.component';
