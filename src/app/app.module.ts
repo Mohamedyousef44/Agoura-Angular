@@ -56,7 +56,6 @@ import { UpToTopComponent } from './Components/up-to-top/up-to-top.component';
     ProfileComponent,
     EditProfileComponent,
     AboutUserComponent,
-    NightModeComponent,
     AboutComponent,
     CreateProductFormComponent,
     BidHistoryComponent,
