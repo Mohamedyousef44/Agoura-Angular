@@ -11,6 +11,7 @@ import { AboutUserComponent } from './Components/Profile/about-user/about-user.c
 import { AboutComponent } from './Components/about/about.component';
 import { CreateProductFormComponent } from './Components/create-product-form/create-product-form.component';
 import { BidHistoryComponent } from './Components/bid-history/bid-history.component';
+import { NotfoundPageComponent } from './Components/notfound-page/notfound-page.component';
 
 
 const routes: Routes = [
@@ -34,7 +35,10 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignUpComponent },
   { path: 'signup', component: SignUpComponent },
-]
+
+  { path: '**', component: NotfoundPageComponent },
+
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
