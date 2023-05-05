@@ -15,8 +15,6 @@ export class NavBarComponent {
   @Input('cartLen') cartLen: any
   @Input('notLen') notLen: any
 
-
-
   check(data: any){
     this.element = data.target.parentElement
     if(this.element.id === 'cart'){

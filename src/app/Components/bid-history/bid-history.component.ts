@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-bid-history',
@@ -22,6 +23,10 @@ export class BidHistoryComponent {
       ['3***0', 'EUR 180.00', '2 May 2023 at 5:03:20am PDT'],
     ],
   };
+  id: any;
+  constructor(myRoute: ActivatedRoute) {
+    this.id = myRoute.snapshot.params['id'];
+  }
 
   placeBid() {
     console.log('place bid');
