@@ -31,7 +31,6 @@ import { BidHistoryComponent } from './Components/bid-history/bid-history.compon
 import { OffcanvasComponent } from './Components/offcanvas/offcanvas.component';
 import { UserHomeDataService } from './Service/user-home-data.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NotificationComponent } from './Components/notification/notification.component';
 import { ForgetPasswordComponent } from './Components/forget-password/forget-password.component';
 import { OtpComponent } from './Components/otp/otp.component';
 import { UpToTopComponent } from './Components/up-to-top/up-to-top.component';
@@ -57,7 +56,7 @@ import { NotfoundPageComponent } from './Components/notfound-page/notfound-page.
     CategoryScrollerComponent,
     LayoutComponent,
     CheckoutComponent,
-    PaymentMethodComponent,  
+    PaymentMethodComponent,
     ProfileComponent,
     EditProfileComponent,
     AboutUserComponent,
@@ -65,8 +64,6 @@ import { NotfoundPageComponent } from './Components/notfound-page/notfound-page.
     CreateProductFormComponent,
     BidHistoryComponent,
     OffcanvasComponent,
-    CartComponent,
-    NotificationComponent,
     ForgetPasswordComponent,
     OtpComponent,
     UpToTopComponent,
