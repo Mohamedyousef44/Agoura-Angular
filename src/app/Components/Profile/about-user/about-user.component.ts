@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { MainPageService } from 'src/app/Service/main-page.service';
+import { ProfilePageService } from 'src/app/Service/profile-page.service';
 
 @Component({
   selector: 'app-about-user',
@@ -11,7 +11,7 @@ export class AboutUserComponent {
   ID=1;
   UserDetails:any
 
-  constructor(public myService:MainPageService,myRoute:ActivatedRoute){
+  constructor(public myService:ProfilePageService,myRoute:ActivatedRoute){
     //
     // this.ID = myRoute.snapshot.params["id"];-->active this code when data static
   }
