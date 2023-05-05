@@ -68,23 +68,32 @@
     "country":"Egypt",
     "BID":100000,
     "images":["/assets/photos/image3.webp","/assets/photos/image9.jpg"]
-}
-
-],
-"users":[{
-  "1":{
+}],
+"users":[
+  {
     "id":1,
     "name":"mohamed",
+    "userName": "Omar1896",
+    "email": "omar@test.com",
+    "joinedsince": "April-2023",
+    "location": "Egypt",
+    "profileImage": "/assets/photos/omar-1.jpeg",
+    "about": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias quibusdam perferendis commodi. Soluta adipisci, facilis sint autem amet molestiae rerum repellat explicabo recusandae obcaecati temporibus odio provident magni perferendis aut! ",
     "notifications":[{"id":1 , "message":"welcome to agora"}, {"id":2 , "message":"welcome to agora"},{"id":3 , "message":"welcome to agora"}],
     "cart":[{"id":1 , "product name":"apartment"} , {"id":2 , "product name":"villa"}]
   },
-  "2":{
+  {
     "id":2,
     "name":"ahmed",
+    "userName": "Omar1896",
+    "email": "omar@test.com",
+    "joinedsince": "April-2023",
+    "location": "Egypt",
+    "profileImage": "/assets/photos/omar-1.jpeg",
+    "about": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias quibusdam perferendis commodi. Soluta adipisci, facilis sint autem amet molestiae rerum repellat explicabo recusandae obcaecati temporibus odio provident magni perferendis aut! ",
     "notifications":[{"id":1 , "message":"welcome to agora"}],
     "cart":[{"id":1 , "product name":"apartment"}]
   }
-}
 ],
 "place":[
   {
