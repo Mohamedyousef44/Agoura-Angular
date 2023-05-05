@@ -17,7 +17,7 @@
         "id":3,
         "Address":"victoria",
         "country":"Egypt",
-        "BID":3000,
+        "BID":300,
         "images":["/assets/photos/image3.webp","/assets/photos/image4.webp"]
     },
     {
