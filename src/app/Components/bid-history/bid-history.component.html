@@ -1,0 +1,84 @@
+<div class="container">
+  <div class="bid-item py-3">
+    <div class="bid-details">
+      <h2 class="mb-3">Bid History</h2>
+      <div class="row mb-5">
+        <div class="col-2 product-image">
+          <img src="{{ bids.productImg }}" alt="product image" />
+        </div>
+        <div class="col-8">
+          <h4>
+            <a href="#" class="text-decoration-none text-black">{{
+              bids.productName
+            }}</a>
+          </h4>
+        </div>
+      </div>
+      <div>
+        <div class="row mb-3">
+          <div class="col-2">Current Bid:</div>
+          <div class="col-8">{{ bids.currentBid }}</div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-2">Item number:</div>
+          <div class="col-8">{{ bids.itemNumber }}</div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-12 row">
+            <div class="col-2">
+              <span class="text-secondary">Bids: </span>
+              <span class="fw-bold">{{ bids.numberOfBids }}</span>
+            </div>
+            <div class="col-2">
+              <span class="text-secondary">Bidders: </span>
+              <span class="fw-bold">{{ bids.numberOfBidders }}</span>
+            </div>
+            <div class="col-2">
+              <span class="text-secondary">Retractions: </span>
+              <span class="fw-bold">{{ bids.retractions }}</span>
+            </div>
+            <div class="col-4">
+              <span class="text-secondary">Time left: </span
+              ><span class="fw-bold">{{ bids.timeLeft }}</span>
+            </div>
+            <div class="col-2">
+              <span class="text-secondary">Duration: </span>
+              <span class="fw-bold">{{ bids.duration }}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="place-bid my-3">
+          <a
+            routerLink="/place/{{ id }}"
+            class="btn btn-primary px-5 py-2 rounded rounded-5"
+          >
+            Place Bid
+          </a>
+        </div>
+        <hr />
+      </div>
+    </div>
+    <div class="product-bids-details">
+      <table class="table table-bordered border-dark">
+        <thead>
+          <tr>
+            <th class="bg-light bg-gradient">Bidder</th>
+            <th class="bg-light bg-gradient">Bid Amount</th>
+            <th class="bg-light bg-gradient">Bid Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of bids.historyOfBids">
+            <td>
+              <a href="#">{{ item[0] }}</a> (1)
+            </td>
+            <td>{{ item[1] }}</td>
+            <td>{{ item[2] }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

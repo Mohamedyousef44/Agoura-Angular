@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './Components/Auth/login/login.component';
-import { RouterModule, Routes } from '@angular/router';
 import { FacebookButtonComponent } from './Components/Auth/thirdPartyLoginButtons/facebook-button/facebook-button.component';
 import { GoogleButtonComponent } from './Components/Auth/thirdPartyLoginButtons/google-button/google-button.component';
 import { AppleButtonComponent } from './Components/Auth/thirdPartyLoginButtons/apple-button/apple-button.component';
@@ -23,8 +22,17 @@ import { FooterComponent } from './Components/footer/footer.component';
 import { LayoutComponent } from './Components/layout/layout.component';
 import { CheckoutComponent } from './Components/Payment/checkout/checkout.component';
 import { PaymentMethodComponent } from './Components/Payment/payment-method/payment-method.component';
-
-
+import { ProfileComponent } from './Components/Profile/profile/profile.component';
+import { EditProfileComponent } from './Components/Profile/EditProfile/edit-profile/edit-profile.component';
+import { AboutUserComponent } from './Components/Profile/about-user/about-user.component';
+import { AboutComponent } from './Components/about/about.component';
+import { CreateProductFormComponent } from './Components/create-product-form/create-product-form.component';
+import { BidHistoryComponent } from './Components/bid-history/bid-history.component';
+import { OffcanvasComponent } from './Components/offcanvas/offcanvas.component';
+import { UserHomeDataService } from './Service/user-home-data.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UpToTopComponent } from './Components/up-to-top/up-to-top.component';
+import { NotfoundPageComponent } from './Components/notfound-page/notfound-page.component';
 
 
 @NgModule({
@@ -46,7 +54,16 @@ import { PaymentMethodComponent } from './Components/Payment/payment-method/paym
     CategoryScrollerComponent,
     LayoutComponent,
     CheckoutComponent,
-    PaymentMethodComponent  
+    PaymentMethodComponent,  
+    ProfileComponent,
+    EditProfileComponent,
+    AboutUserComponent,
+    AboutComponent,
+    CreateProductFormComponent,
+    BidHistoryComponent,
+    OffcanvasComponent,
+    UpToTopComponent,
+    NotfoundPageComponent,
   ],
 
   imports: [
@@ -55,10 +72,11 @@ import { PaymentMethodComponent } from './Components/Payment/payment-method/paym
     HttpClientModule,
     CarouselModule.forRoot(),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
 
   ],
-  providers: [],
+  providers: [UserHomeDataService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,0 +1,48 @@
+<div
+  class="offcanvas offcanvas-end"
+  tabindex="-1"
+  id="offcanvasExample"
+  aria-labelledby="offcanvasExampleLabel"
+>
+  <div class="offcanvas-header border-bottom">
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">
+      {{ toggle == true ? "Cart" : "Notifications" }}
+    </h5>
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="offcanvas"
+      aria-label="Close"
+    ></button>
+  </div>
+  <div class="offcanvas-body">
+    <div
+      class="d-flex flex-row justify-content-between align-items-center border-bottom"
+      *ngFor="let item of data"
+    >
+      <a
+        [routerLink]="[toggle == true ? '/place/1' : item.href]"
+        id="msg-line"
+        class="mb-2 text-decoration-none"
+        data-bs-dismiss="offcanvas"
+      >
+        <div class="not-body my-3 d-flex flex-row justify-content-evenly py-3">
+          <div class="me-3">
+            <img
+              src="/assets/imgs/home/h1.png"
+              width="50px"
+              height="50px"
+              alt="image"
+            />
+          </div>
+          <p class="text-dark h-100 mb-0 me-2">
+            {{ item.id }} this is your product details or message
+          </p>
+        </div>
+      </a>
+      <button class="btn btn-dark h-25" (click)="deleteNot(item.id)">
+        <i class="bi bi-trash3-fill"></i>
+      </button>
+    </div>
+  </div>
+</div>
