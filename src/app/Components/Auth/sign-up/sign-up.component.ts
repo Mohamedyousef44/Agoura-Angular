@@ -11,7 +11,7 @@ import { AuthService } from 'src/app/Service/auth.service';
 })
 export class SignUpComponent {
   public userData : any = {}
-  public error!:string;
+  public error!:string|null;
   
   public validationForm:FormGroup = new FormGroup({
     email: new FormControl(null,[Validators.required, Validators.email]),
@@ -35,7 +35,7 @@ export class SignUpComponent {
       this.userData['name'] = this.validationForm.controls["username"].value ;
       this.userData['password'] = this.validationForm.controls["password"].value ;
       this.userData['confirmPassword'] = this.validationForm.controls["confirmPassword"].value ;
-
+      this.error=null;  
       this.signUp()
     }
   }
