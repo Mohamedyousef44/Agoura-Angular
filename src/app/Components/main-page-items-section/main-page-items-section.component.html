@@ -1,0 +1,29 @@
+<div class="container mb-4">
+  <div class="row">
+    <div class="card border-0 m-0 col-12 col-md-4" *ngFor="let item of items">
+      <carousel [interval]="0">
+        <slide *ngFor="let image of item.images">
+          <a href="" class="nav">
+            <img
+              class="card-img-top m-1 custom-image"
+              src="{{ image }}"
+              alt="first slide"
+              style="display: block; width: 100%"
+          /></a>
+        </slide>
+      </carousel>
+      <div class="card-body">
+        <h6 class="card-title">
+          {{ item.address.city | uppercase }},{{
+            item.address.country | uppercase
+          }}
+        </h6>
+        <p class="card-text">BID:{{ item.price | currency }}</p>
+        <p class="card-text">Item ID:{{ item.itemId }}</p>
+        <button class="btn btn-dark" (click)="addToCart(item._id)">
+          Add to cart
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

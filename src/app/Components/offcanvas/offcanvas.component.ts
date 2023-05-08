@@ -14,7 +14,9 @@ export class OffcanvasComponent {
   @Input('data') data: any
   @Input('isCart') toggle: any
 
-  deleteNot(id: number){
+  deleteItem(id: any){
+
+    console.log(id)
 
     this.toggle ? this.service.deleteProductFromCart(id) : this.service.deleteNotification(id)
     this.route.navigate(['/home'])

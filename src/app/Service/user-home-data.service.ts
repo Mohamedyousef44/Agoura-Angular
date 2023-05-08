@@ -9,19 +9,39 @@ export class UserHomeDataService {
   private BaseURL: string
 
   constructor(private user: HttpClient) {
-    this.BaseURL =  "http://localhost:3000/users"
+    this.BaseURL =  "http://localhost:9000/home"
   }
-  getUser(){
+  getData(){
     return this.user.get(this.BaseURL)
   }
-  getUserById(id: number){
-    return this.user.get(this.BaseURL+`/${id}`)
+
+  deleteNotification(id: any){
+    this.user.delete(this.BaseURL+'/notifications/'+`${id}`).subscribe(
+      (response) => {
+        console.log('Resource deleted successfully.');
+      },
+      (error) => {
+        console.error('An error occurred while deleting the resource:', error);
+      }
+    );
   }
 
-  deleteNotification(id: number){
-    this.user.delete(this.BaseURL+'/notifications/'+`${id}`)
+  deleteProductFromCart(id: any){
+    this.user.delete(this.BaseURL+'/cart/'+`${id}`).subscribe(
+      (response) => {
+        console.log('Resource deleted successfully.');
+      },
+      (error) => {
+        console.error('An error occurred while deleting the resource:', error);
+      }
+    );
   }
-  deleteProductFromCart(id: number){
-    this.user.delete(this.BaseURL+'/cart/'+`${id}`)
+
+  addItemToCart(id: any){
+    this.user.post(this.BaseURL+'/cart', {id}).subscribe(response => {
+      console.log(response);
+    }, error => {
+      console.error(error);
+    });
   }
 }

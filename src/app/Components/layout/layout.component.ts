@@ -14,15 +14,14 @@ export class LayoutComponent implements OnInit {
   isCart: any
   id:any;
   constructor(private service: UserHomeDataService){
-    this.id=1;
   }
   ngOnInit(): void {
-    this.id=1;
-    this.service.getUserById(this.id).subscribe({
+
+    this.service.getData().subscribe({
       next:(data: any)=>{
         this.notificationData = data["notifications"]
-        this.cartData = data["cart"]
-        // console.log(this.notificationData)
+        this.cartData = data["carts"][0].apartments
+        console.log(this.cartData)
       } ,
       error:(e:Error)=> console.log(e)
     })
