@@ -29,11 +29,11 @@ const routes: Routes = [
       { path: 'place/:id', component: ProductDetailsComponent },
       { path: 'bidhistory/:id', component: BidHistoryComponent },
       { path: 'about', component: AboutComponent },
-      {path : "checkout" , component : CheckoutComponent},
-      {path:"user/:id",component:ProfileComponent,children:[
+      { path: "checkout" , component : CheckoutComponent},
+      { path: "user/:id",component:ProfileComponent,children:[
         { path: '', redirectTo: 'about', pathMatch: 'full' },
-          {path:"edit",component:EditProfileComponent},
-          {path:"about",component:AboutUserComponent},
+          { path:"edit",component:EditProfileComponent},
+          { path:"about",component:AboutUserComponent},
 
         ]},
     ],
@@ -41,10 +41,9 @@ const routes: Routes = [
 
   {path : 'login' , component : LoginComponent},
   {path : 'signup' , component: SignUpComponent},
-  {path : 'signup' , component: SignUpComponent},
   {path : 'forgetpassword' , component: ForgetPasswordComponent},
-  {path: 'otp', component: OtpComponent},
-  {path: '**', component: NotfoundPageComponent},
+  {path : 'otp', component: OtpComponent},
+  {path : '**', component: NotfoundPageComponent},
 
 ];
 
