@@ -14,9 +14,6 @@ export class UserHomeDataService {
   getData(){
     return this.user.get(this.BaseURL)
   }
-  getUserById(id: number){
-    return this.user.get(this.BaseURL+`/${id}`)
-  }
 
   deleteNotification(id: any){
     this.user.delete(this.BaseURL+'/notifications/'+`${id}`).subscribe(
@@ -27,9 +24,16 @@ export class UserHomeDataService {
         console.error('An error occurred while deleting the resource:', error);
       }
     );
-    console.log(this.BaseURL+'/notifications/'+`${id}`)
   }
+
   deleteProductFromCart(id: any){
-    this.user.delete(this.BaseURL+'/cart/'+`${id}`)
+    this.user.delete(this.BaseURL+'/cart/'+`${id}`).subscribe(
+      (response) => {
+        console.log('Resource deleted successfully.');
+      },
+      (error) => {
+        console.error('An error occurred while deleting the resource:', error);
+      }
+    );
   }
 }

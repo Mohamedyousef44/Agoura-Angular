@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MainPageService } from 'src/app/Service/main-page.service';
+import { UserHomeDataService } from 'src/app/Service/user-home-data.service';
 
 
 
@@ -13,15 +14,15 @@ import { MainPageService } from 'src/app/Service/main-page.service';
 })
 export class MainPageItemsSectionComponent {
 
-  allItems:any;
-  constructor(public myService:MainPageService){}
+  items:any;
+  constructor(public myService:UserHomeDataService){}
 
   ngOnInit(): void {
-    this.myService.GetAllItems().subscribe(
+    this.myService.getData().subscribe(
       {
         next:(data: any)=>{
-          console.log(data)
-          this.allItems = data;
+          console.log(data['apartments'][0])
+          this.items = data['apartments'];
         },
         error:(err: any)=>{console.log(err)}
       }
