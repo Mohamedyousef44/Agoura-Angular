@@ -1,8 +1,5 @@
 import { Component } from '@angular/core';
-import { MainPageService } from 'src/app/Service/main-page.service';
 import { UserHomeDataService } from 'src/app/Service/user-home-data.service';
-
-
 
 
 @Component({
@@ -27,5 +24,10 @@ export class MainPageItemsSectionComponent {
         error:(err: any)=>{console.log(err)}
       }
     )
+  }
+
+  addToCart(id: any){
+    console.log(id)
+    this.myService.addItemToCart(id)
   }
 }

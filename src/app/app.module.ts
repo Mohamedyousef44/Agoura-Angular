@@ -7,7 +7,6 @@ import { FacebookButtonComponent } from './Components/Auth/thirdPartyLoginButton
 import { GoogleButtonComponent } from './Components/Auth/thirdPartyLoginButtons/google-button/google-button.component';
 import { AppleButtonComponent } from './Components/Auth/thirdPartyLoginButtons/apple-button/apple-button.component';
 import { SignUpComponent } from './Components/Auth/sign-up/sign-up.component';
-import { MainPageItemsSectionComponent } from './MainPageComponent/main-page-items-section/main-page-items-section.component';
 import { HttpClientModule }from'@angular/common/http';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { CategoryScrollerComponent } from './Components/category-scroller/category-scroller.component';
@@ -35,6 +34,7 @@ import { ForgetPasswordComponent } from './Components/forget-password/forget-pas
 import { OtpComponent } from './Components/otp/otp.component';
 import { UpToTopComponent } from './Components/up-to-top/up-to-top.component';
 import { NotfoundPageComponent } from './Components/notfound-page/notfound-page.component';
+import { MainPageItemsSectionComponent } from './Components/main-page-items-section/main-page-items-section.component';
 
 
 @NgModule({

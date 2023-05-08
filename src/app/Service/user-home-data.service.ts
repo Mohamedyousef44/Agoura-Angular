@@ -36,4 +36,12 @@ export class UserHomeDataService {
       }
     );
   }
+
+  addItemToCart(id: any){
+    this.user.post(this.BaseURL+'/cart', {id}).subscribe(response => {
+      console.log(response);
+    }, error => {
+      console.error(error);
+    });
+  }
 }

@@ -20,6 +20,9 @@
         </h6>
         <p class="card-text">BID:{{ item.price | currency }}</p>
         <p class="card-text">Item ID:{{ item.itemId }}</p>
+        <button class="btn btn-dark" (click)="addToCart(item._id)">
+          Add to cart
+        </button>
       </div>
     </div>
   </div>
