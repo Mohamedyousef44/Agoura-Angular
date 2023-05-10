@@ -13,31 +13,29 @@ export class OffcanvasComponent {
 
   constructor(private service: UserHomeDataService , private route: Router){}
 
-  @Input('data') data: any
   @Input('isCart') toggle: any
-
-
 
   ngOnInit() {
     this.service.cartUpdated.subscribe((res) => {
       this.cartData = res.apartments;
+      console.log(this.cartData)
     });
+
+    this.service.notificationUpdated.subscribe((res) => {
+      this.notificationData = res;
+    });
+
     this.service.getData().subscribe({
       next:(data: any)=>{
         this.notificationData = data["notifications"]
         this.cartData = data["carts"][0].apartments
-        console.log(this.cartData)
       } ,
       error:(e:Error)=> console.log(e)
     })
   }
 
   deleteItem(id: any){
-
-    console.log(id)
-
     this.toggle ? this.service.deleteProductFromCart(id) : this.service.deleteNotification(id)
-    this.route.navigate(['/home'])
   }
 
 }

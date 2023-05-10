@@ -15,12 +15,13 @@ export class UserHomeDataService {
     return this.user.get(this.BaseURL)
   }
   @Output() cartUpdated = new EventEmitter<any>();
+  @Output() notificationUpdated = new EventEmitter<any>();
 
 
   deleteNotification(id: any){
     this.user.delete(this.BaseURL+'/notifications/'+`${id}`).subscribe(
       (response) => {
-        console.log('Resource deleted successfully.');
+        this.notificationUpdated.emit(response);
       },
       (error) => {
         console.error('An error occurred while deleting the resource:', error);
@@ -31,17 +32,16 @@ export class UserHomeDataService {
   deleteProductFromCart(id: any){
     this.user.delete(this.BaseURL+'/cart/'+`${id}`).subscribe(
       (response) => {
-        console.log('Resource deleted successfully.');
+        this.cartUpdated.emit(response);
       },
       (error) => {
-        console.error('An error occurred while deleting the resource:', error);
+        console.error('An error occurred while deleting the resource:', error.status);
       }
     );
   }
 
   addItemToCart(id: any){
     this.user.post(this.BaseURL+'/cart', {id}).subscribe(response => {
-      console.log(response);
       this.cartUpdated.emit(response);
     }, error => {
       console.error(error);

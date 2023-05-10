@@ -16,6 +16,9 @@ export class NavBarComponent implements OnInit {
     this.myService.cartUpdated.subscribe((res) => {
       this.cartLen = res.apartments.length;
     });
+    this.myService.notificationUpdated.subscribe((res) => {
+      this.notLen = res.length;
+    });
   }
 
   @Input("text-color") inputTextColor!:string;
