@@ -12,6 +12,9 @@ import { CartComponent } from './Components/cart/cart.component';
 import { NotificationComponent } from './Components/notification/notification.component';
 import { ForgetPasswordComponent } from './Components/forget-password/forget-password.component';
 import { OtpComponent } from './Components/otp/otp.component';
+import { NotfoundPageComponent } from './Components/notfound-page/notfound-page.component';
+import { ResetPasswordComponent } from './Components/reset-password/reset-password.component';
+
 
 
 const routes: Routes = [
@@ -36,6 +39,8 @@ const routes: Routes = [
   {path : 'signup' , component: SignUpComponent},
   {path : 'forgetpassword' , component: ForgetPasswordComponent},
   {path: 'otp', component: OtpComponent},
+  {path: '**', component: NotfoundPageComponent},
+  {path: 'resetpassword', component: ResetPasswordComponent},
 
   // {path : "**",}
 ];

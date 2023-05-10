@@ -32,6 +32,9 @@ import { ForgetPasswordComponent } from './Components/forget-password/forget-pas
 import { OtpComponent } from './Components/otp/otp.component';
 
 
+import { UpToTopComponent } from './Components/up-to-top/up-to-top.component';
+import { NotfoundPageComponent } from './Components/notfound-page/notfound-page.component';
+import { ResetPasswordComponent } from './Components/reset-password/reset-password.component';
 
 
 @NgModule({
@@ -60,6 +63,9 @@ import { OtpComponent } from './Components/otp/otp.component';
     NotificationComponent,
     ForgetPasswordComponent,
     OtpComponent,
+    UpToTopComponent,
+    NotfoundPageComponent,
+    ResetPasswordComponent,
 
   ],
 
