@@ -10,6 +10,7 @@ import { UserHomeDataService } from 'src/app/Service/user-home-data.service';
 export class OffcanvasComponent {
   notificationData: any;
   cartData: any;
+  cartError = false
 
   constructor(private service: UserHomeDataService , private route: Router){}
 
@@ -18,7 +19,11 @@ export class OffcanvasComponent {
   ngOnInit() {
     this.service.cartUpdated.subscribe((res) => {
       this.cartData = res.apartments;
-      console.log(this.cartData)
+    });
+
+    this.service.cartError.subscribe((res) => {
+      console.log(res)
+      this.cartError = res
     });
 
     this.service.notificationUpdated.subscribe((res) => {

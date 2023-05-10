@@ -16,6 +16,7 @@ export class UserHomeDataService {
   }
   @Output() cartUpdated = new EventEmitter<any>();
   @Output() notificationUpdated = new EventEmitter<any>();
+  @Output() cartError = new EventEmitter<any>();
 
 
   deleteNotification(id: any){
@@ -30,12 +31,13 @@ export class UserHomeDataService {
   }
 
   deleteProductFromCart(id: any){
-    this.user.delete(this.BaseURL+'/cart/'+`${id}`).subscribe(
+    this.user.delete(this.BaseURL+'/cartsss/'+`${id}`).subscribe(
       (response) => {
         this.cartUpdated.emit(response);
       },
       (error) => {
         console.error('An error occurred while deleting the resource:', error.status);
+        this.cartError.emit(true)
       }
     );
   }
