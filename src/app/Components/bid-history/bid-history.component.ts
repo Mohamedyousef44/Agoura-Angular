@@ -8,8 +8,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class BidHistoryComponent {
   bids = {
-    productName: 'Lorem ipsum dolor sit amet consectetur',
-    productImg: 'https://placehold.co/100x100',
+    title: 'Lorem ipsum dolor sit amet consectetur',
+    image: 'https://placehold.co/100x100',
     currentBid: 'EUR 181.00',
     itemNumber: '256054407683',
     numberOfBids: 53,
