@@ -1,6 +1,5 @@
 import { HttpClient, HttpHeaderResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -18,5 +17,9 @@ export class AuthService {
   }
   public LoginWithGoogle(userCredential:any){
     return this.myHttpClient.post(`${this.Base_URL}/auth/google`,userCredential,{'headers' : new HttpHeaders ({'Content-Type' : 'application/json'}), observe:'response'})
+  }
+
+  public LoginWithSystem(userCredential:any){
+    return this.myHttpClient.post(`${this.Base_URL}/auth/login`,userCredential,{'headers' : new HttpHeaders ({'Content-Type' : 'application/json'}), observe:'response'})
   }
 }

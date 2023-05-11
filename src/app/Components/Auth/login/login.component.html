@@ -12,6 +12,9 @@
             <hr style="width: 400px;" class="mt-4" />
             
             <form (ngSubmit)='validate()' [formGroup]="validationForm" action="" style="width: 400px;" class="mt-4">
+                <div *ngIf="error">
+                    <span class="bg-danger rounded-1 bg-gradient text-light p-3 m-1 d-block">{{error}} </span>
+                </div>
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Email address</label>
                     <input formControlName="email" type="email" class="form-control" id="exampleFormControlInput1" placeholder="Enter your email">
