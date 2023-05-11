@@ -1,4 +1,5 @@
-<app-nav-bar *ngIf="cartData"
+<app-nav-bar
+  *ngIf="cartData"
   text-color="text-dark"
   (toggle)="isCart = $event"
   [cartLen]="cartData.length || 0"
@@ -6,8 +7,5 @@
 ></app-nav-bar>
 <router-outlet></router-outlet>
 <app-footer></app-footer>
-<app-offcanvas
-  [data]="isCart == false ? notificationData : cartData"
-  [isCart]="isCart"
-></app-offcanvas>
+<app-offcanvas [isCart]="isCart"></app-offcanvas>
 <app-up-to-top></app-up-to-top>

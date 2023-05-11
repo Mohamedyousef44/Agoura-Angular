@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { UserHomeDataService } from 'src/app/Service/user-home-data.service';
 
 
 @Component({
@@ -6,7 +7,19 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.css']
 })
-export class NavBarComponent {
+export class NavBarComponent implements OnInit {
+
+
+  constructor(public myService: UserHomeDataService){}
+
+  ngOnInit() {
+    this.myService.cartUpdated.subscribe((res) => {
+      this.cartLen = res.apartments.length;
+    });
+    this.myService.notificationUpdated.subscribe((res) => {
+      this.notLen = res.length;
+    });
+  }
 
   @Input("text-color") inputTextColor!:string;
   textColor!:string;

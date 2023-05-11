@@ -18,7 +18,6 @@ export class MainPageItemsSectionComponent {
     this.myService.getData().subscribe(
       {
         next:(data: any)=>{
-          console.log(data['apartments'][0])
           this.items = data['apartments'];
         },
         error:(err: any)=>{console.log(err)}
@@ -27,7 +26,6 @@ export class MainPageItemsSectionComponent {
   }
 
   addToCart(id: any){
-    console.log(id)
     this.myService.addItemToCart(id)
   }
 }
