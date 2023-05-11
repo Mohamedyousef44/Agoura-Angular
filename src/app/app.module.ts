@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './Components/Auth/login/login.component';
 import { FacebookButtonComponent } from './Components/Auth/thirdPartyLoginButtons/facebook-button/facebook-button.component';
 import { GoogleButtonComponent } from './Components/Auth/thirdPartyLoginButtons/google-button/google-button.component';
-import { AppleButtonComponent } from './Components/Auth/thirdPartyLoginButtons/apple-button/apple-button.component';
 import { SignUpComponent } from './Components/Auth/sign-up/sign-up.component';
 import { HttpClientModule }from'@angular/common/http';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
@@ -36,14 +35,12 @@ import { UpToTopComponent } from './Components/up-to-top/up-to-top.component';
 import { NotfoundPageComponent } from './Components/notfound-page/notfound-page.component';
 import { MainPageItemsSectionComponent } from './Components/main-page-items-section/main-page-items-section.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     FacebookButtonComponent,
     GoogleButtonComponent,
-    AppleButtonComponent,
     SignUpComponent,
     MainPageItemsSectionComponent,
     ProductDetailsComponent,
@@ -68,9 +65,8 @@ import { MainPageItemsSectionComponent } from './Components/main-page-items-sect
     OtpComponent,
     UpToTopComponent,
     NotfoundPageComponent,
-
   ],
-
+  
   imports: [
     BrowserModule,
     AppRoutingModule,
