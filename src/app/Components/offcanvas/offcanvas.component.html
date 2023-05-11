@@ -1,5 +1,7 @@
 <div
   class="offcanvas offcanvas-end"
+  data-bs-scroll="true"
+  data-bs-backdrop="false"
   tabindex="-1"
   id="offcanvasExample"
   aria-labelledby="offcanvasExampleLabel"
@@ -16,37 +18,71 @@
     ></button>
   </div>
   <div class="offcanvas-body">
-    <div
-      class="d-flex flex-row justify-content-between align-items-center border-bottom"
-      *ngFor="let item of data"
-    >
-      <a
-        [routerLink]="toggle == true ? ['/place', item.itemId] : [item.href]"
-        id="msg-line"
-        class="mb-2 text-decoration-none"
-        data-bs-dismiss="offcanvas"
-      >
-        <div class="not-body my-3 d-flex flex-row justify-content-evenly py-3">
-          <div class="me-3">
-            <img
-              src="{{
-                toggle == true
-                  ? item.images[0]
-                  : '/assets/images/not-default.png'
-              }}"
-              width="50px"
-              height="50px"
-              alt="image"
-            />
-          </div>
-          <p class="text-dark h-100 mb-0 me-2">
-            {{ toggle == true ? item.description : item.message }}
-          </p>
+    <div class="offcanvas-body">
+      <ng-template [ngIf]="toggle">
+        <div
+          class="d-flex flex-row justify-content-between align-items-center border-bottom"
+          *ngFor="let item of cartData"
+        >
+          <a
+            [routerLink]="['/place', item.itemId]"
+            id="msg-line"
+            class="mb-2 text-decoration-none"
+            data-bs-dismiss="offcanvas"
+          >
+            <div
+              class="not-body my-3 d-flex flex-row justify-content-evenly py-3"
+            >
+              <div class="me-3">
+                <img
+                  src="{{ item.images[0] }}"
+                  width="50px"
+                  height="50px"
+                  alt="image"
+                />
+              </div>
+              <p class="text-dark h-100 mb-0 me-2">
+                {{ item.description }}
+              </p>
+            </div>
+          </a>
+          <button class="btn btn-dark h-25" (click)="deleteItem(item._id)">
+            <i class="bi bi-trash3-fill"></i>
+          </button>
         </div>
-      </a>
-      <button class="btn btn-dark h-25" (click)="deleteItem(item._id)">
-        <i class="bi bi-trash3-fill"></i>
-      </button>
+      </ng-template>
+      <ng-template [ngIf]="!toggle">
+        <div
+          class="d-flex flex-row justify-content-between align-items-center border-bottom"
+          *ngFor="let item of notificationData"
+        >
+          <a
+            [routerLink]="[item.href]"
+            id="msg-line"
+            class="mb-2 text-decoration-none"
+            data-bs-dismiss="offcanvas"
+          >
+            <div
+              class="not-body my-3 d-flex flex-row justify-content-evenly py-3"
+            >
+              <div class="me-3">
+                <img
+                  src="{{ '/assets/images/not-default.png' }}"
+                  width="50px"
+                  height="50px"
+                  alt="image"
+                />
+              </div>
+              <p class="text-dark h-100 mb-0 me-2">
+                {{ item.message }}
+              </p>
+            </div>
+          </a>
+          <button class="btn btn-dark h-25" (click)="deleteItem(item._id)">
+            <i class="bi bi-trash3-fill"></i>
+          </button>
+        </div>
+      </ng-template>
     </div>
   </div>
 </div>
