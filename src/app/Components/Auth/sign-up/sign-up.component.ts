@@ -12,13 +12,8 @@ import { AuthService } from 'src/app/Service/auth.service';
 export class SignUpComponent {
   public userData : any = {}
   public error!:string|null;
-  
-  public validationForm:FormGroup = new FormGroup({
-    email: new FormControl(null,[Validators.required, Validators.email]),
-    username : new FormControl (null,[Validators.required , Validators.minLength(3)]),
-    password: new FormControl(null,[ Validators.required, Validators.minLength(10), Validators.maxLength(60) ]),
-    confirmPassword : new FormControl(null , [Validators.required , Validators.minLength(10), Validators.maxLength(60) ])
-  });
+  public validationForm:FormGroup ;
+
   public constructor(private myService:AuthService,private route:Router){
 
     this.validationForm = new FormGroup({

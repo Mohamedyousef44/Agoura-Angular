@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup , Validators } from '@angular/forms';
-
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/Service/auth.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -8,27 +9,43 @@ import { FormControl, FormGroup , Validators } from '@angular/forms';
   ]
 })
 export class LoginComponent {
+  public userData : any = {} ;
+  public error!:string|null; 
   public validationForm = new FormGroup({
     email: new FormControl(null,[Validators.required, Validators.email]),
-    password: new FormControl(null,[ Validators.required, Validators.minLength(10), Validators.maxLength(60) ])
+    password: new FormControl(null,[ Validators.required, Validators.minLength(8), Validators.maxLength(60) ])
   });
+  constructor (private myService: AuthService , private route:Router) { }
 
   validate(){
-    if (this.validationForm.controls["email"].valid && this.validationForm.controls["password"].valid){
-      // Send data to the backend, the data validation == True
+    if (this.validationForm.valid){
+      console.log("Heelo");
+      this.userData['email'] = this.validationForm.controls["email"].value;
+      this.userData['password'] = this.validationForm.controls["password"].value;      
+      this.login();
     }
   }
   get email () {
-    return this.validationForm.controls["email"].valid;
+    return this.validationForm.controls["email"];
   }
   get password () {
-    return this.validationForm.controls["password"].valid;
+    return this.validationForm.controls["password"];
   }
 
-  isEmailDirty(){
-    return this.validationForm.controls["email"].dirty;
-  }
-  isPasswordDirty(){
-    return this.validationForm.controls["password"].dirty;
+  login() {
+    this.myService.LoginWithSystem(this.userData).subscribe({
+        next:(data:any)=>{
+          console.log(data.body);
+          if(data.body.success){
+            localStorage.setItem('X-Auth-Token', data.body.myToken);
+            this.route.navigateByUrl("/home");
+          }
+          this.error = data.body.message;
+        },
+        error:(err)=> {
+          this.error = err.error.message;
+        }
+      }
+    )
   }
 }
