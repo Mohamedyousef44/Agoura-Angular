@@ -31,7 +31,7 @@ export class UserHomeDataService {
   }
 
   deleteProductFromCart(id: any){
-    this.user.delete(this.BaseURL+'/cartsss/'+`${id}`).subscribe(
+    this.user.delete(this.BaseURL+'/cart/'+`${id}`).subscribe(
       (response) => {
         this.cartUpdated.emit(response);
       },
