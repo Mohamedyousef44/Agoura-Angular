@@ -16,14 +16,14 @@
                     <label for="exampleFormControlInput1" class="form-label">Email address</label>
                     <input formControlName="email" type="email" class="form-control" id="exampleFormControlInput1" placeholder="Enter your email">
                 </div>
-                <div *ngIf="!email && isEmailDirty()">
+                <div *ngIf="!email.valid && email.dirty">
                     <span class="bg-danger bg-gradient text-light p-1 m-1 d-block">Enter a vaild email address, this filed is required</span>
                 </div>
                 <div >
                     <label for="inputPassword5" class="form-label">Password</label>
                     <input formControlName="password" type="password" id="inputPassword5" class="form-control" aria-labelledby="passwordHelpBlock"  placeholder="Enter your password">                
                 </div >
-                <div *ngIf="!password && isPasswordDirty()">
+                <div *ngIf="!password.valid && password.dirty">
                     <span class="bg-danger bg-gradient text-light p-1 m-1 d-block">This password is Invalid</span>
                 </div>
                 <button class="btn btn-dark w-100 mt-3" type="submit">Log in</button>  

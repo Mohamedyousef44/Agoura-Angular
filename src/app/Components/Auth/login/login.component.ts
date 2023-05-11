@@ -10,25 +10,19 @@ import { FormControl, FormGroup , Validators } from '@angular/forms';
 export class LoginComponent {
   public validationForm = new FormGroup({
     email: new FormControl(null,[Validators.required, Validators.email]),
-    password: new FormControl(null,[ Validators.required, Validators.minLength(10), Validators.maxLength(60) ])
+    password: new FormControl(null,[ Validators.required, Validators.minLength(8), Validators.maxLength(60) ])
   });
 
   validate(){
-    if (this.validationForm.controls["email"].valid && this.validationForm.controls["password"].valid){
+    if (this.validationForm.valid){
       // Send data to the backend, the data validation == True
     }
   }
   get email () {
-    return this.validationForm.controls["email"].valid;
+    return this.validationForm.controls["email"];
   }
   get password () {
-    return this.validationForm.controls["password"].valid;
+    return this.validationForm.controls["password"];
   }
 
-  isEmailDirty(){
-    return this.validationForm.controls["email"].dirty;
-  }
-  isPasswordDirty(){
-    return this.validationForm.controls["password"].dirty;
-  }
 }
