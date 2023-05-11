@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { Router } from '@angular/router';
 import { UserHomeDataService } from 'src/app/Service/user-home-data.service';
 
 @Component({
@@ -12,7 +11,7 @@ export class OffcanvasComponent {
   cartData: any;
   cartError = false
 
-  constructor(private service: UserHomeDataService , private route: Router){}
+  constructor(private service: UserHomeDataService){}
 
   @Input('isCart') toggle: any
 
@@ -42,5 +41,6 @@ export class OffcanvasComponent {
   deleteItem(id: any){
     this.toggle ? this.service.deleteProductFromCart(id) : this.service.deleteNotification(id)
   }
+
 
 }
