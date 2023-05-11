@@ -11,7 +11,7 @@ export class BidsService {
     return this.myClient.get(this.Base_URL + `/place/${id}`);
   }
 
-  GetBidHistoryById(id: any) {
-    return this.myClient.get(this.Base_URL + `/place/${id}/history`);
+  GetBidHistoryById(itemId: any) {
+    return this.myClient.get(this.Base_URL + `/place/${itemId}/history`);
   }
 }

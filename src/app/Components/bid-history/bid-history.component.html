@@ -4,12 +4,12 @@
       <h2 class="mb-3">Bid History</h2>
       <div class="row mb-5">
         <div class="col-2 product-image">
-          <img src="{{ bids.title }}" alt="product image" />
+          <img src="{{ bids.image }}" alt="product image" />
         </div>
         <div class="col-8">
           <h4>
             <a href="#" class="text-decoration-none text-black">{{
-              bids.image
+              bids.title
             }}</a>
           </h4>
         </div>
@@ -72,10 +72,10 @@
         <tbody>
           <tr *ngFor="let item of bids.historyOfBids">
             <td>
-              <a href="#">{{ item[0] }}</a> (1)
+              <a href="#">{{ item["user"]._id }}</a> (1)
             </td>
-            <td>{{ item[1] }}</td>
-            <td>{{ item[2] }}</td>
+            <td>{{ item["amountMoney"] }}</td>
+            <td>{{ item["date"] }}</td>
           </tr>
         </tbody>
       </table>

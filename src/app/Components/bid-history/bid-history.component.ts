@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { BidsService } from 'src/app/Service/bids.service';
 
 @Component({
   selector: 'app-bid-history',
@@ -7,28 +8,36 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./bid-history.component.css'],
 })
 export class BidHistoryComponent {
-  bids = {
-    title: 'Lorem ipsum dolor sit amet consectetur',
-    image: 'https://placehold.co/100x100',
-    currentBid: 'EUR 181.00',
-    itemNumber: '256054407683',
-    numberOfBids: 53,
-    numberOfBidders: 17,
-    retractions: 0,
-    timeLeft: '3 hours 17 mins 12 secs',
-    duration: '7 days',
-    historyOfBids: [
-      ['3**9', 'EUR 181.00', '2 May 2023 at 5:03:24am PDT'],
-      ['6***u', 'EUR 180.00', '1 May 2023 at 9:20:10pm PDT'],
-      ['3***0', 'EUR 180.00', '2 May 2023 at 5:03:20am PDT'],
-    ],
-  };
-  id: any;
-  constructor(myRoute: ActivatedRoute) {
-    this.id = myRoute.snapshot.params['id'];
+  public constructor(
+    private myService: BidsService,
+    private route: ActivatedRoute
+  ) {
+    this.id = route.snapshot.params['id'];
   }
+  bids: any = {};
+  id: any;
 
   placeBid() {
     console.log('place bid');
+  }
+
+  ngOnInit(): void {
+    console.log('Hello');
+
+    let itemId = this.route.snapshot.params['id'];
+    this.myService.GetBidHistoryById(itemId).subscribe((data: any) => {
+      data = data.data;
+      console.log(data);
+
+      this.bids.title = data.title;
+      this.bids.image = data.image;
+      this.bids.currentBid = data.currentBid;
+      this.bids.itemNumber = data.itemNumber;
+      this.bids.numberOfBids = data.numberOfBids;
+      this.bids.numberOfBidders = data.numberOfBidders;
+      this.bids.timeLeft = data.timeLeft;
+      this.bids.duration = data.duration;
+      this.bids.historyOfBids = data.historyOfBids;
+    });
   }
 }
