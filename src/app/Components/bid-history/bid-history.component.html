@@ -4,12 +4,12 @@
       <h2 class="mb-3">Bid History</h2>
       <div class="row mb-5">
         <div class="col-2 product-image">
-          <img src="{{ bids.productImg }}" alt="product image" />
+          <img src="{{ bids.image }}" alt="product image" />
         </div>
         <div class="col-8">
           <h4>
             <a href="#" class="text-decoration-none text-black">{{
-              bids.productName
+              bids.title
             }}</a>
           </h4>
         </div>
@@ -17,7 +17,7 @@
       <div>
         <div class="row mb-3">
           <div class="col-2">Current Bid:</div>
-          <div class="col-8">{{ bids.currentBid }}</div>
+          <div class="col-8">{{ bids.currentBid }} EUR</div>
         </div>
         <div class="row mb-3">
           <div class="col-2">Item number:</div>
@@ -33,10 +33,6 @@
             <div class="col-2">
               <span class="text-secondary">Bidders: </span>
               <span class="fw-bold">{{ bids.numberOfBidders }}</span>
-            </div>
-            <div class="col-2">
-              <span class="text-secondary">Retractions: </span>
-              <span class="fw-bold">{{ bids.retractions }}</span>
             </div>
             <div class="col-4">
               <span class="text-secondary">Time left: </span
@@ -72,10 +68,10 @@
         <tbody>
           <tr *ngFor="let item of bids.historyOfBids">
             <td>
-              <a href="#">{{ item[0] }}</a> (1)
+              <a href="#">{{ item["user"]._id }}</a> (1)
             </td>
-            <td>{{ item[1] }}</td>
-            <td>{{ item[2] }}</td>
+            <td>{{ item["amountMoney"] }} EUR</td>
+            <td>{{ item["date"] }}</td>
           </tr>
         </tbody>
       </table>
