@@ -17,7 +17,7 @@
       <div>
         <div class="row mb-3">
           <div class="col-2">Current Bid:</div>
-          <div class="col-8">{{ bids.currentBid }}</div>
+          <div class="col-8">{{ bids.currentBid }} EUR</div>
         </div>
         <div class="row mb-3">
           <div class="col-2">Item number:</div>
@@ -70,7 +70,7 @@
             <td>
               <a href="#">{{ item["user"]._id }}</a> (1)
             </td>
-            <td>{{ item["amountMoney"] }}</td>
+            <td>{{ item["amountMoney"] }} EUR</td>
             <td>{{ item["date"] }}</td>
           </tr>
         </tbody>
