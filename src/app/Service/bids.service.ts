@@ -14,4 +14,7 @@ export class BidsService {
   GetBidHistoryById(itemId: any) {
     return this.myClient.get(this.Base_URL + `/place/${itemId}/history`);
   }
+  addNewBid(data: any) {
+    return this.myClient.post(this.Base_URL + `/bid`,data);
+  }
 }
