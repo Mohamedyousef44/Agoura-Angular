@@ -30,7 +30,7 @@ const routes: Routes = [
       { path: 'place/:id/history', component: BidHistoryComponent },
       { path: 'about', component: AboutComponent },
       { path: "checkout" , component : CheckoutComponent},
-      { path: "user/:id",component:ProfileComponent,children:[
+      { path: "users/:id",component:ProfileComponent,children:[
         { path: '', redirectTo: 'about', pathMatch: 'full' },
           { path:"edit",component:EditProfileComponent},
           { path:"about",component:AboutUserComponent},

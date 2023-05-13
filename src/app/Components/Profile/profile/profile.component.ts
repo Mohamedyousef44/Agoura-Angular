@@ -3,7 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 import { ProfilePageService } from 'src/app/Service/profile-page.service';
 
 
-
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -11,15 +10,17 @@ import { ProfilePageService } from 'src/app/Service/profile-page.service';
 })
 export class ProfileComponent implements OnInit {
 
-
-  ID=1;
+  userID: any
   UserDetails:any
 
-  constructor(public myService:ProfilePageService){
+  constructor(public myService:ProfilePageService , public route: ActivatedRoute ){
+    this.route.params.subscribe(params => {
+      this.userID = params['id'];
+    })
   }
 
   ngOnInit(): void {
-    this.myService.GetUserByID(this.ID).subscribe(
+    this.myService.GetUserByID(this.userID).subscribe(
       {
         next:(data: any)=>{
           console.log(data)

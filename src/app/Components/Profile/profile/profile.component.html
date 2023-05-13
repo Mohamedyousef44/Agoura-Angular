@@ -12,15 +12,14 @@
           >
             <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px">
               <img
-                src="{{ UserDetails.profileImage }}"
+                src="{{ UserDetails.image }}"
                 alt="Generic placeholder image"
                 class="img-fluid img-thumbnail mt-4 mb-2"
                 style="width: 150px; z-index: 1"
               />
             </div>
             <div class="ms-3" style="margin-top: 130px">
-              <h5>{{ UserDetails.userName }}</h5>
-              <p>{{ UserDetails.location }}</p>
+              <h5>{{ UserDetails.name | uppercase }}</h5>
             </div>
           </div>
           <div
@@ -30,25 +29,26 @@
             <div class="d-flex justify-content-end text-center py-1">
               <div class="m-1">
                 <a
-                  class="btn btn-outline-dark"
+                  routerLink="/users/{{ UserDetails._id }}/bids"
                   routerLinkActive="active"
-                  routerLink="/user/{{ UserDetails.id }}/about"
-                  >About Me</a
+                  class="btn btn-outline-dark"
+                  >My Bids</a
                 >
               </div>
-
               <div class="m-1">
-                <a class="btn btn-outline-dark">Your Bids</a>
-              </div>
-              <div class="m-1">
-                <a class="btn btn-outline-dark">Post Your Property</a>
+                <a
+                  routerLink="/place/create"
+                  routerLinkActive="active"
+                  class="btn btn-outline-dark"
+                  >Post Your Property</a
+                >
               </div>
               <div class="m-1">
                 <a
                   type="button"
                   class="btn btn-outline-dark"
                   routerLinkActive="active"
-                  routerLink="/user/{{ UserDetails.id }}/edit"
+                  routerLink="/users/{{ UserDetails._id }}/edit"
                   >Edit Profile
                 </a>
               </div>
