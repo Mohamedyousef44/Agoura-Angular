@@ -8,6 +8,8 @@ import { UserHomeDataService } from 'src/app/Service/user-home-data.service';
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent implements OnInit {
+  cartLen: any;
+  notLen: any;
 
 
   constructor(public myService: UserHomeDataService){}
@@ -23,7 +25,10 @@ export class NavBarComponent implements OnInit {
       next:(data: any)=>{
         this.userName = data['userData'].name.split(" ")[0]
         this.isLoggedIn = localStorage.getItem('X-Auth-Token')
-        console.log(data['userData'].name)
+
+        console.log(data['carts'][0]['apartments'])
+        this.notLen = data['notifications'].length
+        this.cartLen = data['carts'][0]['apartments'].length
       }
     })
   }
@@ -32,8 +37,6 @@ export class NavBarComponent implements OnInit {
   textColor!:string;
   element: any;
   @Output() toggle = new EventEmitter()
-  @Input('cartLen') cartLen: any
-  @Input('notLen') notLen: any
   userName: string = ''
   isLoggedIn: any
 

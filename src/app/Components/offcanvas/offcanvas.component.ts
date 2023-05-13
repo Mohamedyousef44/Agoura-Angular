@@ -21,7 +21,6 @@ export class OffcanvasComponent {
     });
 
     this.service.cartError.subscribe((res) => {
-      console.log(res)
       this.cartError = res
     });
 
@@ -32,7 +31,8 @@ export class OffcanvasComponent {
     this.service.getData().subscribe({
       next:(data: any)=>{
         this.notificationData = data["notifications"]
-        this.cartData = data["carts"][0].apartments
+        if(data["carts"].length > 0) this.cartData = data["carts"][0].apartments
+        else this.cartData = null
       } ,
       error:(e:Error)=> console.log(e)
     })

@@ -3,7 +3,7 @@
     <div class="card border-0 m-0 col-12 col-md-4" *ngFor="let item of items">
       <carousel [interval]="0">
         <slide *ngFor="let image of item.images">
-          <a routerLink="/place/{{item.itemId}}" class="nav">
+          <a routerLink="/place/{{ item.itemId }}" class="nav">
             <img
               class="card-img-top m-1 custom-image"
               src="{{ image }}"
@@ -18,8 +18,8 @@
             item.address.country | uppercase
           }}
         </h6>
-        <p class="card-text">BID:{{ item.price | currency }}</p>
-        <p class="card-text">Item ID:{{ item.itemId }}</p>
+        <p class="card-text">Starts From: {{ item.startBid | currency }}</p>
+        <p class="card-text">Item ID: {{ item.itemId }}</p>
         <button class="btn btn-dark" (click)="addToCart(item._id)">
           Add to cart
         </button>
