@@ -19,6 +19,13 @@ export class NavBarComponent implements OnInit {
     this.myService.notificationUpdated.subscribe((res) => {
       this.notLen = res.length;
     });
+    this.myService.getData().subscribe({
+      next:(data: any)=>{
+        this.userName = data['userData'].name.split(" ")[0]
+        this.isLoggedIn = localStorage.getItem('X-Auth-Token')
+        console.log(data['userData'].name)
+      }
+    })
   }
 
   @Input("text-color") inputTextColor!:string;
@@ -27,6 +34,8 @@ export class NavBarComponent implements OnInit {
   @Output() toggle = new EventEmitter()
   @Input('cartLen') cartLen: any
   @Input('notLen') notLen: any
+  userName: string = ''
+  isLoggedIn: any
 
   check(data: any){
     this.element = data.target.parentElement

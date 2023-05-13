@@ -10,16 +10,30 @@
       /></a>
     </div>
     <div class="home-right">
-      <a
-        class="btn fw-bold {{ textColor }} rounded-0 border-2 b-hover"
-        routerLink="/signup"
-        >Sign Up</a
-      >
-      <a
-        class="btn fw-bold {{ textColor }} rounded-0 border-2 b-hover"
-        routerLink="/login"
-        >Log In</a
-      >
+      <ng-container *ngIf="isLoggedIn">
+        <a
+          class="btn fw-bold {{ textColor }} rounded-0 border-2 b-hover"
+          routerLink="/profile"
+          >{{ userName | uppercase }}</a
+        >
+        <a
+          class="btn fw-bold {{ textColor }} rounded-0 border-2 b-hover"
+          routerLink="/logout"
+          >Log Out</a
+        >
+      </ng-container>
+      <ng-container *ngIf="!isLoggedIn">
+        <a
+          class="btn fw-bold {{ textColor }} rounded-0 border-2 b-hover"
+          routerLink="/signup"
+          >Sign Up</a
+        >
+        <a
+          class="btn fw-bold {{ textColor }} rounded-0 border-2 b-hover"
+          routerLink="/login"
+          >Log In</a
+        >
+      </ng-container>
 
       <span class="border-end border-2 mx-2"></span>
       <a
