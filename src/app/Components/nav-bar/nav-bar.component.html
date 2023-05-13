@@ -13,7 +13,7 @@
       <ng-container *ngIf="isLoggedIn">
         <a
           class="btn fw-bold {{ textColor }} rounded-0 border-2 b-hover"
-          routerLink="/user/1"
+          [routerLink]="['/users/', userId]"
           >{{ userName | uppercase }}</a
         >
         <a

@@ -10,6 +10,7 @@ import { UserHomeDataService } from 'src/app/Service/user-home-data.service';
 export class NavBarComponent implements OnInit {
   cartLen: any;
   notLen: any;
+  userId: any;
 
 
   constructor(public myService: UserHomeDataService){}
@@ -23,6 +24,7 @@ export class NavBarComponent implements OnInit {
     });
     this.myService.getData().subscribe({
       next:(data: any)=>{
+        this.userId = data['userData']._id
         this.userName = data['userData'].name.split(" ")[0]
         this.isLoggedIn = localStorage.getItem('X-Auth-Token')
         this.notLen = data['notifications'].length
