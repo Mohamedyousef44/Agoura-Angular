@@ -27,6 +27,8 @@ export class NavBarComponent implements OnInit {
   @Output() toggle = new EventEmitter()
   @Input('cartLen') cartLen: any
   @Input('notLen') notLen: any
+  user: any
+  isLoggedIn: any
 
   check(data: any){
     this.element = data.target.parentElement
