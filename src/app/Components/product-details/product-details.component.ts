@@ -52,6 +52,7 @@ export class ProductDetailsComponent implements OnInit{
   }
 
   onSubmit(){
+    this.bid?.markAsDirty()
     if(!this.form.valid || !localStorage.getItem("X-Auth-Token")){
       return
     }
