@@ -27,7 +27,7 @@ const routes: Routes = [
       { path: 'home', component: HomeComponent },
       { path: 'place/create', component: CreateProductFormComponent },
       { path: 'place/:id', component: ProductDetailsComponent },
-      { path: 'bidhistory/:id', component: BidHistoryComponent },
+      { path: 'place/:id/history', component: BidHistoryComponent },
       { path: 'about', component: AboutComponent },
       { path: "checkout" , component : CheckoutComponent},
       { path: "user/:id",component:ProfileComponent,children:[
