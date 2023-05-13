@@ -16,6 +16,11 @@
           routerLink="/profile"
           >{{ user.name | uppercase }}</a
         >
+        <a
+          class="btn fw-bold {{ textColor }} rounded-0 border-2 b-hover"
+          routerLink="/logout"
+          >Log out</a
+        >
       </ng-template>
       <ng-template *ngIf="!isLoggedIn">
         <a
