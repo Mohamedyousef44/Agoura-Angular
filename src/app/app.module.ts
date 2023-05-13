@@ -6,7 +6,7 @@ import { LoginComponent } from './Components/Auth/login/login.component';
 import { FacebookButtonComponent } from './Components/Auth/thirdPartyLoginButtons/facebook-button/facebook-button.component';
 import { GoogleButtonComponent } from './Components/Auth/thirdPartyLoginButtons/google-button/google-button.component';
 import { SignUpComponent } from './Components/Auth/sign-up/sign-up.component';
-import { HttpClientModule }from'@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule }from'@angular/common/http';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { CategoryScrollerComponent } from './Components/category-scroller/category-scroller.component';
 import { ProductDetailsComponent } from './Components/product-details/product-details.component';
@@ -35,6 +35,7 @@ import { UpToTopComponent } from './Components/up-to-top/up-to-top.component';
 import { NotfoundPageComponent } from './Components/notfound-page/notfound-page.component';
 import { MainPageItemsSectionComponent } from './Components/main-page-items-section/main-page-items-section.component';
 import { AuthInterceptor } from './intercreptors/auth.interceptor';
+
 
 @NgModule({
   declarations: [
@@ -78,7 +79,11 @@ import { AuthInterceptor } from './intercreptors/auth.interceptor';
     BrowserAnimationsModule,
 
   ],
-  providers: [UserHomeDataService , AuthInterceptor],
+  providers: [UserHomeDataService , {
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+   }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
