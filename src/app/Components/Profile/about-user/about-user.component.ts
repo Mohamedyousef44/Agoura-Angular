@@ -1,32 +1,38 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProfilePageService } from 'src/app/Service/profile-page.service';
+import { distinctUntilChanged } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-about-user',
   templateUrl: './about-user.component.html',
   styleUrls: ['./about-user.component.css']
 })
-export class AboutUserComponent {
-  ID=1;
+export class AboutUserComponent implements OnInit , AfterViewInit{
+  ID: any
   UserDetails:any
 
-  constructor(public myService:ProfilePageService,myRoute:ActivatedRoute){
-    //
-    // this.ID = myRoute.snapshot.params["id"];-->active this code when data static
+  constructor(public route: ActivatedRoute , private myService: ProfilePageService){
+
+  }
+  ngAfterViewInit(): void {
+
   }
 
   ngOnInit(): void {
-    this.myService.GetUserByID(this.ID).subscribe(
-      {
-        next:(data: any)=>{
-          console.log(data)
+    this.myService.ID.pipe(distinctUntilChanged()).subscribe((res) => {
+      this.ID = res;
+
+      this.myService.GetUserByID(this.ID).subscribe({
+        next: (data: any) => {
           this.UserDetails = data;
-          console.log(data)
         },
-        error:(err: any)=>{console.log(err)}
-      }
-    )
+        error: (err: any) => {
+          console.log(err);
+        },
+      });
+    });
   }
 }
 

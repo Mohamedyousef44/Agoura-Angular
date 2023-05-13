@@ -12,14 +12,14 @@
           >
             <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px">
               <img
-                src="{{ UserDetails.image }}"
+                src="{{ userImage }}"
                 alt="Generic placeholder image"
                 class="img-fluid img-thumbnail mt-4 mb-2"
                 style="width: 150px; z-index: 1"
               />
             </div>
-            <div class="ms-3" style="margin-top: 130px">
-              <h5>{{ UserDetails.name | uppercase }}</h5>
+            <div class="ms-3" *ngIf="UserDetails" style="margin-top: 130px">
+              <h5>{{ UserDetails?.name | uppercase }}</h5>
             </div>
           </div>
           <div
@@ -29,7 +29,7 @@
             <div class="d-flex justify-content-end text-center py-1">
               <div class="m-1">
                 <a
-                  routerLink="/users/{{ UserDetails._id }}/bids"
+                  routerLink="/users/{{ UserDetails?._id }}/bids"
                   routerLinkActive="active"
                   class="btn btn-outline-dark"
                   >My Bids</a
@@ -48,7 +48,7 @@
                   type="button"
                   class="btn btn-outline-dark"
                   routerLinkActive="active"
-                  routerLink="/users/{{ UserDetails._id }}/edit"
+                  routerLink="/users/{{ UserDetails?._id }}/edit"
                   >Edit Profile
                 </a>
               </div>
@@ -56,7 +56,7 @@
           </div>
 
           <div class="card-body p-4 text-black border">
-            <router-outlet></router-outlet>
+            <router-outlet [id]="userID"></router-outlet>
           </div>
         </div>
       </div>

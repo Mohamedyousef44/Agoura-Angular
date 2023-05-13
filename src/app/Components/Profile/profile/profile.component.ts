@@ -12,6 +12,7 @@ export class ProfileComponent implements OnInit {
 
   userID: any
   UserDetails:any
+  userImage: any
 
   constructor(public myService:ProfilePageService , public route: ActivatedRoute ){
     this.route.params.subscribe(params => {
@@ -23,9 +24,9 @@ export class ProfileComponent implements OnInit {
     this.myService.GetUserByID(this.userID).subscribe(
       {
         next:(data: any)=>{
-          console.log(data)
           this.UserDetails = data;
-          console.log(data)
+          const image = data.image
+          if(image == '') this.userImage = "/assets/imgs/home/h1.png"
         },
         error:(err: any)=>{console.log(err)}
       }
