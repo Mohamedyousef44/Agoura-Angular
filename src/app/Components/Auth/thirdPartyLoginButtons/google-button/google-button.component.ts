@@ -41,8 +41,9 @@ export class GoogleButtonComponent implements OnInit{
       await this.authService.LoginWithGoogle(credential).subscribe(
         {
           next:(res:any)=>{
-          if(res){
-            localStorage.setItem("X-Auth-Token",res.headers.get("X-Auth-Token"))
+          if(res.body.success){
+            localStorage.setItem("X-Auth-Token",res.headers.get("X-Auth-Token"));
+            this.router.navigateByUrl("/home");
           }
           console.log(res.headers.get("X-Auth-Token"))
 
