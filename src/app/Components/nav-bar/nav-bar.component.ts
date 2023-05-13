@@ -21,7 +21,8 @@ export class NavBarComponent implements OnInit {
     });
     this.myService.getData().subscribe({
       next:(data: any)=>{
-        this.userName = data['userData'].name
+        this.userName = data['userData'].name.split(" ")[0]
+        this.isLoggedIn = localStorage.getItem('X-Auth-Token')
         console.log(data['userData'].name)
       }
     })

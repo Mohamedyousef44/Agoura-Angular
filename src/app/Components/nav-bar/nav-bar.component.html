@@ -10,7 +10,7 @@
       /></a>
     </div>
     <div class="home-right">
-      <ng-template *ngIf="isLoggedIn">
+      <ng-container *ngIf="isLoggedIn">
         <a
           class="btn fw-bold {{ textColor }} rounded-0 border-2 b-hover"
           routerLink="/profile"
@@ -19,10 +19,10 @@
         <a
           class="btn fw-bold {{ textColor }} rounded-0 border-2 b-hover"
           routerLink="/logout"
-          >Log out</a
+          >Log Out</a
         >
-      </ng-template>
-      <ng-template *ngIf="!isLoggedIn">
+      </ng-container>
+      <ng-container *ngIf="!isLoggedIn">
         <a
           class="btn fw-bold {{ textColor }} rounded-0 border-2 b-hover"
           routerLink="/signup"
@@ -33,7 +33,7 @@
           routerLink="/login"
           >Log In</a
         >
-      </ng-template>
+      </ng-container>
 
       <span class="border-end border-2 mx-2"></span>
       <a
