@@ -34,7 +34,7 @@ import { OtpComponent } from './Components/otp/otp.component';
 import { UpToTopComponent } from './Components/up-to-top/up-to-top.component';
 import { NotfoundPageComponent } from './Components/notfound-page/notfound-page.component';
 import { MainPageItemsSectionComponent } from './Components/main-page-items-section/main-page-items-section.component';
-import { FacebookLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from '@abacritt/angularx-social-login';
+import { AuthInterceptor } from './intercreptors/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -76,24 +76,9 @@ import { FacebookLoginProvider, SocialAuthServiceConfig, SocialLoginModule } fro
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    SocialLoginModule,
 
   ],
-  providers: [UserHomeDataService , {
-    provide: 'SocialAuthServiceConfig',
-    useValue: {
-      autoLogin: false,
-      providers: [
-        {
-          id: FacebookLoginProvider.PROVIDER_ID,
-          provider: new FacebookLoginProvider('176940621978669')
-        }
-      ],
-      onError: (err) => {
-        console.error(err);
-      }
-    } as SocialAuthServiceConfig,
-  }],
+  providers: [UserHomeDataService , AuthInterceptor],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
