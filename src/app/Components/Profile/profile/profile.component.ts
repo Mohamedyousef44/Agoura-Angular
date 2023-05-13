@@ -15,9 +15,7 @@ export class ProfileComponent implements OnInit {
   ID=1;
   UserDetails:any
 
-  constructor(public myService:ProfilePageService,myRoute:ActivatedRoute){
-    //
-    // this.ID = myRoute.snapshot.params["id"];-->active this code when data static
+  constructor(public myService:ProfilePageService){
   }
 
   ngOnInit(): void {

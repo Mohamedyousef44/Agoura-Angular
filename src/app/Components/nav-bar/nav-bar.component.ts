@@ -25,8 +25,6 @@ export class NavBarComponent implements OnInit {
       next:(data: any)=>{
         this.userName = data['userData'].name.split(" ")[0]
         this.isLoggedIn = localStorage.getItem('X-Auth-Token')
-
-        console.log(data['carts'][0]['apartments'])
         this.notLen = data['notifications'].length
         this.cartLen = data['carts'][0]['apartments'].length
       }
@@ -37,7 +35,7 @@ export class NavBarComponent implements OnInit {
   textColor!:string;
   element: any;
   @Output() toggle = new EventEmitter()
-  userName: string = ''
+  userName: string = ' '
   isLoggedIn: any
 
   check(data: any){
@@ -47,6 +45,10 @@ export class NavBarComponent implements OnInit {
     }else{
       this.toggle.emit(false)
     }
+  }
+
+  logout(){
+    localStorage.removeItem('X-Auth-Token')
   }
 }
 

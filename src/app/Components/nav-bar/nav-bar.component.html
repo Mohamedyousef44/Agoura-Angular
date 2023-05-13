@@ -13,12 +13,13 @@
       <ng-container *ngIf="isLoggedIn">
         <a
           class="btn fw-bold {{ textColor }} rounded-0 border-2 b-hover"
-          routerLink="/profile"
+          routerLink="/user/1"
           >{{ userName | uppercase }}</a
         >
         <a
           class="btn fw-bold {{ textColor }} rounded-0 border-2 b-hover"
-          routerLink="/logout"
+          routerLink="/login"
+          (click)="logout()"
           >Log Out</a
         >
       </ng-container>
