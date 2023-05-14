@@ -28,7 +28,7 @@ export class ProductDetailsComponent implements OnInit{
         }
       },
       error:(err)=>{  
-        this.router.navigateByUrl(`place/${bidId}/notfound`)
+        this.router.navigateByUrl(`404-NotFound`)
         console.log(err)
       }
     })
@@ -37,7 +37,11 @@ export class ProductDetailsComponent implements OnInit{
 
   public populate(res:any){
     this.placeObj=res.data.appartment
-    this.maxBid=res.data.appartment.bids[0].amountMoney
+    if(this.placeObj.bids.length>0){
+      this.maxBid=res.data.appartment.bids[0].amountMoney
+    }else{
+      this.maxBid=res.data.appartment.startBid
+    }
     this.thumbnail=res.data.appartment.images[0]
     this.form=new FormGroup({
       bid: new FormControl(this.maxBid,Validators.min(this.maxBid+1)),
