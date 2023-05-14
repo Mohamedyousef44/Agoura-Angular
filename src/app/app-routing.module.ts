@@ -38,12 +38,14 @@ const routes: Routes = [
         ]},
     ],
   },
-
+  
+  {path : '404-NotFound', component: NotfoundPageComponent},
   {path : 'login' , component : LoginComponent},
   {path : 'signup' , component: SignUpComponent},
   {path : 'forgetpassword' , component: ForgetPasswordComponent},
   {path : 'otp', component: OtpComponent},
   {path : '**', component: NotfoundPageComponent},
+
 
 ];
 
