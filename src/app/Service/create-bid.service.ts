@@ -5,7 +5,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class CreateBidService {
-  private readonly Base_URL = "http://localhost:9000";
+  private readonly Base_URL = "http://localhost:9000/place/create";
   private headers=new HttpHeaders({'content-type': 'multipart/form-data'});
   constructor(private myClient:HttpClient) {
 
@@ -14,7 +14,7 @@ export class CreateBidService {
     return this.myClient.post(this.Base_URL,bid).subscribe(
       {
         next:(data)=>{
-          console.log(data)
+          console.log(data);
         },
         error:(err)=>{console.log(err)}
       }
