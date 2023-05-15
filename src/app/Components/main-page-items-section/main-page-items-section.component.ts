@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { UserHomeDataService } from 'src/app/Service/user-home-data.service';
 
 
@@ -12,17 +13,19 @@ import { UserHomeDataService } from 'src/app/Service/user-home-data.service';
 export class MainPageItemsSectionComponent {
 
   items:any;
-  constructor(public myService:UserHomeDataService){}
+  constructor(public myService:UserHomeDataService , private spinner: NgxSpinnerService){}
 
   ngOnInit(): void {
+    this.spinner.show()
     this.myService.getData().subscribe(
       {
         next:(data: any)=>{
           this.items = data['apartments'];
+          this.spinner.hide()
         },
         error:(err: any)=>{console.log(err)}
       }
-    )
+      )
   }
 
   addToCart(id: any){

@@ -35,6 +35,7 @@ import { UpToTopComponent } from './Components/up-to-top/up-to-top.component';
 import { NotfoundPageComponent } from './Components/notfound-page/notfound-page.component';
 import { MainPageItemsSectionComponent } from './Components/main-page-items-section/main-page-items-section.component';
 import { AuthInterceptor } from './intercreptors/auth.interceptor';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 
 @NgModule({
@@ -67,6 +68,7 @@ import { AuthInterceptor } from './intercreptors/auth.interceptor';
     OtpComponent,
     UpToTopComponent,
     NotfoundPageComponent,
+
   ],
 
   imports: [
@@ -77,6 +79,7 @@ import { AuthInterceptor } from './intercreptors/auth.interceptor';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    NgxSpinnerModule.forRoot({type: 'square-jelly-box'}),
 
   ],
   providers: [UserHomeDataService , {
