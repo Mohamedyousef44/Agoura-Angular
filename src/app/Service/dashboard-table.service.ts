@@ -8,7 +8,7 @@ export class DashboardTableService {
   private readonly Base_URL = "http://localhost:9000";
   constructor(private readonly myClient: HttpClient) { }
 
-  GetUserByID() {
+  GetAllAppartment() {
     return this.myClient.get(this.Base_URL + "/dashboard" );
   }
 
