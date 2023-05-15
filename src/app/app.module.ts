@@ -36,7 +36,7 @@ import { NotfoundPageComponent } from './Components/notfound-page/notfound-page.
 import { MainPageItemsSectionComponent } from './Components/main-page-items-section/main-page-items-section.component';
 import { AuthInterceptor } from './intercreptors/auth.interceptor';
 import { NgxSpinnerModule } from "ngx-spinner";
-
+import { ResponseInterceptor } from './intercreptors/response.interceptor';
 
 @NgModule({
   declarations: [
@@ -85,6 +85,11 @@ import { NgxSpinnerModule } from "ngx-spinner";
   providers: [UserHomeDataService , {
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
+    multi: true
+   },
+   {
+    provide: HTTP_INTERCEPTORS,
+    useClass: ResponseInterceptor,
     multi: true
    }],
   bootstrap: [AppComponent],
