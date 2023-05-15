@@ -1,8 +1,7 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProfilePageService } from 'src/app/Service/profile-page.service';
-import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { distinctUntilChanged } from 'rxjs/operators';
+import { AbstractControl, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-edit-profile',
@@ -26,6 +25,18 @@ export class EditProfileComponent implements OnInit {
     });
   }
 
+  //   imageExtensionValidator(allowedExtensions: string[]): ValidatorFn {
+  //   return (control: AbstractControl): {[key: string]: any} | null => {
+  //     const file = control.value;
+  //     if (file) {
+  //       const fileExtension = file.name.split('.').pop().toLowerCase();
+  //       if (allowedExtensions.indexOf(fileExtension) === -1) {
+  //         return {'invalidExtension': true};
+  //       }
+  //     }
+  //     return null;
+  //   };
+  // }
 
   ngOnInit(): void {
 
@@ -39,7 +50,7 @@ export class EditProfileComponent implements OnInit {
                 // address: new FormControl(this.User.address, [Validators.required]),
                 // phone: new FormControl(this.User.phone, [Validators.required,Validators.minLength(10),Validators.pattern(/^[0-9]*$/)]),
                 email: new FormControl(this.User.email, [Validators.email, Validators.required]),
-                profileImage: new FormControl( this.User.image, [Validators.required,Validators.min(1)]),
+                profileImage: new FormControl( this.User.imag ),
               });
             // this.validationForm.patchValue(this.User)
 
@@ -86,9 +97,7 @@ onFileSelected(event: any){
         fd.append('profileImage', this.ProfileImage);
       }
 
-      this.myService.UpdateUser(fd,this.userId).subscribe(data => {
-          console.log(data);
-        })
+      this.myService.UpdateUser(fd,this.userId)
     }
   }
 

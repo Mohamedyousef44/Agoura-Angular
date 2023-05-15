@@ -21,12 +21,18 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    this.myService.Image.subscribe(info=>{
+      console.log(info.data.image)
+      this.userImage = info.data.image
+    })
     this.myService.GetUserByID(this.userID).subscribe(
       {
         next:(data: any)=>{
           this.UserDetails = data;
           const image = data.image
           if(image == '') this.userImage = "/assets/imgs/home/h1.png"
+          else this.userImage = image
         },
         error:(err: any)=>{console.log(err)}
       }
