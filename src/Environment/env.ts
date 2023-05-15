@@ -1,4 +1,4 @@
-export const environment = {
-  production: false,
-  apiUrl: 'https://agora-node-server.onrender.com/'
+export const Environment = {
+
+  apiUrl: 'https://agora-node-server.onrender.com'
 };

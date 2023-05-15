@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import {Environment} from '../../Environment/env'
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class OtpService {
-  private apiUrl = 'http://localhost:3000/api/verify-otp';
+  private apiUrl = Environment.apiUrl+'/api/verify-otp';
 
   constructor(private http: HttpClient) {}
 

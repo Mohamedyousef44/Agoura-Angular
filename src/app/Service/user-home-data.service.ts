@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable, Output } from '@angular/core';
+import {Environment} from '../../Environment/env'
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +10,7 @@ export class UserHomeDataService {
   private BaseURL: string
 
   constructor(private user: HttpClient) {
-    this.BaseURL =  "http://localhost:9000/home"
-  }
+    this.BaseURL =  Environment.apiUrl+'/home'}
   getData(){
     return this.user.get(this.BaseURL)
   }

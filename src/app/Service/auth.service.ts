@@ -1,14 +1,15 @@
 import { HttpClient, HttpHeaderResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import {Environment} from '../../Environment/env'
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private readonly Base_URL = "http://localhost:9000";
+  private readonly Base_URL = Environment.apiUrl;
   private headers=new HttpHeaders({'content-type': 'json/text'});
-  constructor(private myHttpClient:HttpClient) { 
+  constructor(private myHttpClient:HttpClient) {
 
   }
 
