@@ -21,6 +21,7 @@
     "@angular/router": "^15.2.0",
     "@popperjs/core": "^2.11.6",
     "@types/google-one-tap": "^1.2.2",
+    "ajv": "^8.12.0",
     "bootstrap": "^5.2.3",
     "https": "^1.0.0",
     "json-server": "^0.17.3",
