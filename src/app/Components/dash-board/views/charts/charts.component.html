@@ -1,0 +1,14 @@
+<c-row >
+    <c-col sm="6">
+        <c-chart
+        [data]="data1"
+        type="line"
+        (chartRef)="handleChartRef($event)">
+        </c-chart>
+
+    </c-col>
+    <c-col sm="6">
+        <c-chart [data]="data2" type="bar"></c-chart>
+    </c-col>
+</c-row>
+
