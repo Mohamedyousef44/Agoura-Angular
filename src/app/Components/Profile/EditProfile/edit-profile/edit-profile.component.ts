@@ -60,6 +60,7 @@ export class EditProfileComponent implements OnInit {
 
   }
 
+
   get userName() {
     return this.validationForm.controls['userName'];
   }

@@ -20,6 +20,10 @@ export class ProfileComponent implements OnInit {
     })
   }
 
+  goDown(){
+    window.scroll(0 , 600)
+  }
+
   ngOnInit(): void {
 
     this.myService.Image.subscribe(info=>{

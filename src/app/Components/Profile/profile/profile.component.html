@@ -8,7 +8,9 @@
       />
       <img class="avatar" src="{{ userImage }}" alt="profile image" />
     </div>
-    <button routerLink="/users/{{ UserDetails?._id }}/edit">Edit</button>
+    <button routerLink="/users/{{ UserDetails?._id }}/edit" (click)="goDown()">
+      Edit
+    </button>
     <div class="user-profile-data">
       <h2>{{ UserDetails?.name | uppercase }}</h2>
       <p>{{ UserDetails?.email }}</p>
