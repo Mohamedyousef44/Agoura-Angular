@@ -35,6 +35,20 @@ import { UpToTopComponent } from './Components/up-to-top/up-to-top.component';
 import { NotfoundPageComponent } from './Components/notfound-page/notfound-page.component';
 import { MainPageItemsSectionComponent } from './Components/main-page-items-section/main-page-items-section.component';
 import { AuthInterceptor } from './intercreptors/auth.interceptor';
+import { DefaultLayoutComponent,DefaultHeaderComponent } from './Components/dash-board/containers';
+import {
+  SidebarModule,
+  NavModule,
+  HeaderModule,
+  GridModule,
+  TableModule,
+  UtilitiesModule
+} from '@coreui/angular';
+import { IconModule ,IconSetService} from '@coreui/icons-angular';
+import { BidsComponent } from './Components/dash-board/views/bids/bids.component';
+import { ChartsComponent } from './Components/dash-board/views/charts/charts.component';
+import { ChartjsModule } from '@coreui/angular-chartjs';
+
 
 
 @NgModule({
@@ -67,6 +81,10 @@ import { AuthInterceptor } from './intercreptors/auth.interceptor';
     OtpComponent,
     UpToTopComponent,
     NotfoundPageComponent,
+    DefaultHeaderComponent,
+    DefaultLayoutComponent,
+    BidsComponent,
+    ChartsComponent,
   ],
 
   imports: [
@@ -77,9 +95,18 @@ import { AuthInterceptor } from './intercreptors/auth.interceptor';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    AppRoutingModule,
+    SidebarModule,
+    NavModule,
+    HeaderModule,
+    GridModule,
+    IconModule,
+    TableModule,
+    UtilitiesModule,
+    ChartjsModule,
 
   ],
-  providers: [UserHomeDataService , {
+  providers: [UserHomeDataService ,IconSetService, {
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
     multi: true
