@@ -9,7 +9,7 @@ export class UserHomeDataService {
   private BaseURL: string
 
   constructor(private user: HttpClient) {
-    this.BaseURL =  "http://localhost:9000/homes"
+    this.BaseURL =  "http://localhost:9000/home"
   }
   getData(){
     return this.user.get(this.BaseURL)
