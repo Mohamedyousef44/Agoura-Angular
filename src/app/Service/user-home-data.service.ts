@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable, Output } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ export class UserHomeDataService {
 
   private BaseURL: string
 
-  constructor(private user: HttpClient) {
+  constructor(private user: HttpClient , private spinner: NgxSpinnerService) {
     this.BaseURL =  "http://localhost:9000/home"
   }
   getData(){
@@ -43,8 +44,10 @@ export class UserHomeDataService {
   }
 
   addItemToCart(id: any){
+    this.spinner.show('cartSpinner')
     this.user.post(this.BaseURL+'/cart', {id}).subscribe(response => {
       this.cartUpdated.emit(response);
+      this.spinner.hide('cartSpinner')
     }, error => {
       console.error(error);
     });

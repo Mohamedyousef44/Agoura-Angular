@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProfilePageService } from 'src/app/Service/profile-page.service';
 import { AbstractControl, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-edit-profile',
@@ -18,7 +19,8 @@ export class EditProfileComponent implements OnInit {
   constructor(
     public myService: ProfilePageService,
     public router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private spinner: NgxSpinnerService
   ) {
     this.route.parent?.paramMap.subscribe(params => {
       this.userId = params.get('id');
@@ -90,6 +92,7 @@ onFileSelected(event: any){
 
 //send data to database
   updateUser(){
+    this.spinner.show('updateSpinner')
     if (this.validationForm.valid) {
       const fd = new FormData();
       fd.append('data', JSON.stringify(this.validationForm.value));

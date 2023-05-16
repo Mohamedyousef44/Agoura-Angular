@@ -79,7 +79,7 @@ import { ResponseInterceptor } from './intercreptors/response.interceptor';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    NgxSpinnerModule.forRoot({type: 'square-jelly-box'}),
+    NgxSpinnerModule,
 
   ],
   providers: [UserHomeDataService , {

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { ProfilePageService } from 'src/app/Service/profile-page.service';
 
 
@@ -14,20 +15,19 @@ export class ProfileComponent implements OnInit {
   UserDetails:any
   userImage: any
 
-  constructor(public myService:ProfilePageService , public route: ActivatedRoute ){
+  constructor(public myService:ProfilePageService , public route: ActivatedRoute , private spinner: NgxSpinnerService ){
     this.route.params.subscribe(params => {
       this.userID = params['id'];
     })
   }
 
   goDown(){
-    window.scroll(0 , 600)
+    window.scroll(0 , 630)
   }
 
   ngOnInit(): void {
-
+    this.spinner.show('profileSpinner')
     this.myService.Image.subscribe(info=>{
-      console.log(info.data.image)
       this.userImage = info.data.image
     })
     this.myService.GetUserByID(this.userID).subscribe(
@@ -37,14 +37,11 @@ export class ProfileComponent implements OnInit {
           const image = data.image
           if(image == '') this.userImage = "/assets/imgs/home/h1.png"
           else this.userImage = image
+          this.spinner.hide('profileSpinner')
         },
         error:(err: any)=>{console.log(err)}
       }
     )
-  }
-
-  emitID(){
-
   }
 }
 

@@ -1,4 +1,4 @@
-<section class="intro m-4">
+<section class="intro m-4" style="position: relative">
   <div class="bg-image">
     <div class="d-flex align-items-center" style="background-color: #ffffff">
       <div class="container pt-2">
@@ -142,4 +142,13 @@
       </div>
     </div>
   </div>
+  <ngx-spinner
+    bdColor="rgba(10, 10, 10, 0.8)"
+    name="updateSpinner"
+    size="medium"
+    type="square-jelly-box"
+    color="#fff"
+    [fullScreen]="false"
+    ><p style="color: white">Updating...</p></ngx-spinner
+  >
 </section>
