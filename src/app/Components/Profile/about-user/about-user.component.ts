@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProfilePageService } from 'src/app/Service/profile-page.service';
+import { distinctUntilChanged } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-about-user',
@@ -8,26 +10,27 @@ import { ProfilePageService } from 'src/app/Service/profile-page.service';
   styleUrls: ['./about-user.component.css']
 })
 export class AboutUserComponent {
-  ID=1;
+  ID: any
   UserDetails:any
 
-  constructor(public myService:ProfilePageService,myRoute:ActivatedRoute){
-    //
-    // this.ID = myRoute.snapshot.params["id"];-->active this code when data static
+  constructor(public route: ActivatedRoute , private myService: ProfilePageService){
+
   }
 
-  ngOnInit(): void {
-    this.myService.GetUserByID(this.ID).subscribe(
-      {
-        next:(data: any)=>{
-          console.log(data)
-          this.UserDetails = data;
-          console.log(data)
-        },
-        error:(err: any)=>{console.log(err)}
-      }
-    )
-  }
+  // ngOnInit(): void {
+  //   this.myService.ID.pipe(distinctUntilChanged()).subscribe((res) => {
+  //     this.ID = res;
+
+  //     this.myService.GetUserByID(this.ID).subscribe({
+  //       next: (data: any) => {
+  //         this.UserDetails = data;
+  //       },
+  //       error: (err: any) => {
+  //         console.log(err);
+  //       },
+  //     });
+  //   });
+  // }
 }
 
 
