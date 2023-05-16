@@ -17,4 +17,16 @@ export class BidsService {
   addNewBid(data: any) {
     return this.myClient.post(this.Base_URL + `/bid`,data);
   }
+  updateBidById(id:number,data: any) {
+    return this.myClient.put(this.Base_URL + `/bid/${id}/update`,data);
+  }
+  bidNeedsMoreInfo(id:number,data: any) {
+    return this.myClient.post(this.Base_URL + `/bid/${id}/notes`,data);
+  }
+  approveBidById(id:number,data: any) {
+    return this.myClient.post(this.Base_URL + `/bid/${id}/approve`,data);
+  }
+
+  
+
 }
