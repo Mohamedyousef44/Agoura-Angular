@@ -36,18 +36,22 @@ import { NotfoundPageComponent } from './Components/notfound-page/notfound-page.
 import { MainPageItemsSectionComponent } from './Components/main-page-items-section/main-page-items-section.component';
 import { AuthInterceptor } from './intercreptors/auth.interceptor';
 import { DefaultLayoutComponent,DefaultHeaderComponent } from './Components/dash-board/containers';
+import { EditProductFormComponent } from './Components/edit-product-form/edit-product-form.component';
+
 import {
   SidebarModule,
   NavModule,
   HeaderModule,
   GridModule,
   TableModule,
-  UtilitiesModule
+  UtilitiesModule,
+  CardModule
 } from '@coreui/angular';
 import { IconModule ,IconSetService} from '@coreui/icons-angular';
 import { BidsComponent } from './Components/dash-board/views/bids/bids.component';
 import { ChartsComponent } from './Components/dash-board/views/charts/charts.component';
 import { ChartjsModule } from '@coreui/angular-chartjs';
+import { DashboardBidDetailsComponent } from './Components/dash-board/views/dashboard-bid-details/dashboard-bid-details.component';
 
 
 
@@ -85,6 +89,8 @@ import { ChartjsModule } from '@coreui/angular-chartjs';
     DefaultLayoutComponent,
     BidsComponent,
     ChartsComponent,
+    DashboardBidDetailsComponent,
+    EditProductFormComponent,
   ],
 
   imports: [
@@ -104,6 +110,8 @@ import { ChartjsModule } from '@coreui/angular-chartjs';
     TableModule,
     UtilitiesModule,
     ChartjsModule,
+    CardModule,
+
 
   ],
   providers: [UserHomeDataService ,IconSetService, {
