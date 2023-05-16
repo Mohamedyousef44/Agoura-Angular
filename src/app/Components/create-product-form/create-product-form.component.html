@@ -118,7 +118,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-12">
+      <div class="col-md-12" *ngIf="!edit">
         <label for="validationServer12" class="form-label">upload photos</label>
         <div class="input-group mb-4" >
           <input type="file" class="form-control" formControlName="images" name="images" [ngClass]="{'is-valid':images!.dirty && images!.valid,'is-invalid':images!.touched && !images!.valid}" (change)="onFileSelected($event)" id="inputGroupFile02" multiple required accept="image/*">
