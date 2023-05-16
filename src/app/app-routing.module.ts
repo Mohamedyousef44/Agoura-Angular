@@ -15,6 +15,10 @@ import { BidHistoryComponent } from './Components/bid-history/bid-history.compon
 import { ForgetPasswordComponent } from './Components/forget-password/forget-password.component';
 import { OtpComponent } from './Components/otp/otp.component';
 import { NotfoundPageComponent } from './Components/notfound-page/notfound-page.component';
+import { DefaultLayoutComponent } from './Components/dash-board/containers';
+import { BidsComponent } from './Components/dash-board/views/bids/bids.component';
+import { ChartsComponent } from './Components/dash-board/views/charts/charts.component';
+
 
 
 
@@ -33,17 +37,21 @@ const routes: Routes = [
       { path: "users/:id",component:ProfileComponent,children:[
           { path:"edit",component:EditProfileComponent , pathMatch:'full'},
           { path:"about",component:AboutUserComponent},
-
-        ]},
+                ]},
+      
+      { path: "dashboard" ,component:DefaultLayoutComponent ,children:[
+        { path: '', redirectTo: 'stats', pathMatch: 'full' },
+        { path: "bids",component:BidsComponent },
+        { path: "stats",component:ChartsComponent }
+      ]},
     ],
   },
-
+  {path : '404-NotFound', component: NotfoundPageComponent},
   {path : 'login' , component : LoginComponent},
   {path : 'signup' , component: SignUpComponent},
   {path : 'forgetpassword' , component: ForgetPasswordComponent},
   {path : 'otp', component: OtpComponent},
   {path : '**', component: NotfoundPageComponent},
-
 ];
 
 

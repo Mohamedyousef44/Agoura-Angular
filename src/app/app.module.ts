@@ -37,6 +37,19 @@ import { MainPageItemsSectionComponent } from './Components/main-page-items-sect
 import { AuthInterceptor } from './intercreptors/auth.interceptor';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { ResponseInterceptor } from './intercreptors/response.interceptor';
+import { DefaultLayoutComponent,DefaultHeaderComponent } from './Components/dash-board/containers';
+import {
+  SidebarModule,
+  NavModule,
+  HeaderModule,
+  GridModule,
+  TableModule,
+  UtilitiesModule
+} from '@coreui/angular';
+import { IconModule ,IconSetService} from '@coreui/icons-angular';
+import { BidsComponent } from './Components/dash-board/views/bids/bids.component';
+import { ChartsComponent } from './Components/dash-board/views/charts/charts.component';
+import { ChartjsModule } from '@coreui/angular-chartjs';
 
 @NgModule({
   declarations: [
@@ -68,7 +81,10 @@ import { ResponseInterceptor } from './intercreptors/response.interceptor';
     OtpComponent,
     UpToTopComponent,
     NotfoundPageComponent,
-
+    DefaultHeaderComponent,
+    DefaultLayoutComponent,
+    BidsComponent,
+    ChartsComponent,
   ],
 
   imports: [
@@ -80,9 +96,17 @@ import { ResponseInterceptor } from './intercreptors/response.interceptor';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     NgxSpinnerModule,
-
+    AppRoutingModule,
+    SidebarModule,
+    NavModule,
+    HeaderModule,
+    GridModule,
+    IconModule,
+    TableModule,
+    UtilitiesModule,
+    ChartjsModule,
   ],
-  providers: [UserHomeDataService , {
+  providers: [UserHomeDataService ,IconSetService, {
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
     multi: true

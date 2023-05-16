@@ -11,13 +11,6 @@ export class CreateBidService {
 
   }
   post(bid:any){
-    return this.myClient.post(this.Base_URL,bid).subscribe(
-      {
-        next:(data)=>{
-          console.log(data)
-        },
-        error:(err)=>{console.log(err)}
-      }
-    )
+    return this.myClient.post(`${this.Base_URL}/place/create`,bid)
   }
 }

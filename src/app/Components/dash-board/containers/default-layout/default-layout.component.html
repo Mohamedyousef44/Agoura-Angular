@@ -1,0 +1,21 @@
+<!--sidebar-->
+
+
+<!--main-->
+  <!--app-header-->
+  <app-default-header class="d-print-none header"></app-default-header>
+  <!--app-body-->
+    <c-container fluid>
+      <c-row className="row">
+        <c-col sm="2">
+          <c-sidebar visible position="sticky">
+            <c-sidebar-nav [navItems]="navItems" dropdownMode="close"></c-sidebar-nav>
+            <c-sidebar-toggler></c-sidebar-toggler>
+          </c-sidebar>
+        </c-col>
+        <c-col sm="9" class="mt-5">
+          <router-outlet></router-outlet>
+        </c-col>
+      </c-row>
+  </c-container>
+  <!--app footer-->
