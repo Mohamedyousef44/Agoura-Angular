@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnChanges  } from '@angular/core';
 import { FormControl, FormGroup , Validators ,FormBuilder, FormArray} from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { BidsService } from 'src/app/Service/bids.service';
 import { CreateBidService } from 'src/app/Service/create-bid.service';
 
 @Component({
@@ -8,11 +9,13 @@ import { CreateBidService } from 'src/app/Service/create-bid.service';
   templateUrl: './create-product-form.component.html',
   styleUrls: ['./create-product-form.component.css']
 })
-export class CreateProductFormComponent {
+export class CreateProductFormComponent implements OnChanges{
+  @Input("edit") edit=false;
   files!:FileList;
-  validationForm:FormGroup;
+  validationForm!:FormGroup;
   step:number;
-  public constructor(private fb:FormBuilder,private myService:CreateBidService,private router:Router){
+  id!:any;
+  public constructor(private fb:FormBuilder,private myService:CreateBidService,private myBidService:BidsService,private router:Router,private route:ActivatedRoute){
     this.step=1;
     this.validationForm = fb.group({
       title: new FormControl(null,[Validators.required, Validators.minLength(5)]),
@@ -36,6 +39,26 @@ export class CreateProductFormComponent {
       images:new FormControl([],[Validators.required,Validators.min(1),])
     });
   }
+  ngOnChanges(){
+    let bidId=this.route.snapshot.params["id"]
+    
+    if(this.edit){
+      this.myBidService.GetBidById(bidId).subscribe({
+        next:(res:any)=>{
+          console.log(res)
+          if(res.success){
+            this.id=res.data.appartment._id
+            this.validationForm.patchValue(res.data.appartment);
+            // this.validationForm.markAsDirty()
+            this.validationForm.controls["images"].removeValidators
+        }
+      },
+        error:(err)=>{
+          console.log(err)
+        }
+      })
+    }
+  } 
   get title () {
     return this.validationForm.controls["title"];
   }
@@ -89,7 +112,7 @@ export class CreateProductFormComponent {
   send(){
 
 
-    if(this.validationForm.valid){
+    if(this.validationForm.valid && !this.edit){
       let formData=new FormData()
       formData.append("data",JSON.stringify(this.validationForm.value))
       if(this.files){
@@ -109,6 +132,20 @@ export class CreateProductFormComponent {
         }
       );
       console.log("created success",bid)
+    }
+    if(this.validationForm.valid && this.edit){
+      this.myBidService.updateBidById(this.id,this.validationForm.value).subscribe(
+        {
+          next:(res:any)=>{
+            if(res.success){
+              this.router.navigateByUrl(`/home`)
+              console.log(res)
+            }
+          },
+          error:(err)=>{console.log(err)}
+        }
+      );
+      console.log("created success")
     }
   }
 

@@ -38,18 +38,22 @@ import { AuthInterceptor } from './intercreptors/auth.interceptor';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { ResponseInterceptor } from './intercreptors/response.interceptor';
 import { DefaultLayoutComponent,DefaultHeaderComponent } from './Components/dash-board/containers';
+import { EditProductFormComponent } from './Components/edit-product-form/edit-product-form.component';
+
 import {
   SidebarModule,
   NavModule,
   HeaderModule,
   GridModule,
   TableModule,
-  UtilitiesModule
+  UtilitiesModule,
+  CardModule
 } from '@coreui/angular';
 import { IconModule ,IconSetService} from '@coreui/icons-angular';
 import { BidsComponent } from './Components/dash-board/views/bids/bids.component';
 import { ChartsComponent } from './Components/dash-board/views/charts/charts.component';
 import { ChartjsModule } from '@coreui/angular-chartjs';
+import { DashboardBidDetailsComponent } from './Components/dash-board/views/dashboard-bid-details/dashboard-bid-details.component';
 
 @NgModule({
   declarations: [
@@ -85,6 +89,8 @@ import { ChartjsModule } from '@coreui/angular-chartjs';
     DefaultLayoutComponent,
     BidsComponent,
     ChartsComponent,
+    DashboardBidDetailsComponent,
+    EditProductFormComponent,
   ],
 
   imports: [
@@ -105,6 +111,9 @@ import { ChartjsModule } from '@coreui/angular-chartjs';
     TableModule,
     UtilitiesModule,
     ChartjsModule,
+    dashboard-bid-update,
+    CardModule,
+
   ],
   providers: [UserHomeDataService ,IconSetService, {
     provide: HTTP_INTERCEPTORS,

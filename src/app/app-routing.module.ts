@@ -18,6 +18,8 @@ import { NotfoundPageComponent } from './Components/notfound-page/notfound-page.
 import { DefaultLayoutComponent } from './Components/dash-board/containers';
 import { BidsComponent } from './Components/dash-board/views/bids/bids.component';
 import { ChartsComponent } from './Components/dash-board/views/charts/charts.component';
+import { DashboardBidDetailsComponent } from './Components/dash-board/views/dashboard-bid-details/dashboard-bid-details.component';
+import { EditProductFormComponent } from './Components/edit-product-form/edit-product-form.component';
 
 
 
@@ -31,6 +33,7 @@ const routes: Routes = [
       { path: 'home', component: HomeComponent },
       { path: 'place/create', component: CreateProductFormComponent },
       { path: 'place/:id', component: ProductDetailsComponent },
+      { path: 'place/:id/edit', component: EditProductFormComponent },
       { path: 'place/:id/history', component: BidHistoryComponent },
       { path: 'about', component: AboutComponent },
       { path: "checkout" , component : CheckoutComponent},
@@ -42,6 +45,7 @@ const routes: Routes = [
       { path: "dashboard" ,component:DefaultLayoutComponent ,children:[
         { path: '', redirectTo: 'stats', pathMatch: 'full' },
         { path: "bids",component:BidsComponent },
+        { path: "bids/:id",component:DashboardBidDetailsComponent },
         { path: "stats",component:ChartsComponent }
       ]},
     ],
