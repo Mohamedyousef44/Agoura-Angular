@@ -29,7 +29,6 @@ export class ApartmentsComponent {
         next:(data)=>{
            this.result = data
           if(!this.result.success){
-            console.log('from not found')
               this.route.navigateByUrl('/notfound')
           }else{
               this.apartmentData = this.result.data

@@ -21,6 +21,7 @@ import { DashboardBidDetailsComponent } from './Components/dash-board/views/dash
 import { EditProductFormComponent } from './Components/edit-product-form/edit-product-form.component';
 import { UserBidsComponent } from './Components/Profile/bids/bids.component';
 import { OrdersComponent } from './Components/Profile/orders/orders.component';
+import { ApartmentsComponent } from './Components/Profile/apartments/apartments.component';
 
 
 
@@ -42,6 +43,7 @@ const routes: Routes = [
           { path:"edit",component:EditProfileComponent , pathMatch:'full'},
           { path:"bids",component:UserBidsComponent},
           { path:"orders",component:OrdersComponent},
+          { path:"apartments",component:ApartmentsComponent},
                 ]},
 
       { path: "dashboard" ,component:DefaultLayoutComponent ,children:[
