@@ -20,6 +20,7 @@ import { ChartsComponent } from './Components/dash-board/views/charts/charts.com
 import { DashboardBidDetailsComponent } from './Components/dash-board/views/dashboard-bid-details/dashboard-bid-details.component';
 import { EditProductFormComponent } from './Components/edit-product-form/edit-product-form.component';
 import { UserBidsComponent } from './Components/Profile/bids/bids.component';
+import { OrdersComponent } from './Components/Profile/orders/orders.component';
 
 
 
@@ -40,6 +41,7 @@ const routes: Routes = [
       { path: "users/:id",component:ProfileComponent,children:[
           { path:"edit",component:EditProfileComponent , pathMatch:'full'},
           { path:"bids",component:UserBidsComponent},
+          { path:"orders",component:OrdersComponent},
                 ]},
 
       { path: "dashboard" ,component:DefaultLayoutComponent ,children:[

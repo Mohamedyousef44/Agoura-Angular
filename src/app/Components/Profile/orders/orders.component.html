@@ -1,0 +1,30 @@
+<div class="mt-4">
+  <!-- <ng-template [ngIf]="!orderData"> -->
+  <div class="bid-shadow">
+    <h3>You Do Not Have Any Orders Till Now</h3>
+    <a class="btn btn-primary border-0 w-50 my-4" routerLink="/home">Bid Now</a>
+  </div>
+
+  <!-- </ng-template> -->
+
+  <!-- <ng-template [ngIf]="orderData"> -->
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Apartment</th>
+        <th scope="col">Bid</th>
+        <th scope="col">Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of orderData">
+        <th scope="row">{{ order._id }}</th>
+        <td>{{ order.apartment }}</td>
+        <td>{{ order.amount }}</td>
+        <td>{{ order.date }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <!-- </ng-template> -->
+</div>

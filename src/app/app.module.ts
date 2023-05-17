@@ -53,6 +53,7 @@ import { BidsComponent } from './Components/dash-board/views/bids/bids.component
 import { ChartsComponent } from './Components/dash-board/views/charts/charts.component';
 import { ChartjsModule } from '@coreui/angular-chartjs';
 import { DashboardBidDetailsComponent } from './Components/dash-board/views/dashboard-bid-details/dashboard-bid-details.component';
+import { OrdersComponent } from './Components/Profile/orders/orders.component';
 
 @NgModule({
   declarations: [
@@ -89,6 +90,7 @@ import { DashboardBidDetailsComponent } from './Components/dash-board/views/dash
     ChartsComponent,
     DashboardBidDetailsComponent,
     EditProductFormComponent,
+    OrdersComponent,
   ],
 
   imports: [
