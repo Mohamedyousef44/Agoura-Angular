@@ -1,19 +1,25 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { UserHomeDataService } from 'src/app/Service/user-home-data.service';
+import { BsDropdownConfig } from 'ngx-bootstrap/dropdown';
+import { AuthService } from 'src/app/Service/auth.service';
 
 
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
-  styleUrls: ['./nav-bar.component.css']
+  styleUrls: ['./nav-bar.component.css'],
+  providers: [{ provide: BsDropdownConfig, useValue: { isAnimated: true, autoClose: true } }]
+
 })
 export class NavBarComponent implements OnInit {
   cartLen: any;
   notLen: any;
   userId: any;
-
-
-  constructor(public myService: UserHomeDataService){}
+  profileImage:any;
+  isAdmin=false;
+  constructor(public myService: UserHomeDataService ,private authService:AuthService) {
+    
+  }
 
   ngOnInit() {
     this.myService.cartUpdated.subscribe((res) => {
@@ -29,8 +35,11 @@ export class NavBarComponent implements OnInit {
         this.isLoggedIn = localStorage.getItem('X-Auth-Token')
         this.notLen = data['notifications'].length
         this.cartLen = data['carts'][0]['apartments'].length
+        this.profileImage = data['userData'] || "/assets/photos/avatar02.png"
       }
     })
+    this.isAdmin=this.authService.verify();
+
   }
 
   @Input("text-color") inputTextColor!:string;
