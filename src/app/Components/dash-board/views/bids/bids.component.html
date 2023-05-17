@@ -1,29 +1,28 @@
-<table cTable hover>
-    <thead>
+<table class="table table-secondary  table-hover table-borderless">
+    <thead class="table-secondary">
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">Class</th>
-      <th scope="col">Heading</th>
-      <th scope="col">Heading</th>
+      <th scope="col">Number</th>
+      <th scope="col">Owner</th>
+      <th scope="col">Address</th>
+      <th scope="col">Title</th>
+      <th scope="col">Status</th>
+      <th scope="col">Time Left</th>
+      <th scope="col">Show</th>
+
     </tr>
     </thead>
     <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
+    <tr *ngFor="let item of allAppartments let i = index" [ngClass]="{'table-success':item.status=='approved','table-warning':item.status=='pending','table-danger':item.status=='canceled','table-primary':item.status=='sold','table-info':item.status=='completed'}" >
+      <th >{{i+1}}</th>
+      <td>{{item.owner.name}}</td>
+      <td>{{item.address.city}}</td>
+      <td>{{item.title}}</td>
+      <td>{{item.status}}</td>
+      <td>{{item.timeLeft}}</td>
+      <td><a class="btn btn-outline-dark" >Show</a></td>
     </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colSpan="2">Larry the Bird</td>
-      <td><button class="btn btn-dark" (click)="click()">click</button></td>
-    </tr>
+
     </tbody>
   </table>
+
+  <p></p>
