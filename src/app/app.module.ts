@@ -32,12 +32,14 @@ import { ForgetPasswordComponent } from './Components/forget-password/forget-pas
 import { OtpComponent } from './Components/otp/otp.component';
 import { UpToTopComponent } from './Components/up-to-top/up-to-top.component';
 import { NotfoundPageComponent } from './Components/notfound-page/notfound-page.component';
+import { ResetPasswordComponent } from './Components/reset-password/reset-password.component';
 import { MainPageItemsSectionComponent } from './Components/main-page-items-section/main-page-items-section.component';
 import { AuthInterceptor } from './intercreptors/auth.interceptor';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { ResponseInterceptor } from './intercreptors/response.interceptor';
 import { DefaultLayoutComponent,DefaultHeaderComponent } from './Components/dash-board/containers';
 import { EditProductFormComponent } from './Components/edit-product-form/edit-product-form.component';
+
 
 import {
   SidebarModule,
@@ -85,6 +87,7 @@ import { ApartmentsComponent } from './Components/Profile/apartments/apartments.
     OtpComponent,
     UpToTopComponent,
     NotfoundPageComponent,
+    ResetPasswordComponent,
     DefaultHeaderComponent,
     DefaultLayoutComponent,
     BidsComponent,
@@ -93,6 +96,7 @@ import { ApartmentsComponent } from './Components/Profile/apartments/apartments.
     EditProductFormComponent,
     OrdersComponent,
     ApartmentsComponent,
+
   ],
 
   imports: [

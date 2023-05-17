@@ -24,6 +24,8 @@ import { OrdersComponent } from './Components/Profile/orders/orders.component';
 import { ApartmentsComponent } from './Components/Profile/apartments/apartments.component';
 
 
+import { ResetPasswordComponent } from './Components/reset-password/reset-password.component';
+
 
 
 const routes: Routes = [
@@ -58,8 +60,10 @@ const routes: Routes = [
   {path : 'login' , component : LoginComponent},
   {path : 'signup' , component: SignUpComponent},
   {path : 'forgetpassword' , component: ForgetPasswordComponent},
-  {path : 'otp', component: OtpComponent},
+  {path: 'otp', component: OtpComponent},
+  {path: 'resetpassword', component: ResetPasswordComponent},
   {path : '**', component: NotfoundPageComponent},
+
 ];
 
 
