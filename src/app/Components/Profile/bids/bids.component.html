@@ -1,35 +1,28 @@
 <div class="mt-4">
   <!-- <ng-template [ngIf]="!bidData"> -->
-  <h3>You Do Not Have Any Bids Till Now</h3>
+  <div class="bid-shadow">
+    <h3>You Do Not Have Any Bids Till Now</h3>
+    <a class="btn btn-primary border-0 w-50 my-4" routerLink="/home">Bid Now</a>
+  </div>
+
   <!-- </ng-template> -->
 
   <!-- <ng-template [ngIf]="bidData"> -->
   <table class="table table-hover">
     <thead>
       <tr>
-        <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
+        <th scope="col">ID</th>
+        <th scope="col">Apartment</th>
+        <th scope="col">Bid</th>
+        <th scope="col">Date</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td colspan="2">Larry the Bird</td>
-        <td>@twitter</td>
+      <tr *ngFor="let bid of bidData">
+        <th scope="row">{{ bid._id }}</th>
+        <td>{{ bid.apartment }}</td>
+        <td>{{ bid.amountMoney }}</td>
+        <td>{{ bid.date }}</td>
       </tr>
     </tbody>
   </table>
