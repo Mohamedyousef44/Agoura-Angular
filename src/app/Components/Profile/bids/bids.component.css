@@ -1,0 +1,12 @@
+.bid-shadow{
+  -webkit-box-shadow: 5px 10px 5px -1px rgba(0,0,0,0.75);
+  -moz-box-shadow: 5px 10px 5px -1px rgba(0,0,0,0.75);
+  box-shadow: 5px 10px 5px -1px rgba(0,0,0,0.75);
+  margin: 5% 0;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5%;
+}

@@ -22,7 +22,6 @@ import { CheckoutComponent } from './Components/Payment/checkout/checkout.compon
 import { PaymentMethodComponent } from './Components/Payment/payment-method/payment-method.component';
 import { ProfileComponent } from './Components/Profile/profile/profile.component';
 import { EditProfileComponent } from './Components/Profile/EditProfile/edit-profile/edit-profile.component';
-import { AboutUserComponent } from './Components/Profile/about-user/about-user.component';
 import { AboutComponent } from './Components/about/about.component';
 import { CreateProductFormComponent } from './Components/create-product-form/create-product-form.component';
 import { BidHistoryComponent } from './Components/bid-history/bid-history.component';
@@ -49,7 +48,7 @@ import {
   UtilitiesModule,
   CardModule
 } from '@coreui/angular';
-import { IconModule ,IconSetService} from '@coreui/icons-angular';
+// import { IconModule ,IconSetService} from '@coreui/icons-angular';
 import { BidsComponent } from './Components/dash-board/views/bids/bids.component';
 import { ChartsComponent } from './Components/dash-board/views/charts/charts.component';
 import { ChartjsModule } from '@coreui/angular-chartjs';
@@ -76,7 +75,6 @@ import { DashboardBidDetailsComponent } from './Components/dash-board/views/dash
     PaymentMethodComponent,
     ProfileComponent,
     EditProfileComponent,
-    AboutUserComponent,
     AboutComponent,
     CreateProductFormComponent,
     BidHistoryComponent,
@@ -107,7 +105,6 @@ import { DashboardBidDetailsComponent } from './Components/dash-board/views/dash
     NavModule,
     HeaderModule,
     GridModule,
-    IconModule,
     TableModule,
     UtilitiesModule,
     ChartjsModule,
@@ -115,7 +112,7 @@ import { DashboardBidDetailsComponent } from './Components/dash-board/views/dash
 
 
   ],
-  providers: [UserHomeDataService ,IconSetService, {
+  providers: [UserHomeDataService , {
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
     multi: true

@@ -25,6 +25,10 @@ export class ProfilePageService {
 
     })
   }
+
+  getUserBids(id: any){
+    return this.myClient.get(this.Base_URL + "/" + id + '/bids')
+  }
 }
 
 
