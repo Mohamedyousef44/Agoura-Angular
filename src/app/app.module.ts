@@ -111,8 +111,8 @@ import { DashboardBidDetailsComponent } from './Components/dash-board/views/dash
     TableModule,
     UtilitiesModule,
     ChartjsModule,
-    dashboard-bid-update,
     CardModule,
+
 
   ],
   providers: [UserHomeDataService ,IconSetService, {
