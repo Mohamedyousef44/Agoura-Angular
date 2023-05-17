@@ -20,16 +20,22 @@ import { FooterUpperComponent } from './Components/footer-upper/footer-upper.com
 import { FooterLowerComponent } from './Components/footer-lower/footer-lower.component';
 import { FooterComponent } from './Components/footer/footer.component';
 import { LayoutComponent } from './Components/layout/layout.component';
+import { CheckoutComponent } from './Components/Payment/checkout/checkout.component';
+import { PaymentMethodComponent } from './Components/Payment/payment-method/payment-method.component';
+import { ProfileComponent } from './Components/Profile/profile/profile.component';
+import { EditProfileComponent } from './Components/Profile/EditProfile/edit-profile/edit-profile.component';
+import { AboutUserComponent } from './Components/Profile/about-user/about-user.component';
 import { AboutComponent } from './Components/about/about.component';
 import { CreateProductFormComponent } from './Components/create-product-form/create-product-form.component';
 import { BidHistoryComponent } from './Components/bid-history/bid-history.component';
 import { OffcanvasComponent } from './Components/offcanvas/offcanvas.component';
 import { UserHomeDataService } from './Service/user-home-data.service';
-import { CartComponent } from './Components/cart/cart.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NotificationComponent } from './Components/notification/notification.component';
 import { ForgetPasswordComponent } from './Components/forget-password/forget-password.component';
 import { OtpComponent } from './Components/otp/otp.component';
+import { UpToTopComponent } from './Components/up-to-top/up-to-top.component';
+import { NotfoundPageComponent } from './Components/notfound-page/notfound-page.component';
 import { ResetPasswordComponent } from './Components/reset-password/reset-password.component';
 
 
@@ -51,6 +57,11 @@ import { ResetPasswordComponent } from './Components/reset-password/reset-passwo
     FooterComponent,
     CategoryScrollerComponent,
     LayoutComponent,
+    CheckoutComponent,
+    PaymentMethodComponent,
+    ProfileComponent,
+    EditProfileComponent,
+    AboutUserComponent,
     AboutComponent,
     CreateProductFormComponent,
     BidHistoryComponent,
@@ -59,6 +70,8 @@ import { ResetPasswordComponent } from './Components/reset-password/reset-passwo
     NotificationComponent,
     ForgetPasswordComponent,
     OtpComponent,
+    UpToTopComponent,
+    NotfoundPageComponent,
     ResetPasswordComponent,
 
 

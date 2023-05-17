@@ -8,28 +8,37 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   ]
 })
 export class SignUpComponent {
+  public userData : any = {}
   public validationForm = new FormGroup({
     email: new FormControl(null,[Validators.required, Validators.email]),
     username : new FormControl (null,[Validators.required , Validators.minLength(3)]),
-    password: new FormControl(null,[ Validators.required, Validators.minLength(10), Validators.maxLength(60) ])
+    password: new FormControl(null,[ Validators.required, Validators.minLength(10), Validators.maxLength(60) ]),
+    confirmPassword : new FormControl(null , [Validators.required , Validators.minLength(10), Validators.maxLength(60) ])
   });
 
   validate(){
-    if (this.validationForm.controls["email"].valid && this.validationForm.controls["password"].valid && this.validationForm.controls["username"].valid){
-      // Send data to the backend, the data validation == True
+    if (this.validationForm.valid){
+      this.userData['email'] = this.validationForm.controls["email"].value ;
+      this.userData['username'] = this.validationForm.controls["username"].value ;
+      this.userData['password'] = this.validationForm.controls["password"].value ;
     }
   }
   get email () {
     return this.validationForm.controls["email"].valid;
-  }
-  get password () {
-    return this.validationForm.controls["password"].valid;
   }
 
   get username () {
     return this.validationForm.controls["username"].valid;
   }
 
+  get password () {
+    return this.validationForm.controls["password"].valid;
+  }
+
+  get confirmPassword () {
+    return this.validationForm.controls["confirmPassword"].valid;
+  }
+  
   isEmailDirty(){
     return this.validationForm.controls["email"].dirty;
   }
@@ -38,5 +47,18 @@ export class SignUpComponent {
   }
   isPasswordDirty(){
     return this.validationForm.controls["password"].dirty;
+  }
+
+  isConfirmPasswordDirty(){
+    return this.validationForm.controls["confirmPassword"].dirty;
+  }
+
+  arePasswordsEqual() {
+    if (  this.validationForm.controls["password"].value ==  this.validationForm.controls["confirmPassword"].value) {
+      return false;
+    }
+    else {
+      return true;
+    }
   }
 }

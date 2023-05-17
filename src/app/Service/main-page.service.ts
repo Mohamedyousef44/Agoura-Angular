@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class MainPageService {
 
-  private readonly Base_URL = "http://localhost:3000/item";
+  private readonly Base_URL = "http://localhost:3000/users";
 
   constructor(private readonly myClient:HttpClient) { }
 
@@ -15,6 +15,15 @@ export class MainPageService {
   GetAllItems(){
     //method[Get-Delete-Put-Patch]
     return this.myClient.get(this.Base_URL);
+  }
+  GetUserByID(id:any){
+    return this.myClient.get(this.Base_URL+"/"+id);
+  }
+
+  UpdateUser(newUser:any,id:any){
+
+    return this.myClient.put(this.Base_URL+"/"+id,newUser)
+
   }
 
 }

@@ -1,9 +1,9 @@
-<div class="container text-center p-4">
-  <div class="row justify-content-center">
+<div class="container text-center p-4" *ngIf="placeObj">
+  <div class="row justify-content-center" >
     <div class="col-12 col-md mb-3">
       <div class="row">
         <div class="thumbnails col-2">
-          <img src="{{thumb}}" alt="" class="img-fluid rounded rounded-1 mb-2 pointer" *ngFor="let thumb of thumbnails" (click)="changeImage($event)">
+          <img src="{{thumb}}" alt="" class="img-fluid rounded rounded-1 mb-2 pointer" *ngFor="let thumb of placeObj.images" (click)="changeImage($event)">
         </div>
         <div class="col-10">
           <img [src]="thumbnail" alt="" class="img-fluid rounded rounded-1">
@@ -11,9 +11,12 @@
       </div>
     </div>
     <div class="col-12 col-md">
-      <h2 class="col">Achinos By The Sea Milos</h2>
-      <p class="col text-start">Estimate <span>$230</span>-<span>$10,000</span>
-      </p>
+      <h2 class="col">{{placeObj.title}}</h2>
+        <div class="row">
+          <p class="col-6 text-start">Estimate <span>{{placeObj.startBid | currency: 'USD' : 'symbol' : '1.0-0'}}</span> - <span>{{placeObj.startBid*10 | currency: 'USD' : 'symbol' : '1.0-0'}}</span>
+          </p>
+          <p class="col-6 text-end">Time left: <span>{{ timeLeft | date }}</span></p>
+        </div>
         <div class="card col">
           <div class="card-body text-start">
             <p>Starting Bid</p>
@@ -21,7 +24,7 @@
             <h6 class="card-subtitle mb-2 text-body-secondary"></h6>
             <form [formGroup]="form" (ngSubmit)="onSubmit()">
               <div class="mb-3">
-                <label for="exampleFormControlTextarea1" class="form-label">YOUR MAXIMUM BID:</label>
+                <label for="exampleFormControlTextarea1 text-start col-6" class="form-label">YOUR MAXIMUM BID:</label>
                 <input type="number" formControlName="bid" name="bid" class="form-control"  [ngClass]="{'is-invalid':!bid!.valid && bid!.dirty,'is-valid':bid!.valid && bid!.dirty}" id="exampleFormControlTextarea1" rows="3">
                 <div class="invalid-feedback mt-2" *ngIf="bid!.invalid && (bid!.dirty || bid!.touched)">
                   your bid must be greater than current bid.
@@ -29,6 +32,10 @@
               </div>
               <button type="submit" class="btn btn-dark w-100 p-3">PLACE BID</button>
             </form>
+            <div class="row">
+            <a class="text-end my-3" routerLink="/bidhistory">bids history</a>
+
+            </div>
           </div>
         </div>
     </div>
@@ -37,15 +44,14 @@
     <div class="col-12 col-md">
       <h3>Place Details</h3>
       <hr>
+      <h5 class="text-light-emphasis">Address</h5>
+      <p class="text-start"><span>{{placeObj.address.country}} - </span><span>{{placeObj.address.city}} - </span><span>{{placeObj.address.street}} - </span><span>{{placeObj.address.zipcode}}</span></p>
+      <hr>
       <h5 class="text-light-emphasis">Description</h5>
-      <p><span>10 guests</span> . <span>4 bedrooms</span> . <span>10 beds</span> . <span>4.5 baths</span></p>
+      <p><span *ngFor="let feature of placeObj.features| keyvalue"><span *ngIf="feature.key!='area'">{{feature.value+" "+feature.key}} . </span>  </span><span>{{placeObj.features.area}} &#13217; in area</span></p>
       <hr/>
       <h5 class="text-light-emphasis">About this space</h5>
-      <p>First row - directly on the sea. Swimming in the private 25m pool. Right from the cottage: access to small, hidden Pebble Beach.
-        Villa Kuro Beach House can accommodate up to 10 people: 4 bedrooms, 4 1/2 bathrooms.
-        Three bedrooms overlooking the sea, each with a double bed (1.40 m). Children's room in the basement with 4 beds.
-        Private garden by the sea. Top amenities. Design made of glass, stainless steel and wooden furniture in Scandinavian style. Modern kitchen with every comfort, of course with washing machine and dishwasher. A/C, wifi, hi-fi system and open fireplace. No TV.
-        Important: The pool is only for swimmers (25 m long; 1.95 m deep) The terraces are not secured with railings</p>
+      <p>{{placeObj.aboutPlace}}</p>
       <hr/>
       <h5 class="mb-3">What this place offers</h5>
       <div class="row">
@@ -122,16 +128,6 @@
             <h6>Great location</h6>
             <p>100% of recent guests gave the location a 5-star rating.
             </p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-1">
-            <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style="display: block; height: 24px; width: 24px; fill: currentcolor;"><path d="m11.6667 0-.00095 1.666h8.667l.00055-1.666h2l-.00055 1.666 6.00065.00063c1.0543745 0 1.9181663.81587127 1.9945143 1.85073677l.0054857.14926323v15.91907c0 .4715696-.1664445.9258658-.4669028 1.2844692l-.1188904.1298308-8.7476886 8.7476953c-.3334303.3332526-.7723097.5367561-1.2381975.5778649l-.1758207.0077398h-12.91915c-2.68874373 0-4.88181754-2.1223321-4.99538046-4.7831124l-.00461954-.2168876v-21.66668c0-1.05436021.81587582-1.91815587 1.85073739-1.99450431l.14926261-.00548569 5.999-.00063.00095-1.666zm16.66605 11.666h-24.666v13.6673c0 1.5976581 1.24893332 2.9036593 2.82372864 2.9949072l.17627136.0050928 10.999-.0003.00095-5.6664c0-2.6887355 2.122362-4.8818171 4.7832071-4.9953804l.2168929-.0046196 5.66595-.0006zm-.081 8-5.58495.0006c-1.5977285 0-2.9037573 1.2489454-2.9950071 2.8237299l-.0050929.1762701-.00095 5.5864zm-18.586-16-5.999.00062v5.99938h24.666l.00065-5.99938-6.00065-.00062.00055 1.66733h-2l-.00055-1.66733h-8.667l.00095 1.66733h-2z"></path></svg>
-            <!-- insert icons here -->
-          </div>
-          <div class="col-10">
-            <h6>Free cancellation for 48 hours.
-            </h6>
           </div>
         </div>
       </div>
