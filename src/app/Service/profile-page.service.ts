@@ -27,7 +27,7 @@ export class ProfilePageService {
   }
 
   getUserBids(id: any){
-    this.myClient.get(this.Base_URL + "/" + id + '/bids')
+    return this.myClient.get(this.Base_URL + "/" + id + '/bids')
   }
 }
 

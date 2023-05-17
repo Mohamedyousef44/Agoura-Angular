@@ -48,7 +48,7 @@ import {
   UtilitiesModule,
   CardModule
 } from '@coreui/angular';
-import { IconModule ,IconSetService} from '@coreui/icons-angular';
+// import { IconModule ,IconSetService} from '@coreui/icons-angular';
 import { BidsComponent } from './Components/dash-board/views/bids/bids.component';
 import { ChartsComponent } from './Components/dash-board/views/charts/charts.component';
 import { ChartjsModule } from '@coreui/angular-chartjs';
@@ -105,7 +105,6 @@ import { DashboardBidDetailsComponent } from './Components/dash-board/views/dash
     NavModule,
     HeaderModule,
     GridModule,
-    IconModule,
     TableModule,
     UtilitiesModule,
     ChartjsModule,
@@ -113,7 +112,7 @@ import { DashboardBidDetailsComponent } from './Components/dash-board/views/dash
 
 
   ],
-  providers: [UserHomeDataService ,IconSetService, {
+  providers: [UserHomeDataService , {
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
     multi: true
