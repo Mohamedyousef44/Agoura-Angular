@@ -1,23 +1,30 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable, Output } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProfilePageService {
 
-  private readonly Base_URL = "http://localhost:3000/users";
+  private readonly Base_URL = "http://localhost:9000/users";
 
-  constructor(private readonly myClient: HttpClient) { }
+  @Output() Image = new EventEmitter<any>();
 
+  constructor(private readonly myClient: HttpClient , private spinner: NgxSpinnerService) { }
 
   GetUserByID(id: any) {
+
     return this.myClient.get(this.Base_URL + "/" + id);
   }
 
   UpdateUser(newUser: any, id: any) {
+    return this.myClient.put(this.Base_URL + "/" + id , newUser).subscribe(info => {
+      this.Image.emit(info)
+      this.spinner.hide('updateSpinner')
 
-    return this.myClient.put(this.Base_URL + "/" + id, newUser)
-
+    })
   }
 }
+
+
