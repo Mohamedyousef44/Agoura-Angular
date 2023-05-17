@@ -30,9 +30,10 @@
     "chart.js": "^3.9.1",
     "https": "^1.0.0",
     "json-server": "^0.17.3",
+    "jwt-decode": "^3.1.2",
     "ngx-bootstrap": "^10.2.0",
-    "ngx-spinner": "^15.0.1",
     "ngx-perfect-scrollbar": "^10.1.1",
+    "ngx-spinner": "^15.0.1",
     "nodemailer": "^6.9.1",
     "tslib": "^2.3.0",
     "zone.js": "~0.12.0"
