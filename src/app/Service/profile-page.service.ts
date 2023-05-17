@@ -33,6 +33,11 @@ export class ProfilePageService {
   getUserOrders(id: any){
     return this.myClient.get(this.Base_URL + "/" + id + '/orders')
   }
+
+  getUserApartments(id: any){
+    return this.myClient.get(this.Base_URL + "/" + id + '/apartments')
+  }
+
 }
 
 
