@@ -9,15 +9,16 @@ import { OtpService } from '../../Service/otp.service';
 })
 export class OtpComponent {
   otp: string= '';
+  resetToken: string = '';
 
   constructor(private otpService: OtpService, private router: Router) {}
 
   onSubmit() {
-    this.otpService.verifyOTP(this.otp).subscribe(
+    this.otpService.verifyOTP( this.otp).subscribe(
       response => {
         console.log(response);
-        // Handle successful response and navigate to reset password page
-        this.router.navigate(['/reset-password']);
+        this.resetToken = response.resetToken;
+        // Handle successful response
       },
       error => {
         console.error(error);

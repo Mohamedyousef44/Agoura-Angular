@@ -5,11 +5,11 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ForgetPasswordService {
-  private apiUrl = 'http://localhost:3000/api/forgot-password';
+  private apiUrl = 'http://localhost:3000/api';
 
   constructor(private http: HttpClient) {}
 
   sendOTP(email: string) {
-    return this.http.post(this.apiUrl, { email });
+    return this.http.post(`${this.apiUrl}/sendOTP`, { email });
   }
 }
