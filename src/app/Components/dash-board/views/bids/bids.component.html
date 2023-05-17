@@ -1,0 +1,28 @@
+<table class="table table-secondary  table-hover table-borderless">
+    <thead class="table-secondary">
+    <tr>
+      <th scope="col">Number</th>
+      <th scope="col">Owner</th>
+      <th scope="col">Address</th>
+      <th scope="col">Title</th>
+      <th scope="col">Status</th>
+      <th scope="col">Time Left</th>
+      <th scope="col">Show</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of allAppartments let i = index" [ngClass]="{'table-success':item.status=='approved','table-warning':item.status=='pending','table-danger':item.status=='canceled','table-primary':item.status=='sold','table-info':item.status=='completed'}" >
+      <th >{{i+1}}</th>
+      <td>{{item.owner.name}}</td>
+      <td>{{item.address.city}}</td>
+      <td>{{item.title}}</td>
+      <td>{{item.status}}</td>
+      <td>{{item.timeLeft}}</td>
+      <td><a class="btn btn-outline-dark" >Show</a></td>
+    </tr>
+
+    </tbody>
+  </table>
+
+  <p></p>

@@ -1,66 +1,137 @@
-
-
-<section class="intro m-4">
-  <div class="bg-image h-100">
-    <div class="mask d-flex align-items-center h-100" style="background-color: #ffffff">
+<section class="intro m-4" style="position: relative">
+  <div class="bg-image">
+    <div class="d-flex align-items-center" style="background-color: #ffffff">
       <div class="container pt-2">
         <div class="row d-flex justify-content-center align-items-center">
           <div class="col-12 col-md-10">
             <div class="card" style="border-radius: 1rem">
               <div class="row g-0">
                 <div class="col-md-12 d-flex align-items-center">
-                  <div class="card-body py-5 px-4 p-md-5 ">
-                    <form [formGroup]="validationForm" action="" *ngIf="User" (ngSubmit)="updateUser()">
-                      <h4 class=" mb-4 text-center" style="color: #000000">
+                  <div class="card-body py-5 px-4 p-md-5">
+                    <form
+                      *ngIf="User"
+                      [formGroup]="validationForm"
+                      (ngSubmit)="updateUser()"
+                    >
+                      <h4 class="mb-4 text-center" style="color: #000000">
                         Update Your Account
                       </h4>
                       <div class="form-outline mb-4">
-                        <label class="form-label" >User Name</label>
-                        <input type="text" class="form-control is-invalid" formControlName="userName"  [value]="User.userName" class="form-control is-invalid" [ngClass]="{'is-valid':userName.dirty && userName!.valid,'is-invalid':userName && !userName!.valid}" id="userNameValidation"  >
-                        <div class="invalid-feedback"  >Invalid User Name Must be minmum 3 charachters</div>
+                        <label class="form-label">User Name</label>
+                        <input
+                          type="text"
+                          class="form-control is-invalid"
+                          formControlName="userName"
+                          class="form-control is-invalid"
+                          [ngClass]="{
+                            'is-valid': userName.dirty && userName!.valid,
+                            'is-invalid': userName && !userName!.valid
+                          }"
+                          id="userNameValidation"
+                        />
+                        <div class="invalid-feedback">
+                          Invalid User Name Must be minmum 3 charachters
+                        </div>
                       </div>
-                      <div class="form-outline mb-4">
+                      <!-- <div class="form-outline mb-4">
                         <label>User Age</label>
-                        <input type="text" class="form-control" formControlName="age" [value]="User.age" [ngClass]="{'is-valid':age.dirty && age!.valid,'is-invalid':age!.dirty && !age!.valid}" id="ageValidation"  >
-                        <div class="invalid-feedback" >Invalid-must be a number and minimum age 18</div>
-                      </div>
+                        <input
+                          type="text"
+                          class="form-control"
+                          formControlName="age"
 
-                      <div class="form-outline mb-4">
+                          [ngClass]="{
+                            'is-valid': age.dirty && age!.valid,
+                            'is-invalid': age!.dirty && !age!.valid
+                          }"
+                          id="ageValidation"
+                        />
+                        <div class="invalid-feedback">
+                          Invalid-must be a number and minimum age 18
+                        </div>
+                      </div> -->
+
+                      <!-- <div class="form-outline mb-4">
                         <label>User phone</label>
-                        <input type="text" class="form-control" formControlName="phone" [value]="User.userName" [ngClass]="{'is-valid':phone.dirty && phone!.valid,'is-invalid':phone!.dirty && !phone!.valid}" id="phoneValidation"  >
-                        <div class="invalid-feedback" >Invalid-must be at least 11 numbers</div>
-                      </div>
+                        <input
+                          type="text"
+                          class="form-control"
+                          formControlName="phone"
+                          [value]="User.userName"
+                          [ngClass]="{
+                            'is-valid': phone.dirty && phone!.valid,
+                            'is-invalid': phone!.dirty && !phone!.valid
+                          }"
+                          id="phoneValidation"
+                        />
+                        <div class="invalid-feedback">
+                          Invalid-must be at least 11 numbers
+                        </div>
+                      </div> -->
 
                       <div class="form-outline mb-4">
-                        <label>User Email</label>
-                        <input type="email" class="form-control" formControlName="email" [value]="User.email" [ngClass]="{'is-valid':email.dirty && email!.valid,'is-invalid':email!.dirty && !email!.valid}" id="emailValidation"  >
-                        <label class="invalid-feedback" >invalid-Must be email as example@example.com</label>
+                        <label>Email</label>
+                        <input
+                          type="email"
+                          class="form-control"
+                          formControlName="email"
+                          [ngClass]="{
+                            'is-valid': email.dirty && email!.valid,
+                            'is-invalid': email!.dirty && !email!.valid
+                          }"
+                          id="emailValidation"
+                        />
+                        <label class="invalid-feedback"
+                          >invalid-Must be email as example@example.com</label
+                        >
                       </div>
 
-                      <div class="form-outline mb-4">
+                      <!-- <div class="form-outline mb-4">
                         <label>User Address</label>
-                        <input type="text" class="form-control" formControlName="address" [value]="User.address" [ngClass]="{'is-valid':address.dirty && address.valid,'is-invalid':address&& !address.valid}" id="userAdressValidation"  >
-                        <label class="invalid-feedback" >input-Required</label>
-                      </div>
-
+                        <input
+                          type="text"
+                          class="form-control"
+                          formControlName="address"
+                          [value]="User.address"
+                          [ngClass]="{
+                            'is-valid': address.dirty && address.valid,
+                            'is-invalid': address && !address.valid
+                          }"
+                          id="userAdressValidation"
+                        />
+                        <label class="invalid-feedback">input-Required</label>
+                      </div> -->
 
                       <div class="form-outline mb-4">
                         <label>Profile Photo</label>
-                        <input type="file" accept="image/*" (change)="onFileSelected($event)" class="form-control" formControlName="profileImage" placeholder="Upload Your Profile-image" [ngClass]="{'is-valid':profileImage.dirty && profileImage.valid,'is-invalid':profileImage&& !profileImage.valid}" id="profileImage" [value]="User.profileImage" >
-                        <label class="invalid-feedback">Invalid-File Must be image with extention(jpg,jpeg,webp,png)only</label>
+                        <input
+                          type="file"
+                          accept="image/*"
+                          class="form-control"
+                          formControlName="profileImage"
+                          (change)="onFileSelected($event)"
+                          placeholder="Upload Your Profile-image"
+                          [ngClass]="{
+                            'is-valid':
+                              profileImage.dirty && profileImage.valid,
+                            'is-invalid': profileImage && !profileImage.valid
+                          }"
+                          id="profileImage"
+                        />
+                        <label class="invalid-feedback"
+                          >Invalid-File Must be image with
+                          extention(jpg,jpeg,png)only</label
+                        >
                       </div>
-
-
-                      <label class="ms-1">About Me</label>
-                      <div class="form-floating m-1">
-                        <textarea class="form-control" id="floatingTextarea2" style="height: 100px" formControlName="about" [value]="User.about"></textarea>
-                      </div>
-
                       <div class="col-12 mt-2">
-                        <input type="submit" class="btn btn-dark" value="Update" />
+                        <input
+                          type="submit"
+                          class="btn btn-dark"
+                          value="Update"
+                        />
                       </div>
                       <hr />
-                      <a class="link float-end" href="#!">Change password? Click here.</a>
+                      <a class="link float-end" href="#">Change password? </a>
                     </form>
                   </div>
                 </div>
@@ -71,13 +142,13 @@
       </div>
     </div>
   </div>
+  <ngx-spinner
+    bdColor="rgba(10, 10, 10, 0.8)"
+    name="updateSpinner"
+    size="medium"
+    type="square-jelly-box"
+    color="#fff"
+    [fullScreen]="false"
+    ><p style="color: white">Updating...</p></ngx-spinner
+  >
 </section>
-
-
-   <!-- <div class="col-md-3">
-                        <label for="validationServer02" class="form-label">Country</label>
-                        <input type="text" formControlName="country" name="country" placeholder="country" class="form-control is-invalid" [ngClass]="{'is-valid':country!.dirty && country!.valid,'is-invalid':country!.dirty && !country!.valid}" id="validationServer02" aria-describedby="validationServer02Feedback" required>
-                        <div id="validationServer02Feedback" class="invalid-feedback" *ngIf="country!.dirty && !country!.valid">
-                          Please provide a valid Country.
-                        </div>
-                      </div>  -->

@@ -1,14 +1,12 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './Components/Auth/login/login.component';
 import { FacebookButtonComponent } from './Components/Auth/thirdPartyLoginButtons/facebook-button/facebook-button.component';
 import { GoogleButtonComponent } from './Components/Auth/thirdPartyLoginButtons/google-button/google-button.component';
-import { AppleButtonComponent } from './Components/Auth/thirdPartyLoginButtons/apple-button/apple-button.component';
 import { SignUpComponent } from './Components/Auth/sign-up/sign-up.component';
-import { MainPageItemsSectionComponent } from './MainPageComponent/main-page-items-section/main-page-items-section.component';
-import { HttpClientModule }from'@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule }from'@angular/common/http';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { CategoryScrollerComponent } from './Components/category-scroller/category-scroller.component';
 import { ProductDetailsComponent } from './Components/product-details/product-details.component';
@@ -24,20 +22,41 @@ import { CheckoutComponent } from './Components/Payment/checkout/checkout.compon
 import { PaymentMethodComponent } from './Components/Payment/payment-method/payment-method.component';
 import { ProfileComponent } from './Components/Profile/profile/profile.component';
 import { EditProfileComponent } from './Components/Profile/EditProfile/edit-profile/edit-profile.component';
-import { AboutUserComponent } from './Components/Profile/about-user/about-user.component';
 import { AboutComponent } from './Components/about/about.component';
 import { CreateProductFormComponent } from './Components/create-product-form/create-product-form.component';
 import { BidHistoryComponent } from './Components/bid-history/bid-history.component';
 import { OffcanvasComponent } from './Components/offcanvas/offcanvas.component';
 import { UserHomeDataService } from './Service/user-home-data.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NotificationComponent } from './Components/notification/notification.component';
 import { ForgetPasswordComponent } from './Components/forget-password/forget-password.component';
 import { OtpComponent } from './Components/otp/otp.component';
 import { UpToTopComponent } from './Components/up-to-top/up-to-top.component';
 import { NotfoundPageComponent } from './Components/notfound-page/notfound-page.component';
 import { ResetPasswordComponent } from './Components/reset-password/reset-password.component';
+import { MainPageItemsSectionComponent } from './Components/main-page-items-section/main-page-items-section.component';
+import { AuthInterceptor } from './intercreptors/auth.interceptor';
+import { NgxSpinnerModule } from "ngx-spinner";
+import { ResponseInterceptor } from './intercreptors/response.interceptor';
+import { DefaultLayoutComponent,DefaultHeaderComponent } from './Components/dash-board/containers';
+import { EditProductFormComponent } from './Components/edit-product-form/edit-product-form.component';
 
+
+import {
+  SidebarModule,
+  NavModule,
+  HeaderModule,
+  GridModule,
+  TableModule,
+  UtilitiesModule,
+  CardModule
+} from '@coreui/angular';
+// import { IconModule ,IconSetService} from '@coreui/icons-angular';
+import { BidsComponent } from './Components/dash-board/views/bids/bids.component';
+import { ChartsComponent } from './Components/dash-board/views/charts/charts.component';
+import { ChartjsModule } from '@coreui/angular-chartjs';
+import { DashboardBidDetailsComponent } from './Components/dash-board/views/dashboard-bid-details/dashboard-bid-details.component';
+import { OrdersComponent } from './Components/Profile/orders/orders.component';
+import { ApartmentsComponent } from './Components/Profile/apartments/apartments.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +64,6 @@ import { ResetPasswordComponent } from './Components/reset-password/reset-passwo
     LoginComponent,
     FacebookButtonComponent,
     GoogleButtonComponent,
-    AppleButtonComponent,
     SignUpComponent,
     MainPageItemsSectionComponent,
     ProductDetailsComponent,
@@ -61,19 +79,23 @@ import { ResetPasswordComponent } from './Components/reset-password/reset-passwo
     PaymentMethodComponent,
     ProfileComponent,
     EditProfileComponent,
-    AboutUserComponent,
     AboutComponent,
     CreateProductFormComponent,
     BidHistoryComponent,
     OffcanvasComponent,
-    CartComponent,
-    NotificationComponent,
     ForgetPasswordComponent,
     OtpComponent,
     UpToTopComponent,
     NotfoundPageComponent,
     ResetPasswordComponent,
-
+    DefaultHeaderComponent,
+    DefaultLayoutComponent,
+    BidsComponent,
+    ChartsComponent,
+    DashboardBidDetailsComponent,
+    EditProductFormComponent,
+    OrdersComponent,
+    ApartmentsComponent,
 
   ],
 
@@ -85,9 +107,30 @@ import { ResetPasswordComponent } from './Components/reset-password/reset-passwo
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    NgxSpinnerModule,
+    AppRoutingModule,
+    SidebarModule,
+    NavModule,
+    HeaderModule,
+    GridModule,
+    TableModule,
+    UtilitiesModule,
+    ChartjsModule,
+    CardModule,
+
 
   ],
-  providers: [UserHomeDataService],
+  providers: [UserHomeDataService , {
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+   },
+   {
+    provide: HTTP_INTERCEPTORS,
+    useClass: ResponseInterceptor,
+    multi: true
+   }],
+  schemas:[CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

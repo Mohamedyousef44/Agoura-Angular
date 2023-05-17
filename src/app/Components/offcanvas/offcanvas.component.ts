@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { Router } from '@angular/router';
 import { UserHomeDataService } from 'src/app/Service/user-home-data.service';
 
 @Component({
@@ -8,16 +7,40 @@ import { UserHomeDataService } from 'src/app/Service/user-home-data.service';
   styleUrls: ['./offcanvas.component.css']
 })
 export class OffcanvasComponent {
+  notificationData: any;
+  cartData: any;
+  cartError = false
 
-  constructor(private service: UserHomeDataService , private route: Router){}
+  constructor(private service: UserHomeDataService){}
 
-  @Input('data') data: any
   @Input('isCart') toggle: any
 
-  deleteNot(id: number){
+  ngOnInit() {
+    this.service.cartUpdated.subscribe((res) => {
+      this.cartData = res.apartments;
+    });
 
-    this.toggle ? this.service.deleteProductFromCart(id) : this.service.deleteNotification(id)
-    this.route.navigate(['/home'])
+    this.service.cartError.subscribe((res) => {
+      this.cartError = res
+    });
+
+    this.service.notificationUpdated.subscribe((res) => {
+      this.notificationData = res;
+    });
+
+    this.service.getData().subscribe({
+      next:(data: any)=>{
+        this.notificationData = data["notifications"]
+        if(data["carts"].length > 0) this.cartData = data["carts"][0].apartments
+        else this.cartData = null
+      } ,
+      error:(e:Error)=> console.log(e)
+    })
   }
+
+  deleteItem(id: any){
+    this.toggle ? this.service.deleteProductFromCart(id) : this.service.deleteNotification(id)
+  }
+
 
 }

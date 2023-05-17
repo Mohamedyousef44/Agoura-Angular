@@ -13,9 +13,9 @@
     <div class="col-12 col-md">
       <h2 class="col">{{placeObj.title}}</h2>
         <div class="row">
-          <p class="col-6 text-start">Estimate <span>{{placeObj.startBid | currency: 'USD' : 'symbol' : '1.0-0'}}</span> - <span>{{placeObj.startBid*10 | currency: 'USD' : 'symbol' : '1.0-0'}}</span>
+          <p class="col-6 text-start">Estimate <span>{{placeObj.startBid | currency: 'USD' : 'symbol' : '1.0-0'}}</span> - <span>{{maxBid | currency: 'USD' : 'symbol' : '1.0-0'}}</span>
           </p>
-          <p class="col-6 text-end">Time left: <span>{{ timeLeft | date }}</span></p>
+          <p class="col-6 text-end">Time left: <span>{{ placeObj.timeLeft | date }}</span></p>
         </div>
         <div class="card col">
           <div class="card-body text-start">
@@ -33,7 +33,7 @@
               <button type="submit" class="btn btn-dark w-100 p-3">PLACE BID</button>
             </form>
             <div class="row">
-            <a class="text-end my-3" routerLink="/bidhistory">bids history</a>
+            <a class="text-end my-3" routerLink="history">bids history</a>
 
             </div>
           </div>
@@ -45,7 +45,7 @@
       <h3>Place Details</h3>
       <hr>
       <h5 class="text-light-emphasis">Address</h5>
-      <p class="text-start"><span>{{placeObj.address.country}} - </span><span>{{placeObj.address.city}} - </span><span>{{placeObj.address.street}} - </span><span>{{placeObj.address.zipcode}}</span></p>
+      <p class="text-start"><span>{{placeObj.address.country || "N/A"}} - </span><span>{{placeObj.address.city|| "N/A"}} - </span><span>{{placeObj.address.street|| "N/A"}} - </span><span>{{placeObj.address.zipCode|| "N/A"}}</span></p>
       <hr>
       <h5 class="text-light-emphasis">Description</h5>
       <p><span *ngFor="let feature of placeObj.features| keyvalue"><span *ngIf="feature.key!='area'">{{feature.value+" "+feature.key}} . </span>  </span><span>{{placeObj.features.area}} &#13217; in area</span></p>

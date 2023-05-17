@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { MainPageService } from 'src/app/Service/main-page.service';
-
+import { NgxSpinnerService } from 'ngx-spinner';
+import { ProfilePageService } from 'src/app/Service/profile-page.service';
 
 
 @Component({
@@ -11,22 +11,33 @@ import { MainPageService } from 'src/app/Service/main-page.service';
 })
 export class ProfileComponent implements OnInit {
 
-
-  ID=1;
+  userID: any
   UserDetails:any
+  userImage: any
 
-  constructor(public myService:MainPageService,myRoute:ActivatedRoute){
-    //
-    // this.ID = myRoute.snapshot.params["id"];-->active this code when data static
+  constructor(public myService:ProfilePageService , public route: ActivatedRoute , private spinner: NgxSpinnerService ){
+    this.route.params.subscribe(params => {
+      this.userID = params['id'];
+    })
+  }
+
+  goDown(){
+    window.scroll(0 , 630)
   }
 
   ngOnInit(): void {
-    this.myService.GetUserByID(this.ID).subscribe(
+    this.spinner.show('profileSpinner')
+    this.myService.Image.subscribe(info=>{
+      this.userImage = info.data.image
+    })
+    this.myService.GetUserByID(this.userID).subscribe(
       {
         next:(data: any)=>{
-          console.log(data)
           this.UserDetails = data;
-          console.log(data)
+          const image = data.image
+          if(image == '') this.userImage = "/assets/imgs/home/h1.png"
+          else this.userImage = image
+          this.spinner.hide('profileSpinner')
         },
         error:(err: any)=>{console.log(err)}
       }

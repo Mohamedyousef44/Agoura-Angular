@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl,FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BidsService } from 'src/app/Service/bids.service';
 
 @Component({
@@ -9,38 +9,45 @@ import { BidsService } from 'src/app/Service/bids.service';
   styleUrls: ['./product-details.component.css']
 })
 export class ProductDetailsComponent implements OnInit{
-  // all variables should be replaced when getting answer from api ,currently we are using static data
-  thumbnails!:string[];
-  thumbnail!:string;
+  
   form!:FormGroup;
-  maxBid!:number;
   placeObj!:any;
-  timeLeft: any;
-  public constructor(private myService:BidsService,private route:ActivatedRoute){
-    this.thumbnails=["/assets/a6baa5ef-7ee1-4c4e-97fc-dc3f2b34d801.webp",
-                      "/assets/8c7c8932-ec0b-4f1a-bdad-fd08efbc7ab4.webp",
-                      "/assets/47beaa65-26e2-4405-9104-144141f0cb12.webp",
-                      "/assets/278177ca-dfc5-46c4-b417-be0ff5478549.webp",
-                      "/assets/bea39e35-a494-45c6-9de4-900a656bb41d.webp"]
-    this.thumbnail=this.thumbnails[0]
-    this.maxBid=250;
+  maxBid!:number;
+  thumbnail!:any;
+  public constructor(private myService:BidsService,private route:ActivatedRoute,private router:Router){
+    
+  }
+  ngOnInit(): void {
+    let bidId=this.route.snapshot.params["id"]
+    this.myService.GetBidById(bidId).subscribe({
+      next:(res:any)=>{
+        console.log(res)
+        if(res.success){
+          this.populate(res)
+          console.log(res.data)
+        }
+      },
+      error:(err)=>{  
+        this.router.navigateByUrl(`404-NotFound`)
+        console.log(err)
+      }
+    })
+    
+  }
 
+  public populate(res:any){
+    this.placeObj=res.data.appartment
+    if(this.placeObj.bids.length>0){
+      this.maxBid=res.data.appartment.bids[0].amountMoney
+    }else{
+      this.maxBid=res.data.appartment.startBid
+    }
+    this.thumbnail=res.data.appartment.images[0]
     this.form=new FormGroup({
       bid: new FormControl(this.maxBid,Validators.min(this.maxBid+1)),
     })
   }
-  ngOnInit(): void {
-    let bidId=this.route.snapshot.params["id"]
-    this.myService.GetBidById(bidId).subscribe((data)=>{
-        this.placeObj=data
-        this.thumbnail=this.placeObj.images[0]
-        this.timeLeft=this.placeObj.duration*1000*24*3600+Date.now()
-        console.log(this.placeObj)
-        console.log(this.timeLeft)
-    }
-  )
-  }
-
+  
   public changeImage(event:any){
     this.thumbnail=event.target.src
   }
@@ -49,10 +56,30 @@ export class ProductDetailsComponent implements OnInit{
   }
 
   onSubmit(){
-    if(!this.form.valid){
+    this.bid?.markAsDirty()
+    if(!this.form.valid || !localStorage.getItem("X-Auth-Token")){
       return
     }
     // toDo add form submit logic here
+    let data={
+      amountMoney:this.bid!.value,
+      apartmentID:this.placeObj._id,
+      userToken:localStorage.getItem("X-Auth-Token")
+    }
+    console.log(data)
+    this.myService.addNewBid(data).subscribe(
+      {
+        next:(res:any)=>{
+          if(res.success){
+            this.populate(res)
+            console.log(res.data)
+          }
+          },
+          error:(err)=>{  
+            console.log(err)
+          }
+        }
+    );
     console.log("form submitted",this.form.valid)
 
   }

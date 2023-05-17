@@ -10,17 +10,31 @@
       /></a>
     </div>
     <div class="home-right">
-
-      <a
-        class="btn fw-bold {{ textColor }} rounded-0 border-2 b-hover"
-        routerLink="/signup"
-        >Sign Up</a
-      >
-      <a
-        class="btn fw-bold {{ textColor }} rounded-0 border-2 b-hover"
-        routerLink="/login"
-        >Log In</a
-      >
+      <ng-container *ngIf="isLoggedIn">
+        <a
+          class="btn fw-bold {{ textColor }} rounded-0 border-2 b-hover"
+          [routerLink]="['/users/', userId]"
+          >{{ userName | uppercase }}</a
+        >
+        <a
+          class="btn fw-bold {{ textColor }} rounded-0 border-2 b-hover"
+          routerLink="/login"
+          (click)="logout()"
+          >Log Out</a
+        >
+      </ng-container>
+      <ng-container *ngIf="!isLoggedIn">
+        <a
+          class="btn fw-bold {{ textColor }} rounded-0 border-2 b-hover"
+          routerLink="/signup"
+          >Sign Up</a
+        >
+        <a
+          class="btn fw-bold {{ textColor }} rounded-0 border-2 b-hover"
+          routerLink="/login"
+          >Log In</a
+        >
+      </ng-container>
 
       <span class="border-end border-2 mx-2"></span>
       <a
@@ -32,6 +46,7 @@
         }} border border-0 rounded-circle a-hover"
       >
         <span
+          *ngIf="notLen"
           class="position-absolute badge-position translate-middle badge rounded-pill bg-danger"
         >
           {{ notLen || 0 }}
@@ -48,6 +63,7 @@
         }} fs-4 border border-0 rounded-circle a-hover"
       >
         <span
+          *ngIf="cartLen"
           class="position-absolute badge-position translate-middle badge rounded-pill bg-danger"
         >
           {{ cartLen || 0 }}

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MainPageService } from 'src/app/Service/main-page.service';
-import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ProfilePageService } from 'src/app/Service/profile-page.service';
+import { AbstractControl, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-edit-profile',
@@ -9,50 +10,57 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from
   styleUrls: ['./edit-profile.component.css'],
 })
 export class EditProfileComponent implements OnInit {
-  ID = 1;
   User: any;
   validationForm:any;
   myForm: any;
   ProfileImage:any;
-  //get user id from route
+  userId: any;
+
   constructor(
-    myRoute: ActivatedRoute,
-    public myService: MainPageService,
+    public myService: ProfilePageService,
     public router: Router,
-    private fb: FormBuilder
+    private route: ActivatedRoute,
+    private spinner: NgxSpinnerService
   ) {
-    // this.ID = myRoute.snapshot.params['id'];
-  }
-
-
-
-  //get the user from db to remeber the data and validate user updates
-  ngOnInit(): void {
-    this.myService.GetUserByID(this.ID).subscribe({
-      next: (data) => {
-        console.log(data);
-        this.User = data;
-        this.validationForm = new FormGroup({
-            userName: new FormControl(this.User.userName, [Validators.required,Validators.minLength(3) ]),
-            age: new FormControl(this.User.age, [Validators.required,Validators.pattern(/^[0-9]*$/),Validators.min(18)]),
-            address: new FormControl(this.User.address, [Validators.required]),
-            phone: new FormControl(this.User.phone, [Validators.required,Validators.minLength(10),Validators.pattern(/^[0-9]*$/)]),
-            email: new FormControl(this.User.email, [Validators.email, Validators.required]),
-            profileImage: new FormControl( this.User.profileImage, [Validators.required,Validators.min(1),]),
-            about:new FormControl(this.User.about)
-          });
-        this.validationForm.patchValue(this.User)
-
-      },
-      error: (err) => {},
+    this.route.parent?.paramMap.subscribe(params => {
+      this.userId = params.get('id');
     });
   }
 
+  //   imageExtensionValidator(allowedExtensions: string[]): ValidatorFn {
+  //   return (control: AbstractControl): {[key: string]: any} | null => {
+  //     const file = control.value;
+  //     if (file) {
+  //       const fileExtension = file.name.split('.').pop().toLowerCase();
+  //       if (allowedExtensions.indexOf(fileExtension) === -1) {
+  //         return {'invalidExtension': true};
+  //       }
+  //     }
+  //     return null;
+  //   };
+  // }
 
+  ngOnInit(): void {
 
+        this.myService.GetUserByID(this.userId).subscribe({
+          next: (data) => {
+            console.log(data);
+            this.User = data;
+            this.validationForm = new FormGroup({
+                userName: new FormControl(this.User.name, [Validators.required,Validators.minLength(3) ]),
+                // age: new FormControl(this.User.age, [Validators.required,Validators.pattern(/^[0-9]*$/),Validators.min(18)]),
+                // address: new FormControl(this.User.address, [Validators.required]),
+                // phone: new FormControl(this.User.phone, [Validators.required,Validators.minLength(10),Validators.pattern(/^[0-9]*$/)]),
+                email: new FormControl(this.User.email, [Validators.email, Validators.required]),
+                profileImage: new FormControl( this.User.imag ),
+              });
+            // this.validationForm.patchValue(this.User)
 
+          },
+          error: (err) => {console.log(err)},
+        });
 
-
+  }
 
 
   get userName() {
@@ -77,33 +85,24 @@ export class EditProfileComponent implements OnInit {
 
 
 onFileSelected(event: any){
-console.log(event)
-console.log(this.ProfileImage=event.target.files[0]);
-this.ProfileImage=event.target.files[0]
+  // console.log(event)
+  // console.log(this.ProfileImage=event.target.files[0]);
+  this.ProfileImage=event.target.files[0]
 }
-
 
 //send data to database
-updateUser(){
-  if (this.validationForm.valid){
-const fd=new FormData
-fd.append("data",JSON.stringify(this.validationForm.value))
+  updateUser(){
+    this.spinner.show('updateSpinner')
+    if (this.validationForm.valid) {
+      const fd = new FormData();
+      fd.append('data', JSON.stringify(this.validationForm.value));
 
+      if (this.ProfileImage instanceof File) {
+        fd.append('profileImage', this.ProfileImage);
+      }
 
-if(this.ProfileImage){
-    fd.append('profileImage',this.ProfileImage)
-    console.log(fd);
-
-}
-
-    this.myService.UpdateUser(fd,this.ID).subscribe(data => {
-        console.log(fd);
-
-      })
-
+      this.myService.UpdateUser(fd,this.userId)
+    }
   }
-}
-
-
 
 }
