@@ -50,13 +50,15 @@ import {
   UtilitiesModule,
   CardModule
 } from '@coreui/angular';
-// import { IconModule ,IconSetService} from '@coreui/icons-angular';
+
 import { BidsComponent } from './Components/dash-board/views/bids/bids.component';
 import { ChartsComponent } from './Components/dash-board/views/charts/charts.component';
 import { ChartjsModule } from '@coreui/angular-chartjs';
 import { DashboardBidDetailsComponent } from './Components/dash-board/views/dashboard-bid-details/dashboard-bid-details.component';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { OrdersComponent } from './Components/Profile/orders/orders.component';
 import { ApartmentsComponent } from './Components/Profile/apartments/apartments.component';
+
 
 @NgModule({
   declarations: [
@@ -104,6 +106,7 @@ import { ApartmentsComponent } from './Components/Profile/apartments/apartments.
     AppRoutingModule,
     HttpClientModule,
     CarouselModule.forRoot(),
+    BsDropdownModule.forRoot(),
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
@@ -117,6 +120,7 @@ import { ApartmentsComponent } from './Components/Profile/apartments/apartments.
     UtilitiesModule,
     ChartjsModule,
     CardModule,
+    
 
 
   ],
