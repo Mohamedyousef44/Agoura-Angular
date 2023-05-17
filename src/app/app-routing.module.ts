@@ -8,7 +8,6 @@ import { SignUpComponent } from './Components/Auth/sign-up/sign-up.component';
 import { CheckoutComponent } from './Components/Payment/checkout/checkout.component';
 import { ProfileComponent } from './Components/Profile/profile/profile.component';
 import { EditProfileComponent } from './Components/Profile/EditProfile/edit-profile/edit-profile.component';
-import { AboutUserComponent } from './Components/Profile/about-user/about-user.component';
 import { AboutComponent } from './Components/about/about.component';
 import { CreateProductFormComponent } from './Components/create-product-form/create-product-form.component';
 import { BidHistoryComponent } from './Components/bid-history/bid-history.component';
@@ -20,6 +19,8 @@ import { BidsComponent } from './Components/dash-board/views/bids/bids.component
 import { ChartsComponent } from './Components/dash-board/views/charts/charts.component';
 import { DashboardBidDetailsComponent } from './Components/dash-board/views/dashboard-bid-details/dashboard-bid-details.component';
 import { EditProductFormComponent } from './Components/edit-product-form/edit-product-form.component';
+import { UserBidsComponent } from './Components/Profile/bids/bids.component';
+import { OrdersComponent } from './Components/Profile/orders/orders.component';
 
 
 
@@ -39,9 +40,10 @@ const routes: Routes = [
       { path: "checkout" , component : CheckoutComponent},
       { path: "users/:id",component:ProfileComponent,children:[
           { path:"edit",component:EditProfileComponent , pathMatch:'full'},
-          { path:"about",component:AboutUserComponent},
+          { path:"bids",component:UserBidsComponent},
+          { path:"orders",component:OrdersComponent},
                 ]},
-      
+
       { path: "dashboard" ,component:DefaultLayoutComponent ,children:[
         { path: '', redirectTo: 'stats', pathMatch: 'full' },
         { path: "bids",component:BidsComponent },

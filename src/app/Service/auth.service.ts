@@ -8,7 +8,7 @@ export class AuthService {
 
   private readonly Base_URL = "http://localhost:9000";
   private headers=new HttpHeaders({'content-type': 'json/text'});
-  constructor(private myHttpClient:HttpClient) { 
+  constructor(private myHttpClient:HttpClient) {
 
   }
 

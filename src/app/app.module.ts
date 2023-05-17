@@ -22,7 +22,6 @@ import { CheckoutComponent } from './Components/Payment/checkout/checkout.compon
 import { PaymentMethodComponent } from './Components/Payment/payment-method/payment-method.component';
 import { ProfileComponent } from './Components/Profile/profile/profile.component';
 import { EditProfileComponent } from './Components/Profile/EditProfile/edit-profile/edit-profile.component';
-import { AboutUserComponent } from './Components/Profile/about-user/about-user.component';
 import { AboutComponent } from './Components/about/about.component';
 import { CreateProductFormComponent } from './Components/create-product-form/create-product-form.component';
 import { BidHistoryComponent } from './Components/bid-history/bid-history.component';
@@ -49,11 +48,14 @@ import {
   UtilitiesModule,
   CardModule
 } from '@coreui/angular';
+
 import { BidsComponent } from './Components/dash-board/views/bids/bids.component';
 import { ChartsComponent } from './Components/dash-board/views/charts/charts.component';
 import { ChartjsModule } from '@coreui/angular-chartjs';
 import { DashboardBidDetailsComponent } from './Components/dash-board/views/dashboard-bid-details/dashboard-bid-details.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { OrdersComponent } from './Components/Profile/orders/orders.component';
+
 
 @NgModule({
   declarations: [
@@ -76,7 +78,6 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
     PaymentMethodComponent,
     ProfileComponent,
     EditProfileComponent,
-    AboutUserComponent,
     AboutComponent,
     CreateProductFormComponent,
     BidHistoryComponent,
@@ -91,6 +92,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
     ChartsComponent,
     DashboardBidDetailsComponent,
     EditProductFormComponent,
+    OrdersComponent,
   ],
 
   imports: [
@@ -113,6 +115,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
     ChartjsModule,
     CardModule,
     
+
 
   ],
   providers: [UserHomeDataService , {
