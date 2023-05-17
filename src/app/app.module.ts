@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -35,6 +35,8 @@ import { UpToTopComponent } from './Components/up-to-top/up-to-top.component';
 import { NotfoundPageComponent } from './Components/notfound-page/notfound-page.component';
 import { MainPageItemsSectionComponent } from './Components/main-page-items-section/main-page-items-section.component';
 import { AuthInterceptor } from './intercreptors/auth.interceptor';
+import { NgxSpinnerModule } from "ngx-spinner";
+import { ResponseInterceptor } from './intercreptors/response.interceptor';
 import { DefaultLayoutComponent,DefaultHeaderComponent } from './Components/dash-board/containers';
 import { EditProductFormComponent } from './Components/edit-product-form/edit-product-form.component';
 
@@ -52,8 +54,6 @@ import { BidsComponent } from './Components/dash-board/views/bids/bids.component
 import { ChartsComponent } from './Components/dash-board/views/charts/charts.component';
 import { ChartjsModule } from '@coreui/angular-chartjs';
 import { DashboardBidDetailsComponent } from './Components/dash-board/views/dashboard-bid-details/dashboard-bid-details.component';
-
-
 
 @NgModule({
   declarations: [
@@ -101,6 +101,7 @@ import { DashboardBidDetailsComponent } from './Components/dash-board/views/dash
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    NgxSpinnerModule,
     AppRoutingModule,
     SidebarModule,
     NavModule,
@@ -110,15 +111,21 @@ import { DashboardBidDetailsComponent } from './Components/dash-board/views/dash
     TableModule,
     UtilitiesModule,
     ChartjsModule,
+    dashboard-bid-update,
     CardModule,
-
 
   ],
   providers: [UserHomeDataService ,IconSetService, {
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
     multi: true
+   },
+   {
+    provide: HTTP_INTERCEPTORS,
+    useClass: ResponseInterceptor,
+    multi: true
    }],
+  schemas:[CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

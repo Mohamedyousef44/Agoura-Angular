@@ -37,19 +37,17 @@ const routes: Routes = [
       { path: 'place/:id/history', component: BidHistoryComponent },
       { path: 'about', component: AboutComponent },
       { path: "checkout" , component : CheckoutComponent},
+      { path: "users/:id",component:ProfileComponent,children:[
+          { path:"edit",component:EditProfileComponent , pathMatch:'full'},
+          { path:"about",component:AboutUserComponent},
+                ]},
+      
       { path: "dashboard" ,component:DefaultLayoutComponent ,children:[
         { path: '', redirectTo: 'stats', pathMatch: 'full' },
         { path: "bids",component:BidsComponent },
         { path: "bids/:id",component:DashboardBidDetailsComponent },
         { path: "stats",component:ChartsComponent }
-
       ]},
-      { path: "user/:id",component:ProfileComponent,children:[
-        { path: '', redirectTo: 'about', pathMatch: 'full' },
-        { path:"edit",component:EditProfileComponent},
-        { path:"about",component:AboutUserComponent},
-
-        ]},
     ],
   },
   {path : '404-NotFound', component: NotfoundPageComponent},
@@ -58,8 +56,6 @@ const routes: Routes = [
   {path : 'forgetpassword' , component: ForgetPasswordComponent},
   {path : 'otp', component: OtpComponent},
   {path : '**', component: NotfoundPageComponent},
-
-
 ];
 
 
