@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { IconSetService } from '@coreui/icons-angular';
-import { iconSubset } from './icons/icon-subset';
+
 
 @Component({
   selector: 'app-root',
@@ -10,8 +9,5 @@ import { iconSubset } from './icons/icon-subset';
 export class AppComponent {
   title = 'Agoura';
     
-    constructor(private iconSetService: IconSetService){
-      iconSetService.icons = { ...iconSubset };
-
-    }
+    
 }
