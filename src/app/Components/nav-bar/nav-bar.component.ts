@@ -35,7 +35,7 @@ export class NavBarComponent implements OnInit {
         this.isLoggedIn = localStorage.getItem('X-Auth-Token')
         this.notLen = data['notifications'].length
         this.cartLen = data['carts'][0]['apartments'].length
-        this.profileImage = data['userData'] || "/assets/photos/avatar02.png"
+        this.profileImage = data['userData'].image || "/assets/photos/avatar02.png"
       }
     })
     this.isAdmin=this.authService.verify();
