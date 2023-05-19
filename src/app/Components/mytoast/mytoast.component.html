@@ -1,0 +1,12 @@
+
+<c-toaster placement="top-end" class="p-3" position="fixed">
+    <c-toast [autohide]="true" [fade]="true" [visible]="visible">
+        <c-toast-body>
+            <div class="row justify-content-start align-items-center">
+                <div class="col-2" *ngIf="success"><i class="fa-solid fa-circle-check fa-2xl f-6" style="color: #1d7a0b;"></i></div>
+                <div class="col-2" *ngIf="!success"><i class="fa-solid fa-triangle-exclamation fa-2xl f-6" style="color: #f8cc30;"></i></div>
+                <p class="col-10">{{title}}</p>
+            </div>
+        </c-toast-body>
+    </c-toast>
+</c-toaster>
