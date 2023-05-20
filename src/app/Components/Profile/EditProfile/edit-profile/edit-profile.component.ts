@@ -86,13 +86,10 @@ export class EditProfileComponent implements OnInit {
   }
 
 
-onFileSelected(event: any){
-  // console.log(event)
-  // console.log(this.ProfileImage=event.target.files[0]);
-  this.ProfileImage=event.target.files[0]
-}
+  onFileSelected(event: any){
+    this.ProfileImage=event.target.files[0]
+  }
 
-//send data to database
   updateUser(){
     this.spinner.show('updateSpinner')
     if (this.validationForm.valid) {
@@ -105,12 +102,6 @@ onFileSelected(event: any){
 
       this.myService.UpdateUser(fd,this.userId)
     }
-  }
-
-  changeToPassword(){
-
-    this.showPass = true
-
   }
 
 }

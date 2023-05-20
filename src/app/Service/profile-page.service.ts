@@ -39,8 +39,8 @@ export class ProfilePageService {
   }
 
   changeUserPassword(id: any , newPass: any){
-    console.log(id , newPass)
-    // return this.myClient.put(this.Base_URL + "/" + id + '/password' , newPass)
+
+    return this.myClient.put(this.Base_URL + "/" + id + '/password' , newPass)
   }
 
 }
