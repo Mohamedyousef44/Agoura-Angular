@@ -30,10 +30,12 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.spinner.show('profileSpinner')
+    this.spinner.show('imageSpinner')
     this.myService.Image.subscribe(info=>{
       this.userImage = info.data.image
     })
+    this.spinner.hide('imageSpinner')
+    this.spinner.show('profileSpinner')
     this.myService.GetUserByID(this.userID).subscribe(
       {
         next:(data: any)=>{
