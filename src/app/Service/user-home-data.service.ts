@@ -44,10 +44,8 @@ export class UserHomeDataService {
   }
 
   addItemToCart(id: any){
-    this.spinner.show('cartSpinner')
     this.user.post(this.BaseURL+'/cart', {id}).subscribe(response => {
       this.cartUpdated.emit(response);
-      this.spinner.hide('cartSpinner')
     }, error => {
       console.error(error);
     });
