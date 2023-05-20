@@ -40,6 +40,9 @@ export class ProfileComponent implements OnInit {
       {
         next:(data: any)=>{
           this.UserDetails = data;
+          console.log(data.bids.length)
+          console.log(data.orders.length)
+          console.log(data.ownedApartments.length)
           const image = data.image
           if(image == '') this.userImage = "/assets/imgs/default.jpg"
           else this.userImage = image

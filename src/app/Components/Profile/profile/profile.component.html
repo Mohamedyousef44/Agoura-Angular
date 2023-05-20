@@ -34,17 +34,20 @@
     <ul class="data-user">
       <li>
         <a routerLink="/users/{{ UserDetails?._id }}/bids"
-          ><strong>3390</strong><span>Bids</span></a
+          ><strong>{{ UserDetails.bids.length }}</strong
+          ><span>Bids</span></a
         >
       </li>
       <li>
         <a routerLink="/users/{{ UserDetails?._id }}/orders"
-          ><strong>718</strong><span>Orders</span></a
+          ><strong>{{ UserDetails.orders.length }}</strong
+          ><span>Orders</span></a
         >
       </li>
       <li>
         <a routerLink="/users/{{ UserDetails?._id }}/apartments"
-          ><strong>239</strong><span>Apartments</span></a
+          ><strong>{{ UserDetails.ownedApartments.length }}</strong
+          ><span>Apartments</span></a
         >
       </li>
     </ul>
