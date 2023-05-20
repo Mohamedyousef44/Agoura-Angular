@@ -47,6 +47,7 @@ const routes: Routes = [
           { path:"bids",component:UserBidsComponent},
           { path:"orders",component:OrdersComponent},
           { path:"apartments",component:ApartmentsComponent},
+          { path:"password",component:ApartmentsComponent},
                 ]},
 
       { path: "dashboard" ,component:DefaultLayoutComponent ,children:[
