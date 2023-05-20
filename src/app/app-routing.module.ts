@@ -22,10 +22,9 @@ import { EditProductFormComponent } from './Components/edit-product-form/edit-pr
 import { UserBidsComponent } from './Components/Profile/bids/bids.component';
 import { OrdersComponent } from './Components/Profile/orders/orders.component';
 import { ApartmentsComponent } from './Components/Profile/apartments/apartments.component';
-
-
 import { ResetPasswordComponent } from './Components/reset-password/reset-password.component';
 import { AuthGuard } from './core/guards/auth.guard';
+import { ChangePassComponent } from './Components/Profile/changepass/changepass.component';
 
 
 
@@ -47,6 +46,7 @@ const routes: Routes = [
           { path:"bids",component:UserBidsComponent},
           { path:"orders",component:OrdersComponent},
           { path:"apartments",component:ApartmentsComponent},
+          { path:"password",component:ChangePassComponent},
                 ]},
 
       { path: "dashboard" ,component:DefaultLayoutComponent ,children:[

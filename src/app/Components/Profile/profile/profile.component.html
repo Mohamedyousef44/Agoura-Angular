@@ -6,7 +6,23 @@
         class="profile-bgHome"
         src="https://37.media.tumblr.com/88cbce9265c55a70a753beb0d6ecc2cd/tumblr_n8gxzn78qH1st5lhmo1_1280.jpg"
       />
-      <img class="avatar" src="{{ userImage }}" alt="profile image" />
+      <div class="d-flex justify-content-center parent">
+        <div class="cardat w-100">
+          <img src="{{ userImage }}" alt="profile image" />
+          <span data-bs-toggle="modal" data-bs-target="#updateImage"
+            ><i class="bi bi-camera"></i
+          ></span>
+          <ngx-spinner
+            bdColor="rgba(10, 10, 10, 0.8)"
+            name="imageSpinner"
+            size="small"
+            type="square-jelly-box"
+            color="#fff"
+            [fullScreen]="true"
+            ><p style="color: white">Updating...</p></ngx-spinner
+          >
+        </div>
+      </div>
     </div>
     <button routerLink="/users/{{ UserDetails?._id }}/edit" (click)="goDown()">
       Edit
@@ -18,17 +34,22 @@
     <ul class="data-user">
       <li>
         <a routerLink="/users/{{ UserDetails?._id }}/bids"
-          ><strong>3390</strong><span>Bids</span></a
+          ><strong *ngIf="UserDetails">{{ UserDetails.bids.length }}</strong
+          ><span>Bids</span></a
         >
       </li>
       <li>
         <a routerLink="/users/{{ UserDetails?._id }}/orders"
-          ><strong>718</strong><span>Orders</span></a
+          ><strong *ngIf="UserDetails">{{ UserDetails.orders.length }}</strong
+          ><span>Orders</span></a
         >
       </li>
       <li>
         <a routerLink="/users/{{ UserDetails?._id }}/apartments"
-          ><strong>239</strong><span>Apartments</span></a
+          ><strong *ngIf="UserDetails">{{
+            UserDetails.ownedApartments.length
+          }}</strong
+          ><span>Apartments</span></a
         >
       </li>
     </ul>
@@ -47,3 +68,44 @@
   [fullScreen]="true"
   ><p style="color: white">Loading...</p></ngx-spinner
 >
+
+<div
+  class="modal fade"
+  id="updateImage"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">
+          Update Your Profile Picture
+        </h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form
+          [formGroup]="validationForm"
+          (ngSubmit)="changeImage()"
+          *ngIf="UserDetails"
+        >
+          <input
+            type="file"
+            formControlName="profileImage"
+            (change)="onFileSelected($event)"
+          />
+          <p class="imageInfo">*image extension must be png or jpg</p>
+          <div class="modal-footer" *ngIf="profileValid">
+            <button type="submit" class="btn btn-primary">Update</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

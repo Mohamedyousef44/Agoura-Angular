@@ -1,0 +1,28 @@
+<div class="container my-5">
+  <section class="section_form">
+    <form
+      id="consultation-form"
+      class="feed-form"
+      [formGroup]="validationForm"
+      (ngSubmit)="changePassword(userId)"
+    >
+      <input
+        placeholder="Change Your Password"
+        type="password"
+        formControlName="password"
+        id="password"
+        [ngClass]="{
+          'is-valid': password.dirty && password!.valid,
+          'is-invalid': password && !password!.valid
+        }"
+      />
+      <div *ngIf="!password && isPasswordDirty()">
+        <span class="bg-danger rounded-1 bg-gradient text-light p-1 m-1 d-block"
+          >Enter a vaild password more than 10 characters or numbers, this filed
+          is required</span
+        >
+      </div>
+      <button *ngIf="validationForm.valid" class="cart-btn">Change</button>
+    </form>
+  </section>
+</div>

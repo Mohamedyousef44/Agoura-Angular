@@ -40,7 +40,7 @@ import { ResponseInterceptor } from './intercreptors/response.interceptor';
 import { DefaultLayoutComponent,DefaultHeaderComponent } from './Components/dash-board/containers';
 import { EditProductFormComponent } from './Components/edit-product-form/edit-product-form.component';
 import { ToastModule } from '@coreui/angular';
-
+import { ChangePassComponent } from './Components/Profile/changepass/changepass.component';
 
 import {
   SidebarModule,
@@ -103,7 +103,8 @@ import { LoginModalComponent } from './Components/login-modal/login-modal.compon
     OrdersComponent,
     ApartmentsComponent,
     MytoastComponent,
-    LoginModalComponent
+    LoginModalComponent,
+    ChangePassComponent,
 
 
   ],
