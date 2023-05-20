@@ -6,7 +6,18 @@
         class="profile-bgHome"
         src="https://37.media.tumblr.com/88cbce9265c55a70a753beb0d6ecc2cd/tumblr_n8gxzn78qH1st5lhmo1_1280.jpg"
       />
-      <img class="avatar" src="{{ userImage }}" alt="profile image" />
+      <div class="d-flex justify-content-center parent">
+        <div class="cardat w-100">
+          <img src="{{ userImage }}" alt="profile image" />
+
+          <label>
+            <span>
+              <input type="file" />
+              <i class="bi bi-camera"><input type="file" /></i>
+            </span>
+          </label>
+        </div>
+      </div>
     </div>
     <button routerLink="/users/{{ UserDetails?._id }}/edit" (click)="goDown()">
       Edit
@@ -47,3 +58,32 @@
   [fullScreen]="true"
   ><p style="color: white">Loading...</p></ngx-spinner
 >
+
+<div
+  class="modal fade"
+  id="updateImage"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">...</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
