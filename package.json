@@ -24,6 +24,7 @@
     "@coreui/chartjs": "^3.1.1",
     "@coreui/icons": "^3.0.1",
     "@coreui/icons-angular": "^4.4.7",
+    "@fortawesome/fontawesome-free": "^6.4.0",
     "@popperjs/core": "^2.11.6",
     "@types/google-one-tap": "^1.2.2",
     "bootstrap": "^5.2.3",

@@ -34,7 +34,7 @@ export class NavBarComponent implements OnInit {
         this.userName = data['userData'].name.split(" ")[0]
         this.isLoggedIn = localStorage.getItem('X-Auth-Token')
         this.notLen = data['notifications'].length
-        this.cartLen = data['carts'][0]['apartments'].length
+        this.cartLen =data['carts'].length>0? data['carts'][0]['apartments'].length:this.cartLen
         this.profileImage = data['userData'].image || "/assets/photos/avatar02.png"
       }
     })

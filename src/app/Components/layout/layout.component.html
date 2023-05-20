@@ -1,6 +1,7 @@
 <app-nav-bar text-color="text-dark" (toggle)="isCart = $event"></app-nav-bar>
 <app-login-modal></app-login-modal>
 <router-outlet></router-outlet>
+<app-mytoast class="p-3"  [visible]="toastVisible" [title]="toastMessage" [success]="toastSuccess"></app-mytoast>
 <app-footer></app-footer>
 <app-offcanvas [isCart]="isCart"></app-offcanvas>
 <app-up-to-top></app-up-to-top>

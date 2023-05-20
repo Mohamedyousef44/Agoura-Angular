@@ -12,7 +12,7 @@
     <div class="home-right">
       <ng-container *ngIf="isLoggedIn">
         <span dropdown container="body">
-          <img class="btn rounded rounded-circle p-0" src="{{profileImage}}" style="width: 50px;" id="basic-link" dropdownToggle (click)="false"
+          <img class="btn rounded rounded-circle p-0 border  img-hover" [src]="profileImage" style="width: 40px;" id="basic-link" dropdownToggle (click)="false"
             aria-controls="basic-link-dropdown"/>
           <ul id="basic-link-dropdown" *dropdownMenu class="dropdown-menu mt-4 h-auto"
               role="menu" aria-labelledby="basic-link" style="width: 170px;">

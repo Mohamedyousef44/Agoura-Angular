@@ -39,6 +39,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
 import { ResponseInterceptor } from './intercreptors/response.interceptor';
 import { DefaultLayoutComponent,DefaultHeaderComponent } from './Components/dash-board/containers';
 import { EditProductFormComponent } from './Components/edit-product-form/edit-product-form.component';
+import { ToastModule } from '@coreui/angular';
 
 
 import {
@@ -58,7 +59,9 @@ import { DashboardBidDetailsComponent } from './Components/dash-board/views/dash
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { OrdersComponent } from './Components/Profile/orders/orders.component';
 import { ApartmentsComponent } from './Components/Profile/apartments/apartments.component';
+import { MytoastComponent } from './Components/mytoast/mytoast.component';
 import { LoginModalComponent } from './Components/login-modal/login-modal.component';
+
 
 
 @NgModule({
@@ -99,6 +102,7 @@ import { LoginModalComponent } from './Components/login-modal/login-modal.compon
     EditProductFormComponent,
     OrdersComponent,
     ApartmentsComponent,
+    MytoastComponent,
     LoginModalComponent
 
 
@@ -123,6 +127,8 @@ import { LoginModalComponent } from './Components/login-modal/login-modal.compon
     UtilitiesModule,
     ChartjsModule,
     CardModule,
+    ToastModule,
+
 
 
   ],
