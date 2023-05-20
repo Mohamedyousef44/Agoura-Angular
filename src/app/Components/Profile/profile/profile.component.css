@@ -146,8 +146,6 @@ a {
   max-height: 18ch;
   text-align: center;
   background: var(--bg);
-  padding: 1.5em;
-  padding-block: 1.8em;
   border-radius: 5px;
   position: relative;
   overflow: hidden;

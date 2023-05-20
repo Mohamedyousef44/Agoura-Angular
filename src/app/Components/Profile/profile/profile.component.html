@@ -76,7 +76,11 @@
         ></button>
       </div>
       <div class="modal-body">
-        <form [formGroup]="validationForm" (ngSubmit)="changeImage()">
+        <form
+          [formGroup]="validationForm"
+          (ngSubmit)="changeImage()"
+          *ngIf="userImage"
+        >
           <input
             type="file"
             formControlName="profileImage"

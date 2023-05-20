@@ -39,7 +39,7 @@ export class ProfileComponent implements OnInit {
         next:(data: any)=>{
           this.UserDetails = data;
           const image = data.image
-          if(image == '') this.userImage = "/assets/imgs/home/h1.png"
+          if(image == '') this.userImage = "/assets/imgs/default.jpg"
           else this.userImage = image
           this.spinner.hide('profileSpinner')
 
