@@ -60,6 +60,8 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { OrdersComponent } from './Components/Profile/orders/orders.component';
 import { ApartmentsComponent } from './Components/Profile/apartments/apartments.component';
 import { MytoastComponent } from './Components/mytoast/mytoast.component';
+import { LoginModalComponent } from './Components/login-modal/login-modal.component';
+
 
 
 @NgModule({
@@ -101,6 +103,8 @@ import { MytoastComponent } from './Components/mytoast/mytoast.component';
     OrdersComponent,
     ApartmentsComponent,
     MytoastComponent,
+    LoginModalComponent
+
 
   ],
 
@@ -124,6 +128,7 @@ import { MytoastComponent } from './Components/mytoast/mytoast.component';
     ChartjsModule,
     CardModule,
     ToastModule,
+
 
 
   ],

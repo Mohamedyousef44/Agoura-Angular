@@ -25,6 +25,7 @@ import { ApartmentsComponent } from './Components/Profile/apartments/apartments.
 
 
 import { ResetPasswordComponent } from './Components/reset-password/reset-password.component';
+import { AuthGuard } from './core/guards/auth.guard';
 
 
 
@@ -35,13 +36,13 @@ const routes: Routes = [
     component: LayoutComponent,
     children: [
       { path: 'home', component: HomeComponent },
-      { path: 'place/create', component: CreateProductFormComponent },
+      { path: 'place/create', component: CreateProductFormComponent , canActivate:[AuthGuard] },
       { path: 'place/:id', component: ProductDetailsComponent },
-      { path: 'place/:id/edit', component: EditProductFormComponent },
-      { path: 'place/:id/history', component: BidHistoryComponent },
+      { path: 'place/:id/edit', component: EditProductFormComponent , canActivate:[AuthGuard] },
+      { path: 'place/:id/history', component: BidHistoryComponent , canActivate:[AuthGuard] },
       { path: 'about', component: AboutComponent },
-      { path: "checkout" , component : CheckoutComponent},
-      { path: "users/:id",component:ProfileComponent,children:[
+      { path: "checkout" , component : CheckoutComponent , canActivate:[AuthGuard]},
+      { path: "users/:id",component:ProfileComponent , canActivate:[AuthGuard] ,children:[
           { path:"edit",component:EditProfileComponent , pathMatch:'full'},
           { path:"bids",component:UserBidsComponent},
           { path:"orders",component:OrdersComponent},
