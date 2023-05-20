@@ -58,6 +58,7 @@ import { DashboardBidDetailsComponent } from './Components/dash-board/views/dash
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { OrdersComponent } from './Components/Profile/orders/orders.component';
 import { ApartmentsComponent } from './Components/Profile/apartments/apartments.component';
+import { LoginModalComponent } from './Components/login-modal/login-modal.component';
 
 
 @NgModule({
@@ -98,6 +99,8 @@ import { ApartmentsComponent } from './Components/Profile/apartments/apartments.
     EditProductFormComponent,
     OrdersComponent,
     ApartmentsComponent,
+    LoginModalComponent
+
 
   ],
 
@@ -120,7 +123,6 @@ import { ApartmentsComponent } from './Components/Profile/apartments/apartments.
     UtilitiesModule,
     ChartjsModule,
     CardModule,
-    
 
 
   ],
