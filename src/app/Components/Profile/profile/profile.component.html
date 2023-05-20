@@ -34,19 +34,21 @@
     <ul class="data-user">
       <li>
         <a routerLink="/users/{{ UserDetails?._id }}/bids"
-          ><strong>{{ UserDetails.bids.length }}</strong
+          ><strong *ngIf="UserDetails">{{ UserDetails.bids.length }}</strong
           ><span>Bids</span></a
         >
       </li>
       <li>
         <a routerLink="/users/{{ UserDetails?._id }}/orders"
-          ><strong>{{ UserDetails.orders.length }}</strong
+          ><strong *ngIf="UserDetails">{{ UserDetails.orders.length }}</strong
           ><span>Orders</span></a
         >
       </li>
       <li>
         <a routerLink="/users/{{ UserDetails?._id }}/apartments"
-          ><strong>{{ UserDetails.ownedApartments.length }}</strong
+          ><strong *ngIf="UserDetails">{{
+            UserDetails.ownedApartments.length
+          }}</strong
           ><span>Apartments</span></a
         >
       </li>
@@ -91,7 +93,7 @@
         <form
           [formGroup]="validationForm"
           (ngSubmit)="changeImage()"
-          *ngIf="userImage"
+          *ngIf="UserDetails"
         >
           <input
             type="file"
