@@ -40,10 +40,13 @@ export class LayoutComponent implements OnInit {
   }
   
   show(){
+    if(this.toastMessage.length==0){
+      return
+    }
     this.toastVisible=true
       setTimeout(()=>{
         this.toastVisible=false
-        
+        this.toastMessage=""
       },5000)
     }
 }
