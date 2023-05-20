@@ -183,10 +183,6 @@ a {
   letter-spacing: -.035em;
 }
 
-input[type="file"] {
-  display: none;
-}
-
 .cardat span {
   position: absolute;
   inset: 0;
@@ -212,7 +208,9 @@ input[type="file"] {
   background: var(--hover-bg);
 }
 
-/* .cardat:hover>div,.cardat:hover>strong {
-  opacity: 0;
-} */
 
+.imageInfo{
+  font-size: small;
+  color: #8899a6;
+  margin-top: 5%;
+}

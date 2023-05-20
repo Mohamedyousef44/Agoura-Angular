@@ -9,13 +9,9 @@
       <div class="d-flex justify-content-center parent">
         <div class="cardat w-100">
           <img src="{{ userImage }}" alt="profile image" />
-
-          <label>
-            <span>
-              <input type="file" />
-              <i class="bi bi-camera"><input type="file" /></i>
-            </span>
-          </label>
+          <span data-bs-toggle="modal" data-bs-target="#updateImage"
+            ><i class="bi bi-camera"></i
+          ></span>
         </div>
       </div>
     </div>
@@ -69,7 +65,9 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">
+          Update Your Profile Picture
+        </h1>
         <button
           type="button"
           class="btn-close"
@@ -77,12 +75,18 @@
           aria-label="Close"
         ></button>
       </div>
-      <div class="modal-body">...</div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-          Close
-        </button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+      <div class="modal-body">
+        <form [formGroup]="validationForm" (ngSubmit)="changeImage()">
+          <input
+            type="file"
+            formControlName="profileImage"
+            (change)="onFileSelected($event)"
+          />
+          <p class="imageInfo">*image extension must be png or jpg</p>
+          <div class="modal-footer" *ngIf="profileValid">
+            <button type="submit" class="btn btn-primary">Update</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>

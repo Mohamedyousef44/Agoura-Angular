@@ -42,6 +42,11 @@ export class ProfilePageService {
 
     return this.myClient.put(this.Base_URL + "/" + id + '/password' , newPass)
   }
+  changeUserPicture(id: any , newImage: any){
+
+    console.log(id , newImage)
+    return this.myClient.put(this.Base_URL + "/" + id + '/picture' , newImage)
+  }
 
 }
 
