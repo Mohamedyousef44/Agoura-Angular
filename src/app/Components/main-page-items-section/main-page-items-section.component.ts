@@ -35,6 +35,7 @@ export class MainPageItemsSectionComponent {
 
     if(!this.addedCart){
       this.addToCart(id)
+      button.innerText = 'Remove'
       button.classList.remove('cart-btn-add')
       button.classList.add('cart-btn-remove')
       button.removeEventListener('click', this.addToCart)
@@ -42,6 +43,7 @@ export class MainPageItemsSectionComponent {
       this.addedCart = true
     }else{
       this.removeFromCart(id)
+      button.innerText = 'Add To Cart'
       button.classList.remove('cart-btn-remove')
       button.classList.add('cart-btn-add')
       button.removeEventListener('click', this.removeFromCart)
