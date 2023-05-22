@@ -58,11 +58,13 @@ export class ProductDetailsComponent implements OnInit{
 
   onSubmit(){
     this.bid?.markAsDirty()
-    if(!this.form.valid || !localStorage.getItem("X-Auth-Token")){
+    if(!localStorage.getItem("X-Auth-Token")){
       this.toastService.activateToast(
         "you need to login first.",
         false
       );
+    }
+    if(!this.form.valid){
       return
     }
     // toDo add form submit logic here
