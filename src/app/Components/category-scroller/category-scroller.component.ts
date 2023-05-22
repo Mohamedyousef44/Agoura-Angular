@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class CategoryScrollerComponent {
 
+  luxurious:any;
+  studio:any;
+  villa:any
+  palace:any
+
+
 }
