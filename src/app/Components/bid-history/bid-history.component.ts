@@ -22,13 +22,9 @@ export class BidHistoryComponent {
   }
 
   ngOnInit(): void {
-    console.log('Hello');
-
     let itemId = this.route.snapshot.params['id'];
     this.myService.GetBidHistoryById(itemId).subscribe((data: any) => {
       data = data.data;
-      console.log(data);
-
       this.bids.title = data.title;
       this.bids.image = data.image;
       this.bids.currentBid = data.currentBid;
