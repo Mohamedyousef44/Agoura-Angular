@@ -43,13 +43,11 @@
   <!--app-header-->
   <app-default-header class="mb-4 d-print-none header header-sticky" position="sticky" sidebarId="sidebar"></app-default-header>
   <!--app-body-->
-  <div class="body flex-grow-1 px-3 p-5">
-    <c-container breakpoint="lg" class="h-auto p-5">
-      <div class="container mt-5">
-        <router-outlet></router-outlet>
-      </div>
+  <div class="body flex-grow-1">
+    <c-container breakpoint="lg" class="h-auto">
+      <router-outlet></router-outlet>
     </c-container>
   </div>
   <!--app footer-->
-  <!-- <app-default-footer></app-default-footer> -->
+  <app-default-footer></app-default-footer>
 </div>
