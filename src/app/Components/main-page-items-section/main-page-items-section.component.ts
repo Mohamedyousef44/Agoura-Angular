@@ -32,4 +32,12 @@ export class MainPageItemsSectionComponent {
   addToCart(id: any){
     this.myService.addItemToCart(id)
   }
+
+
+  fiterData(category:any){
+
+    this.items=this.myService.getFilteredData(category)
+
+  }
+
 }
