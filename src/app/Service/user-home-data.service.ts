@@ -8,9 +8,12 @@ import { NgxSpinnerService } from 'ngx-spinner';
 export class UserHomeDataService {
 
   private BaseURL: string
+  private BaseURLForFilter: string
+
 
   constructor(private user: HttpClient , private spinner: NgxSpinnerService) {
     this.BaseURL =  "http://localhost:9000/home"
+    this.BaseURLForFilter ='http://localhost:9000/home/apartments'
   }
   getData(){
     return this.user.get(this.BaseURL)
@@ -50,4 +53,12 @@ export class UserHomeDataService {
       console.error(error);
     });
   }
+
+
+
+  getFilteredData(category:any){
+   return this.user.get(this.BaseURLForFilter + "/" + category)
+
+  }
+
 }

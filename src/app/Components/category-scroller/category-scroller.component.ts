@@ -6,7 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./category-scroller.component.css'],
 })
 export class CategoryScrollerComponent {
-  scroll(scroller: any, degree: number) {
-    scroller.scrollLeft += degree;
-  }
+
+  luxurious:any;
+  studio:any;
+  villa:any
+  palace:any
+
+
 }
