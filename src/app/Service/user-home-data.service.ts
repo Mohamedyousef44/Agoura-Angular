@@ -13,7 +13,7 @@ export class UserHomeDataService {
 
   constructor(private user: HttpClient , private spinner: NgxSpinnerService) {
     this.BaseURL =  "http://localhost:9000/home"
-    this.BaseURLForFilter ='localhost:9000/home/apartments/:category'
+    this.BaseURLForFilter ='http://localhost:9000/home/apartments'
   }
   getData(){
     return this.user.get(this.BaseURL)
@@ -59,7 +59,16 @@ export class UserHomeDataService {
 
 
   getFilteredData(category:any){
-    return this.user.get(this.BaseURLForFilter + "/" + category);
+   this.user.get(this.BaseURLForFilter + "/" + category).subscribe({
+    next:(response:any)=>{
+      console.log(response.data)
+      return response.data
+    },
+    error:(error:any)=>{
+      return error
+    }
+   })
+
   }
 
 }

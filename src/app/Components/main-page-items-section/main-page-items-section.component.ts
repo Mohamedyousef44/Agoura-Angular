@@ -34,9 +34,10 @@ export class MainPageItemsSectionComponent {
   }
 
 
-  fiterData(category:any){
+  filterData(category:any){
 
-    this.items=this.myService.getFilteredData(category)
+    var filtered=this.myService.getFilteredData(category)
+    console.log(filtered)
 
   }
 
