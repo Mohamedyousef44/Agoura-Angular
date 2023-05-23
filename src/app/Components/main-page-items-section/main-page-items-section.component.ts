@@ -12,44 +12,56 @@ import { UserHomeDataService } from 'src/app/Service/user-home-data.service';
 })
 export class MainPageItemsSectionComponent {
 
-  items:any;
+  items: any;
 
-  constructor(public myService:UserHomeDataService , private spinner: NgxSpinnerService){}
+  constructor(public myService: UserHomeDataService, private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
     this.spinner.show('homeSpinner')
     this.myService.getData().subscribe(
       {
-        next:(data: any)=>{
+        next: (data: any) => {
           this.items = data['apartments'];
           this.spinner.hide('homeSpinner')
         },
-        error:(err: any)=>{console.log(err)}
+        error: (err: any) => { console.log(err) }
       }
-      )
+    )
   }
 
-  addToCart(id: any){
+  addToCart(id: any) {
     this.myService.addItemToCart(id)
   }
 
 
-  filterData(category:any){
+
+  allcategories() {
+    this.myService.getData().subscribe(
+      {
+        next: (data: any) => {
+          this.items = data['apartments'];
+          this.spinner.hide('homeSpinner')
+        },
+        error: (err: any) => { console.log(err) }
+      }
+    )
+  }
+
+
+
+  filterData(category: any) {
 
     this.myService.getFilteredData(category).subscribe({
-      next:(response:any)=>{
+      next: (response: any) => {
         console.log(response.data)
-        this.items= response.data
-
+        this.items = response.data
       },
-      error:(error:any)=>{
+      error: (error: any) => {
         return error
       }
-     })
+    })
 
-
-
-}
+  }
 
 
 }
