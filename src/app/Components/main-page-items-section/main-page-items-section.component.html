@@ -39,19 +39,11 @@
         <p class="card-text">Starts From: {{ item.startBid | currency }}</p>
         <p class="card-text">Item ID: {{ item.itemId }}</p>
         <button
-          style="position: relative"
-          class="btn btn-dark"
-          (click)="addToCart(item._id)"
+          id="cart-btn-{{ item.itemId }}"
+          class="cart-btn-add"
+          (click)="toggle(item._id, $event)"
         >
           Add to cart
-          <ngx-spinner
-            name="cartSpinner"
-            bdColor="rgba(10, 10, 10, 0.8)"
-            size="medium"
-            type="ball-beat"
-            color="#fff"
-            [fullScreen]="false"
-          ></ngx-spinner>
         </button>
       </div>
     </div>

@@ -3,41 +3,51 @@ import { EventEmitter, Injectable, Output } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProfilePageService {
-
-  private readonly Base_URL = "http://localhost:9000/users";
+  private readonly Base_URL = 'http://localhost:9000/users';
 
   @Output() Image = new EventEmitter<any>();
 
-  constructor(private readonly myClient: HttpClient , private spinner: NgxSpinnerService) { }
+  constructor(
+    private readonly myClient: HttpClient,
+    private spinner: NgxSpinnerService
+  ) {}
 
   GetUserByID(id: any) {
-
-    return this.myClient.get(this.Base_URL + "/" + id);
+    return this.myClient.get(this.Base_URL + '/' + id);
   }
 
   UpdateUser(newUser: any, id: any) {
-    return this.myClient.put(this.Base_URL + "/" + id , newUser).subscribe(info => {
-      this.Image.emit(info)
-      this.spinner.hide('updateSpinner')
-
-    })
+    return this.myClient
+      .put(this.Base_URL + '/' + id, newUser)
+      .subscribe((info) => {
+        this.Image.emit(info);
+        this.spinner.hide('updateSpinner');
+      });
   }
 
-  getUserBids(id: any){
-    return this.myClient.get(this.Base_URL + "/" + id + '/bids')
+  getUserBids(id: any) {
+    return this.myClient.get(this.Base_URL + '/' + id + '/bids');
   }
 
-  getUserOrders(id: any){
-    return this.myClient.get(this.Base_URL + "/" + id + '/orders')
+  getUserOrders(id: any) {
+    return this.myClient.get(this.Base_URL + '/' + id + '/orders');
   }
 
-  getUserApartments(id: any){
-    return this.myClient.get(this.Base_URL + "/" + id + '/apartments')
+  getUserApartments(id: any) {
+    return this.myClient.get(this.Base_URL + '/' + id + '/apartments');
   }
 
+  changeUserPassword(id: any, newPass: any) {
+    return this.myClient.put(
+      this.Base_URL + '/' + id + '/changepassword',
+      newPass
+    );
+  }
+  changeUserPicture(id: any, newImage: any) {
+    console.log(id, newImage);
+    return this.myClient.put(this.Base_URL + '/' + id + '/picture', newImage);
+  }
 }
-
-

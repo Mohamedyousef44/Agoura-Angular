@@ -1,61 +1,61 @@
 <div class="container">
   <div class="bid-item py-3">
-    <div class="bid-details">
-      <h2 class="mb-3">Bid History</h2>
-      <div class="row mb-5">
-        <div class="col-2 product-image">
-          <img src="{{ bids.image }}" alt="product image" />
-        </div>
-        <div class="col-8">
-          <h4>
-            <a href="#" class="text-decoration-none text-black">{{
-              bids.title
-            }}</a>
-          </h4>
-        </div>
-      </div>
-      <div>
-        <div class="row mb-3">
-          <div class="col-2">Current Bid:</div>
-          <div class="col-8">{{ bids.currentBid }} EUR</div>
-        </div>
-        <div class="row mb-3">
-          <div class="col-2">Item number:</div>
-          <div class="col-8">{{ bids.itemNumber }}</div>
-        </div>
-
-        <div class="row mb-3">
-          <div class="col-12 row">
-            <div class="col-2">
-              <span class="text-secondary">Bids: </span>
-              <span class="fw-bold">{{ bids.numberOfBids }}</span>
-            </div>
-            <div class="col-2">
-              <span class="text-secondary">Bidders: </span>
-              <span class="fw-bold">{{ bids.numberOfBidders }}</span>
-            </div>
-            <div class="col-4">
-              <span class="text-secondary">Time left: </span
-              ><span class="fw-bold">{{ bids.timeLeft }}</span>
-            </div>
-            <div class="col-2">
-              <span class="text-secondary">Duration: </span>
-              <span class="fw-bold">{{ bids.duration }}</span>
+    <h2 class="mb-3 col-12">Bid History</h2>
+    <div class="bid-details container">
+      <div class="row">
+        <div class="col-6">
+          <div class="row mb-5">
+            <div class="col-12 product-image">
+              <img class="col-12" src="{{ bids.image }}" alt="product image"/>
             </div>
           </div>
         </div>
-
-        <div class="place-bid my-3">
-          <a
-            routerLink="/place/{{ id }}"
-            class="btn btn-primary px-5 py-2 rounded rounded-5"
-          >
-            Place Bid
-          </a>
+        <div class="col-6 d-flex justify-content-center align-items-center">
+          <div class="row">
+            <div class="col-12 mb-3">
+              <div class="row">
+                <div class="text-secondary col-2">Current Bid:</div>
+                <div class="col-10">{{ bids.currentBid }} EUR</div>
+              </div>
+            </div>
+            <div class="col-12 mb-3">
+              <div class="row">
+                <div class="text-secondary col-2">Item id:</div>
+                <div class="col-10">{{ bids.itemNumber }}</div>
+              </div>
+            </div>
+            <div class="col-12 mb-3">
+              <div class="row">
+                <div class="col-6">
+                  <span class="text-secondary">Bids: </span>
+                  <span class="fw-bold">{{ bids.numberOfBids }}</span>
+                </div>
+                <div class="col-6">
+                  <span class="text-secondary">Bidders: </span>
+                  <span class="fw-bold">{{ bids.numberOfBidders }}</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 mb-3">
+              <div class="row">
+                <div class="col-6">
+                  <span class="text-secondary">Time left: </span>
+                  <span class="fw-bold">{{ bids.timeLeft }}</span>
+                </div>
+                <div class="col-6">
+                  <span class="text-secondary">Duration: </span>
+                  <span class="fw-bold">{{ bids.duration }}</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 place-bid my-3">
+              <a routerLink="/place/{{ id }}" class="btn btn-primary px-5 py-2 rounded rounded-5">Place Bid</a>
+            </div>
+          </div>
         </div>
-        <hr />
       </div>
-    </div>
+      <hr />
+    </div>    
     <div class="product-bids-details">
       <table class="table table-bordered border-dark">
         <thead>

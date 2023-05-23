@@ -1,6 +1,6 @@
 <div class="fluid-container p-3">
-  <nav class="d-flex justify-content-between">
-    <div class="home-name text-center pt-3">
+  <nav class="d-flex flex-row justify-content-between">
+    <div class="home-name text-center">
       <a class="navbar-brand" routerLink=""
         ><img
           src="https://www.agora.io/en/wp-content/themes/agora-main/images/agora-logo.svg"
@@ -12,28 +12,52 @@
     <div class="home-right">
       <ng-container *ngIf="isLoggedIn">
         <span dropdown container="body">
-          <img class="btn rounded rounded-circle p-0" src="{{profileImage}}" style="width: 50px;" id="basic-link" dropdownToggle (click)="false"
-            aria-controls="basic-link-dropdown"/>
-          <ul id="basic-link-dropdown" *dropdownMenu class="dropdown-menu mt-4 h-auto"
-              role="menu" aria-labelledby="basic-link" style="width: 170px;">
-              <li role="menuitem"><a
-                class="fw-bold {{ textColor }} dropdown-item py-2 rounded-0 border-2 b-hover"
+          <img
+            class="btn rounded rounded-circle p-0 border img-hover"
+            [src]="profileImage"
+            style="width: 40px"
+            id="basic-link"
+            dropdownToggle
+            (click)="(false)"
+            aria-controls="basic-link-dropdown"
+          />
+          <ul
+            id="basic-link-dropdown"
+            *dropdownMenu
+            class="dropdown-menu mt-4 h-auto"
+            role="menu"
+            aria-labelledby="basic-link"
+            style="width: 170px"
+          >
+            <li role="menuitem">
+              <a
+                class="fw-bold {{
+                  textColor
+                }} dropdown-item py-2 rounded-0 border-2 b-hover"
                 [routerLink]="['/users/', userId]"
-                >{{ userName | uppercase }}</a>
-              </li>
-              <li role="menuitem" *ngIf="isAdmin"><a
-                  class="fw-bold {{ textColor }} dropdown-item py-2 rounded-0 border-2 b-hover"
-                  routerLink="/dashboard"
-                  >DashBoard</a>
-              </li>
-              <li role="menuitem">
-                <a
-                class="fw-bold {{ textColor }} dropdown-item py-2 rounded-0 border-2 b-hover"
+                >{{ userName | uppercase }}</a
+              >
+            </li>
+            <li role="menuitem" *ngIf="isAdmin">
+              <a
+                class="fw-bold {{
+                  textColor
+                }} dropdown-item py-2 rounded-0 border-2 b-hover"
+                routerLink="/dashboard"
+                >DashBoard</a
+              >
+            </li>
+            <li role="menuitem">
+              <a
+                class="fw-bold {{
+                  textColor
+                }} dropdown-item py-2 rounded-0 border-2 b-hover"
                 routerLink="/login"
                 (click)="logout()"
-                >Log Out</a>
-              </li>
-            </ul>
+                >Log Out</a
+              >
+            </li>
+          </ul>
         </span>
       </ng-container>
       <ng-container *ngIf="!isLoggedIn">

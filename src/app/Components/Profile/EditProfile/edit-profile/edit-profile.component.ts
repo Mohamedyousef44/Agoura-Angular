@@ -15,6 +15,7 @@ export class EditProfileComponent implements OnInit {
   myForm: any;
   ProfileImage:any;
   userId: any;
+  showPass = false;
 
   constructor(
     public myService: ProfilePageService,
@@ -53,6 +54,7 @@ export class EditProfileComponent implements OnInit {
                 // phone: new FormControl(this.User.phone, [Validators.required,Validators.minLength(10),Validators.pattern(/^[0-9]*$/)]),
                 email: new FormControl(this.User.email, [Validators.email, Validators.required]),
                 profileImage: new FormControl( this.User.imag ),
+                password: new FormControl(this.User.password)
               });
             // this.validationForm.patchValue(this.User)
 
@@ -84,13 +86,10 @@ export class EditProfileComponent implements OnInit {
   }
 
 
-onFileSelected(event: any){
-  // console.log(event)
-  // console.log(this.ProfileImage=event.target.files[0]);
-  this.ProfileImage=event.target.files[0]
-}
+  onFileSelected(event: any){
+    this.ProfileImage=event.target.files[0]
+  }
 
-//send data to database
   updateUser(){
     this.spinner.show('updateSpinner')
     if (this.validationForm.valid) {
