@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl,FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BidsService } from 'src/app/Service/bids.service';
+import { ToastService } from 'src/app/Service/toast-service.service';
 
 @Component({
   selector: 'app-product-details',
@@ -14,7 +15,7 @@ export class ProductDetailsComponent implements OnInit{
   placeObj!:any;
   maxBid!:number;
   thumbnail!:any;
-  public constructor(private myService:BidsService,private route:ActivatedRoute,private router:Router){
+  public constructor(private myService:BidsService,private route:ActivatedRoute,private router:Router,private toastService: ToastService){
     
   }
   ngOnInit(): void {
@@ -57,7 +58,13 @@ export class ProductDetailsComponent implements OnInit{
 
   onSubmit(){
     this.bid?.markAsDirty()
-    if(!this.form.valid || !localStorage.getItem("X-Auth-Token")){
+    if(!localStorage.getItem("X-Auth-Token")){
+      this.toastService.activateToast(
+        "you need to login first.",
+        false
+      );
+    }
+    if(!this.form.valid){
       return
     }
     // toDo add form submit logic here

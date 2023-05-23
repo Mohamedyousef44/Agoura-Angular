@@ -2,11 +2,11 @@
   <div class="row justify-content-center" >
     <div class="col-12 col-md mb-3">
       <div class="row">
-        <div class="thumbnails col-2">
+        <div class="thumbnails col-2 overflow-y-scroll" >
           <img src="{{thumb}}" alt="" class="img-fluid rounded rounded-1 mb-2 pointer" *ngFor="let thumb of placeObj.images" (click)="changeImage($event)">
         </div>
         <div class="col-10">
-          <img [src]="thumbnail" alt="" class="img-fluid rounded rounded-1">
+          <img [src]="thumbnail" alt="" class="img-fluid rounded rounded-1 w-100">
         </div>
       </div>
     </div>

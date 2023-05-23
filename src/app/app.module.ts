@@ -1,5 +1,5 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './Components/Auth/login/login.component';
@@ -37,10 +37,11 @@ import { MainPageItemsSectionComponent } from './Components/main-page-items-sect
 import { AuthInterceptor } from './intercreptors/auth.interceptor';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { ResponseInterceptor } from './intercreptors/response.interceptor';
-import { DefaultLayoutComponent,DefaultHeaderComponent } from './Components/dash-board/containers';
 import { EditProductFormComponent } from './Components/edit-product-form/edit-product-form.component';
-import { ToastModule } from '@coreui/angular';
+import { AvatarModule, BadgeModule, BreadcrumbModule, ButtonGroupModule, ButtonModule, DropdownModule, FooterModule, FormModule, ListGroupModule, ProgressModule, SharedModule, TabsModule, ToastModule } from '@coreui/angular';
 import { ChangePassComponent } from './Components/Profile/changepass/changepass.component';
+import { DefaultLayoutComponent,DefaultHeaderComponent, DefaultFooterComponent} from './Components/dashboard/containers';
+
 
 import {
   SidebarModule,
@@ -52,17 +53,25 @@ import {
   CardModule
 } from '@coreui/angular';
 
-import { BidsComponent } from './Components/dash-board/views/bids/bids.component';
-import { ChartsComponent } from './Components/dash-board/views/charts/charts.component';
+import { BidsComponent } from './Components/dashboard/views/bids/bids.component';
+import { ChartsComponent } from './Components/dashboard/views/charts/charts.component';
 import { ChartjsModule } from '@coreui/angular-chartjs';
-import { DashboardBidDetailsComponent } from './Components/dash-board/views/dashboard-bid-details/dashboard-bid-details.component';
+import { DashboardBidDetailsComponent } from './Components/dashboard/views/dashboard-bid-details/dashboard-bid-details.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { OrdersComponent } from './Components/Profile/orders/orders.component';
 import { ApartmentsComponent } from './Components/Profile/apartments/apartments.component';
 import { MytoastComponent } from './Components/mytoast/mytoast.component';
 import { LoginModalComponent } from './Components/login-modal/login-modal.component';
+import { IconModule, IconSetService } from '@coreui/icons-angular';
+import {
+  PERFECT_SCROLLBAR_CONFIG,
+  PerfectScrollbarConfigInterface,
+  PerfectScrollbarModule,
+} from 'ngx-perfect-scrollbar';
 
-
+const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
+  suppressScrollX: true,
+};
 
 @NgModule({
   declarations: [
@@ -105,8 +114,7 @@ import { LoginModalComponent } from './Components/login-modal/login-modal.compon
     MytoastComponent,
     LoginModalComponent,
     ChangePassComponent,
-
-
+    DefaultFooterComponent,
   ],
 
   imports: [
@@ -119,30 +127,46 @@ import { LoginModalComponent } from './Components/login-modal/login-modal.compon
     ReactiveFormsModule,
     BrowserAnimationsModule,
     NgxSpinnerModule,
-    AppRoutingModule,
-    SidebarModule,
-    NavModule,
-    HeaderModule,
+    AvatarModule,
+    BreadcrumbModule,
+    FooterModule,
+    DropdownModule,
     GridModule,
-    TableModule,
+    HeaderModule,
+    SidebarModule,
+    IconModule,
+    PerfectScrollbarModule,
+    NavModule,
+    ButtonModule,
+    FormModule,
     UtilitiesModule,
-    ChartjsModule,
+    ButtonGroupModule,
+    SharedModule,
+    TabsModule,
+    ProgressModule,
+    BadgeModule,
+    ListGroupModule,
     CardModule,
+    TableModule,
     ToastModule,
-
-
+    ChartjsModule,
 
   ],
-  providers: [UserHomeDataService , {
+    
+    providers: [UserHomeDataService ,IconSetService,Title, {
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
     multi: true
-   },
-   {
+  },
+  {
+    provide: PERFECT_SCROLLBAR_CONFIG,
+    useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG,
+  },
+  {
     provide: HTTP_INTERCEPTORS,
     useClass: ResponseInterceptor,
     multi: true
-   }],
+  }],
   schemas:[CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent],
 })
