@@ -36,9 +36,20 @@ export class MainPageItemsSectionComponent {
 
   filterData(category:any){
 
-    var filtered=this.myService.getFilteredData(category)
-    console.log(filtered)
+    this.myService.getFilteredData(category).subscribe({
+      next:(response:any)=>{
+        console.log(response.data)
+        this.items= response.data
 
-  }
+      },
+      error:(error:any)=>{
+        return error
+      }
+     })
+
+
+
+}
+
 
 }

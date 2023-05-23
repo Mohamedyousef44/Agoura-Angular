@@ -59,15 +59,7 @@ export class UserHomeDataService {
 
 
   getFilteredData(category:any){
-   this.user.get(this.BaseURLForFilter + "/" + category).subscribe({
-    next:(response:any)=>{
-      console.log(response.data)
-      return response.data
-    },
-    error:(error:any)=>{
-      return error
-    }
-   })
+   return this.user.get(this.BaseURLForFilter + "/" + category)
 
   }
 
