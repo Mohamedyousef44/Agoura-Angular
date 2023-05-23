@@ -14,10 +14,10 @@ import { BidHistoryComponent } from './Components/bid-history/bid-history.compon
 import { ForgetPasswordComponent } from './Components/forget-password/forget-password.component';
 import { OtpComponent } from './Components/otp/otp.component';
 import { NotfoundPageComponent } from './Components/notfound-page/notfound-page.component';
-import { DefaultLayoutComponent } from './Components/dash-board/containers';
-import { BidsComponent } from './Components/dash-board/views/bids/bids.component';
-import { ChartsComponent } from './Components/dash-board/views/charts/charts.component';
-import { DashboardBidDetailsComponent } from './Components/dash-board/views/dashboard-bid-details/dashboard-bid-details.component';
+import { DefaultLayoutComponent } from './Components/dashboard/containers';
+import { BidsComponent } from './Components/dashboard/views/bids/bids.component';
+import { ChartsComponent } from './Components/dashboard/views/charts/charts.component';
+import { DashboardBidDetailsComponent } from './Components/dashboard/views/dashboard-bid-details/dashboard-bid-details.component';
 import { EditProductFormComponent } from './Components/edit-product-form/edit-product-form.component';
 import { UserBidsComponent } from './Components/Profile/bids/bids.component';
 import { OrdersComponent } from './Components/Profile/orders/orders.component';
@@ -48,15 +48,14 @@ const routes: Routes = [
           { path:"apartments",component:ApartmentsComponent},
           { path:"password",component:ChangePassComponent},
                 ]},
-
-      { path: "dashboard" ,component:DefaultLayoutComponent ,children:[
-        { path: '', redirectTo: 'stats', pathMatch: 'full' },
-        { path: "bids",component:BidsComponent },
-        { path: "bids/:id",component:DashboardBidDetailsComponent },
-        { path: "stats",component:ChartsComponent }
-      ]},
     ],
   },
+  { path: "dashboard" ,component:DefaultLayoutComponent ,children:[
+    { path: '', redirectTo: 'charts', pathMatch: 'full' },
+    { path: "apartments",component:BidsComponent },
+    { path: "apartments/:id",component:DashboardBidDetailsComponent },
+    { path: "charts",component:ChartsComponent }
+  ]},
   {path : '404-NotFound', component: NotfoundPageComponent},
   {path : 'login' , component : LoginComponent},
   {path : 'signup' , component: SignUpComponent},
