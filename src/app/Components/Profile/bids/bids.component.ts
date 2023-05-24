@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProfilePageService } from 'src/app/Service/profile-page.service';
+import jwt_decode from 'jwt-decode';
 
 @Component({
   selector: 'app-bids',
@@ -31,7 +32,6 @@ export class UserBidsComponent implements OnInit {
         next:(data)=>{
            this.result = data
           if(!this.result.success){
-            console.log('from not found')
               this.route.navigateByUrl('/notfound')
           }else{
               this.bidData = this.result.data
@@ -55,7 +55,5 @@ export class UserBidsComponent implements OnInit {
   }
 
 }
-function jwt_decode(token: any) {
-  throw new Error('Function not implemented.');
-}
+
 
