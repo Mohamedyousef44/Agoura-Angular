@@ -18,7 +18,7 @@
       <td>{{item.address.city}}</td>
       <td>{{item.title}}</td>
       <td>{{item.status}}</td>
-      <td>{{item.timeLeft}}</td>
+      <td>{{item.timeLeft | date:'fullDate' }}</td>
       <td><a class="nav-link" routerLink="./{{item.itemId}}"><i class="fa-solid fa-eye"></i></a></td>
     </tr>
 

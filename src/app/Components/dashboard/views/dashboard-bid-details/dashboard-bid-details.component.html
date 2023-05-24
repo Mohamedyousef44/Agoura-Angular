@@ -14,25 +14,25 @@
                 <div class="container">
                     <div class="row mt-4">
                         <h3>Address</h3>
-                        <div class="col-md-3 mt-3">
+                        <div class="col-md-4 mt-3">
                         <div class="input-group">
                             <span class="input-group-text">Country</span>
                             <input type="text" class="form-control" aria-label="Large" [value]="placeObj.address.country"  disabled>
                         </div>
                         </div>
-                        <div class="col-md-3 mt-3">
+                        <div class="col-md-4 mt-3">
                         <div class="input-group">
                             <span class="input-group-text">City</span>
                             <input type="text" class="form-control" aria-label="Large" [value]="placeObj.address.city"  disabled>
                         </div>
                         </div>
-                        <div class="col-md-3 mt-3">
+                        <div class="col-md-4 mt-3">
                         <div class="input-group">
                             <span class="input-group-text">Street</span>
                             <input type="text" class="form-control" aria-label="Large"[value]="placeObj.address.street"   disabled>
                         </div>
                         </div>
-                        <div class="col-md-3 mt-3">
+                        <div class="col-md-4 mt-3">
                         <div class="input-group">
                             <span class="input-group-text">Zip</span>
                             <input type="text" class="form-control" aria-label="Large" [value]="placeObj.address.zipCode"  disabled>
@@ -44,31 +44,31 @@
 
                     <div class="row mt-4">
                         <h3>Features</h3>
-                        <div class="col-md-3 mt-3">
+                        <div class="col-md-4 mt-3">
                         <div class="input-group">
                             <span class="input-group-text">bed rooms</span>
                             <input type="text" class="form-control" aria-label="Large" [value]="placeObj.features.bedRooms"  disabled>
                         </div>
                         </div>
-                        <div class="col-md-3 mt-3">
+                        <div class="col-md-4 mt-3">
                         <div class="input-group">
                             <span class="input-group-text">guest rooms</span>
                             <input type="text" class="form-control" aria-label="Large" [value]="placeObj.features.guests"  disabled>
                         </div>
                         </div>
-                        <div class="col-md-3 mt-3">
+                        <div class="col-md-4 mt-3">
                         <div class="input-group">
                             <span class="input-group-text">bath rooms</span>
                             <input type="text" class="form-control" aria-label="Large"[value]="placeObj.features.baths"   disabled>
                         </div>
                         </div>
-                        <div class="col-md-3 mt-3">
+                        <div class="col-md-4 mt-3">
                         <div class="input-group">
                             <span class="input-group-text">kitchens</span>
                             <input type="text" class="form-control" aria-label="Large" [value]="placeObj.features.kitchen"  disabled>
                         </div>
                         </div>
-                        <div class="col-md-3 mt-3">
+                        <div class="col-md-4 mt-3">
                             <div class="input-group">
                                 <span class="input-group-text">area</span>
                                 <input type="text" class="form-control" aria-label="Large" [value]="placeObj.features.area"  disabled>
@@ -92,14 +92,14 @@
 
                     <div class="row mt-4">
                         <h3>bid Info</h3>
-                        <div class="col-md-3 mt-3">
+                        <div class="col-md-6 mt-3">
                         <div class="input-group">
                             <span class="input-group-text">start bid price</span>
                             <input type="text" class="form-control" aria-label="Large" [value]="placeObj.startBid"  disabled>
                             <span class="input-group-text">$</span>
                         </div>
                         </div>
-                        <div class="col-md-3 mt-3">
+                        <div class="col-md-6 mt-3">
                         <div class="input-group">
                             <span class="input-group-text">bid duration</span>
                             <input type="text" class="form-control" aria-label="Large" [value]="placeObj.duration"  disabled>
@@ -107,7 +107,7 @@
 
                         </div>
                         </div>
-                        <div class="col-md-3 mt-3">
+                        <div class="col-md-6 mt-3">
                         <div class="input-group">
                             <span class="input-group-text">status</span>
                             <input type="text" class="form-control" [ngClass]="{'bg-success':placeObj.status=='approved','bg-warning':placeObj.status=='pending','bg-danger':placeObj.status=='canceled','bg-primary':placeObj.status=='sold'}" aria-label="Large"[value]="placeObj.status"   disabled>
@@ -125,8 +125,9 @@
                         </div>
                         <div class="d-flex justify-content-around mt-3">
                             
-                            <div><button class="btn btn-warning px-3" (click)="sendNotes()" [disabled]="placeObj.status=='approved' || placeObj.status=='sold' || placeObj.status=='cancelled'">send notes</button></div>
-                            <div><button class="btn btn-success px-3" (click)="approve()" [disabled]="placeObj.status=='approved' || placeObj.status=='sold' || placeObj.status=='cancelled'">approve</button></div>
+                            <div><button class="btn btn-warning px-3" (click)="sendNotes()" [disabled]="placeObj.status=='approved' || placeObj.status=='sold' || placeObj.status=='canceled'">send notes</button></div>
+                            <div><button class="btn btn-success px-3" (click)="approve()" [disabled]="placeObj.status=='approved' || placeObj.status=='sold' || placeObj.status=='canceled'">approve</button></div>
+                            <div><button class="btn btn-danger px-3" (click)="cancel()" [disabled]="placeObj.status!='approved' && placeObj.status!='pending'">cancel</button></div>
                         </div>
                     </div>
                 </div>
