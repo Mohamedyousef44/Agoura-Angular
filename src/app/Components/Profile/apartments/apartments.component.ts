@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProfilePageService } from 'src/app/Service/profile-page.service';
 import jwt_decode from "jwt-decode";
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-apartments',
@@ -18,7 +19,8 @@ export class ApartmentsComponent {
   constructor(
     private ProfileService: ProfilePageService,
     private router: ActivatedRoute,
-    private route: Router
+    private route: Router,
+    private spinner: NgxSpinnerService
     ){
       this.router.parent?.params.subscribe((data: any)=>{
           this.userId = data['id']
@@ -27,10 +29,7 @@ export class ApartmentsComponent {
   }
 
   ngOnInit(): void {
-
-    console.log(this.userToken)
-    console.log(this.isAuthorized())
-
+      this.spinner.show()
       this.ProfileService.getUserApartments(this.userId).subscribe({
         next:(data: any)=>{
            this.result = data
@@ -41,6 +40,7 @@ export class ApartmentsComponent {
           }
         },
     })
+    this.spinner.hide()
   }
 
 
