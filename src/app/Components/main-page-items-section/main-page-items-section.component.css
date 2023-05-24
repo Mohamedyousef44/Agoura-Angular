@@ -9,7 +9,7 @@
 
 
 /* From uiverse.io by @Ali-Tahmazi99 */
-button {
+.filter-btn {
   display: inline-block;
   width: 150px;
   height: 50px;
@@ -21,8 +21,8 @@ button {
   z-index: 1;
  }
 
- button::before,
- button::after {
+ .filter-btn::before,
+ .filter-btn::after {
   content: '';
   position: absolute;
   top: 0;
@@ -34,27 +34,27 @@ button {
   z-index: -1;
  }
 
- button::before {
+ .filter-btn::before {
   left: -10px;
   background: #240046;
  }
 
- button::after {
+ .filter-btn::after {
   right: -10px;
   background: #5a189a;
  }
 
- button:hover::before,
- button:hover::after {
+ .filter-btn:hover::before,
+ .filter-btn:hover::after {
   width: 58%;
  }
 
- button:hover span {
+ .filter-btn:hover span {
   color: #e0aaff;
   transition: 0.3s;
  }
 
- button span {
+ .filter-btn span {
   color: #03045e;
   font-size: 18px;
   transition: all 0.3s ease-in;
