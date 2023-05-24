@@ -27,6 +27,10 @@ export class BidsService {
     return this.myClient.post(this.Base_URL + `/bid/${id}/approve`,data);
   }
 
+  cancelBidById(id:number,data: any) {
+    return this.myClient.post(this.Base_URL + `/bid/${id}/cancel`,data);
+  }
+
   
 
 }
