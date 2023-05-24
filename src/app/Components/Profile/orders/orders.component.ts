@@ -25,11 +25,10 @@ export class OrdersComponent implements OnInit {
 
   ngOnInit(): void {
 
-      this.ProfileService.getUserBids(this.userId).subscribe({
+      this.ProfileService.getUserOrders(this.userId).subscribe({
         next:(data)=>{
            this.result = data
           if(!this.result.success){
-            console.log('from not found')
               this.route.navigateByUrl('/notfound')
           }else{
               this.orderData = this.result.data

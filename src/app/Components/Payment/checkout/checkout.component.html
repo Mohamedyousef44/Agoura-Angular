@@ -1,47 +1,71 @@
-<div style="background-color: #FAF9F8; height: 100vh;">
-    <nav class="container-fluid d-flex justify-content-center align-items-center" style="background-image: url('/assets/imgs/home/h2.jpg'); height: 20vh;">
-        <img src="https://www.agora.io/en/wp-content/themes/agora-main/images/agora-logo.svg" alt="Error" class="img-fluid" style="object-fit: cover;">
-    </nav>
-    <div class="container">
-        <div class="row mt-4">
-          <div class="col-md-8">
-            <main>
-              <app-payment-method></app-payment-method>
-            </main>
-          </div>
-          <div class="col-md-4">
-            <aside>
-                <div class="card col-12">
-                    <div class="card-body">
-                        <h5 class="card-title"><strong>Review your purchase</strong></h5>
-                        <div class="d-flex flex-column justify-content-between gap-2 mt-3">
-                            <div class="d-flex justify-content-between">
-                                <strong>Subtotal</strong>
-                                <span>Value from cart </span>
-                            </div>
-                            <div class="d-flex justify-content-between">
-                                <strong>Taxes 14%</strong>
-                                <span>14% from the purchase value</span>
-                            </div>
-                        </div>
-                        <hr />
-                        <div class="d-flex flex-column justify-content-between gap-2 mt-3">
-                            <div class="d-flex justify-content-between">
-                                <strong>Total</strong>
-                                <span>Subtotal+Taxes</span>
-                            </div>
-                        </div>
-                    </div>
-                  </div>
-                <div class="mt-2">
-                    <strong>Accepted Payment Methods</strong>
+<div style="background-color: #faf9f8; height: 100vh">
+  <nav
+    class="container-fluid d-flex justify-content-center align-items-center"
+    style="background-image: url('/assets/imgs/home/h2.jpg'); height: 20vh"
+  >
+    <img
+      src="https://www.agora.io/en/wp-content/themes/agora-main/images/agora-logo.svg"
+      alt="Error"
+      class="img-fluid"
+      style="object-fit: cover"
+    />
+  </nav>
+  <div class="container">
+    <div class="row mt-4">
+      <div class="col-md-8">
+        <main>
+          <app-payment-method></app-payment-method>
+        </main>
+      </div>
+      <div class="col-md-4">
+        <aside>
+          <div class="card col-12">
+            <div class="card-body">
+              <h5 class="card-title"><strong>Review your purchase</strong></h5>
+              <div
+                class="d-flex flex-column justify-content-between gap-2 mt-3"
+              >
+                <div class="d-flex justify-content-between">
+                  <strong>Subtotal</strong>
+                  <span>Value from cart </span>
                 </div>
-                <div class="d-flex gap-2">
-                    <img style="object-fit: cover;" width="60vh" height="40vh" src="/assets/images/Visa.svg.png" alt="visa">
-                    <img style="object-fit: cover;"width="65vh" height="40vh" src="/assets/images/MasterCard_Logo.svg.png" alt="masterCard">
+                <div class="d-flex justify-content-between">
+                  <strong>Taxes 14%</strong>
+                  <span>14% from the purchase value</span>
                 </div>
-            </aside>
+              </div>
+              <hr />
+              <div
+                class="d-flex flex-column justify-content-between gap-2 mt-3"
+              >
+                <div class="d-flex justify-content-between">
+                  <strong>Total</strong>
+                  <span>Subtotal+Taxes</span>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
+          <div class="mt-2">
+            <strong>Accepted Payment Methods</strong>
+          </div>
+          <div class="d-flex gap-2">
+            <img
+              style="object-fit: cover"
+              width="60vh"
+              height="40vh"
+              src="/assets/images/Visa.svg.png"
+              alt="visa"
+            />
+            <img
+              style="object-fit: cover"
+              width="65vh"
+              height="40vh"
+              src="/assets/images/MasterCard_Logo.svg.png"
+              alt="masterCard"
+            />
+          </div>
+        </aside>
+      </div>
     </div>
+  </div>
 </div>

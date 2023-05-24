@@ -1,5 +1,6 @@
-<c-row >
-    <c-col sm="6">
+<c-row>
+    <c-col sm="12" lg="6" class="my-3 text-center">
+        <h3>User per year</h3>
         <c-chart
         [data]="data1"
         type="line"
@@ -7,8 +8,14 @@
         </c-chart>
 
     </c-col>
-    <c-col sm="6">
+    <c-col sm="12" lg="6" class="my-3 text-center">
+        <h3>Bids per year</h3>
+
         <c-chart [data]="data2" type="bar"></c-chart>
+    </c-col>
+    <c-col sm="12" lg="6" class="my-3 text-center">
+        <h3>Apartments status</h3>
+        <c-chart [data]="data3" type="pie"></c-chart>
     </c-col>
 </c-row>
 

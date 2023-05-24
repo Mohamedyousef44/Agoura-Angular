@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { UserHomeDataService } from 'src/app/Service/user-home-data.service';
 import { BsDropdownConfig } from 'ngx-bootstrap/dropdown';
 import { AuthService } from 'src/app/Service/auth.service';
@@ -17,11 +17,22 @@ export class NavBarComponent implements OnInit {
   userId: any;
   profileImage:any;
   isAdmin=false;
+  navElement: any
   constructor(public myService: UserHomeDataService ,private authService:AuthService) {
-    
+
+  }
+  @HostListener("window:scroll", [])
+  onWindowScroll() {
+    if (window.scrollY > 0) {
+      this.navElement.classList.add("nav-scrolled");
+    } else {
+      this.navElement.classList.remove("nav-scrolled");
+    }
   }
 
   ngOnInit() {
+
+    this.navElement = document.querySelector("#nav-con")
     this.myService.cartUpdated.subscribe((res) => {
       this.cartLen = res.apartments.length;
     });
@@ -61,6 +72,8 @@ export class NavBarComponent implements OnInit {
   logout(){
     localStorage.removeItem('X-Auth-Token')
   }
+
+
 }
 
 

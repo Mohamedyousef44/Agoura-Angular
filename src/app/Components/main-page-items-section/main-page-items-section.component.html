@@ -1,55 +1,81 @@
 <div class="conatiner">
   <div class="row">
 
-
-<div class="container p-5">
-  <div class="row gap-2 d-flex justify-content-center">
-    <button class="col-md-3 col-sm-12  fs-5" (click)="allcategories()">All Categories</button>
-
-      <button class="col-md-3 col-sm-12  fs-5" (click)="filterData('villa')">Villa</button>
-      <button class="col-md-3 col-sm-12 fs-5"(click)="filterData('studio')" >Studio</button>
-      <button class="col-md-3 col-sm-12 fs-5"(click)="filterData('palace')">Appartment</button>
-      <button class="col-md-3 col-sm-12 fs-5"(click)="filterData('luxurious')">Luxury</button>
-
-  </div>
-</div>
-
-
-
-<div class="container mb-4">
-  <div class="row">
-    <div class="card border-0 m-0 col-12 col-md-4" *ngFor="let item of items">
-      <carousel [interval]="0">
-        <slide *ngFor="let image of item.images">
-          <a routerLink="/place/{{ item.itemId }}" class="nav">
-            <img
-              class="card-img-top m-1 custom-image"
-              src="{{ image }}"
-              alt="first slide"
-              style="display: block; width: 100%"
-          /></a>
-        </slide>
-      </carousel>
-      <div class="card-body">
-        <h6 class="card-title">
-          {{ item.address.city | uppercase }},{{
-            item.address.country | uppercase
-          }}
-        </h6>
-        <p class="card-text">Starts From: {{ item.startBid | currency }}</p>
-        <p class="card-text">Item ID: {{ item.itemId }}</p>
+    <div class="container p-5">
+      <div class="row gap-2 d-flex justify-content-center">
         <button
-          id="cart-btn-{{ item.itemId }}"
-          class="cart-btn-add"
-          (click)="toggle(item._id, $event)"
+          class="col-md-3 col-sm-12 fs-5 filter-btn"
+          (click)="allcategories()"
         >
-          Add to cart
+          All
         </button>
+        <button
+          class="col-md-3 col-sm-12 fs-5 filter-btn"
+          (click)="filterData('villa')"
+        >
+          Villa
+        </button>
+        <button
+          class="col-md-3 col-sm-12 fs-5 filter-btn"
+          (click)="filterData('studio')"
+        >
+          Studio
+        </button>
+        <button
+          class="col-md-3 col-sm-12 fs-5 filter-btn"
+          (click)="filterData('palace')"
+        >
+          Appartment
+        </button>
+
+        <button
+          class="col-md-3 col-sm-12 fs-5 filter-btn"
+          (click)="filterData('luxurious')"
+        >
+          Luxury
+        </button>
+      </div>
+    </div>
+
+    <div class="container mb-4">
+      <div class="row">
+        <div
+          class="card border-0 m-0 col-12 col-md-4"
+          *ngFor="let item of items"
+        >
+          <carousel [interval]="0">
+            <slide *ngFor="let image of item.images">
+              <a routerLink="/place/{{ item.itemId }}" class="nav">
+                <img
+                  class="card-img-top m-1 custom-image"
+                  src="{{ image }}"
+                  alt="first slide"
+                  style="display: block; width: 100%"
+              /></a>
+            </slide>
+          </carousel>
+          <div class="card-body">
+            <h6 class="card-title">
+              {{ item.title | uppercase }}
+            </h6>
+            <h6 class="card-title">
+              {{ item.address.city | uppercase }},{{
+                item.address.country | uppercase
+              }}
+            </h6>
+            <h6 class="card-text">
+              Starts From: {{ item.startBid | currency }}
+            </h6>
+            <button
+              id="cart-btn-{{ item.itemId }}"
+              class="cart-btn-add"
+              (click)="toggle(item._id, $event)"
+            >
+              Add To <i class="bi bi-bag-heart fs-4 ms-3"></i>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
-</div>
-</div>
-
-    <!-- <div><h5>{{items.address.country}}</h5></div> -->

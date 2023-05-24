@@ -9,6 +9,4 @@ import { UserHomeDataService } from 'src/app/Service/user-home-data.service';
 export class HomeComponent  {
 
 
-
-
 }
