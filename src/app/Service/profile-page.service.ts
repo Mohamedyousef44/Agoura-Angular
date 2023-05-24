@@ -47,7 +47,6 @@ export class ProfilePageService {
     );
   }
   changeUserPicture(id: any, newImage: any) {
-    console.log(id, newImage);
     return this.myClient.put(this.Base_URL + '/' + id + '/picture', newImage);
   }
 }

@@ -18,7 +18,7 @@ export class ApartmentsComponent {
     private router: ActivatedRoute,
     private route: Router
     ){
-      this.router.parent?.params.subscribe(data=>{
+      this.router.parent?.params.subscribe((data: any)=>{
           this.userId = data['id']
       })
   }
@@ -26,12 +26,13 @@ export class ApartmentsComponent {
   ngOnInit(): void {
 
       this.ProfileService.getUserApartments(this.userId).subscribe({
-        next:(data)=>{
+        next:(data: any)=>{
            this.result = data
           if(!this.result.success){
               this.route.navigateByUrl('/notfound')
           }else{
               this.apartmentData = this.result.data
+              console.log("from apartment page"+this.apartmentData)
           }
         },
     })

@@ -40,9 +40,9 @@ export class ProfileComponent implements OnInit {
     this.myService.GetUserByID(this.userID).subscribe({
       next: (data: any) => {
         this.UserDetails = data;
-        console.log(data.bids.length);
-        console.log(data.orders.length);
-        console.log(data.ownedApartments.length);
+        console.log(data.bids);
+        // console.log(data.orders);
+        console.log(data.ownedApartments);
         const image = data.image;
         if (image == '') this.userImage = '/assets/imgs/default.jpg';
         else this.userImage = image;
@@ -80,7 +80,6 @@ export class ProfileComponent implements OnInit {
   changeImage() {
     const fd = new FormData();
     fd.append('profileImage', this.userImage);
-    console.log(fd);
     this.myService.changeUserPicture(this.userID, fd).subscribe({
       next: (response: any) => {
         this.userImage = response.data['image'];
