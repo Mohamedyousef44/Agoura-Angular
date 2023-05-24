@@ -1,0 +1,32 @@
+<div class="conatiner ">
+<div class="row ">
+  <div class="col-12">
+ <table class="table table-secondary">
+<thead>
+<tr>
+  <th scope="col">Number</th>
+  <td scope="col">Name</td>
+  <td scope="col">Email</td>
+  <td scope="col">Owned appartments</td>
+  <td scope="col">Number of bids</td>
+  <td scope="col">Verification</td>
+  <td scope="col">Delete</td>
+
+</tr>
+</thead>
+<tbody>
+  <tr *ngFor='let user of allUsers let i = index' [ngClass]="{'table-info':user.isVerified==true,'table-danger':user.isVerified==false}">
+    <td>{{i+1}}</td>
+    <td>{{user.name}}</td>
+    <td>{{user.email}}</td>
+    <td>{{user.ownedApartments.length}}</td>
+    <td>{{user.bids.length}}</td>
+    <td>{{user.isVerified}}</td>
+  <td><button class="btn btn-secondary">Delete</button></td>
+
+</tr>
+</tbody>
+ </table>
+</div>
+</div>
+</div>
