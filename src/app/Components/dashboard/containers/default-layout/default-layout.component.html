@@ -22,6 +22,26 @@
     routerLink=""
   >
   </c-sidebar-brand>
+  <c-sidebar-brand
+  class="p-2"
+    [brandFull]="{
+      src: user.image,
+      width: 100,
+      height: 100,
+      alt: 'Agora Home',
+      style:'border-radius: 100%;',
+    }"
+    [brandNarrow]="{
+      src: user.image,
+      width: 46,
+      height: 46,
+      style:'border-radius: 100%;',
+      alt: 'Agora Home'
+    }"
+    routerLink="/users/{{user._id}}"
+  
+  >
+  </c-sidebar-brand>
   
     <perfect-scrollbar [config]="perfectScrollbarConfig">
    <!-- [perfectScrollbar]="perfectScrollbarConfig" -->
