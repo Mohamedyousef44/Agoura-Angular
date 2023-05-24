@@ -44,8 +44,8 @@ export class ProfileComponent implements OnInit {
       next: (data: any) => {
         this.UserDetails = data;
         const image = data.image;
-        if (image == '') this.userImage = '/assets/imgs/default.jpg';
-        else this.userImage = image;
+        if (image) this.userImage = image
+        else  this.userImage = '/assets/imgs/default.jpg';
         this.spinner.hide('profileSpinner');
 
         this.validationForm = new FormGroup({

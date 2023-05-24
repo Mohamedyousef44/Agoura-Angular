@@ -9,7 +9,6 @@
     <table class="table table-hover">
       <thead>
         <tr>
-          <th scope="col">ID</th>
           <th scope="col">Apartment</th>
           <th scope="col">Bid</th>
           <th scope="col">Date</th>
@@ -17,7 +16,6 @@
       </thead>
       <tbody>
         <tr *ngFor="let order of orderData">
-          <th scope="row">{{ order._id }}</th>
           <td>{{ order.apartment }}</td>
           <td>{{ order.amount }}</td>
           <td>{{ order.date }}</td>
