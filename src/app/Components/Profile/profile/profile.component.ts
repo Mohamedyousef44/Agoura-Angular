@@ -3,6 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ProfilePageService } from 'src/app/Service/profile-page.service';
+import jwt_decode from 'jwt-decode';
 
 @Component({
   selector: 'app-profile',
@@ -15,6 +16,7 @@ export class ProfileComponent implements OnInit {
   userImage: any;
   validationForm: any;
   profileValid = false;
+  userToken: any;
 
   constructor(
     public myService: ProfilePageService,
@@ -24,6 +26,7 @@ export class ProfileComponent implements OnInit {
     this.route.params.subscribe((params) => {
       this.userID = params['id'];
     });
+    this.userToken = localStorage.getItem('X-Auth-Token')
   }
 
   goDown() {
@@ -40,12 +43,9 @@ export class ProfileComponent implements OnInit {
     this.myService.GetUserByID(this.userID).subscribe({
       next: (data: any) => {
         this.UserDetails = data;
-        console.log(data.bids.length);
-        console.log(data.orders.length);
-        console.log(data.ownedApartments.length);
         const image = data.image;
-        if (image == '') this.userImage = '/assets/imgs/default.jpg';
-        else this.userImage = image;
+        if (image) this.userImage = image
+        else  this.userImage = '/assets/imgs/default.jpg';
         this.spinner.hide('profileSpinner');
 
         this.validationForm = new FormGroup({
@@ -80,11 +80,24 @@ export class ProfileComponent implements OnInit {
   changeImage() {
     const fd = new FormData();
     fd.append('profileImage', this.userImage);
-    console.log(fd);
     this.myService.changeUserPicture(this.userID, fd).subscribe({
       next: (response: any) => {
         this.userImage = response.data['image'];
       },
     });
+  }
+
+  decode(token: any){
+    if(token){
+      var decoded = jwt_decode(token)
+      return decoded
+    }
+    return false
+  }
+
+  isAuthorized(){
+    const user : any = this.decode(this.userToken)
+    if(user) return this.userID == user.userId
+    return false
   }
 }

@@ -9,7 +9,10 @@
       <div class="d-flex justify-content-center parent">
         <div class="cardat w-100">
           <img src="{{ userImage }}" alt="profile image" />
-          <span data-bs-toggle="modal" data-bs-target="#updateImage"
+          <span
+            *ngIf="isAuthorized()"
+            data-bs-toggle="modal"
+            data-bs-target="#updateImage"
             ><i class="bi bi-camera"></i
           ></span>
           <ngx-spinner
@@ -24,7 +27,11 @@
         </div>
       </div>
     </div>
-    <button routerLink="/users/{{ UserDetails?._id }}/edit" (click)="goDown()">
+    <button
+      *ngIf="isAuthorized()"
+      routerLink="/users/{{ UserDetails?._id }}/edit"
+      (click)="goDown()"
+    >
       Edit
     </button>
     <div class="user-profile-data">

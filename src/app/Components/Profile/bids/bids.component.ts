@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProfilePageService } from 'src/app/Service/profile-page.service';
+import jwt_decode from 'jwt-decode';
 
 @Component({
   selector: 'app-bids',
@@ -12,6 +13,7 @@ export class UserBidsComponent implements OnInit {
   userId: any;
   bidData: any;
   result: any;
+  userToken: any;
 
   constructor(
     private ProfileService: ProfilePageService,
@@ -21,6 +23,7 @@ export class UserBidsComponent implements OnInit {
       this.router.parent?.params.subscribe(data=>{
           this.userId = data['id']
       })
+      this.userToken = localStorage.getItem('X-Auth-Token')
   }
 
   ngOnInit(): void {
@@ -29,7 +32,6 @@ export class UserBidsComponent implements OnInit {
         next:(data)=>{
            this.result = data
           if(!this.result.success){
-            console.log('from not found')
               this.route.navigateByUrl('/notfound')
           }else{
               this.bidData = this.result.data
@@ -38,4 +40,20 @@ export class UserBidsComponent implements OnInit {
     })
   }
 
+    decode(token: any){
+    if(token){
+      var decoded = jwt_decode(token)
+      return decoded
+    }
+    return false
+  }
+
+  isAuthorized(){
+    const user : any = this.decode(this.userToken)
+    if(user) return this.userId == user.userId
+    return false
+  }
+
 }
+
+
