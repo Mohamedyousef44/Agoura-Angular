@@ -12,4 +12,7 @@ export class DashboardTableService {
     return this.myClient.get(this.Base_URL + "/dashboard" );
   }
 
+  GetAllUsers() {
+    return this.myClient.get(this.Base_URL + "/dashboard/allusers" );
+  }
 }

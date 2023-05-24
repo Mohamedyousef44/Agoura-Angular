@@ -25,6 +25,7 @@ import { ApartmentsComponent } from './Components/Profile/apartments/apartments.
 import { ResetPasswordComponent } from './Components/reset-password/reset-password.component';
 import { AuthGuard } from './core/guards/auth.guard';
 import { ChangePassComponent } from './Components/Profile/changepass/changepass.component';
+import { DashboardUsersComponent } from './Components/dashboard/views/dashboard-users/dashboard-users.component';
 
 
 
@@ -54,7 +55,8 @@ const routes: Routes = [
     { path: '', redirectTo: 'charts', pathMatch: 'full' },
     { path: "apartments",component:BidsComponent },
     { path: "apartments/:id",component:DashboardBidDetailsComponent },
-    { path: "charts",component:ChartsComponent }
+    { path: "charts",component:ChartsComponent },
+    {path:"users",component:DashboardUsersComponent}
   ]},
   {path : '404-NotFound', component: NotfoundPageComponent},
   {path : 'login' , component : LoginComponent},
