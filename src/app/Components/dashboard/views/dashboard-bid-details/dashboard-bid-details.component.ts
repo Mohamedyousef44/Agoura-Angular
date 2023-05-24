@@ -46,6 +46,21 @@ export class DashboardBidDetailsComponent implements OnInit{
       }
     })
   }
+  cancel(){
+    this.myService.cancelBidById(this.placeObj._id,{_id:this.placeObj._id}).subscribe({
+      next:(res:any)=>{
+        console.log(res)
+          if(res.success){
+            this.placeObj=res.data.appartment
+          }
+
+        // this.router.navigateByUrl("/dashboard/bids/"+this.route.snapshot.params["id"])
+      },
+      error:(err)=>{
+        console.log(err)
+      }
+    })
+  }
   ngOnInit(): void {
     this.form=new FormGroup({
       notes: new FormControl("",Validators.minLength(50)),

@@ -31,5 +31,14 @@ export class AuthService {
     }
     return false;
   }
+  public user() {
+    const token = localStorage.getItem('X-Auth-Token');
+    
+    if (token) {
+      const decodedToken: any = jwtDecode(token);
+      return decodedToken
+    }
+    return false;
+  }
   
 }

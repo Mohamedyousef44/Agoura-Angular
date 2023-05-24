@@ -40,7 +40,7 @@
               <div class="row">
                 <div class="col-6">
                   <span class="text-secondary">Time left: </span>
-                  <span class="fw-bold">{{ bids.timeLeft }}</span>
+                  <span class="fw-bold">{{ bids.timeLeft | date:'medium' }}</span>
                 </div>
                 <div class="col-6">
                   <span class="text-secondary">Duration: </span>
@@ -71,7 +71,7 @@
               <a href="#">{{ item["user"]._id }}</a> (1)
             </td>
             <td>{{ item["amountMoney"] }} EUR</td>
-            <td>{{ item["date"] }}</td>
+            <td>{{ item["date"] |date:"medium"}}</td>
           </tr>
         </tbody>
       </table>
