@@ -54,12 +54,16 @@
           </carousel>
           <div class="card-body">
             <h6 class="card-title">
+              {{ item.title | uppercase }}
+            </h6>
+            <h6 class="card-title">
               {{ item.address.city | uppercase }},{{
                 item.address.country | uppercase
               }}
             </h6>
-            <p class="card-text">Starts From: {{ item.startBid | currency }}</p>
-            <p class="card-text">Item ID: {{ item.itemId }}</p>
+            <h6 class="card-text">
+              Starts From: {{ item.startBid | currency }}
+            </h6>
             <button
               id="cart-btn-{{ item.itemId }}"
               class="cart-btn-add"
