@@ -6,19 +6,15 @@
 
 }
 
-
-
-/* From uiverse.io by @Ali-Tahmazi99 */
 .filter-btn {
   display: inline-block;
   width: 150px;
   height: 50px;
-  border-radius: 10px;
-  border: 1px solid #03045e;
   position: relative;
   overflow: hidden;
   transition: all 0.5s ease-in;
   z-index: 1;
+  border-style: none;
  }
 
  .filter-btn::before,
@@ -36,12 +32,12 @@
 
  .filter-btn::before {
   left: -10px;
-  background: #240046;
+  background: #099DFD;
  }
 
  .filter-btn::after {
   right: -10px;
-  background: #5a189a;
+  background: #099DFD;
  }
 
  .filter-btn:hover::before,
@@ -50,12 +46,12 @@
  }
 
  .filter-btn:hover span {
-  color: #e0aaff;
+  color: #eeee;
   transition: 0.3s;
  }
 
  .filter-btn span {
-  color: #03045e;
+  color: #eeee;
   font-size: 18px;
   transition: all 0.3s ease-in;
  }
@@ -65,7 +61,7 @@
   font-size: 17px;
   text-transform: uppercase;
   text-decoration: none;
-  padding: 1em 2.5em;
+  padding: .8em 2em;
   display: inline-block;
   border-radius: 6em;
   transition: all .2s;
