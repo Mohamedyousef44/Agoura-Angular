@@ -5,10 +5,28 @@
 <tr>
   <td>name</td>
   <td>email</td>
+  <td>NO of owned appartments</td>
+  <td>number of bids</td>
   <td>verification</td>
+  <td>Delete</td>
+
+
 
 </tr>
 </thead>
+<tbody>
+  <tr *ngFor="let user of allUsers">
+    <td>{{user.name}}</td>
+    <td>{{user.email}}</td>
+    <td>{{user.ownedApartments.length}}</td>
+    <td>{{user.bids.length}}</td>
+    <td>{{user.isVerified}}</td>
+  <td><button class="btn btn-outline-light">Delete</button></td>
+
+
+
+  </tr>
+</tbody>
  </table>
 </div>
 </div>
