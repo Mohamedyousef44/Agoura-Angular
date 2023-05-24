@@ -31,3 +31,6 @@
 .nav-scrolled{
   background-color: rgba(0, 0, 0, 0.5) !important;
 }
+.nav-scrolled i{
+  color:white !important;
+}
