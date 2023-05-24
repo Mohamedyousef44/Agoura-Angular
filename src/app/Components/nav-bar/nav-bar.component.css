@@ -27,3 +27,7 @@
   position: fixed;
   z-index: 100;
 }
+
+.nav-scrolled{
+  background-color: rgba(0, 0, 0, 0.5) !important;
+}
