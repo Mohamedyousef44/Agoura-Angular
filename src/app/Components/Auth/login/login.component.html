@@ -1,5 +1,5 @@
 <div class="container-fluid d-flex p-0" style="min-height: 100vh; width: 100%">
-  <aside class="col-4">
+  <aside class="col-4 d-none d-md-block">
     <img
       src="../../../assets/images/login_london.jpg"
       class="p-0 img-fluid h-100"
@@ -8,7 +8,7 @@
     />
   </aside>
   <main
-    class="col-8 d-flex flex-column justify-content-center align-items-center"
+    class="col-12  col-md-8 d-flex flex-column justify-content-center align-items-center"
     style="background-color: #f5f5f6"
   >
     <h3
@@ -18,12 +18,10 @@
     >
       Log in to Agoura
     </h3>
-    <div class="col-4 mt-5">
+    <div class="col-12 col-md-4 mt-5 d-flex flex-column justify-content-center align-items-center">
       <app-google-button></app-google-button>
       <app-facebook-button></app-facebook-button>
-
       <hr style="width: 400px" class="mt-4" />
-
       <form
         (ngSubmit)="validate()"
         [formGroup]="validationForm"
@@ -74,10 +72,10 @@
         </div>
         <button class="btn btn-dark w-100 mt-3" type="submit">Log in</button>
       </form>
-      <div class="w-100 text-start mt-2">
+      <div class="mt-2">
         <a routerLink="/forgetpassword">Forget Password ?</a>
       </div>
-      <div class="col-8 text-start mt-2">
+      <div class="mt-2">
         <span>Don't have an account? </span>
         <a class="text-decoration-none" routerLink="/signup">Sign up</a>
       </div>
