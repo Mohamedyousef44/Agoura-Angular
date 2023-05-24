@@ -10,25 +10,25 @@
             </main>
           </div>
           <div class="col-md-4">
-            <aside>
+            <aside >
                 <div class="card col-12">
                     <div class="card-body">
                         <h5 class="card-title"><strong>Review your purchase</strong></h5>
                         <div class="d-flex flex-column justify-content-between gap-2 mt-3">
                             <div class="d-flex justify-content-between">
                                 <strong>Subtotal</strong>
-                                <span>Value from cart </span>
+                                <span>{{data.bids[0].amountMoney | currency}}</span>
                             </div>
                             <div class="d-flex justify-content-between">
                                 <strong>Taxes 14%</strong>
-                                <span>14% from the purchase value</span>
+                                <span>{{data.bids[0].amountMoney *.14 | currency}}</span>
                             </div>
                         </div>
                         <hr />
                         <div class="d-flex flex-column justify-content-between gap-2 mt-3">
                             <div class="d-flex justify-content-between">
                                 <strong>Total</strong>
-                                <span>Subtotal+Taxes</span>
+                                <span>{{data.bids[0].amountMoney *1.14 | currency}}</span>
                             </div>
                         </div>
                     </div>
