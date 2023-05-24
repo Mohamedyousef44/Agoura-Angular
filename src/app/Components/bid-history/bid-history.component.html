@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container pt-5">
   <div class="bid-item py-3">
     <h2 class="mb-3 col-12">Bid History</h2>
     <div class="bid-details container">
@@ -6,7 +6,7 @@
         <div class="col-6">
           <div class="row mb-5">
             <div class="col-12 product-image">
-              <img class="col-12" src="{{ bids.image }}" alt="product image"/>
+              <img class="col-12" src="{{ bids.image }}" alt="product image" />
             </div>
           </div>
         </div>
@@ -40,7 +40,9 @@
               <div class="row">
                 <div class="col-6">
                   <span class="text-secondary">Time left: </span>
-                  <span class="fw-bold">{{ bids.timeLeft | date:'medium' }}</span>
+                  <span class="fw-bold">{{
+                    bids.timeLeft | date : "medium"
+                  }}</span>
                 </div>
                 <div class="col-6">
                   <span class="text-secondary">Duration: </span>
@@ -49,13 +51,17 @@
               </div>
             </div>
             <div class="col-12 place-bid my-3">
-              <a routerLink="/place/{{ id }}" class="btn btn-primary px-5 py-2 rounded rounded-5">Place Bid</a>
+              <a
+                routerLink="/place/{{ id }}"
+                class="btn btn-primary px-5 py-2 rounded rounded-5"
+                >Place Bid</a
+              >
             </div>
           </div>
         </div>
       </div>
       <hr />
-    </div>    
+    </div>
     <div class="product-bids-details">
       <table class="table table-bordered border-dark">
         <thead>
@@ -71,11 +77,13 @@
               <a href="#">{{ item["user"]._id }}</a> (1)
             </td>
             <td>{{ item["amountMoney"] }} EUR</td>
-            <td>{{ item["date"] |date:"medium"}}</td>
+            <td>{{ item["date"] | date : "medium" }}</td>
           </tr>
         </tbody>
       </table>
-      <a class="btn btn-dark py-2 px-4 rounded rounded-5" routerLink="../">go back...</a>
+      <a class="btn btn-dark py-2 px-4 rounded rounded-5" routerLink="../"
+        >go back...</a
+      >
     </div>
   </div>
 </div>
