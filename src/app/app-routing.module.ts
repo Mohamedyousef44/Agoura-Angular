@@ -26,6 +26,8 @@ import { ResetPasswordComponent } from './Components/reset-password/reset-passwo
 import { AuthGuard } from './core/guards/auth.guard';
 import { ChangePassComponent } from './Components/Profile/changepass/changepass.component';
 import { DashboardUsersComponent } from './Components/dashboard/views/dashboard-users/dashboard-users.component';
+import { PaymentSuccessComponent } from './Components/Payment/payment-success/payment-success.component';
+import { PaymentFailComponent } from './Components/Payment/payment-fail/payment-fail.component';
 
 
 
@@ -64,6 +66,8 @@ const routes: Routes = [
   {path : 'forgetpassword' , component: ForgetPasswordComponent},
   {path: 'otp', component: OtpComponent},
   {path: 'resetpassword', component: ResetPasswordComponent},
+  { path: "PaymentFail" , component : PaymentFailComponent , canActivate:[AuthGuard]},
+  { path: "PaymentSuccess" , component : PaymentSuccessComponent , canActivate:[AuthGuard]},
   {path : '**', component: NotfoundPageComponent},
 
 ];

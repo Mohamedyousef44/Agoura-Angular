@@ -1,15 +1,17 @@
-<div style="background-color: #FAF9F8; height: 100vh;">
+<div style="background-color: #FAF9F8; min-height: 100vh;">
     <nav class="container-fluid d-flex justify-content-center align-items-center" style="background-image: url('/assets/imgs/home/h2.jpg'); height: 20vh;">
         <img src="https://www.agora.io/en/wp-content/themes/agora-main/images/agora-logo.svg" alt="Error" class="img-fluid" style="object-fit: cover;">
     </nav>
-    <div class="container">
-        <div class="row mt-4">
-          <div class="col-md-8">
-            <main>
+    <div class="container" >
+        <div class="row mt-4 justify-content-between">
+          <div class="col-md-5 my-3">
+            <!-- <main>
               <app-payment-method></app-payment-method>
-            </main>
+            </main> -->
+            <h3 class="text-center mb-2">{{data.title | uppercase}}</h3>
+            <img [src]="data.images[0]" alt="" class="image-fluid w-100">
           </div>
-          <div class="col-md-4">
+          <div class="col-md-5 my-3">
             <aside >
                 <div class="card col-12">
                     <div class="card-body">
@@ -52,6 +54,7 @@
               alt="masterCard"
             />
           </div>
+          <button class="btn btn-dark rounded-1 rounded mt-5 w-100 py-2" (click)="submit()">Proceed to Payment</button>
         </aside>
       </div>
     </div>
