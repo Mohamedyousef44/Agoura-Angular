@@ -41,7 +41,7 @@ const routes: Routes = [
       { path: 'place/:id/edit', component: EditProductFormComponent , canActivate:[AuthGuard] },
       { path: 'place/:id/history', component: BidHistoryComponent , canActivate:[AuthGuard] },
       { path: 'about', component: AboutComponent },
-      { path: "checkout" , component : CheckoutComponent , canActivate:[AuthGuard]},
+      { path: "checkout/:id" , component : CheckoutComponent , canActivate:[AuthGuard]},
       { path: "users/:id",component:ProfileComponent , canActivate:[AuthGuard] ,children:[
           { path:"edit",component:EditProfileComponent , pathMatch:'full'},
           { path:"bids",component:UserBidsComponent},
