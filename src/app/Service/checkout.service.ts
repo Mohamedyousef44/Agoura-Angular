@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class CheckoutService {
-  private readonly Base_URL = 'http://localhost:9000';
+  private readonly Base_URL = 'https://agora-node-server.onrender.com';
 
   constructor(private myClient:HttpClient) { 
 

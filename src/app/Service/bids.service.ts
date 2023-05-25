@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class BidsService {
-  private readonly Base_URL = 'http://localhost:9000';
+  private readonly Base_URL = 'https://agora-node-server.onrender.com';
   constructor(private myClient: HttpClient) {}
   GetBidById(id: any) {
     return this.myClient.get(this.Base_URL + `/place/${id}`);
