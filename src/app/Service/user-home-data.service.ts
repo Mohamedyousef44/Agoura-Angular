@@ -12,8 +12,8 @@ export class UserHomeDataService {
 
 
   constructor(private user: HttpClient , private spinner: NgxSpinnerService) {
-    this.BaseURL =  "http://localhost:9000/home"
-    this.BaseURLForFilter ='http://localhost:9000/home/apartments'
+    this.BaseURL =  "https://agora-node-server.onrender.com/home"
+    this.BaseURLForFilter ='https://agora-node-server.onrender.com/home/apartments'
   }
   getData(){
     return this.user.get(this.BaseURL)

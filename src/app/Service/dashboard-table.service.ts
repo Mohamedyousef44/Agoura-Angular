@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class DashboardTableService {
-  private readonly Base_URL = "http://localhost:9000/dashboard";
+  private readonly Base_URL = "https://agora-node-server.onrender.com/dashboard";
   constructor(private readonly myClient: HttpClient) { }
 
   GetAllAppartment() {
@@ -16,6 +16,6 @@ export class DashboardTableService {
   }
 
   GetAllUsers() {
-    return this.myClient.get(this.Base_URL + "/dashboard/allusers" );
+    return this.myClient.get(this.Base_URL + "/allusers" );
   }
 }

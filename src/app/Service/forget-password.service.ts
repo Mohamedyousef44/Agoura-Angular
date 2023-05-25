@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ForgetPasswordService {
-  private apiUrl = 'http://localhost:3000/api';
+  private apiUrl = 'https://agora-node-server.onrender.com/api';
 
   constructor(private http: HttpClient) {}
 

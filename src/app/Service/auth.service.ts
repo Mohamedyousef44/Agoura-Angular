@@ -6,7 +6,7 @@ import jwtDecode from 'jwt-decode';
 })
 export class AuthService {
 
-  private readonly Base_URL = "http://localhost:9000";
+  private readonly Base_URL = "https://agora-node-server.onrender.com";
   private headers=new HttpHeaders({'content-type': 'json/text'});
   constructor(private myHttpClient:HttpClient) {
 

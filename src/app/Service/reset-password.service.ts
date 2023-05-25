@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ResetPasswordService {
-  private apiUrl = 'http://localhost:3000/api'; // Update the base URL
+  private apiUrl = 'https://agora-node-server.onrender.com/api'; // Update the base URL
 
   constructor(private http: HttpClient) {}
 
