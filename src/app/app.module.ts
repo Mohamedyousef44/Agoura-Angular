@@ -69,6 +69,8 @@ import {
   PerfectScrollbarModule,
 } from 'ngx-perfect-scrollbar';
 import { DashboardUsersComponent } from './Components/dashboard/views/dashboard-users/dashboard-users.component';
+import { PaymentSuccessComponent } from './Components/Payment/payment-success/payment-success.component';
+import { PaymentFailComponent } from './Components/Payment/payment-fail/payment-fail.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -117,6 +119,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     ChangePassComponent,
     DefaultFooterComponent,
     DashboardUsersComponent,
+    PaymentSuccessComponent,
+    PaymentFailComponent
   ],
 
   imports: [
