@@ -73,7 +73,7 @@ export class MainPageItemsSectionComponent {
       this.addedCart = true
     }else{
       this.removeFromCart(id)
-      button.innerText = 'Add To Cart'
+      button.innerHTML = 'Add To <i class="bi bi-bag-heart fs-4"></i>'
       button.classList.remove('cart-btn-remove')
       button.classList.add('cart-btn-add')
       button.removeEventListener('click', this.removeFromCart)

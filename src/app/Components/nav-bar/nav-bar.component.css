@@ -22,3 +22,15 @@
   box-shadow: 0px 0px 3px 2px lightblue;
   transition: .3s;
 }
+
+.nav-pos{
+  position: fixed;
+  z-index: 100;
+}
+
+.nav-scrolled{
+  background-color: rgba(0, 0, 0, 0.5) !important;
+}
+.nav-scrolled i{
+  color:white !important;
+}

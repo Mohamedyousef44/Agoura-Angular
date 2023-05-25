@@ -34,7 +34,8 @@
               "node_modules/@fortawesome/fontawesome-free/css/brands.min.css",
               "node_modules/@coreui/icons/css/all.css",
               "node_modules/@coreui/coreui/dist/css/coreui.min.css",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/animate.css/animate.min.css"
             ],
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.js",

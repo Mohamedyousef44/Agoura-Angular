@@ -10,7 +10,7 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "^16.0.2",
+
     "@angular/cdk": "^15.2.8",
     "@angular/common": "^15.2.0",
     "@angular/compiler": "^15.2.0",
@@ -27,6 +27,7 @@
     "@fortawesome/fontawesome-free": "^6.4.0",
     "@popperjs/core": "^2.11.6",
     "@types/google-one-tap": "^1.2.2",
+    "animate.css": "^4.1.1",
     "bootstrap": "^5.2.3",
     "chart.js": "^3.9.1",
     "https": "^1.0.0",

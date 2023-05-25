@@ -38,7 +38,7 @@
                             <input type="text" class="form-control" aria-label="Large" [value]="placeObj.address.zipCode"  disabled>
                         </div>
                         </div>
-                        
+
                     </div>
                     <hr/>
 
@@ -112,7 +112,7 @@
                             <span class="input-group-text">status</span>
                             <input type="text" class="form-control" [ngClass]="{'bg-success':placeObj.status=='approved','bg-warning':placeObj.status=='pending','bg-danger':placeObj.status=='canceled','bg-primary':placeObj.status=='sold'}" aria-label="Large"[value]="placeObj.status"   disabled>
                         </div>
-                        </div>                        
+                        </div>
                     </div>
                     <hr *ngIf="placeObj.status=='pending'"/>
                     <div class="row mt-4" *ngIf="placeObj.status=='pending'">
@@ -128,6 +128,7 @@
                             <div><button class="btn btn-warning px-3" (click)="sendNotes()" [disabled]="placeObj.status=='approved' || placeObj.status=='sold' || placeObj.status=='canceled'">send notes</button></div>
                             <div><button class="btn btn-success px-3" (click)="approve()" [disabled]="placeObj.status=='approved' || placeObj.status=='sold' || placeObj.status=='canceled'">approve</button></div>
                             <div><button class="btn btn-danger px-3" (click)="cancel()" [disabled]="placeObj.status!='approved' && placeObj.status!='pending'">cancel</button></div>
+
                         </div>
                     </div>
                 </div>

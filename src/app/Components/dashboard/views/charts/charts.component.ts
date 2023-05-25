@@ -7,16 +7,12 @@ import { DashboardTableService } from 'src/app/Service/dashboard-table.service';
   styleUrls: ['./charts.component.css']
 })
 export class ChartsComponent implements OnInit{
-  chart1:any;
   chart2:any;
   chart3:any;
-
   labels=['January', 'February', 'March', 'April', 'May','June', 'July','August','September','October','December','December'];
   data1:any;
   data2:any;
   data3:any;
-  bidsChart1:any;
-  bidsChart2:any;
   usersChart1:any;
   colors=["red","orange","yellow","green","blue","gray"]
 
@@ -26,19 +22,21 @@ export class ChartsComponent implements OnInit{
   ngOnInit(): void {
     this.dashboardService.GetAllCharts().subscribe({
       next:(res:any)=>{
-        this.chart1=res.data.bids[0].years;
         this.chart2=res.data.users[0].years;
         this.chart3=res.data.apartmentsData;
-        this.bidsChart1=this.handleCharts(this.chart1[0]).map((bid:any)=>{
-          return bid.count
-        })
-        this.bidsChart2=this.handleCharts(this.chart1[1]).map((bid:any)=>{
-          return bid.count
+        let bidsDataset=res.data.bids[0].years.map((year:any,index:any)=>{
+          let counts =this.handleCharts(year).map((bid:any)=>{
+            return bid.count
+          })
+          return {
+            label: year.year,
+            backgroundColor: this.colors[index],
+            data: counts
+          }
         })
         this.usersChart1=this.handleCharts(this.chart2[0]).map((user:any)=>{
           return user.count
         })
-
         this.data1 = {
           labels: this.labels,
           datasets: [
@@ -54,18 +52,7 @@ export class ChartsComponent implements OnInit{
         };
         this.data2 = {
           labels: this.labels,
-          datasets: [
-            {
-              label: '2022',
-              backgroundColor: '#f87979',
-              data: this.bidsChart1
-            },
-            {
-              label: "2023",
-              backgroundColor: 'rgba(70, 220, 70, 0.6)',
-              data: this.bidsChart2
-            }
-          ]
+          datasets: bidsDataset
         };
         this.data3 = {
           labels: this.chart3.map((apt:any)=>{

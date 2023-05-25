@@ -68,6 +68,7 @@ import {
   PerfectScrollbarConfigInterface,
   PerfectScrollbarModule,
 } from 'ngx-perfect-scrollbar';
+import { DashboardUsersComponent } from './Components/dashboard/views/dashboard-users/dashboard-users.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -115,6 +116,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     LoginModalComponent,
     ChangePassComponent,
     DefaultFooterComponent,
+    DashboardUsersComponent,
   ],
 
   imports: [
@@ -152,7 +154,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     ChartjsModule,
 
   ],
-    
+
     providers: [UserHomeDataService ,IconSetService,Title, {
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
