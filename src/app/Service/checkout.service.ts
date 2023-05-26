@@ -1,11 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import {Environment} from "../../Environment/env"
 
 @Injectable({
   providedIn: 'root'
 })
 export class CheckoutService {
-  private readonly Base_URL = 'https://agora-node-server.onrender.com';
+  private readonly Base_URL = Environment.apiUrl;
 
   constructor(private myClient:HttpClient) { 
 

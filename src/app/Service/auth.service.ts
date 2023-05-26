@@ -1,4 +1,5 @@
 import { HttpClient, HttpHeaderResponse, HttpHeaders } from '@angular/common/http';
+import {Environment} from "../../Environment/env"
 import { Injectable } from '@angular/core';
 import jwtDecode from 'jwt-decode';
 @Injectable({
@@ -6,7 +7,7 @@ import jwtDecode from 'jwt-decode';
 })
 export class AuthService {
 
-  private readonly Base_URL = "https://agora-node-server.onrender.com";
+  private readonly Base_URL = Environment.apiUrl;
   private headers=new HttpHeaders({'content-type': 'json/text'});
   constructor(private myHttpClient:HttpClient) {
 

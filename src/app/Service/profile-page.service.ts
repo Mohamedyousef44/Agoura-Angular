@@ -1,12 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable, Output } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
+import {Environment} from "../../Environment/env"
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProfilePageService {
-  private readonly Base_URL = 'https://agora-node-server.onrender.com/users';
+  private readonly Base_URL = Environment.apiUrl+'/users';
 
   @Output() Image = new EventEmitter<any>();
 

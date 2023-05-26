@@ -43,7 +43,7 @@ export class CreateProductFormComponent implements OnChanges{
     let bidId=this.route.snapshot.params["id"]
     
     if(this.edit){
-      this.myBidService.GetBidById(bidId).subscribe({
+      this.myBidService.GetPendingBidById(bidId).subscribe({
         next:(res:any)=>{
           console.log(res)
           if(res.success){
