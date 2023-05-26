@@ -13,7 +13,7 @@ import jwt_decode from 'jwt-decode';
 export class ProfileComponent implements OnInit {
   userID: any;
   UserDetails: any;
-  userImage: any;
+  userImage = " ";
   validationForm: any;
   profileValid = false;
   userToken: any;
@@ -34,11 +34,11 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.spinner.show('imageSpinner');
+
     this.myService.Image.subscribe((info) => {
       this.userImage = info.data.image;
     });
-    this.spinner.hide('imageSpinner');
+
     this.spinner.show('profileSpinner');
     this.myService.GetUserByID(this.userID).subscribe({
       next: (data: any) => {
@@ -49,8 +49,10 @@ export class ProfileComponent implements OnInit {
         this.spinner.hide('profileSpinner');
 
         this.validationForm = new FormGroup({
-          profileImage: new FormControl(this.userImage),
+          profileImage: new FormControl(null),
         });
+
+
       },
       error: (err: any) => {
         console.log(err);

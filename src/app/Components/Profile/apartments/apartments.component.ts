@@ -24,23 +24,26 @@ export class ApartmentsComponent {
     ){
       this.router.parent?.params.subscribe((data: any)=>{
           this.userId = data['id']
+          console.log(this.userId)
       })
       this.userToken = localStorage.getItem('X-Auth-Token')
   }
 
   ngOnInit(): void {
-      this.spinner.show()
+
       this.ProfileService.getUserApartments(this.userId).subscribe({
         next:(data: any)=>{
            this.result = data
+
           if(!this.result.success){
               this.route.navigateByUrl('/notfound')
           }else{
               this.apartmentData = this.result.data
+
           }
         },
     })
-    this.spinner.hide()
+
   }
 
 

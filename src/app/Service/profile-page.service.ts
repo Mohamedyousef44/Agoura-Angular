@@ -6,7 +6,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
   providedIn: 'root',
 })
 export class ProfilePageService {
-  private readonly Base_URL = 'https://agora-node-server.onrender.com/users';
+  private readonly Base_URL = 'http://localhost:9000/users';
 
   @Output() Image = new EventEmitter<any>();
 
