@@ -124,7 +124,7 @@ export class CreateProductFormComponent implements OnChanges{
         {
           next:(res:any)=>{
             if(res.success){
-              this.router.navigateByUrl(`place/${res.itemId}`)
+              this.router.navigateByUrl(`home`)
               console.log(res)
             }
           },
@@ -138,7 +138,7 @@ export class CreateProductFormComponent implements OnChanges{
         {
           next:(res:any)=>{
             if(res.success){
-              this.router.navigateByUrl(`/home`)
+              this.router.navigateByUrl(`home`)
               console.log(res)
             }
           },
