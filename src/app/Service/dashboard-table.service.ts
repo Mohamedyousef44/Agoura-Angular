@@ -18,4 +18,8 @@ export class DashboardTableService {
   GetAllUsers() {
     return this.myClient.get(this.Base_URL + "/allusers" );
   }
+
+  GetPlaceById(id: any) {
+    return this.myClient.get(this.Base_URL + `/appartments/${id}`);
+  }
 }

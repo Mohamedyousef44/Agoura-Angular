@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BidsService } from 'src/app/Service/bids.service';
 import { FormControl,FormGroup, Validators } from '@angular/forms';
+import { DashboardTableService } from 'src/app/Service/dashboard-table.service';
 
 @Component({
   selector: 'app-dashboard-bid-details',
@@ -12,7 +13,7 @@ export class DashboardBidDetailsComponent implements OnInit{
 
   placeObj:any;
   form!:FormGroup;
-  constructor(private myService:BidsService,private route:ActivatedRoute,private router:Router){
+  constructor(private dasboardService:DashboardTableService,private myService:BidsService,private route:ActivatedRoute,private router:Router){
 
   }
   sendNotes(){
@@ -66,7 +67,7 @@ export class DashboardBidDetailsComponent implements OnInit{
       notes: new FormControl("",Validators.minLength(50)),
     })
     let placeId=this.route.snapshot.params["id"]
-    this.myService.GetBidById(placeId).subscribe({
+    this.dasboardService.GetPlaceById(placeId).subscribe({
       next:(res:any)=>{
         console.log(res)
         if(res.success){
