@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable, Output } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
+import {Environment} from "../../Environment/env"
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +13,8 @@ export class UserHomeDataService {
 
 
   constructor(private user: HttpClient , private spinner: NgxSpinnerService) {
-    this.BaseURL =  "https://agora-node-server.onrender.com/home"
-    this.BaseURLForFilter ='https://agora-node-server.onrender.com/home/apartments'
+    this.BaseURL =  Environment.apiUrl+"/home"
+    this.BaseURLForFilter =Environment.apiUrl+'/home/apartments'
   }
   getData(){
     return this.user.get(this.BaseURL)
