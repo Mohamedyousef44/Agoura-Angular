@@ -43,7 +43,7 @@ export class CreateProductFormComponent implements OnChanges{
     let bidId=this.route.snapshot.params["id"]
     
     if(this.edit){
-      this.myBidService.GetBidById(bidId).subscribe({
+      this.myBidService.GetPendingBidById(bidId).subscribe({
         next:(res:any)=>{
           console.log(res)
           if(res.success){
@@ -124,7 +124,7 @@ export class CreateProductFormComponent implements OnChanges{
         {
           next:(res:any)=>{
             if(res.success){
-              this.router.navigateByUrl(`place/${res.itemId}`)
+              this.router.navigateByUrl(`home`)
               console.log(res)
             }
           },
@@ -138,7 +138,7 @@ export class CreateProductFormComponent implements OnChanges{
         {
           next:(res:any)=>{
             if(res.success){
-              this.router.navigateByUrl(`/home`)
+              this.router.navigateByUrl(`home`)
               console.log(res)
             }
           },

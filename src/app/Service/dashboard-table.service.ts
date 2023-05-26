@@ -1,11 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import {Environment} from "../../Environment/env"
 
 @Injectable({
   providedIn: 'root'
 })
 export class DashboardTableService {
-  private readonly Base_URL = "https://agora-node-server.onrender.com/dashboard";
+  private readonly Base_URL = Environment.apiUrl+"/dashboard";
   constructor(private readonly myClient: HttpClient) { }
 
   GetAllAppartment() {
@@ -17,5 +18,9 @@ export class DashboardTableService {
 
   GetAllUsers() {
     return this.myClient.get(this.Base_URL + "/allusers" );
+  }
+
+  GetPlaceById(id: any) {
+    return this.myClient.get(this.Base_URL + `/appartments/${id}`);
   }
 }
