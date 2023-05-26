@@ -7,6 +7,7 @@ import {Environment} from "../../Environment/env"
   providedIn: 'root',
 })
 export class ProfilePageService {
+
   private readonly Base_URL = Environment.apiUrl+'/users';
 
   @Output() Image = new EventEmitter<any>();

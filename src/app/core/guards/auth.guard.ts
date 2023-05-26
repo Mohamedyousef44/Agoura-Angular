@@ -12,7 +12,6 @@ export class AuthGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       console.log({route , state})
       if(!localStorage.getItem('X-Auth-Token')){
-        alert('you have to log in first')
         return false;
       }
       return true;

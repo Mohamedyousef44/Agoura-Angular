@@ -26,14 +26,14 @@ export class OrdersComponent implements OnInit {
   ngOnInit(): void {
 
       this.ProfileService.getUserOrders(this.userId).subscribe({
-        next:(data)=>{
-           this.result = data
-          if(!this.result.success){
-              this.route.navigateByUrl('/notfound')
-          }else{
-              this.orderData = this.result.data
-          }
-        },
+        next:(data: any)=>{
+          this.result = data
+         if(!this.result.success){
+             this.route.navigateByUrl('/notfound')
+         }else{
+             this.orderData = this.result.data
+         }
+       },
     })
   }
 

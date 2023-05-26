@@ -41,12 +41,12 @@ export class NavBarComponent implements OnInit {
     });
     this.myService.getData().subscribe({
       next:(data: any)=>{
-        this.userId = data['userData']._id
-        this.userName = data['userData'].name.split(" ")[0]
+        this.userId = data['userData'] ? data['userData']._id : "notfound"
+        this.userName = data['userData'] ? data['userData'].name.split(" ")[0] : 'Guest'
         this.isLoggedIn = localStorage.getItem('X-Auth-Token')
-        this.notLen = data['notifications'].length
+        this.notLen = data['notifications'] ? data['notifications'].length : 0
         this.cartLen =data['carts'].length>0? data['carts'][0]['apartments'].length:this.cartLen
-        this.profileImage = data['userData'].image || "/assets/photos/avatar02.png"
+        this.profileImage = data['userData'] ? data['userData'].image : "/assets/photos/avatar02.png"
       }
     })
     this.isAdmin=this.authService.verify();

@@ -60,6 +60,7 @@ import { DashboardBidDetailsComponent } from './Components/dashboard/views/dashb
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { OrdersComponent } from './Components/Profile/orders/orders.component';
 import { ApartmentsComponent } from './Components/Profile/apartments/apartments.component';
+import { UserBidsComponent } from './Components/Profile/bids/bids.component';
 import { MytoastComponent } from './Components/mytoast/mytoast.component';
 import { LoginModalComponent } from './Components/login-modal/login-modal.component';
 import { IconModule, IconSetService } from '@coreui/icons-angular';
@@ -120,7 +121,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     DefaultFooterComponent,
     DashboardUsersComponent,
     PaymentSuccessComponent,
-    PaymentFailComponent
+    PaymentFailComponent,
+    UserBidsComponent
   ],
 
   imports: [
