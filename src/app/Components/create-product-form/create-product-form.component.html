@@ -25,6 +25,22 @@
             please provide a good title.
           </div>
         </div>
+        <div class="col-md-4 mt-2">
+          <label for="validationServer00" class="form-label"
+            >Category</label
+          >
+          <select class="form-select" formControlName="category" id="validationServer00" aria-label="Floating label select">
+            <option value="appartment">appartment</option>
+            <option value="villa">villa</option>
+            <option value="luxurious">luxurious</option>
+            <option value="studio">studio</option>
+            <option value="palace">palace</option>
+
+          </select>
+          <div class="invalid-feedback" *ngIf="category.dirty && !category.valid">
+            please provide a Category.
+          </div>
+        </div>
       </div>
       <ng-container formGroupName="address">
         <h3>Address</h3>

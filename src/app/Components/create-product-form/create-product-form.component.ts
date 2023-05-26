@@ -19,6 +19,7 @@ export class CreateProductFormComponent implements OnChanges{
     this.step=1;
     this.validationForm = fb.group({
       title: new FormControl(null,[Validators.required, Validators.minLength(5)]),
+      category:new FormControl(null,[Validators.required]),
       address: fb.group({
         country:new FormControl(null,[Validators.required, Validators.minLength(5)]),
         city:new FormControl(null,[Validators.required, Validators.minLength(5)]),
@@ -61,6 +62,9 @@ export class CreateProductFormComponent implements OnChanges{
   } 
   get title () {
     return this.validationForm.controls["title"];
+  }
+  get category () {
+    return this.validationForm.controls["category"];
   }
   get aboutPlace () {
     return this.validationForm.controls["aboutPlace"];
@@ -111,7 +115,7 @@ export class CreateProductFormComponent implements OnChanges{
 
   send(){
 
-
+    console.log(this.validationForm)
     if(this.validationForm.valid && !this.edit){
       let formData=new FormData()
       formData.append("data",JSON.stringify(this.validationForm.value))
