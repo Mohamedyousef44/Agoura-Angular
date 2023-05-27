@@ -19,7 +19,6 @@ export class LayoutComponent implements OnInit {
 
     this.service.getData().subscribe({
       next:(data: any)=>{
-        console.log(data["carts"].length)
         this.notificationData = data["notifications"]
         if(data["carts"].length > 0) this.cartData = data["carts"][0].apartments
         else this.cartData = null
@@ -29,5 +28,5 @@ export class LayoutComponent implements OnInit {
     })
 
   }
-  
+
 }
