@@ -10,7 +10,7 @@ import { AuthService } from 'src/app/Service/auth.service';
 })
 export class LoginComponent {
   public userData : any = {} ;
-  public error!:string|null; 
+  public error!:string|null;
   public validationForm = new FormGroup({
     email: new FormControl(null,[Validators.required, Validators.email]),
     password: new FormControl(null,[ Validators.required, Validators.minLength(8), Validators.maxLength(60) ])
@@ -19,9 +19,9 @@ export class LoginComponent {
 
   validate(){
     if (this.validationForm.valid){
-      console.log("Heelo");
+
       this.userData['email'] = this.validationForm.controls["email"].value;
-      this.userData['password'] = this.validationForm.controls["password"].value;      
+      this.userData['password'] = this.validationForm.controls["password"].value;
       this.login();
     }
   }
@@ -35,7 +35,7 @@ export class LoginComponent {
   login() {
     this.myService.LoginWithSystem(this.userData).subscribe({
         next:(data:any)=>{
-          console.log(data.body);
+          
           if(data.body.success){
             localStorage.setItem('X-Auth-Token', data.body.myToken);
             this.route.navigateByUrl("/home");

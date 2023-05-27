@@ -3,7 +3,6 @@ import { UserHomeDataService } from 'src/app/Service/user-home-data.service';
 import { BsDropdownConfig } from 'ngx-bootstrap/dropdown';
 import { AuthService } from 'src/app/Service/auth.service';
 
-
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',

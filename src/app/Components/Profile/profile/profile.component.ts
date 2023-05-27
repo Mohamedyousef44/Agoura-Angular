@@ -51,8 +51,6 @@ export class ProfileComponent implements OnInit {
         this.validationForm = new FormGroup({
           profileImage: new FormControl(null),
         });
-
-
       },
       error: (err: any) => {
         console.log(err);
@@ -68,11 +66,9 @@ export class ProfileComponent implements OnInit {
     }
   }
 
-  validateFile(name: String) {
-    var ext = name.substring(name.lastIndexOf('.') + 1);
-    if (ext.toLowerCase() == 'png') {
-      return true;
-    } else if (ext.toLowerCase() == 'jpg') {
+  validateFile(name: string) {
+    let ext = name.substring(name.lastIndexOf('.') + 1);
+    if (ext.toLowerCase() == 'png' || ext.toLowerCase() == 'jpg') {
       return true;
     } else {
       return false;
