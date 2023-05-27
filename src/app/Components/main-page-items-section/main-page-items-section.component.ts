@@ -28,7 +28,7 @@ export class MainPageItemsSectionComponent {
         },
         error: (err: any) => { console.log(err) }
       }
-    )
+      )
   }
 
 
@@ -37,7 +37,6 @@ export class MainPageItemsSectionComponent {
       {
         next: (data: any) => {
           this.items = data['apartments'];
-          this.spinner.hide('homeSpinner')
         },
         error: (err: any) => { console.log(err) }
       }
@@ -49,16 +48,13 @@ export class MainPageItemsSectionComponent {
 
     this.myService.getFilteredData(category).subscribe({
       next: (response: any) => {
-        console.log(response.data)
         this.items = response.data
       },
       error: (error: any) => {
         return error
       }
     })
-
   }
-
 
   toggle(id: any , event: any){
     const button = event.target

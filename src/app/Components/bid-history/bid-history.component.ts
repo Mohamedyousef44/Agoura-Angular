@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { BidsService } from 'src/app/Service/bids.service';
 
 @Component({
@@ -10,7 +11,8 @@ import { BidsService } from 'src/app/Service/bids.service';
 export class BidHistoryComponent {
   public constructor(
     private myService: BidsService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private spinner: NgxSpinnerService
   ) {
     this.id = route.snapshot.params['id'];
   }
@@ -23,6 +25,7 @@ export class BidHistoryComponent {
 
   ngOnInit(): void {
     let itemId = this.route.snapshot.params['id'];
+    this.spinner.show('homeSpinner')
     this.myService.GetBidHistoryById(itemId).subscribe((data: any) => {
       data = data.data;
       this.bids.title = data.title;
@@ -34,6 +37,7 @@ export class BidHistoryComponent {
       this.bids.timeLeft = data.timeLeft;
       this.bids.duration = data.duration;
       this.bids.historyOfBids = data.historyOfBids;
+      this.spinner.hide('homeSpinner')
     });
   }
 }

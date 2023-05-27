@@ -11,24 +11,24 @@ export class OffcanvasComponent {
   cartData: any;
   cartError = false
 
-  constructor(private service: UserHomeDataService){}
+  constructor(private home: UserHomeDataService){}
 
   @Input('isCart') toggle: any
 
   ngOnInit() {
-    this.service.cartUpdated.subscribe((res) => {
+    this.home.cartUpdated.subscribe((res) => {
       this.cartData = res.apartments;
     });
 
-    this.service.cartError.subscribe((res) => {
+    this.home.cartError.subscribe((res) => {
       this.cartError = res
     });
 
-    this.service.notificationUpdated.subscribe((res) => {
+    this.home.notificationUpdated.subscribe((res) => {
       this.notificationData = res;
     });
 
-    this.service.getData().subscribe({
+    this.home.getData().subscribe({
       next:(data: any)=>{
         this.notificationData = data["notifications"]
         if(data["carts"].length > 0) this.cartData = data["carts"][0].apartments
@@ -39,7 +39,7 @@ export class OffcanvasComponent {
   }
 
   deleteItem(id: any){
-    this.toggle ? this.service.deleteProductFromCart(id) : this.service.deleteNotification(id)
+    this.toggle ? this.home.deleteProductFromCart(id) : this.home.deleteNotification(id)
   }
 
 
