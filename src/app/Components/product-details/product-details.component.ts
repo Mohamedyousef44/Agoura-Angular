@@ -21,13 +21,13 @@ export class ProductDetailsComponent implements OnInit{
   }
   ngOnInit(): void {
     let bidId=this.route.snapshot.params["id"]
-    this.spinner.show('productSpinner')
+    this.spinner.show('homeSpinner')
     this.myService.GetBidById(bidId).subscribe({
       next:(res:any)=>{
         if(res.success){
           this.populate(res)
         }
-        this.spinner.hide('productSpinner')
+        this.spinner.hide('homeSpinner')
       },
       error:(err)=>{
         this.router.navigateByUrl(`404-NotFound`)

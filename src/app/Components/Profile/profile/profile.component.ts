@@ -39,14 +39,14 @@ export class ProfileComponent implements OnInit {
       this.userImage = info.data.image;
     });
 
-    this.spinner.show('profileSpinner');
+    this.spinner.show('homeSpinner');
     this.myService.GetUserByID(this.userID).subscribe({
       next: (data: any) => {
         this.UserDetails = data;
         const image = data.image;
         if (image) this.userImage = image
         else  this.userImage = '/assets/imgs/default.jpg';
-        this.spinner.hide('profileSpinner');
+        this.spinner.hide('homeSpinner');
 
         this.validationForm = new FormGroup({
           profileImage: new FormControl(null),
