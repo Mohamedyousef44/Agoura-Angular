@@ -28,6 +28,8 @@ import { ChangePassComponent } from './Components/Profile/changepass/changepass.
 import { DashboardUsersComponent } from './Components/dashboard/views/dashboard-users/dashboard-users.component';
 import { PaymentSuccessComponent } from './Components/Payment/payment-success/payment-success.component';
 import { PaymentFailComponent } from './Components/Payment/payment-fail/payment-fail.component';
+import { AdminAuthGuard } from './core/guards/admin-auth.guard';
+import { GuestAuthGuard } from './core/guards/guest-auth.guard';
 
 
 
@@ -50,10 +52,10 @@ const routes: Routes = [
           { path:"orders",component:OrdersComponent},
           { path:"apartments",component:ApartmentsComponent},
           { path:"password",component:ChangePassComponent},
-                ]},
+        ]},
     ],
   },
-  { path: "dashboard" ,component:DefaultLayoutComponent ,children:[
+  { path: "dashboard" ,component:DefaultLayoutComponent,canActivate:[AdminAuthGuard] ,children:[
     { path: '', redirectTo: 'charts', pathMatch: 'full' },
     { path: "apartments",component:BidsComponent },
     { path: "apartments/:id",component:DashboardBidDetailsComponent },
@@ -61,8 +63,8 @@ const routes: Routes = [
     {path:"users",component:DashboardUsersComponent}
   ]},
   {path : '404-NotFound', component: NotfoundPageComponent},
-  {path : 'login' , component : LoginComponent},
-  {path : 'signup' , component: SignUpComponent},
+  {path : 'login' , component : LoginComponent,canActivate:[GuestAuthGuard]},
+  {path : 'signup' , component: SignUpComponent,canActivate:[GuestAuthGuard]},
   {path : 'forgetpassword' , component: ForgetPasswordComponent},
   {path: 'otp', component: OtpComponent},
   {path: 'resetpassword', component: ResetPasswordComponent},
