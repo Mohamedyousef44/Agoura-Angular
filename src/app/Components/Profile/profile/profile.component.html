@@ -41,20 +41,24 @@
     <ul class="data-user">
       <li>
         <a routerLink="/users/{{ UserDetails?._id }}/bids"
-          ><strong *ngIf="UserDetails">{{ UserDetails.bids.length }}</strong
+          ><strong *ngIf="UserDetails">{{
+            UserDetails.bids ? UserDetails.bids.length : 0
+          }}</strong
           ><span>Bids</span></a
         >
       </li>
       <li>
         <a routerLink="/users/{{ UserDetails?._id }}/orders"
-          ><strong *ngIf="UserDetails">{{ UserDetails.orders.length }}</strong
+          ><strong *ngIf="UserDetails">{{
+            UserDetails.orders ? UserDetails.orders.length : 0
+          }}</strong
           ><span>Orders</span></a
         >
       </li>
       <li>
         <a routerLink="/users/{{ UserDetails?._id }}/apartments"
           ><strong *ngIf="UserDetails">{{
-            UserDetails.ownedApartments.length
+            UserDetails.ownedApartments ? UserDetails.ownedApartments.length : 0
           }}</strong
           ><span>Apartments</span></a
         >
@@ -65,17 +69,6 @@
     <router-outlet></router-outlet>
   </div>
 </div>
-
-<ngx-spinner
-  bdColor="rgba(10, 10, 10, 0.8)"
-  name="profileSpinner"
-  size="medium"
-  type="square-jelly-box"
-  color="#fff"
-  [fullScreen]="true"
-  ><p style="color: white">Loading...</p></ngx-spinner
->
-
 <div
   class="modal fade"
   id="updateImage"
@@ -104,8 +97,10 @@
         >
           <input
             type="file"
+            accept=".jpg, .jpeg, .png"
             formControlName="profileImage"
             (change)="onFileSelected($event)"
+            name="profileImage"
           />
           <p class="imageInfo">*image extension must be png or jpg</p>
           <div class="modal-footer" *ngIf="profileValid">

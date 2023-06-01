@@ -3,7 +3,6 @@ import { UserHomeDataService } from 'src/app/Service/user-home-data.service';
 import { BsDropdownConfig } from 'ngx-bootstrap/dropdown';
 import { AuthService } from 'src/app/Service/auth.service';
 
-
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
@@ -41,12 +40,13 @@ export class NavBarComponent implements OnInit {
     });
     this.myService.getData().subscribe({
       next:(data: any)=>{
-        this.userId = data['userData']._id
-        this.userName = data['userData'].name.split(" ")[0]
+        const {userData , notifications , carts} = data
+        this.userId = userData ? userData._id : "notfound"
+        this.userName = userData ? userData.name.split(" ")[0] : 'Guest'
+        this.notLen = notifications ? notifications.length : 0
+        this.cartLen = carts.length > 0 ? data['carts'][0]['apartments'].length : this.cartLen
+        this.profileImage = userData ? userData.image : "/assets/photos/avatar02.png"
         this.isLoggedIn = localStorage.getItem('X-Auth-Token')
-        this.notLen = data['notifications'].length
-        this.cartLen =data['carts'].length>0? data['carts'][0]['apartments'].length:this.cartLen
-        this.profileImage = data['userData'].image || "/assets/photos/avatar02.png"
       }
     })
     this.isAdmin=this.authService.verify();
@@ -72,8 +72,6 @@ export class NavBarComponent implements OnInit {
   logout(){
     localStorage.removeItem('X-Auth-Token')
   }
-
-
 }
 
 

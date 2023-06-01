@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl,FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { BidsService } from 'src/app/Service/bids.service';
 import { ToastService } from 'src/app/Service/toast-service.service';
 
@@ -10,30 +11,30 @@ import { ToastService } from 'src/app/Service/toast-service.service';
   styleUrls: ['./product-details.component.css']
 })
 export class ProductDetailsComponent implements OnInit{
-  
+
   form!:FormGroup;
   placeObj!:any;
   maxBid!:number;
   thumbnail!:any;
-  public constructor(private myService:BidsService,private route:ActivatedRoute,private router:Router,private toastService: ToastService){
-    
+  public constructor(private myService:BidsService,private route:ActivatedRoute,private router:Router,private toastService: ToastService , private spinner: NgxSpinnerService){
+
   }
   ngOnInit(): void {
     let bidId=this.route.snapshot.params["id"]
+    this.spinner.show('homeSpinner')
     this.myService.GetBidById(bidId).subscribe({
       next:(res:any)=>{
-        console.log(res)
         if(res.success){
           this.populate(res)
-          console.log(res.data)
         }
+        this.spinner.hide('homeSpinner')
       },
-      error:(err)=>{  
+      error:(err)=>{
         this.router.navigateByUrl(`404-NotFound`)
         console.log(err)
       }
     })
-    
+
   }
 
   public populate(res:any){
@@ -48,7 +49,7 @@ export class ProductDetailsComponent implements OnInit{
       bid: new FormControl(this.maxBid,Validators.min(this.maxBid+1)),
     })
   }
-  
+
   public changeImage(event:any){
     this.thumbnail=event.target.src
   }
@@ -73,21 +74,19 @@ export class ProductDetailsComponent implements OnInit{
       apartmentID:this.placeObj._id,
       userToken:localStorage.getItem("X-Auth-Token")
     }
-    console.log(data)
+
     this.myService.addNewBid(data).subscribe(
       {
         next:(res:any)=>{
           if(res.success){
             this.populate(res)
-            console.log(res.data)
+
           }
           },
-          error:(err)=>{  
+          error:(err)=>{
             console.log(err)
           }
         }
     );
-    console.log("form submitted",this.form.valid)
-
   }
 }

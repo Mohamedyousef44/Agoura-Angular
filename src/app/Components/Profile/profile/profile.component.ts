@@ -13,7 +13,7 @@ import jwt_decode from 'jwt-decode';
 export class ProfileComponent implements OnInit {
   userID: any;
   UserDetails: any;
-  userImage: any;
+  userImage = " ";
   validationForm: any;
   profileValid = false;
   userToken: any;
@@ -34,22 +34,22 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.spinner.show('imageSpinner');
+
     this.myService.Image.subscribe((info) => {
       this.userImage = info.data.image;
     });
-    this.spinner.hide('imageSpinner');
-    this.spinner.show('profileSpinner');
+
+    this.spinner.show('homeSpinner');
     this.myService.GetUserByID(this.userID).subscribe({
       next: (data: any) => {
         this.UserDetails = data;
         const image = data.image;
         if (image) this.userImage = image
         else  this.userImage = '/assets/imgs/default.jpg';
-        this.spinner.hide('profileSpinner');
+        this.spinner.hide('homeSpinner');
 
         this.validationForm = new FormGroup({
-          profileImage: new FormControl(this.userImage),
+          profileImage: new FormControl(null),
         });
       },
       error: (err: any) => {
@@ -66,11 +66,9 @@ export class ProfileComponent implements OnInit {
     }
   }
 
-  validateFile(name: String) {
-    var ext = name.substring(name.lastIndexOf('.') + 1);
-    if (ext.toLowerCase() == 'png') {
-      return true;
-    } else if (ext.toLowerCase() == 'jpg') {
+  validateFile(name: string) {
+    let ext = name.substring(name.lastIndexOf('.') + 1);
+    if (ext.toLowerCase() == 'png' || ext.toLowerCase() == 'jpg') {
       return true;
     } else {
       return false;

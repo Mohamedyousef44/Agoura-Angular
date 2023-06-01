@@ -1,11 +1,11 @@
 <div class="mt-4">
-  <ng-container *ngIf="orderData.length == 0">
+  <ng-container *ngIf="orderData && orderData.length == 0">
     <div class="bid-shadow">
       <h3>You Do Not Have Any Orders Till Now</h3>
     </div>
   </ng-container>
 
-  <ng-container *ngIf="orderData.length != 0">
+  <ng-container *ngIf="orderData && orderData.length != 0">
     <table class="table table-hover">
       <thead>
         <tr>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core'
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProfilePageService } from 'src/app/Service/profile-page.service';
 import jwt_decode from 'jwt-decode';
