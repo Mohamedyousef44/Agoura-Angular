@@ -20,11 +20,10 @@ The Agora frontend is a single-page application built with Angular. It provides 
 
 To install and set up the Agora frontend locally, follow these steps:
 
-1. Clone the repository: `git clone https://github.com/your-username/agora-frontend.git`
+1. Clone the repository: `git clone https://github.com/Mohamedyousef44/Agoura-Angular.git`
 2. Navigate to the project directory: `cd agora-frontend`
 3. Install the dependencies: `npm install`
 4. Set up the required configuration:
-   - [Provide instructions on setting up configuration, such as API endpoint]
 5. Run the application: `npm start`
 
 ## Usage
