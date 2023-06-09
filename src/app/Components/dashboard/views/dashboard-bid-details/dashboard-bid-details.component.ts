@@ -64,7 +64,7 @@ export class DashboardBidDetailsComponent implements OnInit{
   }
   ngOnInit(): void {
     this.form=new FormGroup({
-      notes: new FormControl("",Validators.minLength(50)),
+      notes: new FormControl("",Validators.minLength(10)),
     })
     let placeId=this.route.snapshot.params["id"]
     this.dasboardService.GetPlaceById(placeId).subscribe({
