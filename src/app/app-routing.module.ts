@@ -68,8 +68,8 @@ const routes: Routes = [
   {path : 'forgetpassword' , component: ForgetPasswordComponent},
   {path: 'otp', component: OtpComponent},
   {path: 'resetpassword', component: ResetPasswordComponent},
-  { path: "checkout/fail/:id" , component : PaymentFailComponent , canActivate:[AuthGuard]},
-  { path: "checkout/success/:id" , component : PaymentSuccessComponent , canActivate:[AuthGuard]},
+  { path: "PaymentFail" , component : PaymentFailComponent , canActivate:[AuthGuard]},
+  { path: "PaymentSuccess" , component : PaymentSuccessComponent , canActivate:[AuthGuard]},
   {path : '**', component: NotfoundPageComponent},
 
 ];
