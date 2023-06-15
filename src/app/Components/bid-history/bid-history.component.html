@@ -74,7 +74,7 @@
         <tbody>
           <tr *ngFor="let item of bids.historyOfBids">
             <td>
-              <a href="#">{{ item["user"]._id }}</a> (1)
+              <span >{{ item.user }}</span> (1)
             </td>
             <td>{{ item["amountMoney"] }} EUR</td>
             <td>{{ item["date"] | date : "medium" }}</td>
