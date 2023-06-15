@@ -12,7 +12,6 @@ export class OrdersComponent implements OnInit {
   userId: any;
   orderData: any;
   result: any;
-
   constructor(
     private ProfileService: ProfilePageService,
     private router: ActivatedRoute,
@@ -32,6 +31,7 @@ export class OrdersComponent implements OnInit {
              this.route.navigateByUrl('/notfound')
          }else{
              this.orderData = this.result.data
+             console.log(this.orderData)
          }
        },
     })
