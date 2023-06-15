@@ -29,8 +29,9 @@ export class UserBidsComponent implements OnInit {
   ngOnInit(): void {
 
       this.ProfileService.getUserBids(this.userId).subscribe({
-        next:(data)=>{
+        next:(data: any)=>{
            this.result = data
+           console.log(data)
           if(!this.result.success){
               this.route.navigateByUrl('/notfound')
           }else{

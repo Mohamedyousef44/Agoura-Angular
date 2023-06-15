@@ -18,6 +18,7 @@ export class BidHistoryComponent {
   }
   bids: any = {};
   id: any;
+  status: any
 
   placeBid() {
     console.log('place bid');
@@ -28,6 +29,7 @@ export class BidHistoryComponent {
     this.spinner.show('homeSpinner')
     this.myService.GetBidHistoryById(itemId).subscribe((data: any) => {
       data = data.data;
+      console.log(data)
       this.bids.title = data.title;
       this.bids.image = data.image;
       this.bids.currentBid = data.currentBid;
@@ -37,6 +39,7 @@ export class BidHistoryComponent {
       this.bids.timeLeft = data.timeLeft;
       this.bids.duration = data.duration;
       this.bids.historyOfBids = data.historyOfBids;
+      this.status = data.status
       this.spinner.hide('homeSpinner')
     });
   }
