@@ -22,9 +22,15 @@
       </thead>
       <tbody>
         <tr *ngFor="let bid of bidData">
-          <td>{{ bid.apartment }}</td>
-          <td>{{ bid.amountMoney }}</td>
-          <td>{{ bid.date }}</td>
+          <ng-container *ngIf="bid.apartment">
+            <td>
+              <a [routerLink]="['/place', bid.apartment.itemId, 'history']">{{
+                bid.apartment.title
+              }}</a>
+            </td>
+            <td>{{ bid.amountMoney }}</td>
+            <td>{{ bid.date | date : "dd/MM/yyyy" }}</td>
+          </ng-container>
         </tr>
       </tbody>
     </table>
